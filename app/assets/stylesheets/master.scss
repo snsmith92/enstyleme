@@ -8,3 +8,27 @@
   border-bottom: 1px solid #ECECEC; 
   background-color: white;
 }
+
+.nav-link {
+  font-family: 'open_sansbold';
+}
+
+.nav-item {
+  margin-right: 15px;
+}
+
+.btn-navbar {
+  font-family: 'open_sanssemibold';
+  text-transform: uppercase;
+  background-color: #78a1bb;
+  border-radius: 0px;
+}
+
+.btn-navbar:hover {
+  background-color: #283044; 
+}
+
+a.btn-navbar {
+  text-decoration: none;
+  color: white; 
+}
