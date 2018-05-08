@@ -1,5 +1,25 @@
 @import "bootstrap"; 
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #bfa89e;
+  color: black;
+  font-family: 'open_sanslight';
+}
+
 .logo {
   max-height: 50px;
 }
@@ -31,4 +51,92 @@
 a.btn-navbar {
   text-decoration: none;
   color: white; 
+}
+
+.hero {
+  background: url(masthead3.png) no-repeat center center fixed; 
+  opacity: 0.8;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 480px;
+}
+
+.frosty {
+  // background: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.frosty h1 {
+  font-family: 'abril_fatfaceregular';
+  letter-spacing: 2px;
+  font-size: 50px;
+}
+
+.frosty h2 {
+  font-family: 'open_sanslight';
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.call-to-action{
+  padding: 50px;
+  background-color: #ebf5ee;
+}
+
+.call-to-action h1 {
+  font-family: 'abril_fatfaceregular';
+  font-size: 30px;
+  text-align: center;
+  color: #283044;
+  padding: 10px;
+}
+
+.call-to-action p{ 
+  font-family: 'open_sanslight';
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.call-to-action .emphasis {
+  color: #78a1bb;
+  font-family: 'open_sansbold';
+  font-size: 1.2rem; 
+}
+
+.logo-text-1 {
+  font-family: 'abril_fatfaceregular';
+  color: #283044;
+  font-size: 1.2rem;
+}
+
+.logo-text-2 {
+  font-family: 'abril_fatfaceregular';
+  color: #bfa89e;
+  font-size: 1.2rem;
+}
+
+.cta-buttons {
+  align-content: center;
+}
+
+
+.btn-start {
+  font-family: 'open_sansbold';
+  text-transform: uppercase;
+  background-color: #78a1bb;
+  border-radius: 0px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.btn-start:hover {
+  background-color: #283044; 
+}
+
+a.btn-start {
+  text-decoration: none;
+  color: #ebf5ee; 
 }
