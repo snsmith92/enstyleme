@@ -64,3 +64,5 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rails_12factor', group: :production
+
+ruby "2.3.1p112"
