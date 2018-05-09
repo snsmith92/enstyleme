@@ -65,4 +65,7 @@ end
 
 gem 'rails_12factor', group: :production
 
+# User authentication using devise
+gem 'devise'
+
 ruby "2.3.1"
