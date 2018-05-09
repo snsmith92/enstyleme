@@ -1,0 +1,49 @@
+<br />
+<br />
+<br />
+<div class="container-fluid vendor-sign-up">
+    <div class="row">
+        <div class = "col-md-4 why-box">
+        <br />
+        <br />
+        <p> Signing up for <span class = "logo-text-1">enstyle</span><span class = "logo-text-2">.me</span> is easy and free. Benefits to bringing your business online: </p>
+        <ul>
+          <li>Display your work in a space curated for beauty and style experts, attracting new clientele.</li>
+          <li>Allow clients to book online quickly and easily. No more taking calls and interrupting clients to make bookings.</li>
+          <li>Run promotions and special offers to your clientele.</li>
+          <li>Allow clients to book online quickly and easily.</li>
+        </ul>
+        </div>
+        <div class="col-md-8">
+          <div class = "vendor-form">
+            <%= simple_form_for @vendor, url: vendors_path do |f| %>
+              <%= f.input :name, label: "Company Name" %>          
+              <div class = "row">
+                <div class = "col-md-4">
+                  <%= f.input :city %>
+                </div>
+                <div class = "col-md-4">
+                  <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"] %>
+                </div>
+                <div class = "col-md-4">
+                  <%= f.input :zip %>
+                </div>
+              </div>
+              <%= f.input :address, label: "Street Address" %>  
+              <div class = "row">
+                <div class = "col-md-6">
+                  <%= f.input :phone1, label: "Phone Number" %>
+                </div>
+                <div class = "col-md-6">
+                  <%= f.input :phone2, label: "Alternate Phone Number"%>
+                </div>
+              </div>
+              <%= f.input :company_email %>
+              <%= f.input :consent %>
+            </div>
+            <%= f.submit "Next", class: 'btn btn-lg btn-primary pull-right' %> 
+            <br /><br /><br />
+          <% end %>
+        </div>
+    </div>
+</div>

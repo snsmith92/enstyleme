@@ -71,4 +71,7 @@ gem 'devise'
 # Simple form gem
 gem 'simple_form'
 
+# For country selection
+gem 'country_select'
+
 ruby "2.3.1"
