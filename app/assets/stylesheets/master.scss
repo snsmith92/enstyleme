@@ -145,7 +145,6 @@ a.btn-start {
   position: fixed;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
 
@@ -202,4 +201,47 @@ a.btn-start-light {
 a.btn-start-dark {
   text-decoration: none;
   color: white; 
+}
+
+.sign-up-box {
+  padding: 110px 50px 0px 0px;
+}
+
+.sign-up-photo {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.sign-up-box input {
+  border: 1px solid grey;
+  height: 40px;
+  min-width: 100%;
+  font-family: 'open_sanslight';
+  padding: 10px;
+}
+
+.sign-up-box h2 {
+  font-family: 'open_sanslight';
+  letter-spacing: 1px;
+}
+
+.sign-up-box label, .sign-up-box em {
+  font-family: 'open_sanslight';
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+.sign-up-box a {
+  font-family: 'open_sanslight';
+  color: #8b786d;
+  font-size: 16px;
+}
+
+.sign-up-box p {
+  font-family: 'open_sanslight';
+  font-size: 12px;
 }

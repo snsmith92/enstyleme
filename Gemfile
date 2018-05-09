@@ -68,4 +68,7 @@ gem 'rails_12factor', group: :production
 # User authentication using devise
 gem 'devise'
 
+# Simple form gem
+gem 'simple_form'
+
 ruby "2.3.1"
