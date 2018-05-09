@@ -140,3 +140,66 @@ a.btn-start {
   text-decoration: none;
   color: #ebf5ee; 
 }
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.start h1 {
+  font-family: 'abril_fatfaceregular';
+  margin: 20px;
+  font-size: 4rem ;
+  color: #283044;
+}
+
+.start .emphasis {
+  color: #bfa89e;
+}
+
+.btn-start-light {
+  font-family: 'open_sanssemibold';
+  text-transform: uppercase;
+  background-color: #78a1bb;
+  padding: 30px;
+  color: #283044;
+  border: 1px solid #78a1bb;
+  border-radius: 0px;
+  min-width: 270px;
+  margin: 30px 15px 30px 15px
+}
+
+.btn-start-light:hover {
+  background-color: #78a1bb; 
+  border: 1px solid #283044;
+}
+
+a.btn-start-light {
+  text-decoration: none;
+  color: #283044; 
+}
+
+.btn-start-dark {
+  font-family: 'open_sanssemibold';
+  text-transform: uppercase;
+  background-color: #283044;
+  padding: 30px;
+  color: white;
+  border: 1px solid #283044;
+  border-radius: 0px;
+  min-width: 270px;
+  margin: 30px 15px 30px 15px
+}
+
+.btn-start-dark:hover {
+  background-color: #37425e; 
+  border: 1px solid #78a1bb;
+}
+
+a.btn-start-dark {
+  text-decoration: none;
+  color: white; 
+}
