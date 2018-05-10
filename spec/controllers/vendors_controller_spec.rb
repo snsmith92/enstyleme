@@ -52,6 +52,18 @@ RSpec.describe VendorsController, type: :controller do
   end 
 
   describe "vendors#show action" do 
+    it "should successfully show the page if the vendor is found" do
+      user = FactoryBot.create(:user)
+      sign_in user
+      vendor = FactoryBot.create(:vendor)
+      get :show, params: { id: vendor.id }
+      expect(response).to have_http_status(:success)
+    end 
+
+    it "should return 404 error if the vendor is not found" do
+      get :show, params: { id: 'fakeid' }
+      expect(response).to have_http_status(:not_found)
+    end 
 
   end 
 end

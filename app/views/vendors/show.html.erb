@@ -1,0 +1,30 @@
+<br />
+<br />
+<br />
+
+<div class="container-fluid">
+  <div class="vendor-profile">
+    <img align="left" class="vendor-image-lg" src="http://eusic.challenges.org/wp-content/uploads/sites/6/2015/11/header-image-5.jpg"/>
+    <img align="left" class="vendor-image-profile thumbnail" src="https://www.attractivepartners.co.uk/wp-content/uploads/2017/06/profile.jpg"/>
+    <div class="vendor-profile-text">
+      <h1><%=current_vendor.name%></h1>    
+      <p><%= current_vendor.city %>, <%= current_vendor.country_name %></p>
+      <p>
+        <%= current_vendor.address %>, 
+        <% if current_vendor.zip.present? %>
+          <%= current_vendor.zip %>
+        <% end %>
+      </p>
+      <% if current_vendor.phone2.present? %>
+        <p>Phone Numbers: 
+        <%=current_vendor.phone1%>/<%=current_vendor.phone2%></p>
+      <% else %>
+        <p>Phone Number: <%=current_vendor.phone1%></p>
+      <% end %>
+      <% if current_vendor.company_email.present? %>
+        <p>Email Address: 
+        <%=current_vendor.company_email%></p>
+      <% end %>
+    </div>
+  </div>
+</div>

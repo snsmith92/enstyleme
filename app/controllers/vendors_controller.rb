@@ -20,7 +20,7 @@ class VendorsController < ApplicationController
 
   def show
     @vendor = Vendor.find_by_id(params[:id])
-    if @vendor.black?
+    if @vendor.blank?
       render plain: "Sorry, no company to see here!", status: :not_found
     end 
   end 
@@ -30,6 +30,11 @@ class VendorsController < ApplicationController
   end 
 
   private
+
+  helper_method :current_vendor
+  def current_vendor
+    @current_vendor ||= Vendor.find(params[:id])
+  end 
 
   def vendor_params
     params.require(:vendor).permit(:name, :country, :city, :address, :zip, :phone1, :phone2, :company_email, :consent)
