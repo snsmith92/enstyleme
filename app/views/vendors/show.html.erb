@@ -7,7 +7,12 @@
     <img align="left" class="vendor-image-lg" src="http://eusic.challenges.org/wp-content/uploads/sites/6/2015/11/header-image-5.jpg"/>
     <img align="left" class="vendor-image-profile thumbnail" src="https://www.attractivepartners.co.uk/wp-content/uploads/2017/06/profile.jpg"/>
     <div class="vendor-profile-text">
-      <h1><%=current_vendor.name%></h1>    
+      <% if current_user == current_vendor.user %>
+        <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#editModal">
+        Edit Page
+        </button>  
+      <% end %>
+      <h1><%=current_vendor.name%></h1>
       <p><%= current_vendor.city %>, <%= current_vendor.country_name %></p>
       <p>
         <%= current_vendor.address %>, 
@@ -25,6 +30,52 @@
         <p>Email Address: 
         <%=current_vendor.company_email%></p>
       <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Page Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModal">Edit your Page</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class = "vendor-form container-fluid">
+            <%= simple_form_for @vendor, url: vendor_path(@vendor) do |f| %>
+              <%= f.input :name, label: "Company Name" %>          
+              <div class = "row">
+                <div class = "col-md-4">
+                  <%= f.input :city %>
+                </div>
+                <div class = "col-md-4">
+                  <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"] %>
+                </div>
+                <div class = "col-md-4">
+                  <%= f.input :zip %>
+                </div>
+              </div>
+              <%= f.input :address, label: "Street Address" %>  
+              <div class = "row">
+                <div class = "col-md-6">
+                  <%= f.input :phone1, label: "Phone Number" %>
+                </div>
+                <div class = "col-md-6">
+                  <%= f.input :phone2, label: "Alternate Phone Number" %>
+                </div>
+              </div>
+              <%= f.input :company_email %>
+            </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "Save", class: 'btn btn-primary' %> 
+      </div>
+    <% end %>
     </div>
   </div>
 </div>

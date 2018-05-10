@@ -64,6 +64,46 @@ RSpec.describe VendorsController, type: :controller do
       get :show, params: { id: 'fakeid' }
       expect(response).to have_http_status(:not_found)
     end 
+  end 
 
+  describe "vendors#edit action" do 
+    it "should not allow a user who did not create the vendor to edit the vendor" do 
+      vendor = FactoryBot.create(:vendor)
+      user = FactoryBot.create(:user)
+      sign_in user
+      get :edit, params: { id: vendor.id }
+      expect(response).to have_http_status(:forbidden)
+    end 
+
+    it "should not allow unauthenticated users to edit a vendor" do 
+      vendor = FactoryBot.create(:vendor) 
+      get :edit, params: { id: vendor.id }
+      expect(response).to redirect_to new_user_session_path
+    end 
+  end 
+
+  describe "vendors#update action" do 
+    it "shouldn't allow a user who did not create the vendor to update" do
+      vendor = FactoryBot.create(:vendor)
+      user = FactoryBot.create(:user)
+      sign_in user
+      patch :update, params: { id: vendor.id, vendor: { name: 'Test' } }
+      expect(response).to have_http_status(:forbidden)
+    end 
+
+    it "shouldn't allow unauthenticated users to update a vendor" do
+      vendor = FactoryBot.create(:vendor)
+      patch :update, params: { id: vendor.id, vendor: { name: 'Test' } }
+      expect(response).to redirect_to new_user_session_path
+    end 
+
+    it "should render the edit form unprocessable entity if invalid" do 
+      vendor = FactoryBot.create(:vendor)
+      sign_in vendor.user
+      patch :update, params: { id: vendor.id, vendor: { name: ' '} }
+      expect(response).to have_http_status(:unprocessable_entity)
+      vendor.reload
+      expect(vendor.name).to eq "Sherzel's Nail Spa"
+    end 
   end 
 end

@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @vendors = Vendor.all
@@ -25,8 +25,28 @@ class VendorsController < ApplicationController
     end 
   end 
 
-  def update
+  def edit
+    @vendor = Vendor.find(params[:id])
+    if @vendor.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end 
+  end 
 
+  def update
+    @vendor = Vendor.find_by_id(params[:id])
+    if @vendor.blank?
+      render plain: "Sorry, no company to see here!", status: :not_found
+    end 
+    if @vendor.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end 
+    @vendor.update_attributes(vendor_params)
+
+    if @vendor.valid?
+      redirect_to vendor_path(@vendor)
+    else
+      render :new, status: :unprocessable_entity
+    end 
   end 
 
   private
