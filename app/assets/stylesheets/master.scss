@@ -5,7 +5,9 @@ html {
   min-height: 100%;
 }
 body {
-  min-height: 100%;
+  // min-height: 100%;
+  margin-bottom: 60px;
+  font-family: "open_sansregular";
 }
 .footer {
   position: absolute;
@@ -262,9 +264,32 @@ input#user_remember_me {
   padding: 10px;
 }
 
-.vendor-form .btn {
-  max-width: 100px;
+.vendor-form label {
+  font-family: 'open_sansregular';
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
+
+.btn-vendor-form {
+  max-width: 100px;
+  background-color: #bfa89e;
+  border-radius: 0px;
+  font-family: 'open_sansregular';
+  text-transform: uppercase;
+  margin-right: 25px;
+}
+
+.btn-vendor-form:hover {
+  background-color: #8b786d; 
+  color: white; 
+}
+
+a.btn-start-dark {
+  text-decoration: none;
+  color: white; 
+}
+
+
 .vendor-form {
   padding: 20px;
 }
@@ -280,5 +305,10 @@ select#vendor_country {
 
 .vendor-sign-up {
   height: 100%;
-  padding: 0px 15px 0px 15px;
+  padding-right: 25px;
+}
+
+.help-block {
+  font-size: 0.8rem; 
+  color: red; 
 }

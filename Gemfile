@@ -74,4 +74,7 @@ gem 'simple_form'
 # For country selection
 gem 'country_select'
 
+# Jquery UI
+gem 'jquery-ui-rails'
+
 ruby "2.3.1"
