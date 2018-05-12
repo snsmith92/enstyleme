@@ -5,7 +5,7 @@ html {
   min-height: 100%;
 }
 body {
-  // min-height: 100%;
+  min-height: 100%;
   margin-bottom: 60px;
   font-family: "open_sansregular";
 }
@@ -364,4 +364,30 @@ select#vendor_country {
   font-family: 'open_sanslight';
   font-size: 14px;
   margin-bottom: 5px;
+}
+
+h2.first-service {
+  font-family: 'abril_fatfaceregular';
+  font-size: 25px;
+
+}
+
+.vendor-services {
+  height: 100%;
+  margin: 20px;
+}
+
+.vendor-services p {
+  font-family: 'open_sanslight';
+  text-align: center;
+  margin: 20px;
+}
+
+p.service-modal-box {
+  font-family: 'open_sanslight';
+  font-size: 0.8rem;
+}
+
+.form-control {
+  font-family: 'open_sanslight';
 }

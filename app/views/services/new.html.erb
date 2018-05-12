@@ -1,0 +1,22 @@
+<br />
+<br />
+<br />
+<%= simple_form_for @service, url: vendor_services_path(@vendor) do |f| %>
+  <%= f.input :name, label: "Service Name", placeholder: "Hair braiding..." %>       
+  <%= f.input :description, label: "Description of service" %>
+  <div class = "row">
+    <div class = "col-md-3">
+      <%= f.input :hours, label: "Hrs", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8] %>
+    </div>
+    <div class = "col-md-3">
+      <%= f.input :minutes, label: "Mins", collection: [0, 15, 30, 45]  %>
+    </div>
+    <div class = "col-md-3">
+      <%= f.input :cost_absolute %>
+    </div>
+    <div class = "col-md-3">
+      <%= f.input :cost_range %>
+    </div>
+  </div>
+<%= f.submit "Add Service", class: 'btn btn-lg btn-vendor-form float-right' %> 
+<% end %>

@@ -1,5 +1,6 @@
 class Vendor < ApplicationRecord
   belongs_to :user
+  has_many :services
 
   validates :name, presence: true
   validates :country, presence: true

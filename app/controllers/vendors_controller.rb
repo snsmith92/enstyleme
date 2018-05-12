@@ -20,6 +20,7 @@ class VendorsController < ApplicationController
 
   def show
     @vendor = Vendor.find_by_id(params[:id])
+    @service = Service.new
     if @vendor.blank?
       render plain: "Sorry, no company to see here!", status: :not_found
     end 

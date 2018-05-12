@@ -9,7 +9,7 @@
     <div class="vendor-profile-text">
       <% if current_user == current_vendor.user %>
         <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#editModal">
-        Edit Page
+        Edit Profile Details
         </button>  
       <% end %>
       <h1><%=current_vendor.name%></h1>
@@ -34,6 +34,25 @@
   </div>
 </div>
 
+<br />
+<br />
+<div class = "vendor-services">
+  <% if current_vendor.services.blank? && current_user == current_vendor.user %>
+    <h2 class = 'first-service text-center'> Get your page up and running! </h2>
+    <div class = 'text-center'>
+      <button type="button" class="btn btn-start-light" data-toggle="modal" data-target="#serviceModal">
+      Add a Service
+      </button> 
+    </div>
+    <div class = "col-md-8 offset-2">
+      <p>By adding your individual services to your <span class = "logo-text-1">enstyle</span><span class = "logo-text-2">.me</span> page, potential clients know exactly what you offer.</p>
+      <br />
+      <br />
+    </div>
+  <% end %>
+</div>
+
+
 <!-- Edit Page Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -45,35 +64,79 @@
         </button>
       </div>
       <div class="modal-body">
-          <div class = "vendor-form container-fluid">
-            <%= simple_form_for @vendor, url: vendor_path(@vendor) do |f| %>
-              <%= f.input :name, label: "Company Name" %>          
-              <div class = "row">
-                <div class = "col-md-4">
-                  <%= f.input :city %>
-                </div>
-                <div class = "col-md-4">
-                  <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"] %>
-                </div>
-                <div class = "col-md-4">
-                  <%= f.input :zip %>
-                </div>
+        <div class = "vendor-form container-fluid">
+          <%= simple_form_for @vendor, url: vendor_path(@vendor) do |f| %>
+            <%= f.input :name, label: "Company Name" %>          
+            <div class = "row">
+              <div class = "col-md-4">
+                <%= f.input :city %>
               </div>
-              <%= f.input :address, label: "Street Address" %>  
-              <div class = "row">
-                <div class = "col-md-6">
-                  <%= f.input :phone1, label: "Phone Number" %>
-                </div>
-                <div class = "col-md-6">
-                  <%= f.input :phone2, label: "Alternate Phone Number" %>
-                </div>
+              <div class = "col-md-4">
+                <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"] %>
               </div>
-              <%= f.input :company_email %>
+              <div class = "col-md-4">
+                <%= f.input :zip %>
+              </div>
             </div>
+            <%= f.input :address, label: "Street Address" %>  
+            <div class = "row">
+              <div class = "col-md-6">
+                <%= f.input :phone1, label: "Phone Number" %>
+              </div>
+              <div class = "col-md-6">
+                <%= f.input :phone2, label: "Alternate Phone Number" %>
+              </div>
+            </div>
+            <%= f.input :company_email %>
+          </div>
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%= f.submit "Save", class: 'btn btn-primary' %> 
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add Service Modal -->
+<div class="modal fade" id="serviceModal" tabindex="-1" role="dialog" aria-labelledby="serviceModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="serviceModal">Edit your Page</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class = "vendor-form container-fluid">
+          <%= simple_form_for @service, url: vendor_services_path(@vendor) do |f| %>
+            <%= f.input :name, label: "Service Name", placeholder: "e.g. Box braids" %>       
+            <%= f.input :description, label: "Description of service", placeholder: 'e.g. Box braids done with kanekalon hair. Hair not included.' %>
+            <div class = "row">
+              <div class = "col-md-6">
+                <%= f.input :hours, label: "Duration: Hrs", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8] %>
+              </div>
+              <div class = "col-md-6">
+                <%= f.input :minutes, label: "Duration: Mins", collection: [0, 15, 30, 45]  %>
+              </div>
+            </div>
+            <div class = "row">
+              <p class = "service-modal-box text-center">If the service has a precise cost, fill out the absolute cost box. If the service has a cost range (e.g. $30 - $50), fill out the cost range. <strong>Note: If you give a cost range, users will not be able to pay you online.</strong>. Only fill out one cost field.
+              <div class = "col-md-6">
+                <%= f.input :cost_absolute, label: 'Cost (Absolute)'%>
+              </div>
+              <div class = "col-md-6">
+                <%= f.input :cost_range, label: 'Cost (Range)' %>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "Add Service", class: 'btn btn-primary' %> 
       </div>
     <% end %>
     </div>

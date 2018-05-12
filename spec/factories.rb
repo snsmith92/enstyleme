@@ -1,4 +1,14 @@
 FactoryBot.define do
+  factory :service do
+    name "Basic Manicure"
+    description "Basic manicure, including massage, cuticle oil, and basic nail polish (no gel polish)"
+    hours 0
+    minutes 25
+    cost_absolute 20.00
+    association :vendor
+    association :user
+  end
+  
   factory :vendor do
     name "Sherzel's Nail Spa"
     country "BS"
@@ -11,4 +21,5 @@ FactoryBot.define do
     consent true
     association :user
   end
+  
 end
