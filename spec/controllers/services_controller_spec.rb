@@ -61,4 +61,29 @@ RSpec.describe ServicesController, type: :controller do
       expect(service.name).to eq "Test Edit"
     end 
   end 
+
+  describe "services#destroy action" do 
+    it "shouldn't allow a user who did not create the service to destroy it" do
+      service = FactoryBot.create(:service)
+      user = FactoryBot.create(:user)
+      sign_in user
+      delete :destroy, params: { id: service.id, vendor_id: service.vendor_id }
+      expect(response).to have_http_status(:forbidden)
+    end
+    
+    it "shouldn't allow unauthenticated users to delete a service" do
+      service = FactoryBot.create(:service)
+      delete :destroy, params: { id: service.id, vendor_id: service.vendor_id }
+      expect(response).to redirect_to new_user_session_path
+    end 
+
+    it "should allow a user who created the service to destroy it" do
+      service = FactoryBot.create(:service)
+      sign_in service.user
+      delete :destroy, params: { id: service.id, vendor_id: service.vendor_id }
+      expect(response).to redirect_to vendor_path(service.vendor_id)
+      service = Service.find_by_id(service.id)
+      expect(service).to eq nil
+    end 
+  end 
 end

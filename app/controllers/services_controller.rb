@@ -31,11 +31,18 @@ class ServicesController < ApplicationController
       return render text: 'Not Allowed', status: :forbidden
     end 
     @service.update_attributes(service_params)
-    redirect_to vendor_path(@vendor), notice: "The service has been updated"
+    redirect_to vendor_path(@vendor), notice: "The service has been updated."
   end 
 
   def destroy
-
+    @vendor = Vendor.find_by_id(params[:vendor_id])
+    @service = Service.find_by_id(params[:id])
+    if @service.user == current_user
+      @service.destroy
+      redirect_to vendor_path(@vendor), notice: "The service has been deleted."
+    else
+      return render text: 'Not Allowed', status: :forbidden
+    end 
   end 
 
   private
