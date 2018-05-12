@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @vendors = Vendor.all
@@ -47,6 +47,19 @@ class VendorsController < ApplicationController
       redirect_to vendor_path(@vendor)
     else
       render :new, status: :unprocessable_entity
+    end 
+  end 
+
+  def destroy
+    @vendor = Vendor.find_by_id(params[:id])
+    if @vendor.blank? 
+      render plain: "Sorry, no company to see here!", status: :not_found
+    end 
+    if @vendor.user == current_user
+      @vendor.destroy
+      redirect_to root_path
+    else 
+      return render text: 'Not Allowed', status: :forbidden
     end 
   end 
 

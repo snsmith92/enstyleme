@@ -106,4 +106,29 @@ RSpec.describe VendorsController, type: :controller do
       expect(vendor.name).to eq "Sherzel's Nail Spa"
     end 
   end 
+
+  describe "vendors#destroy action" do 
+    it "shouldn't allow a user who did not create the vendor to destroy the vendor" do
+      vendor = FactoryBot.create(:vendor)
+      user = FactoryBot.create(:user)
+      sign_in user
+      delete :destroy, params: { id: vendor.id }
+      expect(response).to have_http_status(:forbidden)
+    end 
+
+    it "should not allow unauthenticated users to destroy a vendor" do
+      vendor = FactoryBot.create(:vendor)
+      delete :destroy, params: { id: vendor.id }
+      expect(response).to redirect_to new_user_session_path
+    end 
+
+    it "should allow a user who created the vendor to destroy the vendor" do
+      vendor = FactoryBot.create(:vendor)
+      sign_in vendor.user
+      delete :destroy, params: { id: vendor.id }
+      expect(response).to redirect_to root_path
+      vendor = Vendor.find_by_id(vendor.id)
+      expect(vendor).to eq nil
+    end 
+  end 
 end
