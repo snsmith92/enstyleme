@@ -41,7 +41,7 @@
     <h2 class = 'first-service text-center'> Get your page up and running! </h2>
     <div class = 'text-center'>
       <button type="button" class="btn btn-start-light" data-toggle="modal" data-target="#serviceModal">
-      Add a Service
+      Add your first Service
       </button> 
     </div>
     <div class = "col-md-8 offset-2">
@@ -50,8 +50,35 @@
       <br />
     </div>
   <% end %>
+  
+  <h3 class = "text-center">List of Services</h3>
+  <% if current_vendor.user == current_user %>
+    <div class = "text-center">
+      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#serviceModal">
+        Add Another Service
+      </button> 
+    </div>
+    <br />
+  <% end %>
+  <% current_vendor.services.each do |service| %>
+    <div class = "service-box col-md-8 offset-2">
+      <%= link_to "Book Now", '#', class: 'btn btn-primary float-right'%>
+      <h5><%= service.name %></h5>
+      <h6 class = "badge badge-primary"> Duration: <%= service.hours%>hrs <%=service.minutes%>Mins</h6>
+      <% if service.cost_range.present? %>
+        <h6 class = "badge badge-success">Cost Range: <%= service.cost_range %></h6>
+      <% end %>
+      <% if service.cost_absolute.present? %>
+        <h6 class = "badge badge-success">Fixed Cost: <%= service.cost_absolute %></h6>
+      <% end %>
+      <p class = "service-description"><%= service.description %></p>
+    </div>
+  <% end %>
 </div>
 
+<br />
+<br />
+<br />
 
 <!-- Edit Page Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
@@ -105,7 +132,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="serviceModal">Edit your Page</h5>
+        <h5 class="modal-title" id="serviceModal">Add a Service</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
