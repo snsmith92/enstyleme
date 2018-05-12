@@ -67,7 +67,11 @@
       <div class = "service-box col-md-8 offset-2">
         <% if current_vendor.user == current_user %>
           <%= link_to "Edit Service", edit_vendor_service_path(service), class: 'btn btn-primary float-right'%> 
+<<<<<<< HEAD
           <%= link_to "Delete Service", vendor_service_path(service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-danger float-right'%>
+=======
+          <%= link_to "Delete Service", vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-danger float-right'%>
+>>>>>>> master
         <% else %>
           <%= link_to "Book Now", '#', class: 'btn btn-primary float-right'%>
         <% end %>
