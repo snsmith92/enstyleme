@@ -17,11 +17,21 @@ class ServicesController < ApplicationController
   end 
 
   def edit 
-
+    @vendor = Vendor.find_by_id(params[:vendor_id])
+    @service = Service.find_by_id(params[:id])
+    if @service.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end 
   end 
 
   def update
-
+    @vendor = Vendor.find_by_id(params[:vendor_id])
+    @service = Service.find_by_id(params[:id])
+    if @service.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end 
+    @service.update_attributes(service_params)
+    redirect_to vendor_path(@vendor), notice: "The service has been updated"
   end 
 
   def destroy
