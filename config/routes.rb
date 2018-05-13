@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :services, only: [:show, :edit, :update, :new, :create, :destroy]
   end 
   resources :services, only: [:index]
-  get 'tags/:tag', to: 'articles#index', as: :tag
+  get 'tags/:tag', to: 'services#index', as: :tag
 end
