@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
   root "static_pages#index"
   get 'start', to: 'static_pages#start'
@@ -7,4 +8,6 @@ Rails.application.routes.draw do
   end 
   resources :services, only: [:index]
   get 'tags/:tag', to: 'services#index', as: :tag
+  resources :administrators, only: [:index]
+  resources :tags, only: [:new, :create, :destroy]
 end

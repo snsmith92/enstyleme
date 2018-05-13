@@ -1,0 +1,50 @@
+<br />
+<br />
+<br />
+
+<div class = "col-md-8 offset-2">
+<h1 class = "text-center">Admin Dashboard</h1>
+  <h6>Number of Users: <%= User.all.count %></h6>
+  <h6>Number of Vendors: <%= Vendor.all.count %></h6>
+  <h6>Number of Services: <%= Service.all.count %></h6>
+  <h6>List of Tags</h6>
+  <ul>
+  <% @tags.each do |tag| %>
+    <li><%=tag.name%>
+    <%= link_to 'Delete Tag', tag_path(tag), method: :delete  %>
+    </li>
+    <br />
+  <% end %>
+  </ul>
+  
+  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#tagModal">
+    Add A Tag 
+  </button> 
+
+</div>
+<!-- New Tag Modal -->
+<div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="tagModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tagModal">Add a Tag</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class = "vendor-form container-fluid">
+          <%= simple_form_for @tag, url: tags_path do |f| %>
+            <%= f.input :name, label: "Tag Name" %>     
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <%= f.submit "Add Tag", class: 'btn btn-lg btn-vendor-form float-right' %> 
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

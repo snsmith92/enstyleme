@@ -1,11 +1,17 @@
 FactoryBot.define do
+  factory :admin do
+    
+  end
+
   factory :tagging do
     tag nil
     service nil
   end
+
   factory :tag do
     name "MyString"
   end
+  
   factory :service do
     name "Basic Manicure"
     description "Basic manicure, including massage, cuticle oil, and basic nail polish (no gel polish)"
