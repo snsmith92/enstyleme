@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :admin do
+    
+  end
   factory :tagging do
     tag nil
     service nil
