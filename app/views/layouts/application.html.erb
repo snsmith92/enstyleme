@@ -23,7 +23,7 @@
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
             <%= link_to "Get Started", start_path, class: 'nav-link' %>
           <% elsif admin_signed_in? %>
-            <%= link_to "Admin Dashboard", '#', class: 'btn btn-primary' %>
+            <%= link_to "Admin Dashboard", administrators_path, class: 'btn btn-primary' %>
             <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
           <% else %>
             <li class="nav-item">
