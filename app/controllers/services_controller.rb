@@ -1,6 +1,14 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @services = if params[:tag]
+      Service.tagged_with(params[:tag])
+    else
+      Service.all
+    end
+  end
+
   def new 
     @vendor = Vendor.find(params[:vendor_id])
     @service = Service.new
@@ -48,7 +56,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, :description, :hours, :minutes, :cost_absolute, :cost_range)
+    params.require(:service).permit(:name, :description, :hours, :minutes, :cost_absolute, :cost_range, :tag_list)
   end 
 
 end

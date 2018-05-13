@@ -1,0 +1,12 @@
+<h1>Services</h1>
+
+<div id="services">
+  <% @services.each do |service| %>
+    <h2><%= service.name %></h2>
+    <%= simple_format service.description %>
+    <p>
+      Tags: <%= raw service.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </p>
+    <p><%= link_to "Book Service", '#' %></p>
+  <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510182822) do
+ActiveRecord::Schema.define(version: 20180513173723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20180510182822) do
     t.datetime "updated_at",    null: false
     t.index ["user_id", "vendor_id"], name: "index_services_on_user_id_and_vendor_id", using: :btree
     t.index ["vendor_id"], name: "index_services_on_vendor_id", using: :btree
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_taggings_on_service_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,4 +80,6 @@ ActiveRecord::Schema.define(version: 20180510182822) do
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
   end
 
+  add_foreign_key "taggings", "services"
+  add_foreign_key "taggings", "tags"
 end
