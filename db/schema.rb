@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513190327) do
+ActiveRecord::Schema.define(version: 20180514111343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180513190327) do
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "image"
     t.index ["user_id", "vendor_id"], name: "index_services_on_user_id_and_vendor_id", using: :btree
     t.index ["vendor_id"], name: "index_services_on_vendor_id", using: :btree
   end

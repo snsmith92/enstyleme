@@ -78,4 +78,13 @@ gem 'country_select'
 # Jquery UI
 gem 'jquery-ui-rails'
 
+# Carrierwave for image upload
+gem 'carrierwave', '~> 1.0'
+
+# Figaro for secure configuration
+gem "figaro"
+
+# Fog gem for AWS integration
+gem "fog-aws"
+
 ruby "2.3.1"

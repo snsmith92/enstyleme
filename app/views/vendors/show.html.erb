@@ -80,6 +80,7 @@
           <h6 class = "badge badge-success">Fixed Cost: <%= service.cost_absolute %></h6>
         <% end %>
         <p class = "service-description"><%= service.description %></p>
+        <%= image_tag @service.image, class: 'img-fluid' %>
       </div>
     <% end %>
   <% end %>
@@ -169,6 +170,7 @@
                 <%= f.input :cost_range, label: 'Cost (Range)' %>
               </div>
             </div>
+            <%= f.input :image, label: "Add an Image (Optional)" %>
         </div>
       </div>
       <div class="modal-footer">
