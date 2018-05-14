@@ -20,7 +20,6 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
             <%= link_to "Get Started", start_path, class: 'nav-link' %>
           <% elsif admin_signed_in? %>
             <%= link_to "Admin Dashboard", administrators_path, class: 'btn btn-primary' %>
@@ -34,11 +33,14 @@
             </li>
           <% end %>
           <li class="nav-item">
-            <%= link_to "For Businesses", '#', class: 'btn btn-navbar' %>
-          </li>
-          <li class="nav-item">
             <%= link_to "Help", '#', class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to "For Businesses", '#', class: 'btn btn-navbar' %>
+          </li>
+          <% if user_signed_in? %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <% end %>
         </ul>
       </div>
     </nav>
