@@ -1,13 +1,79 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-Tag.create(name: "Natural Hair")
-Tag.create(name: "Nails")
-Tag.create(name: "Wellness")
-Tag.create(name: "Massage")
-Tag.create(name: "Braids")
-Tag.create(name: "Locs")
+# Hair services
+Tag.create(name: "Hair Colouring/Highlights")
+Tag.create(name: "Hair Pressing/Straightening")
+Tag.create(name: "Locs/Dreadlocks")
+Tag.create(name: "Natural/Afro Hair")
+Tag.create(name: "Wedding Hair")
+Tag.create(name: "Weave/Extensions")
+Tag.create(name: "Wigs")
+Tag.create(name: "Barbering - Men")
+Tag.create(name: "Barbering - Women")
+Tag.create(name: "Braiding")
+Tag.create(name: "Haircuts")
+Tag.create(name: "Child Hair Care")
+Tag.create(name: "Blowout/Press")
+Tag.create(name: "Hair Consulting")
+Tag.create(name: "Hair Conditioning/Treatments")
+Tag.create(name: "Hair Loss Treatments")
+Tag.create(name: "Relaxers/Chemical Straightening")
+Tag.create(name: "Crochet Braids")
+Tag.create(name: "Sisterlocks")
+Tag.create(name: "Hair Dressing/Styling")
+
+# Nail services
+Tag.create(name: "Manicure")
+Tag.create(name: "Pedicure")
+Tag.create(name: "Nail Art")
+Tag.create(name: "Nail Refill")
+Tag.create(name: "Nail or Gel Polish Removal")
+Tag.create(name: "Acrylic/Nail Extensions")
+Tag.create(name: "Gel Polish")
+
+# Make-up Services
+Tag.create(name: "Makeup")
+Tag.create(name: "Wedding Makeup")
+
+# Face services
+Tag.create(name: "Threading - Eyebrows")
+Tag.create(name: "Waxing - Eyebrows")
+Tag.create(name: "Waxing - Upper lip")
+Tag.create(name: "Microblading")
+Tag.create(name: "Microdermabrasion")
+Tag.create(name: "Eyebrow Tinting")
+Tag.create(name: "Eyelash Extensions")
+Tag.create(name: "Acne Treatments")
+Tag.create(name: "Skin Consultation")
+Tag.create(name: "Facials")
+Tag.create(name: "(Semi)Permanent Makeup")
+
+# Hair removal
+Tag.create(name: "Waxing - Men's")
+Tag.create(name: "Men's Shaving")
+Tag.create(name: "IPL Hair Removal")
+Tag.create(name: "Waxing - Other")
+Tag.create(name: "Laser Hair Removal")
+Tag.create(name: "Sugaring")
+Tag.create(name: "Waxing - Bikini")
+Tag.create(name: "Threading - Other")
+Tag.create(name: "Waxing - Brazilian")
+Tag.create(name: "Waxing - Leg")
+Tag.create(name: "Waxing - Underarm")
+Tag.create(name: "Electrolysis")
+
+# Massage
+Tag.create(name: "Massage - Deep Tissue")
+Tag.create(name: "Massage - Swedish")
+Tag.create(name: "Massage - Pregnancy")
+Tag.create(name: "Massage - Other")
+
+# Body
+Tag.create(name: "Body Wraps")
+Tag.create(name: "Body Treatments")
+Tag.create(name: "Sauna or Steam Therapy")
+Tag.create(name: "Weight Loss Treatments")
+Tag.create(name: "Henna Designs")
+Tag.create(name: "Tattoos")
+Tag.create(name: "Piercings")
+Tag.create(name: "Lipo Treatments")
+Tag.create(name: "Spa")
+Tag.create(name: "Spray Tanning")
