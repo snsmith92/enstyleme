@@ -43,7 +43,8 @@ RSpec.describe VendorsController, type: :controller do
         zip: "",
         phone1: "", 
         phone2: "", 
-        company_email: "",
+        website: "",
+        facebook: "",
         consent: nil
       } }
       expect(response).to have_http_status(:unprocessable_entity)

@@ -71,7 +71,7 @@ class VendorsController < ApplicationController
   end 
 
   def vendor_params
-    params.require(:vendor).permit(:name, :country, :city, :address, :zip, :phone1, :phone2, :company_email, :consent)
+    params.require(:vendor).permit(:name, :country, :city, :address, :zip, :phone1, :phone2, :website, :facebook, :consent)
   end 
 
 end
