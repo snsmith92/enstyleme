@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514111343) do
+ActiveRecord::Schema.define(version: 20180515140803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,11 +86,12 @@ ActiveRecord::Schema.define(version: 20180514111343) do
     t.string   "zip"
     t.string   "phone1"
     t.string   "phone2"
-    t.string   "company_email"
     t.integer  "user_id"
     t.boolean  "consent"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "facebook"
+    t.string   "website"
     t.index ["city"], name: "index_vendors_on_city", using: :btree
     t.index ["country"], name: "index_vendors_on_country", using: :btree
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
