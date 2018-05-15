@@ -30,7 +30,8 @@ FactoryBot.define do
     zip "EE16623"
     phone1 "2423416601"
     phone2 "2425350365"
-    company_email "sherzelnailspa@gmail.com"
+    website "dummywebsite.com"
+    facebook "dummyfacebook.com"
     consent true
     association :user
   end
