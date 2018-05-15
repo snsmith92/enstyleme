@@ -32,10 +32,10 @@
               <%= f.input :address, label: "Street Address" %>  
               <div class = "row">
                 <div class = "col-md-6">
-                  <%= f.input :phone1, label: "Phone Number" %>
+                  <%= f.input :phone1, label: "Primary Phone" %>
                 </div>
                 <div class = "col-md-6">
-                  <%= f.input :phone2, label: "Alternate Phone Number" %>
+                  <%= f.input :phone2, label: "Secondary Phone" %>
                 </div>
               </div>
               <%= f.input :company_email %>
@@ -49,5 +49,22 @@
 </div>
 
 <script>
-  $("#phone").inputmask({"mask": "(999) 999-9999"});
+  $("#vendor_phone1").intlTelInput({
+    preferredCountries: ["bs", "tt", "tc", "jm", "bb", "ag"],
+    formatOnDisplay: true,
+    nationalMode: false,
+    hiddenInput: "full_phone",
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.15/js/utils.js"
+});
+  $("#vendor_phone2").intlTelInput({
+    preferredCountries: ["bs", "tt", "tc", "jm", "bb", "ag"],
+    formatOnDisplay: true,
+    nationalMode: false,
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.15/js/utils.js"
+});
+
+$("form").submit(function() {
+  $('#country').val($('#country').intlTelInput("getNumber"));
+});
+
 </script>

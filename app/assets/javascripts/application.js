@@ -16,6 +16,7 @@
 //= require popper
 //= require tether
 //= require chosen
+//= require intl-tel-input
 //= require bootstrap-sprockets
 //= require_tree .
 
