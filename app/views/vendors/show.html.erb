@@ -29,9 +29,13 @@
       <% else %>
         <p>Phone Number: <%=current_vendor.phone1%></p>
       <% end %>
-      <% if current_vendor.company_email.present? %>
-        <p>Email Address: 
-        <%=current_vendor.company_email%></p>
+      <% if current_vendor.facebook.present? %>
+        <p>Facebook URL
+        <%=current_vendor.facebook %></p>
+      <% end %>
+      <% if current_vendor.website.present? %>
+        <p>Website
+        <%=current_vendor.website %></p>
       <% end %>
     </div>
   </div>
@@ -124,7 +128,8 @@
                 <%= f.input :phone2, label: "Alternate Phone Number" %>
               </div>
             </div>
-            <%= f.input :company_email %>
+            <%= f.input :facebook, label: "Company Facebook URL" %>
+            <%= f.input :website, label: "Company Website URL" %>
           </div>
         </div>
       <div class="modal-footer">
