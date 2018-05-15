@@ -1,6 +1,7 @@
 class Vendor < ApplicationRecord
   belongs_to :user
   has_many :services, dependent: :destroy
+  after_create :send_vendor_created_email
 
   validates :name, presence: true
   validates :country, presence: true
@@ -12,5 +13,9 @@ class Vendor < ApplicationRecord
   def country_name
     c = ISO3166::Country[self.country]
     return c.translations[I18n.locale.to_s] || c.name
+  end 
+
+  def send_vendor_created_email
+    NotificationMailer.vendor_created(self).deliver_now
   end 
 end

@@ -87,4 +87,7 @@ gem "figaro"
 # Fog gem for AWS integration
 gem "fog-aws"
 
+# Phone number input and verification
+gem 'intl-tel-input'
+
 ruby "2.3.1"
