@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <%= link_to "Get Started", start_path, class: 'nav-link' %>
+            <%= link_to "Get Started", start_path, class: 'btn btn-navbar' %>
           <% elsif admin_signed_in? %>
             <%= link_to "Admin Dashboard", administrators_path, class: 'btn btn-primary' %>
             <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
@@ -31,12 +31,18 @@
             <li class="nav-item">
               <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link' %>
             </li>
+            <li class="nav-item">
+            <%= link_to "For Businesses", '#', class: 'btn btn-navbar' %>
+          </li>
           <% end %>
           <li class="nav-item">
-            <%= link_to "Help", '#', class: 'nav-link' %>
+            <%= link_to "View Services", services_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to "For Businesses", '#', class: 'btn btn-navbar' %>
+            <%= link_to "Find a Stylist", vendors_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Help", '#', class: 'nav-link' %>
           </li>
           <% if user_signed_in? %>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
