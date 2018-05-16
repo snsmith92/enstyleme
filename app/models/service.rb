@@ -1,4 +1,6 @@
 class Service < ApplicationRecord
+  attr_accessor :cost_absolute
+
   mount_uploader :image, ImageUploader
   belongs_to :vendor
   belongs_to :user
@@ -21,5 +23,5 @@ class Service < ApplicationRecord
     self.tags = names.split(',').map do |n|
       Tag.where(name: n.strip).first_or_create!
     end
-  end
+  end 
 end
