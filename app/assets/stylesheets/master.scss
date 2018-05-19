@@ -1,4 +1,5 @@
 @import "bootstrap"; 
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 html {
   position: relative;
@@ -53,7 +54,7 @@ a.btn-navbar {
 }
 
 .hero {
-  background: url(masthead3.png) no-repeat center center fixed; 
+  background: url(masthead4.png) no-repeat center center fixed; 
   opacity: 0.8;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -74,7 +75,7 @@ a.btn-navbar {
 }
 
 .frosty h2 {
-  font-family: 'open_sanslight';
+  font-family: 'Nunito', sans-serif;
   font-weight: 100;
   font-size: 20px;
 }
@@ -94,7 +95,7 @@ a.btn-navbar {
 }
 
 .call-to-action p{ 
-  font-family: 'open_sanslight';
+  font-family: 'Nunito', sans-serif;
   letter-spacing: 1px;
   text-align: center;
 }
@@ -402,4 +403,20 @@ p.service-modal-box {
 
 .service-box p {
   text-align: justify;
+}
+
+
+.btn-animated a{
+  text-decoration: none; 
+  color: white; 
+}
+
+.btn-animated a:hover{
+  text-decoration: none; 
+  color: white; 
+}
+
+.btn-animated .btn-inner--hidden a {
+  text-decoration: none; 
+  color: white;
 }

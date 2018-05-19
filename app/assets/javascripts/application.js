@@ -17,6 +17,13 @@
 //= require tether
 //= require chosen
 //= require intl-tel-input
+//= require fontawesome-all.min
+//= require bootstrap-select.min
+//= require bootstrap-tagsinput.min
+//= require input-mask.min
+//= require nouislider.min
+//= require textarea-autosize.min
+//= require theme
 //= require bootstrap-sprockets
 //= require_tree .
 
