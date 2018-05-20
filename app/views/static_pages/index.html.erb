@@ -19,7 +19,7 @@
 
 <div class = "call-to-action">
   <h1>Are you a beauty or style professional? </h1>
-  <p><span class = "logo-text-1">enstyle</span><span class = "logo-text-2">.me</span> is for Hair Stylists, Nail Technicians, Spas, Make-Up Artists, Stylists, and Barbers. Use <span class = "logo-text-1">enstyle</span><span class = "logo-text-2">.me</span> to list your services to a wider range of clients, showcase your work, and provide easy, hands-free booking management. Getting started is <span class= "emphasis">free</span> and <span class = "emphasis">easy</span>.  </p>
+  <p><span class = "logo-text-1">enstyle</span><span class = "logo-text-2">.me</span> is for Hair Stylists, Nail Technicians, Spas, Make-Up Artists, Stylists, and Barbers. Use <span class = "logo-text-1">enstyle</span><span class = "logo-text-2">.me</span> to list your services to a wider range of clients, showcase your work, and provide easy, hands-free booking management. Getting started is free and easy.  </p>
   <div class = "cta-buttons text-center">
   <button type="button" class="btn btn-primary btn-animated btn-animated-x">
     <%= link_to 'Start Now', new_vendor_path, class: 'btn-inner--visible' %>
@@ -32,3 +32,94 @@
   <p><i>Need help getting started? We'd be happy to assist.</i> <%= link_to 'Get Help', '#'%></p>
   </div>
 </div>
+  <section>
+    <div class="container-fluid px-0">
+      <div class="card-group flex-column flex-md-row">
+        <div class="card bg-primary text-white px-4 px-lg-5 py-5 rounded-0 border-0 mb-0">
+          <div class="card-body">
+            <h1 class="heading h2 text-white">Automate your Bookings</h1>
+            <p class="mt-4">
+              Taking bookings over the phone is a hassle. Set your availability to allow customers to book online. Reduce no-shows with automated client reminders.
+            </p>
+            <a href="#" class="btn btn-secondary mt-4">Learn more</a>
+          </div>
+        </div>
+        <div class="card bg-secondary px-4 px-lg-5 py-5 rounded-0 border-0 mb-0">
+          <div class="card-body">
+            <h1 class="heading h2">Accept Payments Online</h1>
+            <p class="mt-4">
+              Secure your bookings by letting customers pay deposits or full price for their services online. Receive your money each month. Less cash, less hassle.
+            </p>
+            <a href="#" class="btn btn-primary mt-4">Learn more</a>
+          </div>
+        </div>
+        <div class="card bg-tertiary text-white px-4 px-lg-5 py-5 rounded-0 border-0 mb-0">
+          <div class="card-body">
+            <h1 class="heading h2 text-white">Build your Reputation</h1>
+            <p class="mt-4">
+              Your customers can leave reviews and photos of your work to promote to potential new customers. Build your business reputation to a wider audience.
+            </p>
+            <a href="#" class="btn btn-secondary mt-4">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slice slice-lg">
+  <div class="container">
+    <div class="mb-5 text-center">
+      <h3 class="heading h2">Select A Plan</h3>
+      <div class="fluid-paragraph text-center">
+        <p class="lead mb-0">Choose the best solution for your business.</p>
+      </div>
+    </div>
+    <div class="card-deck mb-3">
+      <div class="card card-pricing text-center px-3 mb-4">
+        <div class="card-header py-4">
+          <h4 class="mb-4">Free</h4>
+          <h1 class="display-4 text-primary text-center">$0</h1>
+          <span class="h6 text-muted">per month</span>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-4">
+            <li>Business page</li>
+            <li>Calendar</li>
+            <li>Up to 15 bookings per month</li>
+          </ul>
+          <%= link_to 'Start Free', '#', class: "btn btn-primary mb-3"%>
+        </div>
+      </div>
+      <div class="card card-pricing popular text-center px-3 mb-4 z-depth-3">
+        <div class="card-header py-4">
+          <h4 class="mb-4">Basic Plan</h4>
+          <h1 class="display-4 text-primary text-center">$5</h1>
+          <span class="h6 text-muted">per month</span>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-4">
+            <li>Business page and calendar</li>
+            <li>Unlimited bookings per month</li>
+            <li>Automated client SMS / email reminders</li>
+          </ul>
+          <%= link_to 'Start Free Trial', '#', class: "btn btn-primary mb-3"%>
+        </div>
+      </div>
+      <div class="card card-pricing text-center px-3 mb-4">
+        <div class="card-header py-4">
+          <h4 class="mb-4">Professional Plan</h4>
+          <h1 class="display-4 text-primary text-center">$10</h1>
+          <span class="h6 text-muted">per month</span>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-4">
+            <li>All Basic Plan features</li>
+            <li>Allow clients to pay online</li>
+            <li>Monthly earnings reports</li>
+          </ul>
+          <%= link_to 'Start Free Trial', '#', class: "btn btn-primary mb-3"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
