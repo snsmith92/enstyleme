@@ -54,7 +54,7 @@ a.btn-navbar {
 }
 
 .hero {
-  background: url(masthead4.png) no-repeat center center fixed; 
+  background: url(masthead5.png) no-repeat center center fixed; 
   opacity: 0.8;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -418,5 +418,10 @@ p.service-modal-box {
 
 .btn-animated .btn-inner--hidden a {
   text-decoration: none; 
+  color: white;
+}
+
+
+.sign-in-links a {
   color: white;
 }
