@@ -1,27 +1,50 @@
 <br />
 <br />
 <br />
+<div id="carouselExampleIndicators" class="vendor-image-lg carousel slide col-md-10 offset-1" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag 'background.jpg', class: "d-block img-fluid" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'masthead3.png', class: "d-block img-fluid" %>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class = "carousel-control-background"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class = "carousel-control-background"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-<div class="container-fluid">
-  <div class="vendor-profile">
-    <img align="left" class="vendor-image-lg" src="http://eusic.challenges.org/wp-content/uploads/sites/6/2015/11/header-image-5.jpg"/>
-    <img align="left" class="vendor-image-profile thumbnail" src="https://www.attractivepartners.co.uk/wp-content/uploads/2017/06/profile.jpg"/>
+<div class="container-fluid vendor-profile">
+  <div class=" col-md-10 offset-1">
+    <%= image_tag 'sign-up.jpg', class: "vendor-image-profile thumbnail", align: "left" %>
+    
     <div class="vendor-profile-text">
       <% if current_user == current_vendor.user %>
-        <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#editModal">
+        <button type="button" class="btn btn-sm btn-primary float-right btn-spacing" data-toggle="modal" data-target="#editModal">
         Edit Profile Details
         </button>
-        <button type="button" class="btn btn-sm btn-danger float-right" data-toggle="modal" data-target="#deleteProfileModal">
+        <button type="button" class="btn btn-sm btn-danger float-right btn-spacing" data-toggle="modal" data-target="#deleteProfileModal">
         Delete Profile
-        </button> 
+        </button>
       <% end %>
       <h1><%=current_vendor.name%></h1>
-      <p><%= current_vendor.city %>, <%= current_vendor.country_name %></p>
       <p>
         <%= current_vendor.address %>, 
         <% if current_vendor.zip.present? %>
-          <%= current_vendor.zip %>
+          <%= current_vendor.zip %>,
         <% end %>
+        <%= current_vendor.city %>, <%= current_vendor.country_name %>
       </p>
       <% if current_vendor.phone2.present? %>
         <p>Phone Numbers: 
@@ -43,7 +66,7 @@
 
 <br />
 <br />
-<div class = "vendor-services">
+<div class = "vendor-services col-md-8 offset-2">
   <% if current_vendor.services.blank? && current_user == current_vendor.user %>
     <h2 class = 'first-service text-center'> Get your page up and running! </h2>
     <div class = 'text-center'>
@@ -57,38 +80,62 @@
       <br />
     </div>
   <% else %>
-  
     <h3 class = "text-center">List of Services</h3>
     <% if current_vendor.user == current_user %>
       <div class = "text-center">
         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#serviceModal">
           Add Another Service
-          
         </button> 
       </div>
+    <% end %>
       <br />
-    <% end %>
-    <% current_vendor.services.each do |service| %>
-      <div class = "service-box col-md-8 offset-2">
-        <% if current_vendor.user == current_user %>
-          <%= link_to "Edit Service", edit_vendor_service_path(service), class: 'btn btn-primary float-right'%> 
-          <%= link_to "Delete Service", vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-danger float-right'%>
-        <% else %>
-          <%= link_to "Book Now", '#', class: 'btn btn-primary float-right'%>
-        <% end %>
-        <h5><%= service.name %></h5>
-        <h6 class = "badge badge-primary"> Duration: <%= service.hours%>hrs <%=service.minutes%>Mins</h6>
-        <% if service.cost_range.present? %>
-          <h6 class = "badge badge-success">Cost Range: <%= service.cost_range %></h6>
-        <% end %>
-        <% if service.cost_absolute.present? %>
-          <h6 class = "badge badge-success">Fixed Cost: <%= service.cost_absolute %></h6>
-        <% end %>
-        <p class = "service-description"><%= service.description %></p>
-        <%= image_tag @service.image, class: 'img-fluid' %>
-      </div>
-    <% end %>
   <% end %>
+
+
+  <table class="table table-hover table-cards align-items-center">
+    <thead>
+      <tr>
+        <th scope="col">Service</th>
+        <th scope="col">Duration/Cost</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% current_vendor.services.each do |service| %>
+      <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <% if service.image.present? %>
+              <%= image_tag service.image, class: 'img-fluid', class:"avatar avatar-lg mr-3" %>
+            <% end %>
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0"><%= service.name %></h6>
+              <span class="font-weight-normal text-muted"><%=service.description%></span>
+            </div>
+          </div>
+        </th>
+        <td>
+          <% if service.cost_range.present? %>
+            Cost Range: <%= service.cost_range %>
+          <% elsif service.cost_absolute.present? %>
+            Fixed Cost: <%= sprintf("%.2f",service.cost_absolute) %>
+          <% else %>
+            Cost not specified.
+          <% end %>
+           / Duration: <%=service.hours%>hrs <%=service.minutes %>mins
+        <td>
+        <% if current_vendor.user == current_user %>
+          <%= link_to "Edit Service", edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space'%> 
+          <%= link_to "Delete Service", vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space'%>
+        <% else %>
+          <%= link_to "Book Now", '#', class: 'btn btn-sm btn-primary float-right' %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <br />
@@ -156,46 +203,46 @@
       <div class="modal-body">
         <div class = "vendor-form container-fluid">
           <%= simple_form_for @service, url: vendor_services_path(@vendor) do |f| %>
-            <%= f.input :name, label: "Service Name", placeholder: "e.g. Box braids" %>       
-            <%= f.input :description, label: "Description of service", placeholder: 'e.g. Box braids done with kanekalon hair. Hair not included.' %>
+            <%= f.input :name, label: false, placeholder: "Service Name (e.g. Box braids)", input_html: {class: "form-control form-control-sm" } %> 
+            <%= f.input :description, label: false, placeholder: 'Description of service (e.g. "Box braids done with kanekalon hair. Hair not included.")', input_html: {class: "form-control form-control-sm" } %>
             <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true}, label: "Select Categories" %>
             <div class = "row">
               <div class = "col-md-6">
-                <%= f.input :hours, label: "Duration: Hrs", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8] %>
+                <%= f.input :hours, label: "Duration in Hours", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8], input_html: {class: "form-control form-control-sm"} %>
               </div>
               <div class = "col-md-6">
-                <%= f.input :minutes, label: "Duration: Mins", collection: [0, 15, 30, 45]  %>
+                <%= f.input :minutes, label: "Duration in Minutes", collection: [0, 15, 30, 45], input_html: {class: "form-control form-control-sm"} %>
               </div>
             </div>
             <div class = "row">
               <p class = "service-modal-box text-center">If the service has a precise cost, fill out the fixed cost box. If the service has a cost range (e.g. $30 - $50), fill out the cost range. <strong>Note: If you give a cost range, users will not be able to pay you online.</strong>. Only fill out one cost field.
               <div class = "col-md-6">
                 <% if current_vendor.country == "BS"%>
-                  <%= f.input :cost_absolute, as: :currency, label: 'Fixed Cost', currency:"BSD" %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"BSD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "JM"%>
-                  <%= f.input :cost_absolute, as: :currency, label: 'Fixed Cost', currency:"JMD" %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "TT"%>
-                  <%= f.input :cost_absolute, as: :currency, label: 'Fixed Cost', currency:"TTD" %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"TTD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "TC"%>
-                  <%= f.input :cost_absolute, as: :currency, label: 'Fixed Cost', currency:"USD" %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost",  currency:"USD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "BB"%>
-                  <%= f.input :cost_absolute, as: :currency, label: 'Fixed Cost', currency:"BBD" %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost",  currency:"BBD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "AG"%>
-                  <%= f.input :cost_absolute, as: :currency, label: 'Fixed Cost', currency:"ECD" %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"ECD", input_html: {class: "form-control form-control-sm" } %>
                 <% end %>
               </div>
               <div class = "col-md-6">
-                <%= f.input :cost_range, label: 'Cost Range' %>
+                <%= f.input :cost_range, label: false, placeholder: "Cost Range", input_html: {class: "form-control form-control-sm" } %>
               </div>
             </div>
-            <%= f.input :image, label: "Add an Image (Optional)" %>
+            <%= f.input :image, label: "Add an Image (Optional)", input_html: {class: 'btn btn-secondary btn-sm'}%>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit "Add Service", class: 'btn btn-primary' %> 
-      </div>
-    <% end %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add Service", class: 'btn btn-primary' %> 
+        </div>
+        <% end %>
     </div>
   </div>
 </div>
@@ -222,3 +269,4 @@
     </div>
   </div>
 </div>
+

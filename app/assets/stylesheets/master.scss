@@ -1,4 +1,5 @@
 @import "bootstrap"; 
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 html {
   position: relative;
@@ -16,10 +17,14 @@ body {
   /* Set the fixed height of the footer here */
   height: 80px;
   line-height: 60px; /* Vertically center the text there */
-  background-color: #bfa89e;
+  background-color: #ebf5ee;
   color: black;
   font-family: 'open_sanslight';
   font-size: 12px;
+}
+
+.line-height {
+  line-height: 0.9 !important;
 }
 
 .logo {
@@ -53,7 +58,7 @@ a.btn-navbar {
 }
 
 .hero {
-  background: url(masthead3.png) no-repeat center center fixed; 
+  background: url(banner.png) no-repeat center center fixed; 
   opacity: 0.8;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -74,19 +79,18 @@ a.btn-navbar {
 }
 
 .frosty h2 {
-  font-family: 'open_sanslight';
+  font-family: 'Nunito', sans-serif;
   font-weight: 100;
   font-size: 20px;
 }
 
 .call-to-action{
   padding: 50px;
-  background-color: #ebf5ee;
-  margin-bottom: 60px;
+  background-color: white;
 }
 
 .call-to-action h1 {
-  font-family: 'abril_fatfaceregular';
+  font-family: 'Nunito', sans-serif;
   font-size: 30px;
   text-align: center;
   color: #283044;
@@ -94,8 +98,7 @@ a.btn-navbar {
 }
 
 .call-to-action p{ 
-  font-family: 'open_sanslight';
-  letter-spacing: 1px;
+  font-family: 'Nunito', sans-serif;
   text-align: center;
 }
 
@@ -251,23 +254,31 @@ input#user_remember_me {
 }
 
 .why-box {
-  background: #78a1bb;
-  font-family: 'open_sanslight';
+  padding-top: 20px;
+  font-family: 'Nunito', sans-serif;
+  padding-left: 30px;
 }
 
-.vendor-form input {
-  border: 1px solid grey;
-  height: 40px;
-  border-radius: 0px;
-  min-width: 100%;
-  font-family: 'open_sanslight';
-  padding: 10px;
+.sign-up-form {
+  padding: 20px 10px 10px 10px
 }
+
+input {
+  font-family: 'Nunito', sans-serif;
+}
+
+// .vendor-form input {
+//   border: 1px solid grey;
+//   height: 40px;
+//   border-radius: 0px;
+//   min-width: 100%;
+//   font-family: 'open_sanslight';
+//   padding: 10px;
+// }
 
 .vendor-form label {
-  font-family: 'open_sansregular';
+  font-family: 'Nunito', sans-serif;
   font-size: 0.9rem;
-  letter-spacing: 1px;
 }
 
 .btn-vendor-form {
@@ -291,7 +302,8 @@ a.btn-start-dark {
 
 
 .vendor-form {
-  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 select#vendor_country {
@@ -303,12 +315,17 @@ select#vendor_country {
   padding: 10px;
 }
 
-input#service_image {
-  border: none;
-}
 .vendor-sign-up {
   height: 100%;
   padding-right: 25px;
+  margin-bottom: 40px;
+}
+
+.vendor-sign-up-header {
+  padding: 20px;
+  margin-top: 80px;
+  background: url(banner.png) no-repeat center; // center fixed; 
+  max-height: 200px;
 }
 
 .help-block {
@@ -317,9 +334,20 @@ input#service_image {
 }
 
 .vendor-profile img {
-  height: 250px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 4px solid #78a1bb;
 }
 
+.btn-spacing {
+  margin: 5px;
+}
+
+.vendor-profile {
+  background-color: #E8F2FF;
+  padding: 30px;
+}
 
 .vendor-profile img.vendor-image-lg{
   z-index: 0;
@@ -335,11 +363,15 @@ input#service_image {
   margin: -90px 10px 0px 50px;
   z-index: 9;
   width: 20%; 
+  align-content: left; 
 }
 
 @media (max-width:768px)
 {
-  
+
+.vendor-profile-text {
+  margin: 20px;
+}
 .vendor-profile-text>h1{
   //font-weight: 700;
   font-size:16px;
@@ -381,18 +413,14 @@ h2.first-service {
 }
 
 .vendor-services p {
-  font-family: 'open_sanslight';
+  font-family: 'Nunito', sans-serif;
   text-align: center;
   margin: 20px;
 }
 
 p.service-modal-box {
-  font-family: 'open_sanslight';
+  font-family: 'Nunito', sans-serif;
   font-size: 0.8rem;
-}
-
-.form-control {
-  font-family: 'open_sanslight';
 }
 
 .service-box {
@@ -402,4 +430,61 @@ p.service-modal-box {
 
 .service-box p {
   text-align: justify;
+}
+
+
+.btn-animated a{
+  text-decoration: none; 
+  color: white; 
+}
+
+.btn-animated a:hover{
+  text-decoration: none; 
+  color: white; 
+}
+
+.btn-animated .btn-inner--hidden a {
+  text-decoration: none; 
+  color: white;
+}
+
+
+.sign-in-links a {
+  color: white;
+}
+
+.carousel {
+  margin-top: 30px;
+  //margin-bottom: 30px;
+  //max-width: 1200px;
+}
+
+.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
+  max-height: 400px;
+  width: 100%;
+}
+
+.carousel-caption{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 100;
+  font-size: 25px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.carousel-control-prev {
+  background: transparent;
+}
+
+.chosen-container-multi .chosen-choices {
+  border: .0625rem solid #ced4da;
+  border-radius: .375rem;
+  background-image: none; 
+}
+
+.btn-space {
+  margin-right: 10px;
 }

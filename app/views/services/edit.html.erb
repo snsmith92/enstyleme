@@ -1,39 +1,46 @@
-<br />
-<br />
-<br />
-<div class="container-fluid vendor-sign-up">
-  <div class="row">
-    <div class = "col-md-4 why-box">
-      <br />
-      <br />
-      <h2> Edit Your Service</h2>
-    </div>
-    <div class="col-md-8">
-      <div class = "vendor-form">
-        <%= simple_form_for @service, url: vendor_service_path(@vendor) do |f| %>
-        <%= f.input :name, label: "Service Name", placeholder: "e.g. Box braids" %>       
-        <%= f.input :description, label: "Description of service", placeholder: 'e.g. Box braids done with kanekalon hair. Hair not included.' %>
-        <div class = "row">
-          <div class = "col-md-6">
-            <%= f.input :hours, label: "Duration: Hrs", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8] %>
-          </div>
-          <div class = "col-md-6">
-            <%= f.input :minutes, label: "Duration: Mins", collection: [0, 15, 30, 45]  %>
-          </div>
+<div class = "vendor-sign-up-header text-center">
+    <h1>Edit your Service</h1>
+</div>
+<div class="container-fluid vendor-form">
+  <div class="col-md-8 offset-2">
+    <div class = "vendor-form">
+      <%= simple_form_for @service, url: vendor_service_path(@vendor) do |f| %>
+      <%= f.input :name, label: "Service Name", placeholder: "e.g. Box braids" %>       
+      <%= f.input :description, label: "Description of service", placeholder: 'e.g. Box braids done with kanekalon hair. Hair not included.' %>
+      <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true}, label: "Select Categories" %>
+      <div class = "row">
+        <div class = "col-md-6">
+          <%= f.input :hours, label: "Duration: Hrs", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8] %>
         </div>
-        <div class = "row">
-          <p class = "service-modal-box text-center">If the service has a precise cost, fill out the absolute cost box. If the service has a cost range (e.g. $30 - $50), fill out the cost range. <strong>Note: If you give a cost range, users will not be able to pay you online.</strong>. Only fill out one cost field.
-          <div class = "col-md-6">
-            <%= f.input :cost_absolute, label: 'Cost (Absolute)'%>
-          </div>
-          <div class = "col-md-6">
-            <%= f.input :cost_range, label: 'Cost (Range)' %>
-          </div>
+        <div class = "col-md-6">
+          <%= f.input :minutes, label: "Duration: Mins", collection: [0, 15, 30, 45]  %>
         </div>
-        <%= f.input :image, label: "Add an Image (Optional)" %>
       </div>
-      <%= f.submit "Save", class: 'btn btn-primary float-right' %> 
-      <% end %>
+      <div class = "row">
+        <p class = "service-modal-box text-center">If the service has a precise cost, fill out the fixed cost box. If the service has a cost range (e.g. $30 - $50), fill out the cost range. <strong>Note: If you give a cost range, users will not be able to pay you online.</strong>. Only fill out one cost field.
+        <div class = "col-md-6">
+          <% if @vendor.country == "BS"%>
+            <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"BSD", input_html: {class: "form-control form-control-sm" } %>
+          <% elsif @vendor.country == "JM"%>
+            <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", input_html: {class: "form-control form-control-sm" } %>
+          <% elsif @vendor.country == "TT"%>
+            <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"TTD", input_html: {class: "form-control form-control-sm" } %>
+          <% elsif @vendor.country == "TC"%>
+            <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost",  currency:"USD", input_html: {class: "form-control form-control-sm" } %>
+          <% elsif @vendor.country == "BB"%>
+            <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost",  currency:"BBD", input_html: {class: "form-control form-control-sm" } %>
+          <% elsif @vendor.country == "AG"%>
+            <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"ECD", input_html: {class: "form-control form-control-sm" } %>
+          <% end %>
+        </div>
+        <div class = "col-md-6">
+          <%= f.input :cost_range, label: false, placeholder: "Cost Range", input_html: {class: "form-control form-control-sm" } %>
+        </div>
+      </div>
+      <%= f.input :image, label: "Replace Image (Optional)", input_html: {class: 'btn btn-secondary btn-sm'}%>
     </div>
+    <%= f.submit "Save", class: 'btn btn-primary float-right' %> 
+    <% end %>
   </div>
+  <br /><br /><br /><br />
 </div>
