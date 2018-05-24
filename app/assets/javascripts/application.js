@@ -25,5 +25,5 @@
 //= require textarea-autosize.min
 //= require theme
 //= require bootstrap-sprockets
-//= require_tree .
+//= require_self
 

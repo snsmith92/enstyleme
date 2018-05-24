@@ -1,5 +1,4 @@
 class Service < ApplicationRecord
-  attr_accessor :cost_absolute
 
   mount_uploader :image, ImageUploader
   belongs_to :vendor

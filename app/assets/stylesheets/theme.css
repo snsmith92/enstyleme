@@ -244,7 +244,8 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: .5rem
+  margin-bottom: .5rem;
+  margin-right: 10px;
 }
 
 button {
@@ -5815,12 +5816,12 @@ button.close {
 
 .carousel-control-prev {
   left: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.001))
+  
 }
 
 .carousel-control-next {
   right: 0;
-  background: linear-gradient(270deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.001))
+  
 }
 
 .carousel-control-prev-icon,
@@ -5832,8 +5833,12 @@ button.close {
   background-size: 100% 100%
 }
 
+.carousel-control-background {
+  background-color: black;
+  padding: 10px 10px 6px 10px;
+}
 .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E")
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
 
 .carousel-control-next-icon {
@@ -5926,7 +5931,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #288cff !important
+  background-color: #78a1bb !important
 }
 
 a.bg-primary:hover,
@@ -6014,7 +6019,7 @@ button.bg-dark:focus {
 }
 
 .bg-tertiary {
-  background-color: #192b3f !important
+  background-color: #bfa89e !important
 }
 
 a.bg-tertiary:hover,
@@ -7400,7 +7405,7 @@ button.bg-tertiary:focus {
 
 .pt-4,
 .py-4 {
-  padding-top: 1.5rem !important
+  padding-top: 1rem !important
 }
 
 .pr-4,
@@ -7410,7 +7415,7 @@ button.bg-tertiary:focus {
 
 .pb-4,
 .py-4 {
-  padding-bottom: 1.5rem !important
+  padding-bottom: 1rem !important
 }
 
 .pl-4,
@@ -11510,7 +11515,7 @@ a.btn-icon-only {
 }
 
 .footer {
-  background: #fff;
+  background: #ebf5ee;
   color: #6c757d
 }
 
@@ -13267,7 +13272,7 @@ select.selectpicker {
 }
 
 .bootstrap-select.btn-group .dropdown-toggle .filter-option {
-  display: inline !important
+  display: inline !important;
 }
 
 .bootstrap-tagsinput {

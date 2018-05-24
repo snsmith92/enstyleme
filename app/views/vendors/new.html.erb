@@ -1,53 +1,50 @@
-<br />
-<br />
-<br />
-<div class="container-fluid vendor-sign-up">
-    <div class="row">
-        <div class = "col-md-4 why-box">
-        <br />
-        <br />
-        <p> Signing up for <span class = "logo-text-1">enstyle</span><span class = "logo-text-2">.me</span> is easy and free. Here are a few benefits to bringing your business online: </p>
-        <ul>
-          <li>Display your work in a space curated for beauty and style experts, attracting new clientele.</li>
-          <li>Allow clients to book online quickly and easily. No more taking calls and interrupting clients to make bookings.</li>
-          <li>Run promotions and special offers to your clientele.</li>
-          <li>Allow clients to book online quickly and easily.</li>
-        </ul>
-        </div>
-        <div class="col-md-8">
-          <div class = "vendor-form">
-            <%= simple_form_for @vendor, url: vendors_path do |f| %>
-              <%= f.input :name, label: "Company Name" %>          
-              <div class = "row">
-                <div class = "col-md-4">
-                  <%= f.input :city %>
-                </div>
-                <div class = "col-md-4">
-                  <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"] %>
-                </div>
-                <div class = "col-md-4">
-                  <%= f.input :zip %>
-                </div>
+<div class = "vendor-sign-up-header text-center">
+    <h1>Take your business online. </h1>
+    <h4>Register your company to get started.</h4>
+</div>
+<section class = "vendor-sign-up">
+    <div class="col-md-8 offset-2 sign-up-form">
+      <div class = "form-group">
+        <%= simple_form_for @vendor, url: vendors_path do |f| %>
+          <%= f.input :name, label: "Company Name", input_html: {class: "form-control form-control-sm" }%>          
+          <div class = "row">
+            <div class = "col-md-4">
+              <%= f.input :city, input_html: {class: "form-control form-control-sm"} %>
+            </div>
+            <div class = "col-md-4">
+              <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'selectpicker line-height', title: "Select a Country", "data-live-search": true, "data-live-search-placeholder": "Search..." } %>
               </div>
-              <%= f.input :address, label: "Street Address" %>  
-              <div class = "row">
-                <div class = "col-md-6">
-                  <%= f.input :phone1, label: "Primary Phone" %>
-                </div>
-                <div class = "col-md-6">
-                  <%= f.input :phone2, label: "Secondary Phone", class: "float-right" %>
-                </div>
+              <div class = "col-md-4">
+                <%= f.input :zip, input_html: {class: "form-control form-control-sm"} %>
               </div>
-              <%= f.input :facebook, label: "Company Facebook URL" %>
-              <%= f.input :website, label: "Company Website URL" %>
+            </div>
+          <%= f.input :address, label: "Street Address", input_html: {class: "form-control form-control-sm"} %>  
+          <div class = "row">
+            <div class = "col-md-6">
+              <%= f.input :phone1, label: "Primary Phone", input_html: {class: "form-control form-control-sm"} %>
+            </div>
+            <div class = "col-md-6">
+              <%= f.input :phone2, label: "Secondary Phone", input_html: {class: "form-control form-control-sm"} %>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-md-6">
+              <%= f.input :facebook, label: "Company Facebook URL", input_html: {class: "form-control form-control-sm"} %>
+            </div>
+            <div class = "col-md-6">
+              <%= f.input :website, label: "Company Website URL", input_html: {class: "form-control form-control-sm"} %>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-md-12">
               <%= f.input :consent, label: "By checking this box, you agree to Enstyle.me Terms and Conditions." %>
             </div>
-            <%= f.submit "Next", class: 'btn btn-lg btn-vendor-form float-right' %> 
-            <br /><br /><br /><br />
-          <% end %>
-        </div>
-    </div>
-</div>
+          </div>
+        <%= f.submit "Next", class: 'btn btn-primary float-right' %> 
+        <% end %>
+      </div>
+      <br /><br /><br /><br />
+</section>
 
 <script>
   $("#vendor_phone1").intlTelInput({
