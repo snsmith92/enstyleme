@@ -90,6 +90,9 @@ gem "fog-aws"
 # Phone number input and verification
 gem 'intl-tel-input'
 
+# User Authentication with Facebook
+gem 'omniauth-facebook'
+
 # Validate file size and type
 gem 'file_validators'
 
