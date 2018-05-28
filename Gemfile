@@ -90,4 +90,7 @@ gem "fog-aws"
 # Phone number input and verification
 gem 'intl-tel-input'
 
+# Validate file size and type
+gem 'file_validators'
+
 ruby "2.3.1"
