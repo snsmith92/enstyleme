@@ -90,4 +90,7 @@ gem "fog-aws"
 # Phone number input and verification
 gem 'intl-tel-input'
 
+# User Authentication with Facebook
+gem 'omniauth-facebook'
+
 ruby "2.3.1"
