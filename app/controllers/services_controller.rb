@@ -18,7 +18,11 @@ class ServicesController < ApplicationController
     @vendor = Vendor.find_by_id(params[:vendor_id])
     if @vendor.user == current_user
       @service = @vendor.services.create(service_params.merge(user: current_user))
-      redirect_to vendor_path(@vendor)
+      if @service.valid?
+        redirect_to vendor_path(@vendor)
+      else 
+        render :new, notice: "Errors were made in your service form. Please try again."
+      end 
     else
       return render text: 'Not Allowed', status: :forbidden
     end 
@@ -57,6 +61,10 @@ class ServicesController < ApplicationController
 
   def service_params
     params.require(:service).permit(:name, :description, :hours, :minutes, :cost_absolute, :cost_range, :image, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+  end 
+  
+  def current_vendor
+    @current_vendor ||= Vendor.find(params[:vendor_id])
   end 
 
 end

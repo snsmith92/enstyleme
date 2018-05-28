@@ -93,4 +93,7 @@ gem 'intl-tel-input'
 # User Authentication with Facebook
 gem 'omniauth-facebook'
 
+# Validate file size and type
+gem 'file_validators'
+
 ruby "2.3.1"

@@ -215,27 +215,28 @@
               </div>
             </div>
             <div class = "row">
-              <p class = "service-modal-box text-center">If the service has a precise cost, fill out the fixed cost box. If the service has a cost range (e.g. $30 - $50), fill out the cost range. <strong>Note: If you give a cost range, users will not be able to pay you online.</strong>. Only fill out one cost field.
+              <p class = "service-modal-box text-center">If the service has a precise price, fill out the fixed price box. If the service has a price range (e.g. $30 - $50), fill out the price range. <strong>Note: If you give a cost range, users will not be able to pay you online.</strong>. Only fill out one cost field.
               <div class = "col-md-6">
                 <% if current_vendor.country == "BS"%>
-                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"BSD", input_html: {class: "form-control form-control-sm" } %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Price", currency:"BSD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "JM"%>
-                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", input_html: {class: "form-control form-control-sm" } %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Price", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "TT"%>
-                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"TTD", input_html: {class: "form-control form-control-sm" } %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Price", currency:"TTD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "TC"%>
-                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost",  currency:"USD", input_html: {class: "form-control form-control-sm" } %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Price",  currency:"USD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "BB"%>
-                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost",  currency:"BBD", input_html: {class: "form-control form-control-sm" } %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Price",  currency:"BBD", input_html: {class: "form-control form-control-sm" } %>
                 <% elsif current_vendor.country == "AG"%>
-                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Cost", currency:"ECD", input_html: {class: "form-control form-control-sm" } %>
+                  <%= f.input :cost_absolute, as: :currency, label: false, placeholder: "Fixed Price", currency:"ECD", input_html: {class: "form-control form-control-sm" } %>
                 <% end %>
               </div>
               <div class = "col-md-6">
-                <%= f.input :cost_range, label: false, placeholder: "Cost Range", input_html: {class: "form-control form-control-sm" } %>
+                <%= f.input :cost_range, label: false, placeholder: "Price Range", input_html: {class: "form-control form-control-sm" } %>
               </div>
             </div>
             <%= f.input :image, label: "Add an Image (Optional)", input_html: {class: 'btn btn-secondary btn-sm'}%>
+            <p class = "service-modal-box text-center">Only .jpg, .jpeg, and .png photo formats. Max size 10MB.</p>
         </div>
       </div>
         <div class="modal-footer">
