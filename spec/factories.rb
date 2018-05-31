@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :category do
+    
+  end
   factory :admin do
     
   end

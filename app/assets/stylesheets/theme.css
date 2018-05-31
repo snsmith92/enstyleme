@@ -2260,7 +2260,7 @@ select.form-control-lg:not([size]):not([multiple]),
   border: .0625rem solid transparent;
   padding: .75rem 1.5rem;
   font-size: .875rem;
-  line-height: 1.25;
+  line-height: 1.6;
   border-radius: .375rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
 }
