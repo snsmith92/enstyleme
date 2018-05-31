@@ -3,7 +3,7 @@
   <head>
     <title>Enstyle.me</title>
     <%= csrf_meta_tags %>
-    <%= favicon_link_tag asset_path('favicon.png'), rel: 'icon', type: "image/png" %>
+    <%= favicon_link_tag asset_path('favicon 64x64.png'), rel: 'icon', type: "image/png" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "fontawesome-all.min" %>
@@ -16,10 +16,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-light bg-light py-4">
-      <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-4">
+      <div class="container-fluid">
         <%= link_to root_path, class: "navbar-brand" do %>
-          <%= image_tag 'logo-white.png', class: "logo" %>
+          <%= image_tag 'logo-no-background.png', class: "logo" %>
         <% end %>
         <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main" aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
               </li>
               <li class="nav-item">
                 <%= link_to "Get Started", start_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
-                <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-primary d-none d-lg-inline-flex', 'data-target' => '_blank' %>
+                <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
               </li>
             <% elsif user_signed_in? %>
               <li class="nav-item">
@@ -63,7 +63,7 @@
               </li>
               <li class="nav-item">
                 <%= link_to "Get Started", start_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
-                <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-primary d-none d-lg-inline-flex', 'data-target' => '_blank' %>
+                <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
               </li>
             <% elsif admin_signed_in? %>
               <li class="nav-item">
@@ -75,15 +75,13 @@
             <% else %>
               <li class="nav-item">
                 <%= link_to "For Businesses", '#', class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
-                <%= link_to "For Businesses", '#', class: 'btn btn-sm btn-primary d-none d-lg-inline-flex', 'data-target' => '_blank' %>
+                <%= link_to "For Businesses", '#', class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
               </li>
             <% end %>
           </ul>
         </div>
       </div>
     </nav>
-
-
 
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>

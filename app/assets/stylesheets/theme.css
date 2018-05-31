@@ -2260,7 +2260,7 @@ select.form-control-lg:not([size]):not([multiple]),
   border: .0625rem solid transparent;
   padding: .75rem 1.5rem;
   font-size: .875rem;
-  line-height: 1.25;
+  line-height: 1.6;
   border-radius: .375rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
 }
@@ -5931,7 +5931,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #78a1bb !important
+  background-color: rgba(247, 202, 24, 0.5) !important;
 }
 
 a.bg-primary:hover,
@@ -5942,7 +5942,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #e8f2ff !important
+  background-color: rgb(204, 204, 204) !important;
 }
 
 a.bg-secondary:hover,
@@ -7405,7 +7405,7 @@ button.bg-tertiary:focus {
 
 .pt-4,
 .py-4 {
-  padding-top: 1rem !important
+  padding-top: 0.25rem !important
 }
 
 .pr-4,
@@ -7415,7 +7415,7 @@ button.bg-tertiary:focus {
 
 .pb-4,
 .py-4 {
-  padding-bottom: 1rem !important
+  padding-bottom: 0.25rem !important
 }
 
 .pl-4,
@@ -9282,7 +9282,7 @@ button.bg-tertiary:focus {
 }
 
 .text-primary {
-  color: #288cff !important
+  color: #f7ca18 !important
 }
 
 a.text-primary:hover,
@@ -9626,7 +9626,9 @@ button.bg-gray-dark:focus {
 }
 
 .bg-light {
-  background-color: #dee2e6 !important
+  background-color: white !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  z-index: 10;
 }
 
 a.bg-light:hover,
@@ -11192,7 +11194,7 @@ a.btn-icon-only {
 }
 
 .card-pricing.popular {
-  border: 3px solid #288cff !important
+  border: 3px solid #f7ca18 !important
 }
 
 .card-icon-actions a {
@@ -11515,8 +11517,8 @@ a.btn-icon-only {
 }
 
 .footer {
-  background: #ebf5ee;
-  color: #6c757d
+  background: rgba(204, 204, 204, 0.5);
+  color: #444444;
 }
 
 .footer .nav .nav-item .nav-link,
@@ -12045,7 +12047,7 @@ textarea[resize="horizontal"] {
 }
 
 .navbar-nav .nav-link {
-  font-size: .875rem;
+  font-size: 1rem;
   font-family: "Nunito", sans-serif;
   font-weight: 500;
   text-transform: normal;

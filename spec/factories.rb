@@ -21,8 +21,15 @@ FactoryBot.define do
     association :vendor
     association :user
   end
+
+  factory :category do 
+    
+  end 
   
   factory :vendor do
+    association :category, factory: :category
+    first_name "Zel"
+    last_name "Williams"
     name "Sherzel's Nail Spa"
     country "BS"
     city "Nassau"

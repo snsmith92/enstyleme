@@ -1,38 +1,52 @@
-<div class = "vendor-sign-up-header text-center">
-    <h1>Take your business online. </h1>
-    <h4>Register your company to get started.</h4>
-</div>
-<section class = "vendor-sign-up">
-    <div class="col-md-8 offset-2 sign-up-form">
+<body style="background-image:url("smiling-min.jpg");background-color: #cccccc;">
+    <div class = "vendor-sign-up col-md-6 offset-3">
+        <h1 class = "text-center">Take your business online. </h1>
+        <h4 class = "text-center">Register your company to get started.</h4>
+        <br />
       <div class = "form-group">
         <%= simple_form_for @vendor, url: vendors_path do |f| %>
-          <%= f.input :name, label: "Company Name", input_html: {class: "form-control form-control-sm" }%>          
-          <div class = "row">
-            <div class = "col-md-4">
-              <%= f.input :city, input_html: {class: "form-control form-control-sm"} %>
-            </div>
-            <div class = "col-md-4">
-              <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'selectpicker line-height form-control-sm' } %>
-              </div>
-              <div class = "col-md-4">
-                <%= f.input :zip, input_html: {class: "form-control form-control-sm"} %>
-              </div>
-            </div>
-          <%= f.input :address, label: "Street Address", input_html: {class: "form-control form-control-sm"} %>  
           <div class = "row">
             <div class = "col-md-6">
-              <%= f.input :phone1, label: "Primary Phone", input_html: {class: "form-control form-control-sm"} %>
+              <%= f.input :first_name, label: false, placeholder: "Your First Name", input_html: {class: "form-control"} %>
             </div>
-            <div class = "col-md-6">
-              <%= f.input :phone2, label: "Secondary Phone", input_html: {class: "form-control form-control-sm"} %>
+             <div class = "col-md-6">
+              <%= f.input :last_name, label: false, placeholder: "Your Surname", input_html: {class: "form-control"} %>
             </div>
           </div>
           <div class = "row">
             <div class = "col-md-6">
-              <%= f.input :facebook, label: "Company Facebook URL", input_html: {class: "form-control form-control-sm"} %>
+              <%= f.input :name, label: false, placeholder: "Company Name", input_html: {class: "form-control" }%>
             </div>
             <div class = "col-md-6">
-              <%= f.input :website, label: "Company Website URL", input_html: {class: "form-control form-control-sm"} %>
+              <%= f.association :category, label: false, prompt:"Select a Category", label_method: :name, value_method: :id, input_html: {class: 'form-control select' }%>
+            </div>
+          </div>            
+          <div class = "row">
+            <div class = "col-md-4">
+              <%= f.input :city, label: false, placeholder: "City", input_html: {class: "form-control"} %>
+            </div>
+            <div class = "col-md-4">
+              <%= f.input :country, label: false, prompt: "Select a Country", only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'form-control' } %>
+              </div>
+              <div class = "col-md-4">
+                <%= f.input :zip, label: false, placeholder: "Zip or P.O. Box", input_html: {class: "form-control "} %>
+              </div>
+            </div>
+          <%= f.input :address, label: false, placeholder: "Street Address", input_html: {class: "form-control"} %>  
+          <div class = "row">
+            <div class = "col-md-6">
+              <%= f.input :phone1, label: "Primary Phone", input_html: {class: "form-control"} %>
+            </div>
+            <div class = "col-md-6">
+              <%= f.input :phone2, label: "Secondary Phone", input_html: {class: "form-control"} %>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-md-6">
+              <%= f.input :facebook, label: false, placeholder: "Company Facebook URL", input_html: {class: "form-control"} %>
+            </div>
+            <div class = "col-md-6">
+              <%= f.input :website, label: false, placeholder: "Company Website URL", input_html: {class: "form-control"} %>
             </div>
           </div>
           <div class = "row">
@@ -40,12 +54,11 @@
               <%= f.input :consent, label: "By checking this box, you agree to Enstyle.me Terms and Conditions." %>
             </div>
           </div>
-        <%= f.submit "Next", class: 'btn btn-primary float-right' %> 
+        <%= f.submit "Next", class: 'btn btn-main float-right' %> 
         <% end %>
       </div>
-      <br /><br /><br /><br />
-</section>
-
+    </div>
+</body>
 <script>
   $("#vendor_phone1").intlTelInput({
     preferredCountries: ["bs", "tt", "tc", "jm", "bb", "ag"],
