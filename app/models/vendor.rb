@@ -2,6 +2,7 @@ class Vendor < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :services, dependent: :destroy
+  has_many :availabilities, dependent: :destroy
   after_create :send_vendor_created_email
 
   validates :first_name, presence: true

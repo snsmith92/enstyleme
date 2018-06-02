@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'start', to: 'static_pages#start'
   resources :vendors do 
     resources :services, only: [:show, :edit, :update, :new, :create, :destroy]
+    resources :availabilities
   end 
   resources :services, only: [:index]
   get 'tags/:tag', to: 'services#index', as: :tag

@@ -193,6 +193,11 @@ input {
   height: 100%;
   padding-right: 25px;
   margin-top: 80px;
+  margin-bottom: 150px;
+}
+
+.vendor-sign-up h1 {
+  font-family: 'Abhaya Libre', serif;
 }
 
 .help-block {
@@ -632,4 +637,16 @@ xButtons
 
 .country-selection {
   line-height: 0.75 !important; 
+}
+
+#form-monday, #form-tuesday, #form-wednesday, #form-thursday, #form-friday, #form-saturday, #form-sunday {
+  display: none;
+}
+
+#break-monday, #break-tuesday, #break-wednesday, #break-thursday, #break-friday, #break-saturday, #break-sunday {
+  display: none;
+}
+
+.select-time {
+  margin-top: 10px;
 }

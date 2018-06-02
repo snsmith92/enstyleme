@@ -1,0 +1,679 @@
+<br />
+<br />
+<br />
+<h1 class = "text-center">Set your availability.</h1>
+
+<div class = "container-fluid col-md-8 offset-2">
+  <table class="table table-hover table-cards align-items-center ">
+    <thead>
+      <tr>
+        <th scope="col">Day of the Week</th>
+        <th scope="col"></th>
+        <th scope="col">Available?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0">Monday</h6>
+            </div>
+          </div>
+        </th>
+        <td>
+         
+        </td>
+        <td>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-switch-slider rounded-circle" id= "toggle-monday"></span>
+        </label>
+        </td>
+      </tr>
+      <tr class = "bg-white">
+        <td colspan="3" id= "form-monday">
+        <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+        <div class = "row">
+          <div class = "col-md-4">
+            <p>Hours from:</p>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Monday' } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
+           &nbsp; to &nbsp;
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+          </div>
+          <div class = "col-md-4">
+            <span class = "btn btn-sm btn-main" id =  "add-break-monday">Add a break</span>
+            <div class = "break-field" id = "break-monday">
+              <p>Break from:</p> 
+              <%=f.time_select :break_start, label: "Start Time", class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 12, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+              &nbsp; to &nbsp;
+              <%=f.time_select :break_end, class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 13, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+            </div>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+      <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0">Tuesday</h6>
+            </div>
+          </div>
+        </th>
+        <td>
+         
+        </td>
+        <td>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-switch-slider rounded-circle" id= "toggle-tuesday"></span>
+        </label>
+        </td>
+      </tr>
+      <tr class = "bg-white">
+        <td colspan="3" id= "form-tuesday">
+        <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+        <div class = "row">
+          <div class = "col-md-4">
+            <p>Hours from:</p>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Tuesday' } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
+           &nbsp; to &nbsp;
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+          </div>
+          <div class = "col-md-4">
+            <span class = "btn btn-sm btn-main" id =  "add-break-tuesday">Add a break</span>
+            <div class = "break-field" id = "break-tuesday">
+              <p>Break from:</p> 
+              <%=f.time_select :break_start, label: "Start Time", class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 12, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+              &nbsp; to &nbsp;
+              <%=f.time_select :break_end, class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 13, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+            </div>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+      <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0">Wednesday</h6>
+            </div>
+          </div>
+        </th>
+        <td>
+         
+        </td>
+        <td>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-switch-slider rounded-circle" id= "toggle-wednesday"></span>
+        </label>
+        </td>
+      </tr>
+      <tr class = "bg-white">
+        <td colspan="3" id= "form-wednesday">
+        <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+        <div class = "row">
+          <div class = "col-md-4">
+            <p>Hours from:</p>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Wednesday' } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
+           &nbsp; to &nbsp;
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+          </div>
+          <div class = "col-md-4">
+            <span class = "btn btn-sm btn-main" id =  "add-break-wednesday">Add a break</span>
+            <div class = "break-field" id = "break-wednesday">
+              <p>Break from:</p> 
+              <%=f.time_select :break_start, label: "Start Time", class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 12, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+              &nbsp; to &nbsp;
+              <%=f.time_select :break_end, class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 13, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+            </div>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+
+      <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0">Thursday</h6>
+            </div>
+          </div>
+        </th>
+        <td>
+         
+        </td>
+        <td>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-switch-slider rounded-circle" id= "toggle-thursday"></span>
+        </label>
+        </td>
+      </tr>
+      <tr class = "bg-white">
+        <td colspan="3" id= "form-thursday">
+        <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+        <div class = "row">
+          <div class = "col-md-4">
+            <p>Hours from:</p>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Thursday' } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
+           &nbsp; to &nbsp;
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+          </div>
+          <div class = "col-md-4">
+            <span class = "btn btn-sm btn-main" id =  "add-break-thursday">Add a break</span>
+            <div class = "break-field" id = "break-thursday">
+              <p>Break from:</p> 
+              <%=f.time_select :break_start, label: "Start Time", class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 12, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+              &nbsp; to &nbsp;
+              <%=f.time_select :break_end, class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 13, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+            </div>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+      <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0">Friday</h6>
+            </div>
+          </div>
+        </th>
+        <td>
+         
+        </td>
+        <td>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-switch-slider rounded-circle" id= "toggle-friday"></span>
+        </label>
+        </td>
+      </tr>
+      <tr class = "bg-white">
+        <td colspan="3" id= "form-friday">
+        <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+        <div class = "row">
+          <div class = "col-md-4">
+            <p>Hours from:</p>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Friday' } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
+           &nbsp; to &nbsp;
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+          </div>
+          <div class = "col-md-4">
+            <span class = "btn btn-sm btn-main" id =  "add-break-friday">Add a break</span>
+            <div class = "break-field" id = "break-friday">
+              <p>Break from:</p> 
+              <%=f.time_select :break_start, label: "Start Time", class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 12, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+              &nbsp; to &nbsp;
+              <%=f.time_select :break_end, class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 13, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+            </div>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+      <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0">Saturday</h6>
+            </div>
+          </div>
+        </th>
+        <td>
+         
+        </td>
+        <td>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-switch-slider rounded-circle" id= "toggle-saturday"></span>
+        </label>
+        </td>
+      </tr>
+      <tr class = "bg-white">
+        <td colspan="3" id= "form-saturday">
+        <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+        <div class = "row">
+          <div class = "col-md-4">
+            <p>Hours from:</p>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Saturday' } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
+           &nbsp; to &nbsp;
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+          </div>
+          <div class = "col-md-4">
+            <span class = "btn btn-sm btn-main" id =  "add-break-saturday">Add a break</span>
+            <div class = "break-field" id = "break-saturday">
+              <p>Break from:</p> 
+              <%=f.time_select :break_start, label: "Start Time", class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 12, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+              &nbsp; to &nbsp;
+              <%=f.time_select :break_end, class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 13, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+            </div>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+        <tr class="bg-white">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <h6 class="h5 font-weight-normal mb-0">Sunday</h6>
+            </div>
+          </div>
+        </th>
+        <td>
+         
+        </td>
+        <td>
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="toggle-switch-slider rounded-circle" id= "toggle-sunday"></span>
+        </label>
+        </td>
+      </tr>
+      <tr class = "bg-white">
+        <td colspan="3" id= "form-sunday">
+        <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+        <div class = "row">
+          <div class = "col-md-4">
+            <p>Hours from:</p>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Sunday' } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
+           &nbsp; to &nbsp;
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+          </div>
+          <div class = "col-md-4">
+            <span class = "btn btn-sm btn-main" id =  "add-break-sunday">Add a break</span>
+            <div class = "break-field" id = "break-sunday">
+              <p>Break from:</p> 
+              <%=f.time_select :break_start, label: "Start Time", class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 12, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+              &nbsp; to &nbsp;
+              <%=f.time_select :break_end, class: "select-time",
+                :combined => true,
+                :default => Time.now.change(:hour => 13, :min => 00),
+                :minute_interval => 30,
+                :time_separator => "",
+                :start_hour => 6,
+                :start_minute => 00,
+                :end_hour => 22,
+                :end_minute => 30,
+                :ampm => true
+              %>
+            </div>
+          </div>
+          <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+      <tr class="table-divider"></tr>
+
+
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#toggle-monday").click(function(){
+      $("#form-monday").slideToggle();
+    });
+    $("#add-break-monday").click(function(){
+      $("#break-monday").slideToggle();
+      $("#add-break-monday").hide();
+    });
+    $("#toggle-tuesday").click(function(){
+      $("#form-tuesday").slideToggle();
+    });
+    $("#add-break-tuesday").click(function(){
+      $("#break-tuesday").slideToggle();
+      $("#add-break-tuesday").hide();
+    });
+
+    $("#toggle-wednesday").click(function(){
+      $("#form-wednesday").slideToggle();
+    });
+    $("#add-break-wednesday").click(function(){
+      $("#break-wednesday").slideToggle();
+      $("#add-break-wednesday").hide();
+    });
+
+    $("#toggle-thursday").click(function(){
+      $("#form-thursday").slideToggle();
+    });
+    $("#add-break-thursday").click(function(){
+      $("#break-thursday").slideToggle();
+      $("#add-break-thursday").hide();
+    });
+    
+    $("#toggle-friday").click(function(){
+      $("#form-friday").slideToggle();
+    });
+    $("#add-break-friday").click(function(){
+      $("#break-friday").slideToggle();
+      $("#add-break-friday").hide();
+    });
+
+    $("#toggle-saturday").click(function(){
+      $("#form-saturday").slideToggle();
+    });
+    $("#add-break-saturday").click(function(){
+      $("#break-saturday").slideToggle();
+      $("#add-break-saturday").hide();
+    });
+
+    $("#toggle-sunday").click(function(){
+      $("#form-sunday").slideToggle();
+    });
+    $("#add-break-sunday").click(function(){
+      $("#break-sunday").slideToggle();
+      $("#add-break-sunday").hide();
+    });
+
+
+  });
+  
+  
+</script>

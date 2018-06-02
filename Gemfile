@@ -99,6 +99,10 @@ gem 'file_validators'
 # Font awesome gem
 gem "font-awesome-rails"
 
+# Time selection
+gem "combined_time_select", "~> 2.0.0"
+
+
 ruby "2.3.1"
 
 

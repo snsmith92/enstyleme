@@ -11317,12 +11317,12 @@ a.btn-icon-only {
 }
 
 .toggle-switch input:checked+.toggle-switch-slider:before {
-  background-color: #288cff;
-  border-color: #288cff
+  background-color: #f7ca18;
+  border-color: #f7ca18
 }
 
 .toggle-switch input:checked+.toggle-switch-slider {
-  border: .0625rem solid #288cff
+  border: .0625rem solid #f7ca18;
 }
 
 .toggle-switch input:checked+.toggle-switch-slider:before {

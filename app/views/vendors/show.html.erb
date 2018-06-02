@@ -37,6 +37,7 @@
         <button type="button" class="btn btn-sm btn-danger float-right btn-spacing" data-toggle="modal" data-target="#deleteProfileModal">
         Delete Profile
         </button>
+        <%= link_to 'Add Availability', new_vendor_availability_path(current_vendor), class: "btn btn-sm btn-primary float-right btn-spacing"%>
       <% end %>
       <h1><%=current_vendor.name%></h1>
       <p>
