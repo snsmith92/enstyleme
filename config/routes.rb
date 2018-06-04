@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root "static_pages#index"
   get 'start', to: 'static_pages#start'
+  get 'business', to: 'static_pages#business'
   resources :vendors do 
     resources :services, only: [:show, :edit, :update, :new, :create, :destroy]
     resources :availabilities

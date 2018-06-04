@@ -1,198 +1,71 @@
-<body style="background-color:#FDFDFD;">
-  <div class ="hero">
-    <br />
-    <br />
-    <div class="frosty">
-      <br /><br /></br>
-      <h1> Style begins here.</h1>
-      <br />
-      <h2> Book the Caribbean's best beauty, barber, fashion, and style experts. </h2>
-      <br /><br />
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Braiding...">
-        <span class="input-group-btn">
-          <button class="btn-main" type="button">Search</button>
-        </span>
+<div class = "container homepage-header">
+  <div class = "row">
+    <div class = "col-md-6">
+    <h1 class = "homepage-heading">Style begins here.</h1>
+    <h3 class = "homepage-subheading"> Book the best beauty, barber, fashion, and style experts.</h3>
+    </div>
+    <div class = "col-md-6">
+      <%= image_tag 'hair.jpg', class: "img-fluid" %>
+    </div>
+  </div>
+</div>
+
+<section class="homepage-stretch bg-lighter border-top border-bottom" id="scrollToSection">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-center">
+      <span class="heading ml-3 mb-0">Are you a beauty or style professional? Use our platform for easy, hands-free booking management, and showcase your work to a wider range of clients.</span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to 'Join Now', new_user_registration_path, class: 'btn btn-sm btn-main float-right'%>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class = "container image-homepage">
+    <div class = "row">
+      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+        <%= image_tag 'nails.jpg', class: "img-fluid home-img" %>
+        <div class = "middle">
+          <div class = "image-text">Nail Technicians</div><br/>
+          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
+        </div>
       </div>
-      <br /><br />
-    </div>
-  </div>
-
-  <!-- Grid -->
-  <div class="grid" id="portfolio">
-    <div class="grid-sizer"></div>
-    <div class="grid-item element-item p_one_third">
-      <a href="https://vimeo.com/157276599" data-rel="prettyPhoto[gallery1]">
-        <%= image_tag 'nails.jpg', class: "img-overlay" %>
-        <div class="portfolio-text-holder overlay">
-          <p class="portfolio-text overlay-text">NAIL SALONS</p>
-          <p class="portfolio-type overlay-text">View</p>
+      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+        <%= image_tag 'makeup.jpg', class: "img-fluid home-img" %>
+        <div class = "middle">
+          <div class = "image-text">Makeup Artists</div><br/>
+          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
         </div>
-      </a>
-    </div>
-      
-    <div class="grid-item element-item p_one_third">
-      <a href="https://vimeo.com/157276599" data-rel="prettyPhoto[gallery1]">
-        <%= image_tag 'makeup.jpg' %>
-        <div class="portfolio-text-holder overlay">
-          <p class="portfolio-text">MAKE-UP ARTISTS</p>
-          <p class="portfolio-type">View</p>
+      </div>
+      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+        <%= image_tag 'hair.jpg', class: "img-fluid home-img" %>
+        <div class = "middle">
+          <div class = "image-text">Hair Salons</div><br/>
+          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
         </div>
-      </a>
-    </div>
-      
-    <div class="grid-item element-item p_one_third">
-      <a href="https://www.youtube.com/watch?v=xEW_YXgRSIE" data-rel="prettyPhoto[gallery1]">
-        <%= image_tag 'barber2.jpg' %>
-        <div class="portfolio-text-holder overlay">
-          <p class="portfolio-text">BARBERS</p>
-          <p class="portfolio-type">View</p>
+      </div>
+      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+        <%= image_tag 'spa.jpg', class: "img-fluid home-img" %>
+        <div class = "middle">
+          <div class = "image-text">Estheticians</div><br/>
+          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
         </div>
-      </a>
-    </div>
-      
-    <div class="grid-item element-item p_two_third">
-      <a href="demo-images/reopen_home_image05.jpg" data-rel="prettyPhoto[gallery1]">
-        <%= image_tag 'hair.jpg' %>
-        <div class="portfolio-text-holder overlay">
-          <p class="portfolio-text">HAIR SALONS</p>
-          <p class="portfolio-type">View</p>
+      </div>
+      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+        <%= image_tag 'barber.jpg', class: "img-fluid home-img" %>
+        <div class = "middle">
+          <div class = "image-text">Barbers</div><br/>
+          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
         </div>
-      </a>
-    </div>
-      
-    <div class="grid-item element-item p_one_third">
-      <a href="single-portfolio.html">
-        <%= image_tag 'spa.jpg' %>
-        <div class="portfolio-text-holder overlay">
-          <p class="portfolio-text">SPAS AND ESTHETICIANS</p>
-          <p class="portfolio-type">View</p>
+      </div>
+      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+        <%= image_tag 'photographer.jpg', class: "img-fluid home-img" %>
+        <div class = "middle">
+          <div class = "image-text">Photographers</div><br/>
+          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
         </div>
-      </a>
-    </div>
-      
-    <div class="grid-item element-item p_one_third">
-      <a href="https://vimeo.com/168939109" data-rel="prettyPhoto[gallery1]">
-        <%= image_tag 'photographer.jpg' %>
-        <div class="portfolio-text-holder overlay">
-          <p class="portfolio-text">PHOTOGRAPHERS</p>
-          <p class="portfolio-type">View</p>
-        </div>
-      </a>
-    </div>
-  </div>
-      
-  <div class="clear"></div>
-
-
-
-  <div class = "call-to-action">
-    <div class = "col-md-8 offset-2">
-      <h1>Are you a beauty or style professional? </h1>
-      <p> Enstyle.Me is for Hair Stylists, Nail Technicians, Spas, Make-Up Artists, Stylists, and Barbers. Use our platform to list your services to a wider range of clients, showcase your work, and provide easy, hands-free booking management. Getting started is free and easy.  </p>
-      <div class = "cta-buttons text-center">
-      <button type="button" class="btn btn-primary btn-animated btn-animated-x">
-        <%= link_to 'Start Now', new_vendor_path, class: 'btn-inner--visible' %>
-        <%= link_to new_vendor_path, class: "btn-inner--hidden" do %>
-          <i class="fas fa-arrow-right"></i>
-        <% end %>
-      </button>
-      <br />
-      <br />
-      <p><i>Need help getting started? We'd be happy to assist.</i> <%= link_to 'Get Help', '#'%></p>
       </div>
     </div>
   </div>
+</section>
 
-    <section>
-      <div class="container-fluid px-0">
-        <div class="card-group flex-column flex-md-row">
-          <div class="card bg-primary px-4 px-lg-5 py-5 rounded-0 border-0 mb-0">
-            <div class="card-body">
-              <h1 class="heading h2">Automate your Bookings</h1>
-              <p class="mt-4">
-                Taking bookings over the phone is a hassle. Set your availability to allow customers to book online. Reduce no-shows with automated client reminders.
-              </p>
-              <a href="#" class="btn btn-second mt-4">Learn more</a>
-            </div>
-          </div>
-          <div class="card bg-secondary px-4 px-lg-5 py-5 rounded-0 border-0 mb-0">
-            <div class="card-body">
-              <h1 class="heading h2">Accept Payments Online</h1>
-              <p class="mt-4">
-                Secure your bookings by letting customers pay deposits or full price for their services online. Receive your money each month. Less cash, less hassle.
-              </p>
-              <a href="#" class="btn btn-main mt-4">Learn more</a>
-            </div>
-          </div>
-          <div class="card bg-primary px-4 px-lg-5 py-5 rounded-0 border-0 mb-0">
-            <div class="card-body">
-              <h1 class="heading h2">Build your Reputation</h1>
-              <p class="mt-4">
-                Your customers can leave reviews and photos of your work to promote to potential new customers. Build your business reputation to a wider audience.
-              </p>
-              <a href="#" class="btn btn-second mt-4">Learn more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="slice">
-    <div class="container">
-      <div class="mb-5 text-center">
-        <h3 class="heading h2">Select A Plan</h3>
-        <div class="fluid-paragraph text-center">
-          <p class="lead mb-0">Choose the best solution for your business.</p>
-        </div>
-      </div>
-      <div class="card-deck mb-3">
-        <div class="card card-pricing text-center px-3 mb-4">
-          <div class="card-header py-4">
-            <h4 class="mb-4">Free</h4>
-            <h1 class="display-4 text-primary text-center">$0</h1>
-            <span class="h6 text-muted">per month</span>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mb-4">
-              <li>Business page</li>
-              <li>Calendar</li>
-              <li>Up to 15 bookings per month</li>
-            </ul>
-            <%= link_to 'Start Free', '#', class: "btn btn-main mb-3"%>
-          </div>
-        </div>
-        <div class="card card-pricing popular text-center px-3 mb-4 z-depth-3">
-          <div class="card-header py-4">
-            <h4 class="mb-4">Basic Plan</h4>
-            <h1 class="display-4 text-primary text-center">$5</h1>
-            <span class="h6 text-muted">per month</span>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mb-4">
-              <li>Business page and calendar</li>
-              <li>Unlimited bookings per month</li>
-              <li>Automated client SMS / email reminders</li>
-            </ul>
-            <%= link_to 'Start Free Trial', '#', class: "btn btn-main mb-3"%>
-          </div>
-        </div>
-        <div class="card card-pricing text-center px-3 mb-4">
-          <div class="card-header py-4">
-            <h4 class="mb-4">Professional Plan</h4>
-            <h1 class="display-4 text-primary text-center">$10</h1>
-            <span class="h6 text-muted">per month</span>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mb-4">
-              <li>All Basic Plan features</li>
-              <li>Allow clients to pay online</li>
-              <li>Monthly earnings reports</li>
-            </ul>
-            <%= link_to 'Start Free Trial', '#', class: "btn btn-main mb-3"%>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</body>
+<div class="clear"></div>

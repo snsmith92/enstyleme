@@ -1,6 +1,6 @@
 @import "bootstrap"; 
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Abhaya+Libre|Nunito');
+@import url('https://fonts.googleapis.com/css?family=Heebo:300,400|Nunito:300,400');
 
 html {
   position: relative;
@@ -375,139 +375,6 @@ p.service-modal-box {
   display: none;
 }
 
-/* PORTFOLIO */
-
-.grid 
-{
-    width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-    display: block;
-}
-
-.grid-item 
-{
-    float: left;
-    font-size: 0;
-    line-height: 0;
-    box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    border: 15px solid white;
-}
-
-.grid-item img 
-{
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    max-width: none;
-    border-radius: 2px;
-}
-
-.grid-sizer, .grid-item 
-{
-    width: 400px;
-}
-
-.grid-item.p_two_third
-{
-    width: 800px;
-}
-
-.grid-item.p_one
-{
-    width: 1200px;
-}
-
-// .portfolio-text-holder
-// {
-//     position: absolute;
-//     top: 30px;
-//     left: 30px;
-//     bottom: 30px;
-//     right: 30px;
-//     z-index: 1;
-//     font-size: 20px;
-//     background-color: white;
-//     text-align: center;   
-//     display: none;    
-// }
-
-
-// .portfolio-text
-// {
-//     line-height: 100%;
-// }
-
-// .portfolio-type
-// {
-//     line-height: 100%;
-//     font-size: 11px;
-//     color: #9a9a9a;    
-//     padding-top: 20px;
-//     letter-spacing: 5px;
-//     padding-left: 5px;
-// }
-
-// .grid-item a:hover
-// {
-//     color: #191919;
-// }
-
-// .more-posts-portfolio img
-// {
-//     transition: all .2s linear;
-//     width: 100px;
-//     height: 100px;
-// }
-
-// .more-posts-portfolio img:hover
-// {
-//     cursor: pointer;  
-//     transform: scale(0.9);
-// }
-
-// div.pp_default .pp_loaderIcon
-// {
-//     display: none !important;
-// }
-
-.img-overlay {
-  display: block;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #008CBA;
-}
-
-.img-overlay:hover .overlay {
-  opacity: 1;
-}
-
-.overlay-text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-/* END PORTFOLIO */
 
 /* -------------------------------- 
 
@@ -649,4 +516,91 @@ xButtons
 
 .select-time {
   margin-top: 10px;
+}
+
+.homepage-header, .business-header {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.homepage-heading {
+  margin: 0 0 6px;
+  padding-top: 20px;
+  text-transform: none;
+  font-size: 3rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  color: #111;
+  line-height: 1.46;
+}
+
+.homepage-subheading {
+  font-family: 'Heebo', sans-serif;;
+  font-weight: 300;
+  font-size: 1.5rem; 
+}
+
+.homepage-stretch {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.image-homepage {
+  margin-top: 70px;
+  margin-bottom: 150px;
+}
+
+.home-img {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+// Image hover
+.image-box {
+  position: relative;
+  width: 50%;
+}
+
+.home-img {
+opacity: 1;
+display: block;
+width: 100%;
+height: auto;
+transition: .5s ease;
+backface-visibility: hidden;
+}
+
+.middle {
+transition: .5s ease;
+opacity: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+text-align: center;
+}
+
+.image-box:hover .home-img {
+opacity: 0.3;
+}
+
+.image-box:hover .middle {
+opacity: 1;
+}
+
+.image-text {
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.business-header {
+  font-family: "Nunito", sans-serif;
+  font-size: 3rem;
+}
+
+.business-background {
+  background: url(export.png) no-repeat fixed;
 }
