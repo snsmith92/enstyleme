@@ -57,8 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 # Install bootstrap front-end framework
-gem 'popper_js', '~> 1.11.1'
-gem 'bootstrap', '4.0.0.alpha6'
+gem 'popper_js', '~> 1.12.9'
+gem 'bootstrap', '~> 4.1.1'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
   gem 'rails-assets-chosen'
@@ -98,6 +98,10 @@ gem 'file_validators'
 
 # Font awesome gem
 gem "font-awesome-rails"
+
+# Time selection
+gem "combined_time_select", "~> 2.0.0"
+
 
 ruby "2.3.1"
 

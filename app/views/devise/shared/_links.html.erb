@@ -1,5 +1,15 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-facebook btn-icon-label" do %>
+      <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
+      <span class="btn-inner--text">Sign in With <%="#{OmniAuth::Utils.camelize(provider)}"%></span>
+    <% end %>
+  <% end -%>
+  <br />
+<% end -%>
+
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  Already been here? <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -18,8 +28,3 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn loginBtn loginBtn--facebook' %><br />
-  <% end -%>
-<% end -%>

@@ -12,7 +12,7 @@ class VendorsController < ApplicationController
   def create
     @vendor = current_user.vendors.create(vendor_params)
     if @vendor.valid?
-      redirect_to vendor_path(@vendor)
+      redirect_to new_vendor_availability_path(@vendor)
     else 
       render :new, status: :unprocessable_entity
     end 

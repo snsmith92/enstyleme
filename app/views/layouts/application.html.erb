@@ -16,15 +16,15 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
       <div class="container-fluid">
         <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag 'logo-no-background.png', class: "logo" %>
         <% end %>
-        <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main" aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+        <div class="collapse navbar-collapse offcanvas-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto align-items-lg-center">
             <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
             <% if user_signed_in? == false %>
@@ -74,8 +74,8 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "For Businesses", '#', class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
-                <%= link_to "For Businesses", '#', class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
+                <%= link_to "For Businesses", business_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
+                <%= link_to "For Businesses", business_path, class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
               </li>
             <% end %>
           </ul>
