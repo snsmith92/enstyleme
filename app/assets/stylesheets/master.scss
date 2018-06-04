@@ -9,7 +9,6 @@ html {
 body {
   min-height: 100%;
   margin-bottom: 60px;
-  font-family: "open_sansregular";
 }
 .footer {
   position: absolute;
@@ -20,7 +19,7 @@ body {
   line-height: 60px; /* Vertically center the text there */
   background-color: #CCCCCC;
   color: #444444;
-  font-family: 'open_sanslight';
+  font-family: 'Nunito', sans-serif;
   font-size: 12px;
   margin-top: 60px;
 }
@@ -129,7 +128,7 @@ body {
 }
 
 .start h1 {
-  font-family: 'Abhaya Libre', serif;
+  font-family: 'Nunito', sans-serif;
   margin: 20px;
   font-size: 4rem ;
   color: #444444;
@@ -197,7 +196,8 @@ input {
 }
 
 .vendor-sign-up h1 {
-  font-family: 'Abhaya Libre', serif;
+  font-family: 'Nunito', sans-serif;
+  font-size: 3rem;
 }
 
 .help-block {
@@ -217,7 +217,8 @@ input {
 }
 
 .vendor-profile {
-  background-color: #E8F2FF;
+  //border-top: 1px solid #676767;
+  border-bottom: 1px solid #676767;
   padding: 30px;
 }
 
@@ -263,25 +264,25 @@ input {
 }
 
 .vendor-profile-text h1 {
-  font-family: 'open_sanslight';
-  letter-spacing: 1px;
+  font-family: 'Heebo', sans-serif;
 }
 
 .vendor-profile-text p {
-  font-family: 'open_sanslight';
   font-size: 14px;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 300;
   margin-bottom: 5px;
 }
 
 h2.first-service {
-  font-family: 'abril_fatfaceregular';
+  font-family: 'Nunito', sans-serif;
   font-size: 25px;
 
 }
 
 .vendor-services {
-  height: 100%;
-  margin: 20px;
+  // height: 100%;
+  // margin: 20px;
 }
 
 .vendor-services p {
@@ -332,7 +333,7 @@ p.service-modal-box {
 }
 
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-  max-height: 400px;
+  max-height: 300px;
   width: 100%;
 }
 
@@ -495,7 +496,7 @@ xButtons
 }
 
 .login h1 {
-  font-family: 'Abhaya Libre', serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .vendor-start {
@@ -512,6 +513,10 @@ xButtons
 
 #break-monday, #break-tuesday, #break-wednesday, #break-thursday, #break-friday, #break-saturday, #break-sunday {
   display: none;
+}
+
+#add-break-monday, #add-break-tuesday, #add-break-wednesday, #add-break-thursday, #add-break-friday, #add-break-saturday, #add-break-sunday {
+  vertical-align: middle; 
 }
 
 .select-time {
@@ -602,5 +607,23 @@ opacity: 1;
 }
 
 .business-background {
-  background: url(export.png) no-repeat fixed;
+  background: url(background.png) no-repeat fixed;
+}
+
+.business-background-2 {
+  background: url(background-2.png) no-repeat fixed;
+}
+
+.availability-header {
+  font-size: 3rem;
+  margin-top: 20px;
+}
+
+.availability-table {
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+.availability-new-page {
+  margin-bottom: 200px;
 }

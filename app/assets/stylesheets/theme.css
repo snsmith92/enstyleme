@@ -180,7 +180,7 @@ a {
 
 a:hover {
   color: #0066db;
-  text-decoration: unone
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -5349,7 +5349,7 @@ button.close {
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: 1.5rem
+  /*padding: 1.5rem */
 }
 
 .modal-footer {
@@ -12732,7 +12732,7 @@ textarea[resize="horizontal"] {
 
 .table-cards tr.bg-white>th,
 .table-cards tr.bg-white>td {
-  padding: 1rem;
+  padding: 0.7rem; /*was 1rem*/
   position: relative
 }
 

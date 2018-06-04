@@ -1,11 +1,10 @@
 <br />
 <br />
 <br />
-<br />
-<body style="background-color:#FDFDFD;">
-<div class="container-fluid login col-md-4 offset-4">
+<div class="container-fluid login col-lg-4 col-sm-10 offset-lg-4 offset-sm-1">
   <h1 class = "text-center">Log In</h1>
-  <br /><br />
+  <%= image_tag "underline.png", class: "img-fluid"%>
+  <br /><br /><br /><br />
   <div class = "form-group">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -23,14 +22,14 @@
           <%= f.label :remember_me %>
         </div>
       <% end -%>
-      <br />
       <div class="actions text-center">
-        <%= f.submit "Log In", class: 'btn btn-main' %>
+        <%= button_tag(type: 'submit', class: 'btn btn-main float-right') do %>
+          <span class = "btn-inner--icon"><i class="fas fa-user"></i></span>&nbsp;&nbsp;&nbsp;<span class = "btn-inner--text">Log In</span>
+        <% end %>
       </div>
+    <div class = "float-left">
+      <%= render "devise/shared/links" %>
+    </div>
     <% end %>
   </div>
-  <div class = "text-center">
-    <%= render "devise/shared/links" %>
-  </div>
 </div>
-</body>

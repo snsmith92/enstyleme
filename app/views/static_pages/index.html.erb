@@ -1,71 +1,73 @@
-<div class = "container homepage-header">
-  <div class = "row">
-    <div class = "col-md-6">
-    <h1 class = "homepage-heading">Style begins here.</h1>
-    <h3 class = "homepage-subheading"> Book the best beauty, barber, fashion, and style experts.</h3>
-    </div>
-    <div class = "col-md-6">
-      <%= image_tag 'hair.jpg', class: "img-fluid" %>
-    </div>
-  </div>
-</div>
-
-<section class="homepage-stretch bg-lighter border-top border-bottom" id="scrollToSection">
-  <div class="container">
-    <div class="d-flex align-items-center justify-content-center">
-      <span class="heading ml-3 mb-0">Are you a beauty or style professional? Use our platform for easy, hands-free booking management, and showcase your work to a wider range of clients.</span>&nbsp;&nbsp;&nbsp;&nbsp;
-      <%= link_to 'Join Now', new_user_registration_path, class: 'btn btn-sm btn-main float-right'%>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class = "container image-homepage">
+<body class = "business-background">
+  <div class = "container homepage-header">
     <div class = "row">
-      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
-        <%= image_tag 'nails.jpg', class: "img-fluid home-img" %>
-        <div class = "middle">
-          <div class = "image-text">Nail Technicians</div><br/>
-          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
-        </div>
+      <div class = "col-md-6">
+      <h1 class = "homepage-heading">Style begins here.</h1>
+      <h3 class = "homepage-subheading"> Book the best beauty, barber, fashion, and style experts.</h3>
       </div>
-      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
-        <%= image_tag 'makeup.jpg', class: "img-fluid home-img" %>
-        <div class = "middle">
-          <div class = "image-text">Makeup Artists</div><br/>
-          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
-        </div>
-      </div>
-      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
-        <%= image_tag 'hair.jpg', class: "img-fluid home-img" %>
-        <div class = "middle">
-          <div class = "image-text">Hair Salons</div><br/>
-          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
-        </div>
-      </div>
-      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
-        <%= image_tag 'spa.jpg', class: "img-fluid home-img" %>
-        <div class = "middle">
-          <div class = "image-text">Estheticians</div><br/>
-          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
-        </div>
-      </div>
-      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
-        <%= image_tag 'barber.jpg', class: "img-fluid home-img" %>
-        <div class = "middle">
-          <div class = "image-text">Barbers</div><br/>
-          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
-        </div>
-      </div>
-      <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
-        <%= image_tag 'photographer.jpg', class: "img-fluid home-img" %>
-        <div class = "middle">
-          <div class = "image-text">Photographers</div><br/>
-          <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
-        </div>
+      <div class = "col-md-6">
+        <%= image_tag 'hair.jpg', class: "img-fluid" %>
       </div>
     </div>
   </div>
-</section>
 
-<div class="clear"></div>
+  <section class="homepage-stretch bg-lighter border-top border-bottom" id="scrollToSection">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-center">
+        <span class="heading ml-3 mb-0">Are you a beauty or style professional? Use our platform for easy, hands-free booking management, and showcase your work to a wider range of clients.</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Join Now', new_user_registration_path, class: 'btn btn-sm btn-main float-right'%>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class = "container image-homepage">
+      <div class = "row">
+        <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+          <%= image_tag 'nails.jpg', class: "img-fluid home-img" %>
+          <div class = "middle">
+            <div class = "image-text">Nail Technicians</div><br/>
+            <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
+          </div>
+        </div>
+        <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+          <%= image_tag 'makeup.jpg', class: "img-fluid home-img" %>
+          <div class = "middle">
+            <div class = "image-text">Makeup Artists</div><br/>
+            <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
+          </div>
+        </div>
+        <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+          <%= image_tag 'hair.jpg', class: "img-fluid home-img" %>
+          <div class = "middle">
+            <div class = "image-text">Hair Salons</div><br/>
+            <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
+          </div>
+        </div>
+        <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+          <%= image_tag 'spa.jpg', class: "img-fluid home-img" %>
+          <div class = "middle">
+            <div class = "image-text">Estheticians</div><br/>
+            <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
+          </div>
+        </div>
+        <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+          <%= image_tag 'barber.jpg', class: "img-fluid home-img" %>
+          <div class = "middle">
+            <div class = "image-text">Barbers</div><br/>
+            <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
+          </div>
+        </div>
+        <div class = "col-lg-4 col-md-6 col-sm-12 image-box">
+          <%= image_tag 'photographer.jpg', class: "img-fluid home-img" %>
+          <div class = "middle">
+            <div class = "image-text">Photographers</div><br/>
+            <%= link_to "Explore", '#', class: "btn btn-sm btn-main"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="clear"></div>
+</body>
