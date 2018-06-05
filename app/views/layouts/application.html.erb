@@ -13,6 +13,7 @@
     <%= javascript_include_tag "nouislider.min" %>
     <%= javascript_include_tag "textarea-autosize.min" %>
     <%= javascript_include_tag "theme" %>
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Nunito" rel="stylesheet">
   </head>
 
   <body>
@@ -100,9 +101,14 @@
     </footer>
 
   </body>
+  <div class="se-pre-con"></div>
 </html>
 
 <script>
+  $(window).load(function() {
+		$(".se-pre-con").fadeOut("slow");;
+	}); 
+
   $(document).on('ready page:load', function () {
       $('#service_tag_ids').chosen({
         allow_single_deselect: true,
