@@ -1,4 +1,4 @@
-<div class = "business-background-2">
+<body class = "business-background-2">
     <div class = "vendor-sign-up col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
         <h1 class = "text-center">Take your business online. </h1>
         <h4 class = "text-center">Step 1: Register your company to get started.</h4>
@@ -18,7 +18,7 @@
               <%= f.input :name, label: false, placeholder: "Company Name", input_html: {class: "form-control" }%>
             </div>
             <div class = "col-md-6">
-              <%= f.association :category, label: false, prompt:"Select a Category", label_method: :name, value_method: :id, input_html: {class: 'form-control select' }%>
+              <%= f.association :category, label: false, prompt:"Select a Category", label_method: :name, value_method: :id, input_html: {class: 'selectpicker line-height', title: "Select a Country", "data-live-search": true, "data-live-search-placeholder": "Search..." }%>
             </div>
           </div>            
           <div class = "row">
@@ -26,7 +26,7 @@
               <%= f.input :city, label: false, placeholder: "City", input_html: {class: "form-control"} %>
             </div>
             <div class = "col-md-4">
-              <%= f.input :country, label: false, prompt: "Select a Country", only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'form-control' } %>
+              <%= f.input :country, label: false, only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'selectpicker line-height', title: "Select a Country", "data-live-search": true, "data-live-search-placeholder": "Search..." } %>
               </div>
               <div class = "col-md-4">
                 <%= f.input :zip, label: false, placeholder: "Zip or P.O. Box", input_html: {class: "form-control "} %>
@@ -35,10 +35,10 @@
           <%= f.input :address, label: false, placeholder: "Street Address", input_html: {class: "form-control"} %>  
           <div class = "row">
             <div class = "col-md-6">
-              <%= f.input :phone1, label: "Primary Phone", input_html: {class: "form-control"} %>
+              <%= f.input :phone1, label: "Phone 1", input_html: {class: "form-control"} %>
             </div>
             <div class = "col-md-6">
-              <%= f.input :phone2, label: "Secondary Phone", input_html: {class: "form-control"} %>
+              <%= f.input :phone2, label: "Phone 2", input_html: {class: "form-control"} %>
             </div>
           </div>
           <div class = "row">
@@ -61,7 +61,7 @@
         <% end %>
       </div>
     </div>
-</div>
+</body>
 <script>
   $("#vendor_phone1").intlTelInput({
     preferredCountries: ["bs", "tt", "tc", "jm", "bb", "ag"],

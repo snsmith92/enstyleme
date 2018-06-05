@@ -5,5 +5,6 @@ FactoryBot.define do
     end
     password "secretPassword"
     password_confirmation "secretPassword"
+    confirmed_at Time.now
   end
 end

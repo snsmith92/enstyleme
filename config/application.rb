@@ -15,5 +15,8 @@ module Enstyleme
     config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.serve_static_assets = true
     config.assets.initialize_on_precompile = false
+
+    config.action_mailer.preview_path = "#{Rails.root}/app/mailers/previews"
+
   end
 end
