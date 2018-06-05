@@ -2,7 +2,7 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-facebook btn-icon-label" do %>
       <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
-      <span class="btn-inner--text">Sign in With <%="#{OmniAuth::Utils.camelize(provider)}"%></span>
+      <span class="btn-inner--text">Sign in with <%="#{OmniAuth::Utils.camelize(provider)}"%></span>
     <% end %>
   <% end -%>
   <br />
