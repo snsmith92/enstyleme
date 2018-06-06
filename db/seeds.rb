@@ -77,3 +77,14 @@ Tag.create(name: "Piercings")
 Tag.create(name: "Lipo Treatments")
 Tag.create(name: "Spa")
 Tag.create(name: "Spray Tanning")
+
+
+# Categories
+Category.create(name: "Hair Stylist")
+Category.create(name: "Makeup Artist")
+Category.create(name: "Nail Technician")
+Category.create(name: "Esthetician")
+Category.create(name: "Barber")
+Category.create(name: "Massage Therapist")
+Category.create(name: "Photographer")
+Category.create(name: "Other")

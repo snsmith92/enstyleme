@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515140803) do
+ActiveRecord::Schema.define(version: 20180605125401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,28 @@ ActiveRecord::Schema.define(version: 20180515140803) do
     t.datetime "locked_at"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+  end
+
+  create_table "availabilities", force: :cascade do |t|
+    t.string   "time_zone"
+    t.string   "day"
+    t.time     "day_start"
+    t.time     "day_end"
+    t.time     "break_start"
+    t.time     "break_end"
+    t.integer  "user_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "available"
+    t.index ["user_id", "vendor_id"], name: "index_availabilities_on_user_id_and_vendor_id", using: :btree
+    t.index ["vendor_id"], name: "index_availabilities_on_vendor_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "services", force: :cascade do |t|
@@ -74,6 +96,12 @@ ActiveRecord::Schema.define(version: 20180515140803) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -88,10 +116,14 @@ ActiveRecord::Schema.define(version: 20180515140803) do
     t.string   "phone2"
     t.integer  "user_id"
     t.boolean  "consent"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "facebook"
     t.string   "website"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_vendors_on_category_id", using: :btree
     t.index ["city"], name: "index_vendors_on_city", using: :btree
     t.index ["country"], name: "index_vendors_on_country", using: :btree
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
@@ -99,4 +131,5 @@ ActiveRecord::Schema.define(version: 20180515140803) do
 
   add_foreign_key "taggings", "services"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "vendors", "categories"
 end

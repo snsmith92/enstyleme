@@ -12,7 +12,7 @@ class VendorsController < ApplicationController
   def create
     @vendor = current_user.vendors.create(vendor_params)
     if @vendor.valid?
-      redirect_to vendor_path(@vendor)
+      redirect_to new_vendor_availability_path(@vendor)
     else 
       render :new, status: :unprocessable_entity
     end 
@@ -71,7 +71,7 @@ class VendorsController < ApplicationController
   end 
 
   def vendor_params
-    params.require(:vendor).permit(:name, :country, :city, :address, :zip, :phone1, :phone2, :website, :facebook, :consent)
+    params.require(:vendor).permit(:first_name, :last_name, :name, :country, :city, :address, :zip, :phone1, :phone2, :website, :facebook, :consent, :category_id)
   end 
 
 end

@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui
 //= require popper
 //= require tether
 //= require chosen
@@ -25,5 +25,5 @@
 //= require textarea-autosize.min
 //= require theme
 //= require bootstrap-sprockets
-//= require_self
+//= require_tree .
 

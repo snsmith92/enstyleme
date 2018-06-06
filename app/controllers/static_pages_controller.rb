@@ -6,4 +6,7 @@ class StaticPagesController < ApplicationController
 
   def start
   end 
+
+  def business
+  end 
 end
