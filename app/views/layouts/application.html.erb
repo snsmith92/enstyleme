@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Enstyle.me</title>
+    <title>Enstyle.me - Book Hair Stylists, Makeup Artists, and Beauty Professionals</title>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag asset_path('favicon 64x64.png'), rel: 'icon', type: "image/png" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -84,6 +84,9 @@
       </div>
     </nav>
 
+    <% if user_signed_in? && current_user.confirmed_at == nil %>
+      <p class="alert alert-info">Your account has not yet been verified. Check your email inbox to confirm your account.</p>
+    <% end %>
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
     <% end %>
