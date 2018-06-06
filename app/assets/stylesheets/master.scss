@@ -430,6 +430,14 @@ xButtons
   }
 }
 
+.btn-main a:hover {
+  color: white;
+}
+
+.btn-second a:hover {
+  color: #F7CA18;
+}
+
 .cd-buttons .cd-box:nth-of-type(2) span {
   /* CSS class name color */
   color: #5f8ee4;
@@ -643,5 +651,5 @@ opacity: 1;
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url(loader.gif) center no-repeat #fff;
+	background: url(loader-2.gif) center no-repeat #fff;
 }
