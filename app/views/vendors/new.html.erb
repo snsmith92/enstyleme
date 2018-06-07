@@ -1,66 +1,64 @@
 <body class = "business-background-2">
-    <div class = "vendor-sign-up col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
-        <h1 class = "text-center">Take your business online. </h1>
-        <h4 class = "text-center">Step 1: Register your company to get started.</h4>
-        <br />
-      <div class = "form-group">
-        <%= simple_form_for @vendor, url: vendors_path do |f| %>
-          <div class = "row">
-            <div class = "col-md-6">
-              <%= f.input :first_name, label: false, placeholder: "Your First Name", input_html: {class: "form-control"} %>
-            </div>
-             <div class = "col-md-6">
-              <%= f.input :last_name, label: false, placeholder: "Your Surname", input_html: {class: "form-control"} %>
-            </div>
+  <div class = "vendor-sign-up col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
+      <h1 class = "text-center">Take your business online. </h1>
+      <h4 class = "text-center">Step 1: Register your Company to get started.</h4>
+      <br />
+    <div class = "form-group">
+      <%= simple_form_for @vendor, url: vendors_path do |f| %>
+        <div class = "row">
+          <div class = "col-md-6">
+            <%= f.input :first_name, label: "First Name", input_html: {class: "form-control form-control-sm"}, autofocus: true %>
           </div>
-          <div class = "row">
             <div class = "col-md-6">
-              <%= f.input :name, label: false, placeholder: "Company Name", input_html: {class: "form-control" }%>
+            <%= f.input :last_name, label: "Surname", input_html: {class: "form-control form-control-sm"} %>
+          </div>
+        </div>
+        <div class = "row">
+          <div class = "col-md-6">
+            <%= f.input :name, label: "Company Name", input_html: {class: "form-control form-control-sm" }%>
+          </div>
+          <div class = "col-md-6 form-group-sm">
+            <%= f.association :category, label: "Type of Business", label_method: :name, value_method: :id, input_html: {class: 'selectpicker line-height', "data-live-search": true, "data-live-search-placeholder": "Search..." }%>
+          </div>
+        </div>
+        <%= f.input :address, label: "Street Address", input_html: {class: "form-control form-control-sm"} %>              
+        <div class = "row">
+          <div class = "col-md-4">
+            <%= f.input :city, label: "City", input_html: {class: "form-control form-control-sm"} %>
+          </div>
+          <div class = "col-md-4 form-group-sm">
+            <%= f.input :country, label: "Country", only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'selectpicker line-height btn-sm', "data-live-search": true, "data-live-search-placeholder": "Search..." } %>
             </div>
-            <div class = "col-md-6">
-              <%= f.association :category, label: false, label_method: :name, value_method: :id, input_html: {class: 'selectpicker line-height', title: "Select a Category", "data-live-search": true, "data-live-search-placeholder": "Search..." }%>
-            </div>
-          </div>            
-          <div class = "row">
             <div class = "col-md-4">
-              <%= f.input :city, label: false, placeholder: "City", input_html: {class: "form-control"} %>
-            </div>
-            <div class = "col-md-4">
-              <%= f.input :country, label: false, only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'selectpicker line-height', title: "Select a Country", "data-live-search": true, "data-live-search-placeholder": "Search..." } %>
-              </div>
-              <div class = "col-md-4">
-                <%= f.input :zip, label: false, placeholder: "Zip or P.O. Box", input_html: {class: "form-control "} %>
-              </div>
-            </div>
-          <%= f.input :address, label: false, placeholder: "Street Address", input_html: {class: "form-control"} %>  
-          <div class = "row">
-            <div class = "col-md-6">
-              <%= f.input :phone1, label: "Phone 1", input_html: {class: "form-control"} %>
-            </div>
-            <div class = "col-md-6">
-              <%= f.input :phone2, label: "Phone 2", input_html: {class: "form-control"} %>
+              <%= f.input :zip, label: "Zip/P.O. Box (Optional)", input_html: {class: "form-control zip form-control-sm  "} %>
             </div>
           </div>
-          <div class = "row">
-            <div class = "col-md-6">
-              <%= f.input :facebook, label: false, placeholder: "Company Facebook URL", input_html: {class: "form-control"} %>
-            </div>
-            <div class = "col-md-6">
-              <%= f.input :website, label: false, placeholder: "Company Website URL", input_html: {class: "form-control"} %>
-            </div>
+        <div class = "row">
+          <div class = "col-md-6">
+            <label class = "control-label string required">
+              Primary Phone Number
+            </label>
+            <%= f.input :phone1, label: false, input_html: {class: "form-control form-control-sm"} %>
           </div>
-          <div class = "row">
-            <div class = "col-md-12">
-              <%= f.input :consent, label: "By checking this box, you agree to Enstyle.me Terms and Conditions." %>
-            </div>
+          <div class = "col-md-6">
+            <label class = "control-label string required">
+              Second Phone Number (optional)
+            </label>
+            <%= f.input :phone2, label: false, input_html: {class: "form-control form-control-sm"} %>
           </div>
-          <%= button_tag(type: 'submit', class: 'btn btn-main btn-animated btn-animated-x float-right') do %>
-            <span class="btn-inner--visible">Next step</span>
-            <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
-          <% end %>
+        </div>
+        <div class = "row">
+          <div class = "col-md-12">
+            <%= f.input :consent, label: "By checking this box, you agree to Enstyle.me Terms and Conditions." %>
+          </div>
+        </div>
+        <%= button_tag(type: 'submit', class: 'btn btn-main btn-animated btn-animated-x float-right') do %>
+          <span class="btn-inner--visible">NEXT: Set Your Hours</span>
+          <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
         <% end %>
-      </div>
+      <% end %>
     </div>
+  </div>
 </body>
 <script>
   $("#vendor_phone1").intlTelInput({
@@ -79,6 +77,10 @@
 
 $("form").submit(function() {
   $('#country').val($('#country').intlTelInput("getNumber"));
+});
+
+$(document).ready(function(){
+  $('.zip').mask('00/00/0000');
 });
 
 </script>

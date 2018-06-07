@@ -102,6 +102,12 @@ gem "font-awesome-rails"
 # Time selection
 gem "combined_time_select", "~> 2.0.0"
 
+# Jquery validation for rails form
+gem 'jquery-validation-rails'
+
+# Input masking
+gem 'jquery_mask_rails'
+
 
 ruby "2.3.1"
 

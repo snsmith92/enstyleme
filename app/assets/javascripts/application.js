@@ -17,10 +17,12 @@
 //= require tether
 //= require chosen
 //= require intl-tel-input
+//= require jquery.validate
 //= require fontawesome-all.min
 //= require bootstrap-select.min
 //= require bootstrap-tagsinput.min
 //= require input-mask.min
+//= require jquery.mask
 //= require nouislider.min
 //= require textarea-autosize.min
 //= require theme

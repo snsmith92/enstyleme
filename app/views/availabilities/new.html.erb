@@ -1,12 +1,9 @@
 <div class = "availability-new-page">
   <h1 class = "text-center availability-header">Set Your Availability</h1>
-  <div class = "text-center">
-    <%= image_tag "underline.png", class: "img-fluid"%>
-  </div>
   <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
     <h4 class = "text-center">Step 2: Set your weekly hours.</h4>
   <% end %>
-  <div class = "container-fluid availability-table col-lg-8 offset-lg-2 col-sm-10 offset-sm-1">
+  <div class = "container-fluid availability-table col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
     <table class="table table-hover table-cards align-items-center ">
       <thead>
         <tr>
@@ -30,7 +27,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-monday"></span>
+              <span class="toggle-switch-slider" id= "toggle-monday"></span>
           </label>
           </td>
         </tr>
@@ -119,7 +116,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-tuesday"></span>
+              <span class="toggle-switch-slider" id= "toggle-tuesday"></span>
           </label>
           </td>
         </tr>
@@ -204,7 +201,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-wednesday"></span>
+              <span class="toggle-switch-slider" id= "toggle-wednesday"></span>
           </label>
           </td>
         </tr>
@@ -290,7 +287,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-thursday"></span>
+              <span class="toggle-switch-slider" id= "toggle-thursday"></span>
           </label>
           </td>
         </tr>
@@ -375,7 +372,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-friday"></span>
+              <span class="toggle-switch-slider" id= "toggle-friday"></span>
           </label>
           </td>
         </tr>
@@ -460,7 +457,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-saturday"></span>
+              <span class="toggle-switch-slider" id= "toggle-saturday"></span>
           </label>
           </td>
         </tr>
@@ -545,7 +542,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-sunday"></span>
+              <span class="toggle-switch-slider" id= "toggle-sunday"></span>
           </label>
           </td>
         </tr>
@@ -641,7 +638,6 @@
       $("#break-tuesday").slideToggle();
       $("#add-break-tuesday").hide();
     });
-
     $("#toggle-wednesday").click(function(){
       $("#form-wednesday").slideToggle();
     });
@@ -649,7 +645,6 @@
       $("#break-wednesday").slideToggle();
       $("#add-break-wednesday").hide();
     });
-
     $("#toggle-thursday").click(function(){
       $("#form-thursday").slideToggle();
     });
@@ -665,7 +660,6 @@
       $("#break-friday").slideToggle();
       $("#add-break-friday").hide();
     });
-
     $("#toggle-saturday").click(function(){
       $("#form-saturday").slideToggle();
     });
@@ -673,7 +667,6 @@
       $("#break-saturday").slideToggle();
       $("#add-break-saturday").hide();
     });
-
     $("#toggle-sunday").click(function(){
       $("#form-sunday").slideToggle();
     });
@@ -681,8 +674,6 @@
       $("#break-sunday").slideToggle();
       $("#add-break-sunday").hide();
     });
-
-
   });
   
   
