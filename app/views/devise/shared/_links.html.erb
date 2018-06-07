@@ -1,6 +1,6 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-facebook btn-icon-label" do %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-facebook btn-icon-label btn-block" do %>
       <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
       <span class="btn-inner--text">Sign in with <%="#{OmniAuth::Utils.camelize(provider)}"%></span>
     <% end %>
@@ -9,7 +9,7 @@
 <% end -%>
 
 <%- if controller_name != 'sessions' %>
-  Already been here? <%= link_to "Log in", new_session_path(resource_name) %><br />
+  Already have an account? <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>

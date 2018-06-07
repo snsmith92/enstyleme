@@ -1,19 +1,18 @@
 <br />
 <br />
-<br />
 <div class="container-fluid login col-lg-4 col-sm-10 offset-lg-4 offset-sm-1">
   <h1 class = "text-center">Log In</h1>
-  <%= image_tag "underline.png", class: "img-fluid"%>
-  <br /><br /><br /><br />
+  <br />
   <div class = "form-group">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
       <div class="field">
-       <%= f.input :email, label: false, placeholder: 'Email Address', autofocus: true, autocomplete: "email", class: "form-control" %>
+       <%= f.input :email, label: "Email", placeholder: 'Email Address', autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="field">
-        <%= f.input :password, label: false, placeholder: "Password", autocomplete: "off", class: "form-control" %>
+        <%= f.input :password, label: "Password", placeholder: "Password", autocomplete: "off", class: "form-control", input_html: {id: "password"} %>
+         <div id="capslockdiv" style="display: none; color: red; font-weight: 600;"> WARNING: Caps Lock is on </div>
       </div>
 
       <% if devise_mapping.rememberable? -%>
@@ -23,13 +22,29 @@
         </div>
       <% end -%>
       <div class="actions text-center">
-        <%= button_tag(type: 'submit', class: 'btn btn-main float-right') do %>
+        <%= button_tag(type: 'submit', class: 'btn btn-primary btn-block') do %>
           <span class = "btn-inner--icon"><i class="fas fa-user"></i></span>&nbsp;&nbsp;&nbsp;<span class = "btn-inner--text">Log In</span>
         <% end %>
       </div>
-    <div class = "float-left">
-      <%= render "devise/shared/links" %>
-    </div>
+      <br />
+      <h6 class = "text-center">OR</h2>
+      <br />
+      <div>
+        <%= render "devise/shared/links" %>
+      </div>
     <% end %>
   </div>
 </div>
+
+
+<script>
+  $('#password').keypress(function(e) {
+    var s = String.fromCharCode( e.which );
+    if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
+      $('#capslockdiv').show();
+    }
+    else { 
+      $('#capslockdiv').hide();
+    }
+  });
+</script>
