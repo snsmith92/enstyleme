@@ -11,6 +11,7 @@ Rails.application.config.assets.precompile += %w( nouislider.min.js )
 Rails.application.config.assets.precompile += %w( textarea-autosize.min.js )
 Rails.application.config.assets.precompile += %w( theme.js )
 Rails.application.config.assets.precompile += %w( bootstrap-select.min.js )
+Rails.application.config.assets.precompile += %w( availabilities.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

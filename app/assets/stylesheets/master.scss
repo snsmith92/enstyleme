@@ -496,8 +496,16 @@ xButtons
   display: none;
 }
 
-#add-break-monday, #add-break-tuesday, #add-break-wednesday, #add-break-thursday, #add-break-friday, #add-break-saturday, #add-break-sunday {
-  vertical-align: middle; 
+#monday-edit {
+  display: none;
+}
+
+.grey-background {
+  background-color: #e6e6e6;
+}
+
+.green-background {
+  background-color: #C8F7C5;
 }
 
 .select-time {

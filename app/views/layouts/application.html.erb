@@ -4,11 +4,12 @@
     <title>Enstyle.me - Book Hair Stylists, Makeup Artists, and Beauty Professionals</title>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag asset_path('favicon 64x64.png'), rel: 'icon', type: "image/png" %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "fontawesome-all.min" %>
     <%= javascript_include_tag "bootstrap-select.min" %>
     <%= javascript_include_tag "bootstrap-tagsinput.min" %>
+    <%= javascript_include_tag "availabilities" %>
     <%= javascript_include_tag "input-mask.min" %>
     <%= javascript_include_tag "nouislider.min" %>
     <%= javascript_include_tag "textarea-autosize.min" %>
@@ -146,5 +147,6 @@
         width: '100%'
       })
     });
+
 </script>
 
