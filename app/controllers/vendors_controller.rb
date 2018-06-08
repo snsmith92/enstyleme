@@ -1,5 +1,6 @@
 class VendorsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :index
   
   def index
     @vendors = Vendor.all
@@ -19,7 +20,7 @@ class VendorsController < ApplicationController
   end 
 
   def show
-    @vendor = Vendor.find_by_id(params[:id])
+    @vendor = Vendor.friendly.find(params[:id])
     @service = Service.new
     if @vendor.blank?
       render plain: "Sorry, no company to see here!", status: :not_found
@@ -27,14 +28,14 @@ class VendorsController < ApplicationController
   end 
 
   def edit
-    @vendor = Vendor.find(params[:id])
+    @vendor = Vendor.friendly.find(params[:id])
     if @vendor.user != current_user
       return render text: 'Not Allowed', status: :forbidden
     end 
   end 
 
   def update
-    @vendor = Vendor.find_by_id(params[:id])
+    @vendor = Vendor.friendly.find(params[:id])
     if @vendor.blank?
       render plain: "Sorry, no company to see here!", status: :not_found
     end 
@@ -51,7 +52,7 @@ class VendorsController < ApplicationController
   end 
 
   def destroy
-    @vendor = Vendor.find_by_id(params[:id])
+    @vendor = Vendor.friendly.find(params[:id])
     if @vendor.blank? 
       render plain: "Sorry, no company to see here!", status: :not_found
     end 
@@ -67,7 +68,7 @@ class VendorsController < ApplicationController
 
   helper_method :current_vendor
   def current_vendor
-    @current_vendor ||= Vendor.find(params[:id])
+    @current_vendor ||= Vendor.friendly.find(params[:id])
   end 
 
   def vendor_params

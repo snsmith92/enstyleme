@@ -56,7 +56,7 @@ RSpec.describe ServicesController, type: :controller do
       service = FactoryBot.create(:service)
       sign_in service.user
       patch :update, params: { vendor_id: service.vendor_id, id: service.id, service: { name: "Test Edit" } }
-      expect(response).to redirect_to vendor_path(service.vendor_id)
+      expect(response).to redirect_to vendor_path(service.vendor)
       service.reload
       expect(service.name).to eq "Test Edit"
     end 
@@ -81,7 +81,7 @@ RSpec.describe ServicesController, type: :controller do
       service = FactoryBot.create(:service)
       sign_in service.user
       delete :destroy, params: { id: service.id, vendor_id: service.vendor_id }
-      expect(response).to redirect_to vendor_path(service.vendor_id)
+      expect(response).to redirect_to vendor_path(service.vendor)
       service = Service.find_by_id(service.id)
       expect(service).to eq nil
     end 
