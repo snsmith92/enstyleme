@@ -172,11 +172,45 @@
       <p>Sunday: CLOSED</p>
       </div>
     </div>
+
+    <style>
+      #map {
+        height: 300px;}
+    </style>
+
+    <% if @vendor.latitude.present? && @vendor.longitude.present? %>
+      <script>
+
+        function initMap() {
+          var myLatLng = {lat: <%= current_vendor.latitude %>, lng: <%= current_vendor.longitude %>};
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: myLatLng
+          });
+
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+          });
+        }
+      </script>
+
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS8w4xTZZkTmgL6UvkWTYI0ZZd6KnBb4c&callback=initMap">
+      </script>
+
+      <div id="map"></div>
+    <% end %>
   </div>
 
 <br />
 <br />
 <br />
+
+
+
 
 <!-- Edit Page Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">

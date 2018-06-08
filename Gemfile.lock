@@ -118,6 +118,7 @@ GEM
     formatador (0.2.5)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
@@ -302,6 +303,7 @@ DEPENDENCIES
   fog-aws
   font-awesome-rails
   friendly_id (~> 5.1.0)
+  geocoder
   intl-tel-input
   jbuilder (~> 2.5)
   jquery-rails
