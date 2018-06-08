@@ -36137,7 +36137,7 @@ return Tether;
       return true;
     };
 
-    AbstractChosen.default_multiple_text = "Select Some Options";
+    AbstractChosen.default_multiple_text = "Type to Select Catgories";
 
     AbstractChosen.default_single_text = "Select an Option";
 

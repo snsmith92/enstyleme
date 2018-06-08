@@ -178,7 +178,11 @@ input {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: 4px solid #78a1bb;
+  border: 3px solid #F7CA18;
+}
+
+.zip-capital {
+  text-transform: uppercase;
 }
 
 .btn-spacing {
@@ -186,8 +190,6 @@ input {
 }
 
 .vendor-profile {
-  //border-top: 1px solid #676767;
-  border-bottom: 1px solid #676767;
   padding: 30px;
 }
 
@@ -220,7 +222,7 @@ input {
 }
 
 .vendor-profile-text>p {
-  font-family: 'open_sanslight';
+  font-family: 'Source Sans Pro';
   font-size: 14px;
 }
 
@@ -233,12 +235,17 @@ input {
 }
 
 .vendor-profile-text h1 {
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
+
+.vendor-content {
+  margin-bottom: 80px;
+}
+
 
 .vendor-profile-text p {
   font-size: 14px;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   margin-bottom: 5px;
 }

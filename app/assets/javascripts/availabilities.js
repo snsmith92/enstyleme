@@ -1,17 +1,19 @@
 $(document).ready(function(){
   // MONDAY
-  // trigger form
+  // trigger availability form
   $("#toggle-monday").click(function(){
     $("#form-monday").slideToggle();
   });
-  // 
+  // trigger break entry
   $("#add-break-monday").click(function(){
     $("#break-monday").slideToggle();
     $("#add-break-monday").hide();
   });
-
+  // trigger form submission and changing classes
   $("#monday-submit").click(function(){
     $("#monday-form").trigger('submit.rails');
+    $("#form-monday").hide();
+    $("#break-monday").hide()
     $("#monday-submit").hide();
     $("#monday-edit").show("fade", 1000);
     $(this).parents('tr').removeClass("grey-background");
