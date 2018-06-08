@@ -1,10 +1,15 @@
 class Vendor < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  geocoded_by :full_address
+  after_validation :geocode
+
   belongs_to :user
   belongs_to :category
   has_many :services, dependent: :destroy
   has_many :availabilities, dependent: :destroy
+
   after_create :send_vendor_created_email
 
   validates :first_name, presence: true
@@ -24,4 +29,8 @@ class Vendor < ApplicationRecord
   def send_vendor_created_email
     NotificationMailer.vendor_created(self).deliver_now
   end 
+
+  def full_address
+    [address, city, country].compact.join(', ')
+  end
 end

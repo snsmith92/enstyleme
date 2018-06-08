@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607212931) do
+ActiveRecord::Schema.define(version: 20180608161159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(version: 20180607212931) do
     t.string   "last_name"
     t.integer  "category_id"
     t.string   "slug"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["category_id"], name: "index_vendors_on_category_id", using: :btree
     t.index ["city"], name: "index_vendors_on_city", using: :btree
     t.index ["country"], name: "index_vendors_on_country", using: :btree

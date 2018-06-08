@@ -111,6 +111,9 @@ gem 'jquery_mask_rails'
 # Friendly ID for Vendor URLs
 gem 'friendly_id', '~> 5.1.0'
 
+# Geocode location
+gem "geocoder"
+
 ruby "2.3.1"
 
 
