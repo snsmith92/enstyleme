@@ -1,12 +1,10 @@
 class Service < ApplicationRecord
 
-  mount_uploader :image, ImageUploader
   belongs_to :vendor
   belongs_to :user
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
-  validates :image, file_size: { less_than_or_equal_to: 10.megabytes }, file_content_type: { allow: ['image/jpeg', 'image/png', 'image/jpg'] }
   validates :name, presence: true
   validates :description, presence: true
   validates :hours, presence: true

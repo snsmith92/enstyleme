@@ -1,5 +1,6 @@
 class VendorsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :index
   
   def index
     @vendors = Vendor.all
