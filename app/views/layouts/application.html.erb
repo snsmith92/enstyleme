@@ -4,20 +4,22 @@
     <title>Enstyle.me - Book Hair Stylists, Makeup Artists, and Beauty Professionals</title>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag asset_path('favicon 64x64.png'), rel: 'icon', type: "image/png" %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "fontawesome-all.min" %>
     <%= javascript_include_tag "bootstrap-select.min" %>
     <%= javascript_include_tag "bootstrap-tagsinput.min" %>
+    <%= javascript_include_tag "availabilities" %>
     <%= javascript_include_tag "input-mask.min" %>
     <%= javascript_include_tag "nouislider.min" %>
     <%= javascript_include_tag "textarea-autosize.min" %>
     <%= javascript_include_tag "theme" %>
-    <link href="https://fonts.googleapis.com/css?family=Heebo|Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+    <!-- Major navbar Start -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light py-4 overflow-visible">
       <div class="container-fluid">
         <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag 'logo-no-background.png', class: "logo" %>
@@ -30,42 +32,43 @@
             <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
             <% if user_signed_in? == false %>
               <li class="nav-item">
-                <%= link_to "Log In", new_user_session_path, class: 'nav-link' %>
+                <%= link_to new_user_session_path, class: "nav-link" do %>
+                  <i class="fas fa-lock"></i> Log In
+                <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link' %>
               </li>
             <% end  %>
             <li class="nav-item">
-              <%= link_to "View Services", services_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
               <%= link_to "Help", '#', class: 'nav-link' %>
             </li>
-            <% if user_signed_in? && current_user.vendors != nil %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Your Business</a>
-                <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
-                  <%= link_to 'Manage Profile', '#', class: 'dropdown-item'%>
-                  <%= link_to 'View Calendar', '#', class: 'dropdown-item'%>
-                  <%= link_to 'Your Stats', '#', class: 'dropdown-item'%>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar_1_dropdown_1">
+                  <%= link_to 'Manage Your Account', '#', class: 'dropdown-item'%>
+                  <% if current_user.vendors != nil %>
+                    <%= link_to 'View Calendar', '#', class: 'dropdown-item'%>
+                    <%= link_to 'View Client Bookings', '#', class: 'dropdown-item'%>
+                    <% if current_user.vendors.count == 1 %>
+                      <%= link_to 'Manage Vendor Page', current_user.vendor_path, class: 'dropdown-item' %>
+                    <% else %>
+                      <%= link_to 'Manage Vendor Pages', '#', class: 'dropdown-item' %>
+                    <% end %>
+                    <%= link_to 'Business Dashboard', '#', class: 'dropdown-item'%>
+                  <% end %>
                 </div>
               </li>
-              <li class="nav-item">
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Get Started", start_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
-                <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
-              </li>
-            <% elsif user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Get Started", start_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
-                <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
-              </li>
+              <% if current_user.vendors == nil %>
+                <li class="nav-item">
+                  <%= link_to "Get Started", start_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
+                  <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-primary d-none d-lg-inline-flex', 'data-target' => '_blank' %>
+                </li>
+              <% end %>
             <% elsif admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
@@ -75,14 +78,40 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "For Businesses", business_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
-                <%= link_to "For Businesses", business_path, class: 'btn btn-sm btn-main d-none d-lg-inline-flex', 'data-target' => '_blank' %>
+                <%= link_to "FOR BUSINESSES", business_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
+                <%= link_to "FOR BUSINESSES", business_path, class: 'btn btn-sm btn-primary d-none d-lg-inline-flex', 'data-target' => '_blank' %>
               </li>
             <% end %>
           </ul>
         </div>
       </div>
     </nav>
+    <!-- Major navbar end -->
+
+    <!-- Minor navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-inverse navbar-light navbar-minor bg-dark py-4">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMinor" aria-controls="navbarMinor" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse offcanvas-collapse" id="navbarMinor">
+          <ul class="navbar-nav mr-auto align-items-lg-center">
+            <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Find what you are looking for...</a>
+            </li>
+            <% categories.each do |category|%>
+              <li class="nav-item">
+                <%= link_to '#', class: 'nav-link', input_html: {style: "font-size: 1rem;"} do %>
+                    <%= category.name%>s
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Minor navbar end -->
 
     <% if user_signed_in? && current_user.confirmed_at == nil %>
       <p class="alert alert-info">Your account has not yet been verified. Check your email inbox to confirm your account.</p>
@@ -112,11 +141,10 @@
 		$(".se-pre-con").fadeOut("slow");;
 	}); 
 
-  $(document).on('ready page:load', function () {
-      $('#service_tag_ids').chosen({
-        allow_single_deselect: true,
-        width: '100%'
-      })
-    });
+  $('#service_tag_ids').chosen({
+    allow_single_deselect: true,
+    width: '100%'
+  });
+
 </script>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605125401) do
+ActiveRecord::Schema.define(version: 20180607212931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(version: 20180605125401) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
   create_table "services", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -63,7 +75,6 @@ ActiveRecord::Schema.define(version: 20180605125401) do
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "image"
     t.index ["user_id", "vendor_id"], name: "index_services_on_user_id_and_vendor_id", using: :btree
     t.index ["vendor_id"], name: "index_services_on_vendor_id", using: :btree
   end
@@ -123,6 +134,7 @@ ActiveRecord::Schema.define(version: 20180605125401) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "category_id"
+    t.string   "slug"
     t.index ["category_id"], name: "index_vendors_on_category_id", using: :btree
     t.index ["city"], name: "index_vendors_on_city", using: :btree
     t.index ["country"], name: "index_vendors_on_country", using: :btree

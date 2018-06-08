@@ -1,12 +1,9 @@
 <div class = "availability-new-page">
   <h1 class = "text-center availability-header">Set Your Availability</h1>
-  <div class = "text-center">
-    <%= image_tag "underline.png", class: "img-fluid"%>
-  </div>
   <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
     <h4 class = "text-center">Step 2: Set your weekly hours.</h4>
   <% end %>
-  <div class = "container-fluid availability-table col-lg-8 offset-lg-2 col-sm-10 offset-sm-1">
+  <div class = "container-fluid availability-table col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
     <table class="table table-hover table-cards align-items-center ">
       <thead>
         <tr>
@@ -34,9 +31,9 @@
           </label>
           </td>
         </tr>
-        <tr class = "bg-white">
+        <tr class = "grey-background monday-tr">
           <td colspan="3" id= "form-monday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), id: "#monday-form" do |f| %>
           <div class = "row">
             <div class = "col-md-4">
               <p>Hours from:</p>
@@ -97,8 +94,11 @@
               </div>
             </div>
             <div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
+            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main', id: "monday-submit" do %>
               Add to Calendar
+            <% end %>
+            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main', id: "monday-edit" do %>
+              <i class="far fa-edit"></i>
             <% end %>
             </div>
           <% end %>
@@ -119,7 +119,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-tuesday"></span>
+              <span class="toggle-switch-slider" id= "toggle-tuesday"></span>
           </label>
           </td>
         </tr>
@@ -204,7 +204,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-wednesday"></span>
+              <span class="toggle-switch-slider" id= "toggle-wednesday"></span>
           </label>
           </td>
         </tr>
@@ -290,7 +290,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-thursday"></span>
+              <span class="toggle-switch-slider" id= "toggle-thursday"></span>
           </label>
           </td>
         </tr>
@@ -375,7 +375,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-friday"></span>
+              <span class="toggle-switch-slider" id= "toggle-friday"></span>
           </label>
           </td>
         </tr>
@@ -460,7 +460,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-saturday"></span>
+              <span class="toggle-switch-slider" id= "toggle-saturday"></span>
           </label>
           </td>
         </tr>
@@ -545,7 +545,7 @@
           <td>
           <label class="toggle-switch">
               <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-sunday"></span>
+              <span class="toggle-switch-slider" id= "toggle-sunday"></span>
           </label>
           </td>
         </tr>
@@ -619,71 +619,8 @@
       </tbody>
     </table>
     <%= link_to vendor_path(@vendor), class: "btn btn-main btn-animated btn-animated-x float-right" do %>
-      <span class="btn-inner--visible">Next step</span>
+      <span class="btn-inner--visible">NEXT: Design your profile</span>
       <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
     <% end %>
   </div>
 </div>
-
-<script>
-  $(document).ready(function(){
-    $("#toggle-monday").click(function(){
-      $("#form-monday").slideToggle();
-    });
-    $("#add-break-monday").click(function(){
-      $("#break-monday").slideToggle();
-      $("#add-break-monday").hide();
-    });
-    $("#toggle-tuesday").click(function(){
-      $("#form-tuesday").slideToggle();
-    });
-    $("#add-break-tuesday").click(function(){
-      $("#break-tuesday").slideToggle();
-      $("#add-break-tuesday").hide();
-    });
-
-    $("#toggle-wednesday").click(function(){
-      $("#form-wednesday").slideToggle();
-    });
-    $("#add-break-wednesday").click(function(){
-      $("#break-wednesday").slideToggle();
-      $("#add-break-wednesday").hide();
-    });
-
-    $("#toggle-thursday").click(function(){
-      $("#form-thursday").slideToggle();
-    });
-    $("#add-break-thursday").click(function(){
-      $("#break-thursday").slideToggle();
-      $("#add-break-thursday").hide();
-    });
-    
-    $("#toggle-friday").click(function(){
-      $("#form-friday").slideToggle();
-    });
-    $("#add-break-friday").click(function(){
-      $("#break-friday").slideToggle();
-      $("#add-break-friday").hide();
-    });
-
-    $("#toggle-saturday").click(function(){
-      $("#form-saturday").slideToggle();
-    });
-    $("#add-break-saturday").click(function(){
-      $("#break-saturday").slideToggle();
-      $("#add-break-saturday").hide();
-    });
-
-    $("#toggle-sunday").click(function(){
-      $("#form-sunday").slideToggle();
-    });
-    $("#add-break-sunday").click(function(){
-      $("#break-sunday").slideToggle();
-      $("#add-break-sunday").hide();
-    });
-
-
-  });
-  
-  
-</script>

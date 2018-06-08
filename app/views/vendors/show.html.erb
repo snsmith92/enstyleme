@@ -1,155 +1,178 @@
-<div id="carouselExampleIndicators" class="vendor-image-lg carousel slide col-lg-8 offset-lg-2 col-sm-10 offset-sm-1" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag 'barber2.jpg', class: "d-block img-fluid" %>
+
+<div class = "container col-lg-10 offset-lg-1 col-sm-12">
+  <div class = "vendor-heading">
+    <div id="carouselExampleIndicators" class="vendor-image-lg carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag 'barber2.jpg', class: "d-block img-fluid" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag 'sign-up-2-min.jpg', class: "d-block img-fluid" %>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class = "carousel-control-background"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class = "carousel-control-background"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <div class="carousel-item">
-      <%= image_tag 'sign-up-2-min.jpg', class: "d-block img-fluid" %>
+
+    <div class="container-fluid vendor-profile">
+      <div class=" col-md-12">
+        <%= image_tag 'sign-up.jpg', class: "vendor-image-profile thumbnail", align: "left" %>
+        
+        <div class="container vendor-profile-text">
+          <div class = "row">
+            <div class = "col-md-6 col-sm-12">
+              <h1><%=current_vendor.name%></h1>
+              <h5 class = "text-muted"><%= current_vendor.category.name %></h5>
+              <p>
+                <%= current_vendor.address %>, 
+                <% if current_vendor.zip.present? %>
+                  <span class = "zip-capital"><%= current_vendor.zip%></span>,
+                <% end %>
+                <%= current_vendor.city %>, <%= current_vendor.country_name %>
+              </p>
+              <% if current_vendor.phone2.present? %>
+                <p>Phone Numbers: 
+                <%=current_vendor.phone1%>/<%=current_vendor.phone2%></p>
+              <% else %>
+                <p>Phone Number: <%=current_vendor.phone1%></p>
+              <% end %>
+              <% if current_vendor.facebook.present? %>
+                <p>Facebook URL
+                <%=current_vendor.facebook %></p>
+              <% end %>
+              <% if current_vendor.website.present? %>
+                <p>Website
+                <%=current_vendor.website %></p>
+              <% end %>
+            </div>
+            <div class = "col-md-6 col-sm-12">
+              <div class = "float-right">
+                4.5 
+                <% 4.times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <i class="fas fa-star-half"></i>
+                <p>36 reviews</p>
+                <% if current_user != current_vendor.user %>
+                  <%= link_to "Book Now", '#', class: 'btn btn-lg btn-primary'%>
+                <% end %>
+              </div>
+            </div>
+          </div>
+         
+
+          <% if current_user == current_vendor.user %>
+            <button type="button" class="btn btn-sm btn-danger btn-icon-label float-right btn-spacing" data-toggle="modal" data-target="#deleteProfileModal">
+              <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
+              <span class="btn-inner--text">Delete Profile</span>
+            </button>
+            <button type="button" class="btn btn-sm btn-icon-label btn-primary float-right btn-spacing" data-toggle="modal" data-target="#editModal">
+              <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
+              <span class="btn-inner--text">Edit Profile</span>
+            </button>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class = "carousel-control-background"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class = "carousel-control-background"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 
-<div class="container-fluid vendor-profile">
-  <div class=" col-md-10 offset-1">
-    <%= image_tag 'sign-up.jpg', class: "vendor-image-profile thumbnail", align: "left" %>
-    
-    <div class="vendor-profile-text">
-      <% if current_user == current_vendor.user %>
-        <button type="button" class="btn btn-sm btn-danger float-right btn-spacing" data-toggle="modal" data-target="#deleteProfileModal">
-        Delete Profile
-        </button>
-        <button type="button" class="btn btn-sm btn-main float-right btn-spacing" data-toggle="modal" data-target="#editModal">
-        Edit Profile
-        </button>
-        <%= link_to 'Edit Availability', new_vendor_availability_path(current_vendor), class: "btn btn-sm btn-main float-right btn-spacing"%>
-      <% end %>
-      <h1><%=current_vendor.name%></h1>
-      <p>
-        <%= current_vendor.address %>, 
-        <% if current_vendor.zip.present? %>
-          <%= current_vendor.zip %>,
-        <% end %>
-        <%= current_vendor.city %>, <%= current_vendor.country_name %>
-      </p>
-      <% if current_vendor.phone2.present? %>
-        <p>Phone Numbers: 
-        <%=current_vendor.phone1%>/<%=current_vendor.phone2%></p>
-      <% else %>
-        <p>Phone Number: <%=current_vendor.phone1%></p>
-      <% end %>
-      <% if current_vendor.facebook.present? %>
-        <p>Facebook URL
-        <%=current_vendor.facebook %></p>
-      <% end %>
-      <% if current_vendor.website.present? %>
-        <p>Website
-        <%=current_vendor.website %></p>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<br />
-<br />
-<div class = "container">
-  <div class = "row">
-    <div class = "vendor-services col-lg-8">
-      <% if current_vendor.services.blank? && current_user == current_vendor.user %>
-        <h2 class = 'first-service text-center'> Get your page up and running.</h2>
-        <div class = 'text-center'>
-          <button type="button" class="btn btn-lg btn-main" data-toggle="modal" data-target="#serviceModal">
-          Add your first Service
-          </button> 
-        </div>
-        <div class = "col-md-8 offset-2">
-          <p>By adding your individual services to your Enstyle.me page, potential clients know exactly what you offer and can book online!</p>
-          <br />
-          <br />
-        </div>
-      <% else %>
-        <h3 class = "text-center">List of Services</h3>
-        <% if current_vendor.user == current_user %>
-          <div class = "text-center">
-            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#serviceModal">
-              Add Another Service
+  <br />
+  <br />
+  <div class = "container vendor-content">
+    <div class = "row">
+      <div class = "vendor-services col-lg-8">
+        <% if current_vendor.services.blank? && current_user == current_vendor.user %>
+          <h2 class = 'first-service text-center'> Get your page up and running.</h2>
+          <div class = 'text-center'>
+            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#serviceModal">
+            Add Your First Service
             </button> 
           </div>
+          <div class = "col-md-8 offset-2">
+            <p>By adding your individual services to your Enstyle.me page, potential clients know exactly what you offer and can book online!</p>
+            <br />
+            <br />
+          </div>
+        <% else %>
+          <h3>Services</h3>
+          <% if current_vendor.user == current_user %>
+            <div class = "text-center">
+              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#serviceModal">
+                Add Another Service
+              </button> 
+            </div>
+          <% end %>
+            <br />
         <% end %>
-          <br />
-      <% end %>
 
-      <% if current_vendor.services.present? %>
-        <table class="table table-hover table-cards align-items-center">
-          <thead>
-            <tr>
-              <th scope="col">Service</th>
-              <th scope="col">Duration/Cost</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-          <% current_vendor.services.each do |service| %>
-            <tr class="bg-white">
-              <th scope="row">
-                <div class="media align-items-center">
-                  <% if service.image.present? %>
-                    <%= image_tag service.image, class: 'img-fluid', class:"avatar avatar-lg mr-3" %>
-                  <% end %>
-                  <div class="media-body">
-                    <h6 class="h5 font-weight-normal mb-0"><%= service.name %></h6>
-                    <span class="font-weight-normal text-muted"><%=service.description%></span>
+        <% if current_vendor.services.present? %>
+          <table class="table table-hover table-cards align-items-center">
+
+            <tbody>
+            <% current_vendor.services.each do |service| %>
+              <tr class="bg-white">
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <h6 class="h5 font-weight-normal mb-0"><%= service.name %></h6>
+                      <span class="font-weight-normal text-muted"><%=service.hours%> hrs <%=service.minutes %> mins</span>
+                    </div>
                   </div>
-                </div>
-              </th>
-              <td>
-                <% if service.cost_range.present? %>
-                  Cost Range: <%= service.cost_range %>
-                <% elsif service.cost_absolute.present? %>
-                  Fixed Cost: <%= sprintf("%.2f",service.cost_absolute) %>
+                </th>
+                <td>
+                  <%=service.description%>
+                <td>
+                <% if current_vendor.user == current_user %>
+                  <%= link_to vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space' do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                  <%= link_to edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space' do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
                 <% else %>
-                  Cost not specified.
+                  <div class = "float-right">
+                    <% if service.cost_range.present? %>
+                      Cost Range: $<%= service.cost_range %>
+                    <% elsif service.cost_absolute.present? %>
+                      $<%= sprintf("%.2f",service.cost_absolute) %>
+                    <% else %>
+                      Cost not specified.
+                    <% end %>
+                    &nbsp;&nbsp;<%= link_to "Book Now", '#', class: 'btn btn-sm btn-outline-primary' %>
+                  </div>
                 <% end %>
-                / Duration: <%=service.hours%>hrs <%=service.minutes %>mins
-              <td>
-              <% if current_vendor.user == current_user %>
-                <%= link_to "Edit Service", edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space'%> 
-                <%= link_to "Delete Service", vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space'%>
-              <% else %>
-                <%= link_to "Book Now", '#', class: 'btn btn-sm btn-primary float-right' %>
+                </td>
+              </tr>
+              <tr class="table-divider"></tr>
               <% end %>
-              </td>
-            </tr>
-            <tr class="table-divider"></tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% end %>
-    </div>
-    <div class = "col-lg-4 text-center">
-    Hours:
-    <p>Monday: 8:00AM - 10:00PM</p>
-    <p>Tuesday: 8:00AM - 10:00PM</p>
-    <p>Wednesday: 8:00AM - 10:00PM</p>
-    <p>Thursday: 8:00AM - 10:00PM</p>
-    <p>Friday: 8:00AM - 10:00PM</p>
-    <p>Saturday: CLOSED</p>
-    <p>Sunday: CLOSED</p>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+      <div class = "col-lg-4 hours text-center">
+      <h6>Hours:</h6>
+      <p>Monday: 8:00AM - 10:00PM</p>
+      <p>Tuesday: 8:00AM - 10:00PM</p>
+      <p>Wednesday: 8:00AM - 10:00PM</p>
+      <p>Thursday: 8:00AM - 10:00PM</p>
+      <p>Friday: 8:00AM - 10:00PM</p>
+      <p>Saturday: CLOSED</p>
+      <p>Sunday: CLOSED</p>
+      </div>
     </div>
   </div>
-</div>
 
 <br />
 <br />
@@ -218,7 +241,7 @@
           <%= simple_form_for @service, url: vendor_services_path(@vendor) do |f| %>
             <%= f.input :name, label: false, placeholder: "Service Name (e.g. Box braids)", input_html: {class: "form-control form-control-sm" } %> 
             <%= f.input :description, label: false, placeholder: 'Description of service (e.g. "Box braids done with kanekalon hair. Hair not included.")', input_html: {class: "form-control form-control-sm" } %>
-            <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true}, label: "Select Categories" %>
+            <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true, title: "Type to add categories"},  label: "Select Categories" %>
             <div class = "row">
               <div class = "col-md-6">
                 <%= f.input :hours, label: false,prompt: "Duration in hours", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8], input_html: {class: "form-control form-control-sm"} %>
@@ -236,15 +259,13 @@
                 <%= f.input :cost_range, label: false, placeholder: "Price Range", input_html: {class: "form-control form-control-sm" } %>
               </div>
             </div>
-            <%= f.input :image, label: "Add an Image (Optional)", input_html: {class: 'btn btn-secondary btn-sm'}%>
-            <p class = "service-modal-box text-center">Only .jpg, .jpeg, and .png photo formats. Max size 10MB.</p>
         </div>
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Add Service", class: 'btn btn-primary' %> 
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ class AvailabilitiesController < ApplicationController
   end 
 
   def new
-    @vendor = Vendor.find(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
     @availability = Availability.new 
   end 
 

@@ -1,6 +1,6 @@
 @import "bootstrap"; 
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Heebo:300,400|Nunito:300,400');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
 
 html {
   position: relative;
@@ -19,7 +19,7 @@ body {
   line-height: 60px; /* Vertically center the text there */
   background-color: #CCCCCC;
   color: #444444;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 12px;
   margin-top: 60px;
 }
@@ -38,40 +38,8 @@ body {
 }
 
 .nav-link {
-  font-family: 'open_sansbold';
-  margin-left: 0px 8px 0px 8px;
-}
-
-
-.hero {
-  background: url(masthead-min-2.jpg) no-repeat center center fixed; 
-  opacity: 0.8;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 450px;
-  margin-bottom: 30px;
-}
-
-.frosty {
-  // background: rgba(0, 0, 0, 0.3);
-  margin-left: 50px;
-  color: white;
-  max-width: 500px;
-}
-
-.frosty h1 {
-  font-family: 'Abhaya Libre', serif;
-  font-size: 50px;
-  color: #444444;
-}
-
-.frosty h2 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 100;
-  color: #676767;
-  font-size: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-left: 0px 2px 0px 2px;
 }
 
 .call-to-action{
@@ -83,7 +51,7 @@ body {
 }
 
 .call-to-action h1 {
-  font-family: 'Abhaya Libre', serif;
+  font-family: 'Source Sans Pro', serif;
   font-size: 40px;
   text-align: center;
   color: #444444;
@@ -91,7 +59,7 @@ body {
 }
 
 .call-to-action p{ 
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #676767;
   font-size: 16px;
   text-align: center;
@@ -99,7 +67,7 @@ body {
 
 .call-to-action .emphasis {
   color: #78a1bb;
-  font-family: 'open_sansbold';
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.2rem; 
 }
 
@@ -128,7 +96,7 @@ body {
 }
 
 .start h1 {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   margin: 20px;
   font-size: 4rem ;
   color: #444444;
@@ -154,7 +122,7 @@ input#user_remember_me {
 
 .why-box {
   padding-top: 20px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   padding-left: 30px;
 }
 
@@ -163,7 +131,7 @@ input#user_remember_me {
 }
 
 input {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 // .vendor-form input {
@@ -176,7 +144,7 @@ input {
 // }
 
 .vendor-form label {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.9rem;
 }
 
@@ -191,12 +159,13 @@ input {
 .vendor-sign-up {
   height: 100%;
   padding-right: 25px;
-  margin-top: 80px;
+  margin-top: 40px;
   margin-bottom: 150px;
 }
 
 .vendor-sign-up h1 {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
   font-size: 3rem;
 }
 
@@ -209,7 +178,11 @@ input {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: 4px solid #78a1bb;
+  border: 3px solid #F7CA18;
+}
+
+.zip-capital {
+  text-transform: uppercase;
 }
 
 .btn-spacing {
@@ -217,8 +190,6 @@ input {
 }
 
 .vendor-profile {
-  //border-top: 1px solid #676767;
-  border-bottom: 1px solid #676767;
   padding: 30px;
 }
 
@@ -251,7 +222,7 @@ input {
 }
 
 .vendor-profile-text>p {
-  font-family: 'open_sanslight';
+  font-family: 'Source Sans Pro';
   font-size: 14px;
 }
 
@@ -264,18 +235,23 @@ input {
 }
 
 .vendor-profile-text h1 {
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
+
+.vendor-content {
+  margin-bottom: 80px;
+}
+
 
 .vendor-profile-text p {
   font-size: 14px;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   margin-bottom: 5px;
 }
 
 h2.first-service {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 25px;
 
 }
@@ -286,13 +262,13 @@ h2.first-service {
 }
 
 .vendor-services p {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
   margin: 20px;
 }
 
 p.service-modal-box {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.8rem;
 }
 
@@ -338,7 +314,7 @@ p.service-modal-box {
 }
 
 .carousel-caption{
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 100;
   font-size: 25px;
   color: white;
@@ -388,7 +364,7 @@ xButtons
   box-shadow: none;
   border-radius: .25em;
   font-size: 1.4rem;
-  font-family: "Nunito", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #444444;
   padding: .6em 2.2em;
   cursor: pointer;
@@ -504,7 +480,11 @@ xButtons
 }
 
 .login h1 {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.login {
+  margin-bottom: 100px;
 }
 
 .vendor-start {
@@ -523,8 +503,16 @@ xButtons
   display: none;
 }
 
-#add-break-monday, #add-break-tuesday, #add-break-wednesday, #add-break-thursday, #add-break-friday, #add-break-saturday, #add-break-sunday {
-  vertical-align: middle; 
+#monday-edit {
+  display: none;
+}
+
+.grey-background {
+  background-color: #e6e6e6;
+}
+
+.green-background {
+  background-color: #C8F7C5;
 }
 
 .select-time {
@@ -532,8 +520,13 @@ xButtons
 }
 
 .homepage-header, .business-header {
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.homepage-header {
+  background-color: #FDFDFD;
+  min-height: 360px;
 }
 
 .homepage-heading {
@@ -541,14 +534,19 @@ xButtons
   padding-top: 20px;
   text-transform: none;
   font-size: 3rem;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 400;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
   color: #111;
   line-height: 1.46;
 }
 
+.homepage-stretch-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 .homepage-subheading {
-  font-family: 'Heebo', sans-serif;;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   font-size: 1.5rem; 
 }
@@ -556,6 +554,7 @@ xButtons
 .homepage-stretch {
   padding-top: 30px;
   padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .image-homepage {
@@ -603,14 +602,14 @@ opacity: 1;
 }
 
 .image-text {
-  font-family: "Nunito", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   font-size: 1.1rem;
 }
 
 .business-header {
-  font-family: "Nunito", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 3rem;
 }
 
@@ -623,7 +622,7 @@ opacity: 1;
 }
 
 .availability-header {
-  font-size: 3rem;
+  font-family: 'Source Sans Pro', sans-serif;
   margin-top: 20px;
 }
 
@@ -653,3 +652,24 @@ opacity: 1;
 	z-index: 9999;
 	background: url(loader-2.gif) center no-repeat #fff;
 }
+
+
+.navbar-minor {
+  line-height: 0.4;
+  padding: 10px;
+  margin-top: 58.38px;
+}
+
+.nav-link-minor {
+  font-size: 1rem; 
+  padding: 5px 5px 5px 5px;
+  color: #6c757d !important;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+
+.nav-link-minor:hover {
+  color: #288cff !important
+}
+

@@ -10,12 +10,12 @@ class ServicesController < ApplicationController
   end
 
   def new 
-    @vendor = Vendor.find(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
     @service = Service.new
   end 
   
   def create 
-    @vendor = Vendor.find_by_id(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
     if @vendor.user == current_user
       @service = @vendor.services.create(service_params.merge(user: current_user))
       if @service.valid?
@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
   end 
 
   def edit 
-    @vendor = Vendor.find_by_id(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
     @service = Service.find_by_id(params[:id])
     if @service.user != current_user
       return render text: 'Not Allowed', status: :forbidden
@@ -37,7 +37,7 @@ class ServicesController < ApplicationController
   end 
 
   def update
-    @vendor = Vendor.find_by_id(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
     @service = Service.find_by_id(params[:id])
     if @service.user != current_user
       return render text: 'Not Allowed', status: :forbidden
@@ -47,7 +47,7 @@ class ServicesController < ApplicationController
   end 
 
   def destroy
-    @vendor = Vendor.find_by_id(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
     @service = Service.find_by_id(params[:id])
     if @service.user == current_user
       @service.destroy
@@ -60,11 +60,11 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, :description, :hours, :minutes, :cost_absolute, :cost_range, :image, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+    params.require(:service).permit(:name, :description, :hours, :minutes, :cost_absolute, :cost_range, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
   end 
   
   def current_vendor
-    @current_vendor ||= Vendor.find(params[:vendor_id])
+    @current_vendor ||= Vendor.friendly.find(params[:vendor_id])
   end 
 
 end
