@@ -3590,7 +3590,8 @@ tbody.collapse.show {
 }
 
 .custom-control-label {
-  margin-bottom: 0
+  margin-bottom: 0;
+  padding-left: 30px;
 }
 
 .custom-control-label::before {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608161159) do
+ActiveRecord::Schema.define(version: 20180609080328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,16 +32,13 @@ ActiveRecord::Schema.define(version: 20180608161159) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string   "time_zone"
-    t.string   "day"
     t.time     "day_start"
     t.time     "day_end"
-    t.time     "break_start"
-    t.time     "break_end"
     t.integer  "user_id"
     t.integer  "vendor_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "day"
     t.index ["user_id", "vendor_id"], name: "index_availabilities_on_user_id_and_vendor_id", using: :btree
     t.index ["vendor_id"], name: "index_availabilities_on_vendor_id", using: :btree
   end
@@ -94,6 +91,18 @@ ActiveRecord::Schema.define(version: 20180608161159) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "unavailabilities", force: :cascade do |t|
+    t.integer  "day"
+    t.time     "break_start"
+    t.time     "break_end"
+    t.integer  "user_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id", "vendor_id"], name: "index_unavailabilities_on_user_id_and_vendor_id", using: :btree
+    t.index ["vendor_id"], name: "index_unavailabilities_on_vendor_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -115,6 +124,17 @@ ActiveRecord::Schema.define(version: 20180608161159) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "vacations", force: :cascade do |t|
+    t.datetime "vacation_start"
+    t.datetime "vacation_end"
+    t.integer  "user_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id", "vendor_id"], name: "index_vacations_on_user_id_and_vendor_id", using: :btree
+    t.index ["vendor_id"], name: "index_vacations_on_vendor_id", using: :btree
   end
 
   create_table "vendors", force: :cascade do |t|

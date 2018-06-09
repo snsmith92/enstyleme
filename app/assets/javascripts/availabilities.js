@@ -1,31 +1,39 @@
 $(document).ready(function(){
+  //var vendor_class = document.getElementByClassName("availability-header")[0].value;
+  //var vendor_id = vendor_class.prop('id');
+  
   // MONDAY
-  // trigger availability form
+  // trigger availability form to appear
   $("#toggle-monday").click(function(){
-    $("#form-monday").slideToggle();
-  });
-  // trigger break entry
-  $("#add-break-monday").click(function(){
-    $("#break-monday").slideToggle();
-    $("#add-break-monday").hide();
-  });
-  // trigger form submission and changing classes
-  $("#monday-submit").click(function(){
-    $("#monday-form").trigger('submit.rails');
-    $("#form-monday").hide();
-    $("#break-monday").hide()
-    $("#monday-submit").hide();
-    $("#monday-edit").show("fade", 1000);
-    $(this).parents('tr').removeClass("grey-background");
-    $(this).parents('tr').addClass("green-background");
+    $("#form-monday").slideToggle("fast");
   });
 
-  $("#monday-edit").click(function(){
-    $("#monday-edit").hide();
-    $("#monday-submit").show("fade", 1000);
-    $(this).parents('tr').removeClass("green-background");
-    $(this).parents('tr').addClass("gray-background");
+  // trigger form submission and changing classes
+  $("#monday-submit").click(function(){
+    var vendorId = document.querySelector(".availability-header").getAttribute('id');
+    $("#monday-form").trigger('submit.rails');
+    $("#form-monday").hide();
   });
+
+  // trigger form edit
+
+  // trigger form delete
+  $("#monday-button-delete").click(function(){
+    $('#monday-times').load("/vendors/" + vendor_id + "/availabilities/new #monday-times");
+    $('.monday-buttons').load("/vendors/" + vendor_id + "/availabilities/new #monday-times");
+  });
+
+  // $("#toggle-monday-delete").click(function(){
+  //   $.ajax({
+  //   type: ‘delete’,
+  //   url: url,
+  //   data: data,
+  //   success: success,
+  //   dataType: dataType
+  //   });
+  //   $('#monday-times').load(document.URL +  ' #monday-times');
+  // });
+
 /////////////////////////
   $("#toggle-tuesday").click(function(){
     $("#form-tuesday").slideToggle();

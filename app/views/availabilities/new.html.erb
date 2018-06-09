@@ -1,7 +1,8 @@
 <div class = "availability-new-page">
-  <h1 class = "text-center availability-header">Set Your Availability</h1>
+  <h1 class = "text-center availability-header" id = "<%= @vendor.id %>">Set Your Availability</h1>
   <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
-    <h4 class = "text-center">Step 2: Set your weekly hours.</h4>
+    <h4 class = "text-center">Step 2: Set your weekly hours.</h4> 
+    <p class = "text-muted text-center">Tip: Put your general daily operating hours (e.g. 9AM - 5PM) here. Later on you'll be able to add time for breaks through the day, as well as vacations and holidays.</p>
   <% end %>
   <div class = "container-fluid availability-table col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
     <table class="table table-hover table-cards align-items-center ">
@@ -17,90 +18,65 @@
           <th scope="row">
             <div class="media align-items-center">
               <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Monday</h6>
+                <h6 class="h5 font-weight-normal mb-0">Monday</h6> 
+                <span class = "text-muted" id = "monday-times" data-update-url = "<%= vendor_availabilities_path(@vendor, @availability) %>">
+                  <%= show_available(0, @vendor.id) %>
+                </span>
+                <% if availability_set?(0, @vendor.id) %>
+                  <%= link_to '#', id: "monday-edit-button" do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </th>
-          <td>
-          
+          <td >
           </td>
           <td>
-          <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="toggle-switch-slider rounded-circle" id= "toggle-monday"></span>
-          </label>
+          <div class = "monday-buttons">
+            <% if availability_set?(0, @vendor.id) %>
+             
+                <%= link_to "Delete", vendor_availability_path(@vendor, current_availability(0, @vendor)), method: :delete, remote: true, id: "monday-button-delete" %>
+              
+            <% else %>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-switch-slider rounded-circle" id= "toggle-monday"></span>
+              </label>
+            <% end %>
+          </div>
           </td>
         </tr>
         <tr class = "grey-background monday-tr">
           <td colspan="3" id= "form-monday">
           <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), id: "#monday-form" do |f| %>
-          <div class = "row">
-            <div class = "col-md-4">
-              <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Monday' } %>
-              <%=f.time_select :day_start, label: "Start Time",
-                :combined => true,
-                :default => Time.now.change(:hour => 8, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-              %>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 0 } %>
+            <%=f.time_select :day_start, label: "Start Time",
+              :combined => true,
+              :default => Time.now.change(:hour => 8, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+            %>
             &nbsp; to &nbsp;
-              <%=f.time_select :day_end,
-                :combined => true,
-                :default => Time.now.change(:hour => 22, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-                %>
-            </div>
-            <div class = "col-md-4">
-              <div class = "line">
-                <span class = "btn btn-sm btn-second" id =  "add-break-monday">Add a break</span>
-              </div>
-              <div class = "break-field" id = "break-monday">
-                <p>Break from:</p> 
-                <%=f.time_select :break_start, label: "Start Time", class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 12, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-                &nbsp; to &nbsp;
-                <%=f.time_select :break_end, class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 13, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-              </div>
-            </div>
-            <div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main', id: "monday-submit" do %>
-              Add to Calendar
+            <%=f.time_select :day_end,
+              :combined => true,
+              :default => Time.now.change(:hour => 22, :min => 00),
+              :minute_interval => 30,
+              :time_separator => "",
+              :start_hour => 6,
+              :start_minute => 00,
+              :end_hour => 22,
+              :end_minute => 30,
+              :ampm => true
+              %>
+            <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary', id: "monday-submit" do %>
+              Save
             <% end %>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main', id: "monday-edit" do %>
-              <i class="far fa-edit"></i>
-            <% end %>
-            </div>
           <% end %>
           </td>
         </tr>
@@ -124,12 +100,12 @@
           </td>
         </tr>
         <tr class = "bg-white">
-          <td colspan="3" id= "form-tuesday">
+          <td colspan="2" id= "form-tuesday">
           <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
           <div class = "row">
             <div class = "col-md-4">
               <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Tuesday' } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 1 } %>
               <%=f.time_select :day_start, label: "Start Time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -153,35 +129,6 @@
                 :end_minute => 30,
                 :ampm => true
                 %>
-            </div>
-            <div class = "col-md-4">
-              <span class = "btn btn-sm btn-main" id =  "add-break-tuesday">Add a break</span>
-              <div class = "break-field" id = "break-tuesday">
-                <p>Break from:</p> 
-                <%=f.time_select :break_start, label: "Start Time", class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 12, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-                &nbsp; to &nbsp;
-                <%=f.time_select :break_end, class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 13, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-              </div>
             </div>
             <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
               <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
@@ -214,7 +161,7 @@
           <div class = "row">
             <div class = "col-md-4">
               <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Wednesday' } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 2 } %>
               <%=f.time_select :day_start, label: "Start Time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -238,35 +185,6 @@
                 :end_minute => 30,
                 :ampm => true
                 %>
-            </div>
-            <div class = "col-md-4">
-              <span class = "btn btn-sm btn-main" id =  "add-break-wednesday">Add a break</span>
-              <div class = "break-field" id = "break-wednesday">
-                <p>Break from:</p> 
-                <%=f.time_select :break_start, label: "Start Time", class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 12, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-                &nbsp; to &nbsp;
-                <%=f.time_select :break_end, class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 13, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-              </div>
             </div>
             <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
               <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
@@ -300,7 +218,7 @@
           <div class = "row">
             <div class = "col-md-4">
               <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Thursday' } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 3 } %>
               <%=f.time_select :day_start, label: "Start Time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -324,35 +242,6 @@
                 :end_minute => 30,
                 :ampm => true
                 %>
-            </div>
-            <div class = "col-md-4">
-              <span class = "btn btn-sm btn-main" id =  "add-break-thursday">Add a break</span>
-              <div class = "break-field" id = "break-thursday">
-                <p>Break from:</p> 
-                <%=f.time_select :break_start, label: "Start Time", class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 12, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-                &nbsp; to &nbsp;
-                <%=f.time_select :break_end, class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 13, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-              </div>
             </div>
             <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
               <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
@@ -385,7 +274,7 @@
           <div class = "row">
             <div class = "col-md-4">
               <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Friday' } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 4 } %>
               <%=f.time_select :day_start, label: "Start Time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -409,35 +298,6 @@
                 :end_minute => 30,
                 :ampm => true
                 %>
-            </div>
-            <div class = "col-md-4">
-              <span class = "btn btn-sm btn-main" id =  "add-break-friday">Add a break</span>
-              <div class = "break-field" id = "break-friday">
-                <p>Break from:</p> 
-                <%=f.time_select :break_start, label: "Start Time", class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 12, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-                &nbsp; to &nbsp;
-                <%=f.time_select :break_end, class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 13, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-              </div>
             </div>
             <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
               <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
@@ -470,7 +330,7 @@
           <div class = "row">
             <div class = "col-md-4">
               <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Saturday' } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 5 } %>
               <%=f.time_select :day_start, label: "Start Time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -494,35 +354,6 @@
                 :end_minute => 30,
                 :ampm => true
                 %>
-            </div>
-            <div class = "col-md-4">
-              <span class = "btn btn-sm btn-main" id =  "add-break-saturday">Add a break</span>
-              <div class = "break-field" id = "break-saturday">
-                <p>Break from:</p> 
-                <%=f.time_select :break_start, label: "Start Time", class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 12, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-                &nbsp; to &nbsp;
-                <%=f.time_select :break_end, class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 13, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-              </div>
             </div>
             <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
               <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
@@ -555,7 +386,7 @@
           <div class = "row">
             <div class = "col-md-4">
               <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 'Sunday' } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 6 } %>
               <%=f.time_select :day_start, label: "Start Time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -579,35 +410,6 @@
                 :end_minute => 30,
                 :ampm => true
                 %>
-            </div>
-            <div class = "col-md-4">
-              <span class = "btn btn-sm btn-main" id =  "add-break-sunday">Add a break</span>
-              <div class = "break-field" id = "break-sunday">
-                <p>Break from:</p> 
-                <%=f.time_select :break_start, label: "Start Time", class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 12, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-                &nbsp; to &nbsp;
-                <%=f.time_select :break_end, class: "select-time",
-                  :combined => true,
-                  :default => Time.now.change(:hour => 13, :min => 00),
-                  :minute_interval => 30,
-                  :time_separator => "",
-                  :start_hour => 6,
-                  :start_minute => 00,
-                  :end_hour => 22,
-                  :end_minute => 30,
-                  :ampm => true
-                %>
-              </div>
             </div>
             <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
               <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>

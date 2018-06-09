@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :vendors do 
     resources :services, only: [:show, :edit, :update, :new, :create, :destroy]
     resources :availabilities
+    resources :unavailabilities
+    resources :vacations
   end 
   resources :services, only: [:index]
   get 'tags/:tag', to: 'services#index', as: :tag
