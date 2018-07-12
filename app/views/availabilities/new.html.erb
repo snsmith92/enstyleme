@@ -1,428 +1,430 @@
 <div class = "availability-new-page">
-  <h1 class = "text-center availability-header" id = "<%= @vendor.id %>">Set Your Availability</h1>
+  <h1 class = "text-center availability-header" id = "<%= @vendor.slug %>">Set Your Availability</h1>
   <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
     <h4 class = "text-center">Step 2: Set your weekly hours.</h4> 
-    <p class = "text-muted text-center">Tip: Put your general daily operating hours (e.g. 9AM - 5PM) here. Later on you'll be able to add time for breaks through the day, as well as vacations and holidays.</p>
   <% end %>
-  <div class = "container-fluid availability-table col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
-    <table class="table table-hover table-cards align-items-center ">
-      <thead>
-        <tr>
-          <th scope="col">Day of the Week</th>
-          <th scope="col"></th>
-          <th scope="col">Available?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="bg-white">
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Monday</h6> 
-                <span class = "text-muted" id = "monday-times" data-update-url = "<%= vendor_availabilities_path(@vendor, @availability) %>">
-                  <%= show_available(0, @vendor.id) %>
-                </span>
-                <% if availability_set?(0, @vendor.id) %>
-                  <%= link_to '#', id: "monday-edit-button" do %>
-                    <i class="far fa-edit"></i>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          </th>
-          <td >
-          </td>
-          <td>
-          <div class = "monday-buttons">
-            <% if availability_set?(0, @vendor.id) %>
-             
-                <%= link_to "Delete", vendor_availability_path(@vendor, current_availability(0, @vendor)), method: :delete, remote: true, id: "monday-button-delete" %>
-              
-            <% else %>
-              <label class="toggle-switch">
-                <input type="checkbox">
-                <span class="toggle-switch-slider rounded-circle" id= "toggle-monday"></span>
-              </label>
-            <% end %>
-          </div>
-          </td>
-        </tr>
-        <tr class = "grey-background monday-tr">
-          <td colspan="3" id= "form-monday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), id: "#monday-form" do |f| %>
-            <%= f.input :day, as: :hidden, label: false, input_html: { value: 0 } %>
-            <%=f.time_select :day_start, label: "Start Time",
-              :combined => true,
-              :default => Time.now.change(:hour => 8, :min => 00),
-              :minute_interval => 30,
-              :time_separator => "",
-              :start_hour => 6,
-              :start_minute => 00,
-              :end_hour => 22,
-              :end_minute => 30,
-              :ampm => true
-            %>
-            &nbsp; to &nbsp;
-            <%=f.time_select :day_end,
-              :combined => true,
-              :default => Time.now.change(:hour => 22, :min => 00),
-              :minute_interval => 30,
-              :time_separator => "",
-              :start_hour => 6,
-              :start_minute => 00,
-              :end_hour => 22,
-              :end_minute => 30,
-              :ampm => true
-              %>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary', id: "monday-submit" do %>
-              Save
-            <% end %>
-          <% end %>
-          </td>
-        </tr>
-        <tr class="table-divider"></tr>
-        <tr class="bg-white">
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Tuesday</h6>
-              </div>
-            </div>
-          </th>
-          <td>
-          
-          </td>
-          <td>
-          <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="toggle-switch-slider" id= "toggle-tuesday"></span>
-          </label>
-          </td>
-        </tr>
-        <tr class = "bg-white">
-          <td colspan="2" id= "form-tuesday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
-          <div class = "row">
-            <div class = "col-md-4">
-              <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 1 } %>
-              <%=f.time_select :day_start, label: "Start Time",
-                :combined => true,
-                :default => Time.now.change(:hour => 8, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-              %>
-            &nbsp; to &nbsp;
-              <%=f.time_select :day_end,
-                :combined => true,
-                :default => Time.now.change(:hour => 22, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-                %>
-            </div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
-              <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
-            <% end %>
-          <% end %>
-          </td>
-        </tr>
-        <tr class="table-divider"></tr>
-        <tr class="bg-white">
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Wednesday</h6>
-              </div>
-            </div>
-          </th>
-          <td>
-          
-          </td>
-          <td>
-          <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="toggle-switch-slider" id= "toggle-wednesday"></span>
-          </label>
-          </td>
-        </tr>
-        <tr class = "bg-white">
-          <td colspan="3" id= "form-wednesday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
-          <div class = "row">
-            <div class = "col-md-4">
-              <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 2 } %>
-              <%=f.time_select :day_start, label: "Start Time",
-                :combined => true,
-                :default => Time.now.change(:hour => 8, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-              %>
-            &nbsp; to &nbsp;
-              <%=f.time_select :day_end,
-                :combined => true,
-                :default => Time.now.change(:hour => 22, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-                %>
-            </div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
-              <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
-            <% end %>
-          <% end %>
-          </td>
-        </tr>
-        <tr class="table-divider"></tr>
+  <p class = "text-muted text-center">Tip: Put your general daily operating hours (e.g. 9AM - 5PM) here. Later on you'll be able to add time for breaks through the day, as well as vacations and holidays.</p>
+  <br />
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-md-5 col-sm-12">
+        <section class = "list">
+          <h6> Your hours </h6>
+          <ul class = "availability-list">
 
-        <tr class="bg-white">
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Thursday</h6>
-              </div>
-            </div>
-          </th>
-          <td>
-          
-          </td>
-          <td>
-          <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="toggle-switch-slider" id= "toggle-thursday"></span>
-          </label>
-          </td>
-        </tr>
-        <tr class = "bg-white">
-          <td colspan="3" id= "form-thursday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
-          <div class = "row">
-            <div class = "col-md-4">
-              <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 3 } %>
-              <%=f.time_select :day_start, label: "Start Time",
-                :combined => true,
-                :default => Time.now.change(:hour => 8, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-              %>
-            &nbsp; to &nbsp;
-              <%=f.time_select :day_end,
-                :combined => true,
-                :default => Time.now.change(:hour => 22, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
+          </ul>
+        </section>
+      </div>
+      <div class = "container-fluid availability-table col-lg-7 col-sm-12">
+      <table class="table table-hover table-cards align-items-center ">
+        <thead>
+          <tr>
+            <th scope="col">Day of the Week</th>
+            <th scope="col"></th>
+            <th scope="col">Available?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if availability_set?(0, @vendor.id) == false %>
+            <tr class="bg-white" id = "monday-row">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0">Mondays</h6> 
+                  </div>
+                </div>
+              </th>
+              <td >
+              
+              </td>
+              <td>
+                <div class = "monday-buttons">
+                  <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-switch-slider rounded-circle" id= "toggle-monday"></span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr class = "grey-background monday-tr">
+              <td colspan="3" id= "form-monday">
+              <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), id: "#monday-form", remote: true do |f| %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 0, class: "monday-day" } %>
+                <%=f.time_select :day_start, label: "Start Time", class: "monday-start-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 8, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
                 %>
-            </div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
-              <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
-            <% end %>
+                &nbsp; to &nbsp;
+                <%=f.time_select :day_end, class: "monday-end-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 22, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                  %>
+                <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary float-right', id: "monday-submit" do %>
+                  Save
+                <% end %>
+              <% end %>
+              </td>
+            </tr>
           <% end %>
-          </td>
-        </tr>
-        <tr class="table-divider"></tr>
-        <tr class="bg-white">
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Friday</h6>
-              </div>
-            </div>
-          </th>
-          <td>
-          
-          </td>
-          <td>
-          <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="toggle-switch-slider" id= "toggle-friday"></span>
-          </label>
-          </td>
-        </tr>
-        <tr class = "bg-white">
-          <td colspan="3" id= "form-friday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
-          <div class = "row">
-            <div class = "col-md-4">
-              <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 4 } %>
-              <%=f.time_select :day_start, label: "Start Time",
-                :combined => true,
-                :default => Time.now.change(:hour => 8, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-              %>
-            &nbsp; to &nbsp;
-              <%=f.time_select :day_end,
-                :combined => true,
-                :default => Time.now.change(:hour => 22, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
+          <tr class="table-divider"></tr>
+          <% if availability_set?(1, @vendor.id) == false %>
+            <tr class="bg-white" id = "tuesday-row">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0">Tuesdays</h6>
+                  </div>
+                </div>
+              </th>
+              <td>
+              
+              </td>
+              <td>
+                <div class = "tuesday-buttons">
+                  <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-switch-slider rounded-circle" id= "toggle-tuesday"></span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr class = "grey-background tuesday-tr">
+              <td colspan="3" id= "form-tuesday">
+              <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), remote: true do |f| %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 1, class: "tuesday-day" } %>
+                <%=f.time_select :day_start, label: "Start Time", class: "tuesday-start-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 8, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
                 %>
-            </div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
-              <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
-            <% end %>
+              &nbsp; to &nbsp;
+                <%=f.time_select :day_end, class: "tuesday-end-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 22, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                  %>
+                <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary float-right', id: "tuesday-submit" do %>
+                  Save
+                <% end %>
+              <% end %>
+              </td>
+            </tr>
           <% end %>
-          </td>
-        </tr>
-        <tr class="table-divider"></tr>
-        <tr class="bg-white">
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Saturday</h6>
-              </div>
-            </div>
-          </th>
-          <td>
-          
-          </td>
-          <td>
-          <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="toggle-switch-slider" id= "toggle-saturday"></span>
-          </label>
-          </td>
-        </tr>
-        <tr class = "bg-white">
-          <td colspan="3" id= "form-saturday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
-          <div class = "row">
-            <div class = "col-md-4">
-              <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 5 } %>
-              <%=f.time_select :day_start, label: "Start Time",
-                :combined => true,
-                :default => Time.now.change(:hour => 8, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-              %>
-            &nbsp; to &nbsp;
-              <%=f.time_select :day_end,
-                :combined => true,
-                :default => Time.now.change(:hour => 22, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
+          <tr class="table-divider"></tr>
+          <% if availability_set?(2, @vendor.id) == false %>
+            <tr class="bg-white" id = "wednesday-row">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0">Wednesdays</h6>
+                  </div>
+                </div>
+              </th>
+              <td>
+              
+              </td>
+              <td>
+                <div class = "wednesday-buttons">
+                  <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-switch-slider rounded-circle" id= "toggle-wednesday"></span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr class = "grey-background wednesday-tr">
+              <td colspan="3" id= "form-wednesday">
+              <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), remote: true do |f| %>
+                  <p>Hours from:</p>
+                  <%= f.input :day, as: :hidden, label: false, input_html: { value: 2, class: "wednesday-day"} %>
+                  <%=f.time_select :day_start, label: "Start Time", class: "wednesday-start-time",
+                    :combined => true,
+                    :default => Time.now.change(:hour => 8, :min => 00),
+                    :minute_interval => 30,
+                    :time_separator => "",
+                    :start_hour => 6,
+                    :start_minute => 00,
+                    :end_hour => 22,
+                    :end_minute => 30,
+                    :ampm => true
+                  %>
+                &nbsp; to &nbsp;
+                  <%=f.time_select :day_end, class: "wednesday-end-time",
+                    :combined => true,
+                    :default => Time.now.change(:hour => 22, :min => 00),
+                    :minute_interval => 30,
+                    :time_separator => "",
+                    :start_hour => 6,
+                    :start_minute => 00,
+                    :end_hour => 22,
+                    :end_minute => 30,
+                    :ampm => true
+                    %>
+                <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary float-right', id: "wednesday-submit" do %>
+                  Save
+                <% end %>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+          <tr class="table-divider"></tr>
+          <% if availability_set?(3, @vendor.id) == false %>
+            <tr class="bg-white" id = "thursday-row">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0">Thursdays</h6>
+                  </div>
+                </div>
+              </th>
+              <td>
+              
+              </td>
+              <td>
+                <div class = "thursday-buttons">
+                  <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-switch-slider rounded-circle" id= "toggle-thursday"></span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr class = "grey-background thursday-tr">
+              <td colspan="3" id= "form-thursday">
+              <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), id: "#thursday-form", remote: true do |f| %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 3, class: "thursday-day" } %>
+                <%=f.time_select :day_start, label: "Start Time", class: "thursday-start-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 8, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
                 %>
-            </div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
-              <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
-            <% end %>
+              &nbsp; to &nbsp;
+                <%=f.time_select :day_end, class: "thursday-end-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 22, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                  %>
+                <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary', id: 'thursday-submit' do %>
+                  Save
+                <% end %>
+              <% end %>
+              </td>
+            </tr>
           <% end %>
-          </td>
-        </tr>
-        <tr class="table-divider"></tr>
-          <tr class="bg-white">
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <h6 class="h5 font-weight-normal mb-0">Sunday</h6>
-              </div>
-            </div>
-          </th>
-          <td>
-          
-          </td>
-          <td>
-          <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="toggle-switch-slider" id= "toggle-sunday"></span>
-          </label>
-          </td>
-        </tr>
-        <tr class = "bg-white">
-          <td colspan="3" id= "form-sunday">
-          <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
-          <div class = "row">
-            <div class = "col-md-4">
-              <p>Hours from:</p>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 6 } %>
-              <%=f.time_select :day_start, label: "Start Time",
-                :combined => true,
-                :default => Time.now.change(:hour => 8, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
-              %>
-            &nbsp; to &nbsp;
-              <%=f.time_select :day_end,
-                :combined => true,
-                :default => Time.now.change(:hour => 22, :min => 00),
-                :minute_interval => 30,
-                :time_separator => "",
-                :start_hour => 6,
-                :start_minute => 00,
-                :end_hour => 22,
-                :end_minute => 30,
-                :ampm => true
+          <tr class="table-divider"></tr>
+          <% if availability_set?(4, @vendor.id) == false %>
+            <tr class="bg-white" id = "friday-row">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0">Fridays</h6>
+                  </div>
+                </div>
+              </th>
+              <td>
+              
+              </td>
+              <td>
+                <div class = "friday-buttons">
+                  <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-switch-slider rounded-circle" id= "toggle-friday"></span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr class = "grey-background friday-tr">
+              <td colspan="3" id= "form-friday">
+              <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor) do |f| %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 4, class: "friday-day" } %>
+                <%=f.time_select :day_start, label: "Start Time", class: "friday-start-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 8, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
                 %>
-            </div>
-            <%= button_tag type: 'submit', class: 'btn btn-sm btn-main' do %>
-              <i class="fas fa-plus-circle float-right" style = "font-size:1em;"></i>
-            <% end %>
+              &nbsp; to &nbsp;
+                <%=f.time_select :day_end, class: "friday-end-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 22, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                  %>
+                <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary float-right', id: "friday-submit" do %>
+                  Save
+                <% end %>
+              <% end %>
+              </td>
+            </tr>
           <% end %>
-          </td>
-        </tr>
-        <tr class="table-divider"></tr>
-      </tbody>
-    </table>
+          <tr class="table-divider"></tr>
+          <% if availability_set?(5, @vendor.id) == false %>
+            <tr class="bg-white" id = "saturday-row">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0">Saturdays</h6> 
+                  </div>
+                </div>
+              </th>
+              <td >
+              
+              </td>
+            <td>
+              <div class = "saturday-buttons">
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-switch-slider rounded-circle" id= "toggle-saturday"></span>
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr class = "grey-background saturday-tr">
+            <td colspan="3" id= "form-saturday">
+              <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), id: "#saturday-form", remote: true do |f| %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 5, class: "saturday-day" } %>
+                <%=f.time_select :day_start, label: "Start Time", class: "saturday-start-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 8, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                %>
+                &nbsp; to &nbsp;
+                <%=f.time_select :day_end, class: "saturday-end-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 22, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                  %>
+                <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary float-right', id: "saturday-submit" do %>
+                  Save
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+          <tr class="table-divider"></tr>
+            <% if availability_set?(6, @vendor.id) == false %>
+              <tr class="bg-white" id = "sunday-row">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0">Sundays</h6>
+                  </div>
+                </div>
+              </th>
+              <td>
+              
+              </td>
+              <td>
+                <div class = "sunday-buttons">
+                  <label class="toggle-switch">
+                      <input type="checkbox">
+                      <span class="toggle-switch-slider rounded-circle" id= "toggle-sunday"></span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr class = "grey-background sunday-tr">
+              <td colspan="3" id= "form-sunday">
+              <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), id: "#sunday-form", remote: true do |f| %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 6, class: "sunday-day" } %>
+                <%=f.time_select :day_start, label: "Start Time", class: "sunday-start-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 8, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                %>
+                &nbsp; to &nbsp;
+                <%=f.time_select :day_end, class: "sunday-end-time",
+                  :combined => true,
+                  :default => Time.now.change(:hour => 22, :min => 00),
+                  :minute_interval => 30,
+                  :time_separator => "",
+                  :start_hour => 6,
+                  :start_minute => 00,
+                  :end_hour => 22,
+                  :end_minute => 30,
+                  :ampm => true
+                  %>
+                <%= button_tag type: 'submit', class: 'btn btn-sm btn-primary float-right', id: "sunday-submit" do %>
+                  Save
+                <% end %>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+          <tr class="table-divider"></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
     <%= link_to vendor_path(@vendor), class: "btn btn-main btn-animated btn-animated-x float-right" do %>
       <span class="btn-inner--visible">NEXT: Design your profile</span>
       <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
     <% end %>
-  </div>
 </div>

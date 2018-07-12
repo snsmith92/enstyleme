@@ -30,7 +30,7 @@ class VendorsController < ApplicationController
   def edit
     @vendor = Vendor.friendly.find(params[:id])
     if @vendor.user != current_user
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
   end 
 
@@ -40,7 +40,7 @@ class VendorsController < ApplicationController
       render plain: "Sorry, no company to see here!", status: :not_found
     end 
     if @vendor.user != current_user
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
     @vendor.update_attributes(vendor_params)
 
@@ -60,7 +60,7 @@ class VendorsController < ApplicationController
       @vendor.destroy
       redirect_to root_path
     else 
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
   end 
 

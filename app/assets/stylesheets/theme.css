@@ -12770,7 +12770,7 @@ textarea[resize="horizontal"] {
 }
 
 .table-hover tr.bg-white:hover {
-  background-color: rgba(0, 0, 0, 0.075) !important
+  /* background-color: rgba(0, 0, 0, 0.075) !important */
 }
 
 tr.table-divider {

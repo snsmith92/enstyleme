@@ -2,13 +2,14 @@ class AvailabilitiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
+    @vendor = Vendor.friendly.find(params[:vendor_id])
+    render json: Availability.where(vendor_id: @vendor)
   end 
 
   def new
     @vendor = Vendor.friendly.find(params[:vendor_id])
     if @vendor.user != current_user 
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end  
     @availability = Availability.new 
   end 
@@ -19,12 +20,9 @@ class AvailabilitiesController < ApplicationController
     params[:availability].parse_time_select! :day_end
     if @vendor.user == current_user
       @availability = @vendor.availabilities.create(availability_params)
-      if @vendor.valid? == false
-        render :new, notice: "Errors were made in your form. Please try again"
-      end 
     else 
-      return render text: 'Not Allowed', status: :forbidden
-    end  
+      return render plain: 'Not Allowed', status: :forbidden
+    end
   end 
 
   def show
@@ -42,10 +40,10 @@ class AvailabilitiesController < ApplicationController
   def destroy
     @vendor = Vendor.friendly.find(params[:vendor_id])
     @availability = Availability.find_by_id(params[:id])
-    if @vendor.user == current_user
+    if @availability.user == current_user
       @availability.destroy
     else
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
   end 
 

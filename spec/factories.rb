@@ -1,10 +1,21 @@
 FactoryBot.define do
+  factory :user do
+    sequence :email do |n|
+      "dummyEmail#{n}@gmail.com"
+    end
+    password "secretPassword"
+    password_confirmation "secretPassword"
+    confirmed_at Time.now
+  end
+
   factory :vacation do
     
   end
+  
   factory :unavailability do
     
   end
+
   factory :availability do
     day 0
     day_start "2000-01-01 09:00:00 UTC"

@@ -1,7 +1,35 @@
+$(document).ready(function() {
+  var vendorId = document.querySelector(".availability-header").getAttribute('id');
+  $.get("/vendors/" + vendorId + "/availabilities").success( function( data ) {
+    var htmlString = "";
+    $.each(data, function(index,  availability) {
+      if (availability.day === 0) {
+        day = "Mondays" 
+      } else if (availability.day === 1) {
+        day = "Tuesdays"
+      } else if (availability.day === 2) {
+        day = "Wednesdays"
+      } else if (availability.day === 3) {
+        day = "Thursdays"
+      } else if (availability.day === 4) {
+        day = "Fridays"
+      } else if (availability.day === 5) {
+        day = "Saturdays"
+      } else  {
+        day = "Sundays"
+      };
+   
+      var liElement = '<li><div class="view"><label> &nbsp; &nbsp;' + day + ": " +
+         availability.day_start + ' to ' + availability.day_end +
+         '</label></div></li>';
+        htmlString += liElement;
+    });
+    var ulAvailability = $('.availability-list');
+    ulAvailability.html(htmlString);
+  });
+});
+
 $(document).ready(function(){
-  //var vendor_class = document.getElementByClassName("availability-header")[0].value;
-  //var vendor_id = vendor_class.prop('id');
-  
   // MONDAY
   // trigger availability form to appear
   $("#toggle-monday").click(function(){
@@ -11,72 +39,99 @@ $(document).ready(function(){
   // trigger form submission and changing classes
   $("#monday-submit").click(function(){
     var vendorId = document.querySelector(".availability-header").getAttribute('id');
-    $("#monday-form").trigger('submit.rails');
+    //$("#monday-form").trigger('submit.rails');
     $("#form-monday").hide();
+    $("#monday-row").hide();
   });
-
-  // trigger form edit
-
-  // trigger form delete
-  $("#monday-button-delete").click(function(){
-    $('#monday-times').load("/vendors/" + vendor_id + "/availabilities/new #monday-times");
-    $('.monday-buttons').load("/vendors/" + vendor_id + "/availabilities/new #monday-times");
-  });
-
-  // $("#toggle-monday-delete").click(function(){
-  //   $.ajax({
-  //   type: ‘delete’,
-  //   url: url,
-  //   data: data,
-  //   success: success,
-  //   dataType: dataType
-  //   });
-  //   $('#monday-times').load(document.URL +  ' #monday-times');
-  // });
 
 /////////////////////////
+  // TUESDAY
+  // trigger availability form to appear
   $("#toggle-tuesday").click(function(){
-    $("#form-tuesday").slideToggle();
+    $("#form-tuesday").slideToggle("fast");
   });
-  $("#add-break-tuesday").click(function(){
-    $("#break-tuesday").slideToggle();
-    $("#add-break-tuesday").hide();
+
+  // trigger form submission and changing classes
+  $("#tuesday-submit").click(function(){
+    var vendorId = document.querySelector(".availability-header").getAttribute('id');
+    //$("#monday-form").trigger('submit.rails');
+    $("#form-tuesday").hide();
+    $("#tuesday-row").hide();
   });
+
+/////////////////////////
+  // WEDNESDAY
+  // trigger availability form to appear
   $("#toggle-wednesday").click(function(){
-    $("#form-wednesday").slideToggle();
+    $("#form-wednesday").slideToggle("fast");
   });
-  $("#add-break-wednesday").click(function(){
-    $("#break-wednesday").slideToggle();
-    $("#add-break-wednesday").hide();
+
+  // trigger form submission and changing classes
+  $("#wednesday-submit").click(function(){
+    var vendorId = document.querySelector(".availability-header").getAttribute('id');
+    //$("#monday-form").trigger('submit.rails');
+    $("#form-wednesday").hide();
+    $("#wednesday-row").hide();
   });
+
+/////////////////////////
+  // THURSDAY
+  // trigger availability form to appear
   $("#toggle-thursday").click(function(){
-    $("#form-thursday").slideToggle();
+    $("#form-thursday").slideToggle("fast");
   });
-  $("#add-break-thursday").click(function(){
-    $("#break-thursday").slideToggle();
-    $("#add-break-thursday").hide();
+
+  // trigger form submission and changing classes
+  $("#thursday-submit").click(function(){
+    var vendorId = document.querySelector(".availability-header").getAttribute('id');
+    //$("#monday-form").trigger('submit.rails');
+    $("#form-thursday").hide();
+    $("#thursday-row").hide();
   });
   
+/////////////////////////
+  // FRIDAY
+  // trigger availability form to appear
   $("#toggle-friday").click(function(){
-    $("#form-friday").slideToggle();
+    $("#form-friday").slideToggle("fast");
   });
-  $("#add-break-friday").click(function(){
-    $("#break-friday").slideToggle();
-    $("#add-break-friday").hide();
+
+  // trigger form submission and changing classes
+  $("#friday-submit").click(function(){
+    var vendorId = document.querySelector(".availability-header").getAttribute('id');
+    //$("#monday-form").trigger('submit.rails');
+    $("#form-friday").hide();
+    $("#friday-row").hide();
   });
+
+/////////////////////////
+  // SATURDAY
+  // trigger availability form to appear
   $("#toggle-saturday").click(function(){
-    $("#form-saturday").slideToggle();
+    $("#form-saturday").slideToggle("fast");
   });
-  $("#add-break-saturday").click(function(){
-    $("#break-saturday").slideToggle();
-    $("#add-break-saturday").hide();
+
+  // trigger form submission and changing classes
+  $("#saturday-submit").click(function(){
+    var vendorId = document.querySelector(".availability-header").getAttribute('id');
+    //$("#monday-form").trigger('submit.rails');
+    $("#form-saturday").hide();
+    $("#saturday-row").hide();
   });
+
+/////////////////////////
+  // SUNDAY
+  // trigger availability form to appear
   $("#toggle-sunday").click(function(){
-    $("#form-sunday").slideToggle();
+    $("#form-sunday").slideToggle("fast");
   });
-  $("#add-break-sunday").click(function(){
-    $("#break-sunday").slideToggle();
-    $("#add-break-sunday").hide();
+
+  // trigger form submission and changing classes
+  $("#sunday-submit").click(function(){
+    var vendorId = document.querySelector(".availability-header").getAttribute('id');
+    //$("#monday-form").trigger('submit.rails');
+    $("#form-sunday").hide();
+    $("#sunday-row").hide();
   });
 });
 

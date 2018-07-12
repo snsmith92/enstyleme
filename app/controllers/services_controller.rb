@@ -24,7 +24,7 @@ class ServicesController < ApplicationController
         render :new, notice: "Errors were made in your service form. Please try again."
       end 
     else
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
   end 
 
@@ -32,7 +32,7 @@ class ServicesController < ApplicationController
     @vendor = Vendor.friendly.find(params[:vendor_id])
     @service = Service.find_by_id(params[:id])
     if @service.user != current_user
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
   end 
 
@@ -40,7 +40,7 @@ class ServicesController < ApplicationController
     @vendor = Vendor.friendly.find(params[:vendor_id])
     @service = Service.find_by_id(params[:id])
     if @service.user != current_user
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
     @service.update_attributes(service_params)
     redirect_to vendor_path(@vendor), notice: "The service has been updated."
@@ -53,7 +53,7 @@ class ServicesController < ApplicationController
       @service.destroy
       redirect_to vendor_path(@vendor), notice: "The service has been deleted."
     else
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end 
   end 
 
