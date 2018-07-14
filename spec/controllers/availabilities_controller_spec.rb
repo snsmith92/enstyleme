@@ -8,11 +8,10 @@ RSpec.describe AvailabilitiesController, type: :controller do
       sign_in user
       vendor = FactoryBot.create(:vendor)
       availability_1 = FactoryBot.create(:availability)
-      availability_2 = FactoryBot.create(:availability)
-      get :index, vendor_id: vendor.id
+      get :index, vendor_id: availability_1.vendor_id
       expect(response).to have_http_status :success
       response_value = ActiveSupport::JSON.decode(@response.body)
-      expect(response_value.count).to eq(2)
+      expect(response_value.count).to eq(1)
     end 
   end 
 
