@@ -115,6 +115,9 @@ gem 'friendly_id', '~> 5.1.0'
 # Geocode location
 gem "geocoder"
 
+# String interpolation of date/time in javascript
+gem 'momentjs-rails'
+
 ruby "2.3.1"
 
 

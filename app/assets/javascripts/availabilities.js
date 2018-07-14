@@ -1,31 +1,15 @@
 $(document).ready(function() {
   var vendorId = document.querySelector(".availability-header").getAttribute('id');
   $.get("/vendors/" + vendorId + "/availabilities").success( function( data ) {
-    var htmlString = "";
     $.each(data, function(index,  availability) {
       if (availability.day === 0) {
-        day = "Mondays" 
-      } else if (availability.day === 1) {
-        day = "Tuesdays"
-      } else if (availability.day === 2) {
-        day = "Wednesdays"
-      } else if (availability.day === 3) {
-        day = "Thursdays"
-      } else if (availability.day === 4) {
-        day = "Fridays"
-      } else if (availability.day === 5) {
-        day = "Saturdays"
-      } else  {
-        day = "Sundays"
+        console.log(data);
+        var liElement =
+        moment(availability.day_start).format('h:mm a') + ' to ' + moment(availability.day_end).format('h:mm a');
+        var ulAvailability = $('.monday-availability-time');
+        ulAvailability.html(liElement);
       };
-   
-      var liElement = '<li><div class="view"><label> &nbsp; &nbsp;' + day + ": " +
-         availability.day_start + ' to ' + availability.day_end +
-         '</label></div></li>';
-        htmlString += liElement;
-    });
-    var ulAvailability = $('.availability-list');
-    ulAvailability.html(htmlString);
+    });   
   });
 });
 
@@ -37,12 +21,38 @@ $(document).ready(function(){
   });
 
   // trigger form submission and changing classes
-  $("#monday-submit").click(function(){
+  $("#monday-submit").click(function(e){
+    e.preventDefault();
+    
+    var startTimeFieldMon = document.getElementById('availability_day_start_5i');
+    var startTimeMon = startTimeFieldMon.options[startTimeFieldMon.selectedIndex].value;
+    var endTimeFieldMon = document.getElementById('availability_day_end_5i'); 
+    var endTimeMon = endTimeFieldMon.options[endTimeFieldMon.selectedIndex].value;
+    var dayMon = document.getElementsByClassName('monday-day')[0].value;
+    
+    var payloadMonday = {
+      availability: {
+        day: dayMon,
+        day_start: startTimeMon,
+        day_end: endTimeMon,
+      }
+    };
+
     var vendorId = document.querySelector(".availability-header").getAttribute('id');
-    //$("#monday-form").trigger('submit.rails');
-    $("#form-monday").hide();
-    $("#monday-row").hide();
+    var postUrl = "/vendors/" + vendorId + "/availabilities" ;
+    
+    $.post(postUrl, payloadMonday).success(function(data) {
+      console.log("Successful HTTP Request");
+    });
   });
+
+
+  // $("#monday-submit").click(function(){
+  //   var vendorId = document.querySelector(".availability-header").getAttribute('id');
+  //   //$("#monday-form").trigger('submit.rails');
+  //   $("#form-monday").hide();
+  //   // $("#monday-row").hide();
+  // });
 
 /////////////////////////
   // TUESDAY

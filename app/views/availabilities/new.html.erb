@@ -5,17 +5,9 @@
   <% end %>
   <p class = "text-muted text-center">Tip: Put your general daily operating hours (e.g. 9AM - 5PM) here. Later on you'll be able to add time for breaks through the day, as well as vacations and holidays.</p>
   <br />
-  <div class = "container">
-    <div class = "row">
-      <div class = "col-md-5 col-sm-12">
-        <section class = "list">
-          <h6> Your hours </h6>
-          <ul class = "availability-list">
-
-          </ul>
-        </section>
-      </div>
-      <div class = "container-fluid availability-table col-lg-7 col-sm-12">
+  <div class = "container-fluid">
+    
+    <div class = "container availability-table col-lg-6 offset-lg-3 col-sm-12">
       <table class="table table-hover table-cards align-items-center ">
         <thead>
           <tr>
@@ -25,12 +17,12 @@
           </tr>
         </thead>
         <tbody>
-          <% if availability_set?(0, @vendor.id) == false %>
+          
             <tr class="bg-white" id = "monday-row">
               <th scope="row">
                 <div class="media align-items-center">
                   <div class="media-body">
-                    <h6 class="h5 font-weight-normal mb-0">Mondays</h6> 
+                    <h6 class="h5 font-weight-normal mb-0">Mondays</h6>
                   </div>
                 </div>
               </th>
@@ -38,12 +30,21 @@
               
               </td>
               <td>
+              <% if availability_set?(0, @vendor.id) == false %>
                 <div class = "monday-buttons">
                   <label class="toggle-switch">
                     <input type="checkbox">
                     <span class="toggle-switch-slider rounded-circle" id= "toggle-monday"></span>
                   </label>
                 </div>
+              <% else %>
+                <div class = "monday-buttons">
+                  <span class="font-weight-normal monday-availability-time">
+                    
+                  </span> 
+                  <i class="fas fa-trash-alt fa-lg float-right"></i>
+                </div>
+              <% end %>
               </td>
             </tr>
             <tr class = "grey-background monday-tr">
@@ -79,7 +80,7 @@
               <% end %>
               </td>
             </tr>
-          <% end %>
+          
           <tr class="table-divider"></tr>
           <% if availability_set?(1, @vendor.id) == false %>
             <tr class="bg-white" id = "tuesday-row">
@@ -422,7 +423,8 @@
       </table>
     </div>
   </div>
-  </div>
+  
+
     <%= link_to vendor_path(@vendor), class: "btn btn-main btn-animated btn-animated-x float-right" do %>
       <span class="btn-inner--visible">NEXT: Design your profile</span>
       <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
