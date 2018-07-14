@@ -42,7 +42,7 @@ $(document).ready(function(){
     var postUrl = "/vendors/" + vendorId + "/availabilities" ;
     
     $.post(postUrl, payloadMonday).success(function(data) {
-      console.log("Successful HTTP Request");
+      console.log(data);
     });
   });
 
