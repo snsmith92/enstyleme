@@ -42,6 +42,7 @@ FactoryBot.define do
     phone2 "2425350365"
     website "dummywebsite.com"
     facebook "dummyfacebook.com"
+    profile_image "test.png"
     consent true
     association :user
   end

@@ -24,6 +24,14 @@ body {
   margin-top: 60px;
 }
 
+.clear { 
+  clear: both; 
+  display: block; 
+  overflow: hidden; 
+  visibility: hidden; 
+  height: 0px;
+}
+
 .line-height {
   line-height: 0.9 !important;
 }
@@ -190,7 +198,9 @@ input {
 }
 
 .vendor-profile {
-  padding: 30px;
+  padding: 15px;
+  background-color: #f2f2f2;
+  border-radius: 0px 0px 10px 10px; 
 }
 
 .vendor-profile img.vendor-image-lg{
@@ -217,7 +227,6 @@ input {
   margin: 20px;
 }
 .vendor-profile-text>h1{
-  //font-weight: 700;
   font-size:16px;
 }
 
@@ -236,18 +245,32 @@ input {
 
 .vendor-profile-text h1 {
   font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
 }
 
 .vendor-content {
   margin-bottom: 80px;
 }
 
+.review-positive {
+  color: #87D37C;
+}
+
+.review-negative {
+  color: #D64541;
+}
+
+.about-box {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 
 .vendor-profile-text p {
   font-size: 14px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   margin-bottom: 5px;
+  letter-spacing: 0.25px;
 }
 
 h2.first-service {
@@ -304,6 +327,7 @@ p.service-modal-box {
 
 .carousel {
   margin-top: 30px;
+  border-radius: 10px 10px 0px 0px; 
   //margin-bottom: 30px;
   //max-width: 1200px;
 }
@@ -673,3 +697,71 @@ opacity: 1;
   color: #288cff !important
 }
 
+
+.hours p {
+  line-height: 0.8;
+  font-size: 1rem;
+}
+
+.hours {
+  padding: 20px;
+}
+
+.hours-icon {
+  margin-right: 10px;
+  color: #F7CA18;
+}
+
+.vendor-page-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.about-photo {
+  margin-right: 10px;
+}
+
+.listing-description p {
+  font-weight: 300;
+}
+
+.category-page {
+  margin-top: 30px;
+}
+
+.category-name {
+  margin-bottom: 30px;
+}
+
+.map-icon {
+  color: #F7CA18 ;
+}
+
+// Pagination styles
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }

@@ -1,5 +1,6 @@
 class Vendor < ApplicationRecord
   extend FriendlyId
+  mount_uploader :profile_image, ProfileImageUploader
   friendly_id :name, use: :slugged
 
   geocoded_by :full_address
@@ -20,6 +21,7 @@ class Vendor < ApplicationRecord
   validates :address, presence: true
   validates :phone1, presence: true 
   validates :consent, presence: true
+  
 
   def country_name
     c = ISO3166::Country[self.country]

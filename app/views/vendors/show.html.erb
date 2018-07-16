@@ -27,183 +27,252 @@
 
     <div class="container-fluid vendor-profile">
       <div class=" col-md-12">
-        <%= image_tag 'sign-up.jpg', class: "vendor-image-profile thumbnail", align: "left" %>
-        
         <div class="container vendor-profile-text">
           <div class = "row">
-            <div class = "col-md-6 col-sm-12">
+            <div class = "col-md-8 col-sm-12">
               <h1><%=current_vendor.name%></h1>
-              <h5 class = "text-muted"><%= current_vendor.category.name %></h5>
-              <p>
-                <%= current_vendor.address %>, 
-                <% if current_vendor.zip.present? %>
-                  <span class = "zip-capital"><%= current_vendor.zip%></span>,
-                <% end %>
-                <%= current_vendor.city %>, <%= current_vendor.country_name %>
-              </p>
-              <% if current_vendor.phone2.present? %>
-                <p>Phone Numbers: 
-                <%=current_vendor.phone1%>/<%=current_vendor.phone2%></p>
-              <% else %>
-                <p>Phone Number: <%=current_vendor.phone1%></p>
-              <% end %>
+              <h5 class = "text-muted">
+              <%= current_vendor.category.name %>
               <% if current_vendor.facebook.present? %>
-                <p>Facebook URL
-                <%=current_vendor.facebook %></p>
+                <i class="fab fa-facebook-square"></i> &nbsp;
               <% end %>
               <% if current_vendor.website.present? %>
-                <p>Website
-                <%=current_vendor.website %></p>
+                <i class="fas fa-link"></i>
               <% end %>
+              </h5>
+              <p>
+                <%= current_vendor.address %>, 
+                <%= current_vendor.city %>, <%= current_vendor.country_name %>.
+                <% if current_vendor.phone2.present? %>
+                  Phone: 
+                  <%=current_vendor.phone1%> or <%=current_vendor.phone2%>
+                <% else %>
+                  Phone: <%=current_vendor.phone1%>
+                <% end %>
+              </p>
             </div>
-            <div class = "col-md-6 col-sm-12">
-              <div class = "float-right">
-                4.5 
-                <% 4.times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-                <i class="fas fa-star-half"></i>
-                <p>36 reviews</p>
+            <div class = "col-md-4 col-sm-12">
+              <div class = "btn-group float-right" role="group">
+                <%= link_to "About", vendor_path(anchor: 'about'), class: 'btn btn-outline-primary'%>
+                <%= link_to "Reviews", vendor_path(anchor: 'reviews'), class: 'btn btn-outline-primary'%>
+                <%= link_to "Find Us", vendor_path(anchor: 'find-us'), class: 'btn btn-outline-primary'%>
                 <% if current_user != current_vendor.user %>
-                  <%= link_to "Book Now", '#', class: 'btn btn-lg btn-primary'%>
+                  <%= link_to "Book Now", '#', class: 'btn btn-primary'%>
                 <% end %>
+              </div>
+              <div class="clear"></div>
+              <br />
+              <div class = "float-right">
+                <h1>73%
+                <span class = "review-positive"><i class="far fa-smile"></i></span></h1>
+                <p class = "text-muted float-right">36 Reviews</p>
+                <br />
               </div>
             </div>
           </div>
-         
-
-          <% if current_user == current_vendor.user %>
-            <button type="button" class="btn btn-sm btn-danger btn-icon-label float-right btn-spacing" data-toggle="modal" data-target="#deleteProfileModal">
-              <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
-              <span class="btn-inner--text">Delete Profile</span>
-            </button>
-            <button type="button" class="btn btn-sm btn-icon-label btn-primary float-right btn-spacing" data-toggle="modal" data-target="#editModal">
-              <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
-              <span class="btn-inner--text">Edit Profile</span>
-            </button>
-          <% end %>
         </div>
       </div>
     </div>
   </div>
+  <% if current_user == current_vendor.user %>
+    <br />
+    <div class = "btn-group float-right" role = "group">
+      <% if !current_vendor.services.blank? %>
+        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#serviceModal">
+          <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+          <span class="btn-inner--text">Add A Service</span>
+        </button> 
+      <% end %>
+      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal">
+        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+        <span class="btn-inner--text">Edit Profile</span>
+      </button>
+      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProfileModal">
+        <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
+        <span class="btn-inner--text">Delete Profile</span>
+      </button>
+    </div>
+  <% end %>
+  </div>
 </div>
 
-  <br />
-  <br />
-  <div class = "container vendor-content">
-    <div class = "row">
-      <div class = "vendor-services col-lg-8">
-        <% if current_vendor.services.blank? && current_user == current_vendor.user %>
-          <h2 class = 'first-service text-center'> Get your page up and running.</h2>
-          <div class = 'text-center'>
-            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#serviceModal">
-            Add Your First Service
-            </button> 
-          </div>
-          <div class = "col-md-8 offset-2">
-            <p>By adding your individual services to your Enstyle.me page, potential clients know exactly what you offer and can book online!</p>
-            <br />
-            <br />
-          </div>
-        <% else %>
-          <h3>Services</h3>
-          <% if current_vendor.user == current_user %>
-            <div class = "text-center">
-              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#serviceModal">
-                Add Another Service
-              </button> 
-            </div>
-          <% end %>
-            <br />
-        <% end %>
+<br />
+<br />
+<div class = "container vendor-content">
+  <div class = "vendor-services col-12">
+    <% if current_vendor.services.blank? && current_user == current_vendor.user %>
+      <h2 class = 'first-service text-center'> Get your page up and running.</h2>
+      <div class = 'text-center'>
+        <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#serviceModal">
+        Add Your First Service
+        </button> 
+      </div>
+      <div class = "col-12">
+        <p>By adding your individual services to your Enstyle.me page, potential clients know exactly what you offer and can book online!</p>
+        <br />
+        <br />
+      </div>
+    <% else %>
+      <h2>Services</h2>
+        <br />
+    <% end %>
 
-        <% if current_vendor.services.present? %>
-          <table class="table table-hover table-cards align-items-center">
-
-            <tbody>
-            <% current_vendor.services.each do |service| %>
-              <tr class="bg-white">
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <div class="media-body">
-                      <h6 class="h5 font-weight-normal mb-0"><%= service.name %></h6>
-                      <span class="font-weight-normal text-muted"><%=service.hours%> hrs <%=service.minutes %> mins</span>
-                    </div>
+    <% if current_vendor.services.present? %>
+      <table class="table table-hover align-items-center">
+        <tbody>
+          <% current_vendor.services.each do |service| %>
+            <tr class="bg-white">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0"><%= service.name %></h6>
+                    <span class="font-weight-normal text-muted"><%=service.hours%> hrs <%=service.minutes %> mins</span>
                   </div>
-                </th>
-                <td>
-                  <%=service.description%>
-                <td>
-                <% if current_vendor.user == current_user %>
-                  <%= link_to vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space' do %>
-                    <i class="far fa-trash-alt"></i>
-                  <% end %>
-                  <%= link_to edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space' do %>
-                    <i class="far fa-edit"></i>
-                  <% end %>
-                <% else %>
-                  <div class = "float-right">
-                    <% if service.cost_range.present? %>
-                      Cost Range: $<%= service.cost_range %>
-                    <% elsif service.cost_absolute.present? %>
-                      $<%= sprintf("%.2f",service.cost_absolute) %>
-                    <% else %>
-                      Cost not specified.
-                    <% end %>
-                    &nbsp;&nbsp;<%= link_to "Book Now", '#', class: 'btn btn-sm btn-outline-primary' %>
-                  </div>
+                </div>
+              </th>
+              <td>
+                <%=service.description%>
+              <td>
+              <% if current_vendor.user == current_user %>
+                <%= link_to vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space' do %>
+                  <i class="far fa-trash-alt"></i>
                 <% end %>
-                </td>
-              </tr>
-              <tr class="table-divider"></tr>
+                <%= link_to edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space' do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+              <% else %>
+                <div class = "float-right">
+                  <% if service.cost_range.present? %>
+                    Cost Range: $<%= service.cost_range %>
+                  <% elsif service.cost_absolute.present? %>
+                    $<%= sprintf("%.2f",service.cost_absolute) %>
+                  <% else %>
+                    Cost not specified.
+                  <% end %>
+                  &nbsp;&nbsp;<%= link_to "Book Now", '#', class: 'btn btn-sm btn-outline-primary' %>
+                </div>
               <% end %>
-            </tbody>
-          </table>
-        <% end %>
-      </div>
-      <div class = "col-lg-4 hours text-center">
-      <h6>Hours:</h6>
-      <p>Monday: 8:00AM - 10:00PM</p>
-      <p>Tuesday: 8:00AM - 10:00PM</p>
-      <p>Wednesday: 8:00AM - 10:00PM</p>
-      <p>Thursday: 8:00AM - 10:00PM</p>
-      <p>Friday: 8:00AM - 10:00PM</p>
-      <p>Saturday: CLOSED</p>
-      <p>Sunday: CLOSED</p>
-      </div>
-    </div>
-
-    <style>
-      #map {
-        height: 300px;}
-    </style>
-
-    <% if @vendor.latitude.present? && @vendor.longitude.present? %>
-      <script>
-
-        function initMap() {
-          var myLatLng = {lat: <%= current_vendor.latitude %>, lng: <%= current_vendor.longitude %>};
-
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 14,
-            center: myLatLng
-          });
-
-          var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: 'Hello World!'
-          });
-        }
-      </script>
-
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS8w4xTZZkTmgL6UvkWTYI0ZZd6KnBb4c&callback=initMap">
-      </script>
-
-      <div id="map"></div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
   </div>
+  <div id = "about"></div>
+  <div class = "container vendor-page-section">
+    <div class = "row">
+      <div class = "col-md-8 col-sm-12 about-box">
+        <h2>About</h2>
+        <%= image_tag current_vendor.profile_image.thumb, class: "thumbnail about-photo", align: "left" %>
+        <p><%= current_vendor.description %></p>
+      </div>
+      <div class = "hours col-md-4 col-sm-12">
+        <h2>Hours:</h2>
+        <p><i class="fas fa-circle hours-icon"></i>Monday: 8:00AM - 10:00PM</p>
+        <p><i class="fas fa-circle hours-icon"></i>Tuesday: 8:00AM - 10:00PM</p>
+        <p><i class="fas fa-circle hours-icon"></i>Wednesday: 8:00AM - 10:00PM</p>
+        <p><i class="fas fa-circle hours-icon"></i>Thursday: 8:00AM - 10:00PM</p>
+        <p><i class="fas fa-circle hours-icon"></i>Friday: 8:00AM - 10:00PM</p>
+        <p><i class="fas fa-circle hours-icon"></i><strong>Saturday: CLOSED</strong></p>
+        <p><i class="fas fa-circle hours-icon"></i><strong>Sunday: CLOSED</strong></p>
+      </div>
+    </div>
+  </div>
+  
+  <div id = "find-us"></div>
+  <div class = "container map vendor-page-section">
+    <% if @vendor.latitude.present? && @vendor.longitude.present? %>
+      <div class = "row">
+        <div class = "col-md-4 col-sm-12 find-box">
+          <h2>Find Us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur est diam, quis ornare urna laoreet a. Praesent blandit lectus et leo tempor condimentum. Curabitur sodales quam ut tristique sollicitudin. Nam molestie enim et ex ornare placerat. Vestibulum vitae scelerisque tellus, convallis congue magna. Phasellus malesuada dui neque, eu luctus velit egestas sit amet. Ut feugiat ex vitae lobortis ornare.</p>
+        </div>
+        <div class = "col-md-8 col-sm-12">
+          <style>
+            #map {
+              height: 300px;}
+          </style>
+            <script>
+
+            function initMap() {
+              var myLatLng = {lat: <%= current_vendor.latitude %>, lng: <%= current_vendor.longitude %>};
+
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: myLatLng
+              });
+
+              var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!'
+              });
+            }
+          </script>
+
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS8w4xTZZkTmgL6UvkWTYI0ZZd6KnBb4c&callback=initMap">
+          </script>
+
+          <div id="map"></div>
+        </div>
+      </div>
+    <% else %>
+      <h2>Find Us</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur est diam, quis ornare urna laoreet a. Praesent blandit lectus et leo tempor condimentum. Curabitur sodales quam ut tristique sollicitudin. Nam molestie enim et ex ornare placerat. Vestibulum vitae scelerisque tellus, convallis congue magna. Phasellus malesuada dui neque, eu luctus velit egestas sit amet. Ut feugiat ex vitae lobortis ornare.</p>
+    <% end %>
+  </div>
+
+  <div id = "reviews"></div>
+
+  <div class = "container reviews">
+  <h2>Customer Reviews</h2>
+  <p class = "text-muted">All reviews are verified and booked via enstyle.me.</p>
+  <div class = "row">
+    <div class = "col-md-2">
+      <span class = "review-positive float-right"><i class="far fa-smile fa-3x"></i></span>
+    </div>
+    <div class = "col-md-10">
+      <h6>Positive Experience <span class = "text-muted">(Anonymous)</span></h6>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet a felis non tristique. Nullam sagittis egestas nisi feugiat porta. Vivamus ac dolor ex. Nunc euismod fringilla urna, ac mollis nisi maximus ut. Fusce semper diam tellus, in lobortis tellus facilisis eu. Curabitur ut lacus vel metus dignissim lacinia. Fusce.</p>
+    </div>
+  </div>
+  <hr />
+  <div class = "row">
+    <div class = "col-md-2">
+      <span class = "review-neutral float-right"><i class="far fa-meh fa-3x"></i></span>
+    </div>
+    <div class = "col-md-10">
+      <h6>Neutral Experience <span class = "text-muted">(Sherzel)</span></h6>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet a felis non tristique. Nullam sagittis egestas nisi feugiat porta. Vivamus ac dolor ex. Nunc euismod fringilla urna, ac mollis nisi maximus ut. Fusce semper diam tellus, in lobortis tellus facilisis eu. Curabitur ut lacus vel metus dignissim lacinia. Fusce.</p>
+    </div>
+  </div>
+  <hr />
+  <div class = "row">
+    <div class = "col-md-2">
+      <span class = "review-negative float-right"><i class="far fa-smile fa-3x"></i></span>
+    </div>
+    <div class = "col-md-10">
+      <h6>Negative Experience <span class = "text-muted">(Anonymous)</span></h6>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet a felis non tristique. Nullam sagittis egestas nisi feugiat porta. Vivamus ac dolor ex. Nunc euismod fringilla urna, ac mollis nisi maximus ut. Fusce semper diam tellus, in lobortis tellus facilisis eu. Curabitur ut lacus vel metus dignissim lacinia. Fusce.</p>
+    </div>
+  </div>
+  <hr />
+  <div class = "row">
+    <div class = "col-md-2">
+      <span class = "review-positive float-right"><i class="far fa-smile fa-3x"></i></span>
+    </div>
+    <div class = "col-md-10">
+      <h6>Positive Experience <span class = "text-muted">(Runako)</span></h6>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet a felis non tristique. Nullam sagittis egestas nisi feugiat porta. Vivamus ac dolor ex. Nunc euismod fringilla urna, ac mollis nisi maximus ut. Fusce semper diam tellus, in lobortis tellus facilisis eu. Curabitur ut lacus vel metus dignissim lacinia. Fusce.</p>
+    </div>
+  </div>
+  <hr />
+
+
+  </div>
+</div>
 
 <br />
 <br />
@@ -225,29 +294,41 @@
       <div class="modal-body">
         <div class = "vendor-form container-fluid">
           <%= simple_form_for @vendor, url: vendor_path(@vendor) do |f| %>
-            <%= f.input :name, label: "Company Name" %>          
+            <%= f.input :name, label: "Company Name", input_html: {class: "form-control form-control-sm"} %>
+            <%= f.input :description, label: "About", input_html: {class: "form-control form-control-sm"} %>
+            <%= f.association :category, label: "Type of Business", label_method: :name, value_method: :id, input_html: {class: 'selectpicker line-height', "data-live-search": true, "data-live-search-placeholder": "Search..." }%>              
             <div class = "row">
               <div class = "col-md-4">
-                <%= f.input :city %>
+                <%= f.input :city, input_html: {class: "form-control form-control-sm"} %>
               </div>
               <div class = "col-md-4">
-                <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"] %>
+                <%= f.input :country, only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: "form-control form-control-sm"} %>
               </div>
               <div class = "col-md-4">
-                <%= f.input :zip %>
+                <%= f.input :zip, input_html: {class: "form-control form-control-sm"} %>
               </div>
             </div>
-            <%= f.input :address, label: "Street Address" %>  
+            <%= f.input :address, label: "Street Address", input_html: {class: "form-control form-control-sm"} %>  
             <div class = "row">
               <div class = "col-md-6">
-                <%= f.input :phone1, label: "Phone Number" %>
+                <%= f.input :phone1, label: "Phone Number", input_html: {class: "form-control form-control-sm"} %>
               </div>
               <div class = "col-md-6">
-                <%= f.input :phone2, label: "Alternate Phone Number" %>
+                <%= f.input :phone2, label: "Alternate Phone Number", input_html: {class: "form-control form-control-sm"} %>
               </div>
             </div>
-            <%= f.input :facebook, label: "Company Facebook URL" %>
-            <%= f.input :website, label: "Company Website URL" %>
+            <div class = "row">
+              <div class = "col-md-6">
+                <%= f.input :facebook, label: "Company Facebook URL", input_html: {class: "form-control form-control-sm"} %>
+              </div>
+              <div class = "col-md-6">
+                <%= f.input :website, label: "Company Website URL", input_html: {class: "form-control form-control-sm"} %>
+              </div>
+            </div>
+            <label class = "control-label string required">
+              Add A Logo or Profile Image
+            </label>
+            <%= f.input :profile_image, label: false, input_html: {class: "form-control form-control-sm"} %>
           </div>
         </div>
       <div class="modal-footer">
