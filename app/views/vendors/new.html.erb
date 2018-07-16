@@ -21,6 +21,7 @@
             <%= f.association :category, label: "Type of Business", label_method: :name, value_method: :id, input_html: {class: 'selectpicker line-height', "data-live-search": true, "data-live-search-placeholder": "Search..." }%>
           </div>
         </div>
+        <%= f.input :description, label: "About Your Business", input_html: {class: "form-control form-control-sm"} %>
         <%= f.input :address, label: "Street Address", input_html: {class: "form-control form-control-sm"} %>              
         <div class = "row">
           <div class = "col-md-4">
@@ -51,6 +52,14 @@
               Add A Logo or Profile Image
             </label>
             <%= f.input :profile_image, label: false, input_html: {class: "form-control form-control-sm"} %>
+          </div>
+        </div>
+        <div class = "row">
+          <div class = "col-md-6">
+            <%= f.input :facebook, label: "Company Facebook Page (Optional)", input_html: {class: "form-control form-control-sm"} %>
+          </div>
+          <div class = "col-md-6">
+            <%= f.input :website, label: "Company Website (Optional)", input_html: {class: "form-control form-control-sm"} %>
           </div>
         </div>
         <div class = "row">
