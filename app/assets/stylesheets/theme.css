@@ -2664,7 +2664,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-primary {
   color: #444444;
-  background-color: transparent;
+  background-color: rgb(255,255,255);
   background-image: none;
   border-color: #F7CA18;
 }
@@ -5834,9 +5834,9 @@ button.close {
 }
 
 .carousel-control-background {
-  background-color: black;
+  background-color: grey;
   padding: 10px 10px 6px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
@@ -12048,7 +12048,7 @@ textarea[resize="horizontal"] {
 }
 
 .navbar-nav .nav-link {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   text-transform: normal;
