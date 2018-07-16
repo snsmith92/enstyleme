@@ -21,6 +21,7 @@ class Vendor < ApplicationRecord
   validates :address, presence: true
   validates :phone1, presence: true 
   validates :consent, presence: true
+  validates :profile_image, presence: true
 
   def country_name
     c = ISO3166::Country[self.country]

@@ -81,6 +81,9 @@ gem 'jquery-ui-rails'
 # Carrierwave for image upload
 gem 'carrierwave', '~> 1.0'
 
+# Minimagick for image resize
+gem "mini_magick"
+
 # Figaro for secure configuration
 gem "figaro"
 
