@@ -120,40 +120,40 @@
     <% if current_vendor.services.present? %>
       <table class="table table-hover align-items-center">
         <tbody>
-        <% current_vendor.services.each do |service| %>
-          <tr class="bg-white">
-            <th scope="row">
-              <div class="media align-items-center">
-                <div class="media-body">
-                  <h6 class="h5 font-weight-normal mb-0"><%= service.name %></h6>
-                  <span class="font-weight-normal text-muted"><%=service.hours%> hrs <%=service.minutes %> mins</span>
+          <% current_vendor.services.each do |service| %>
+            <tr class="bg-white">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <h6 class="h5 font-weight-normal mb-0"><%= service.name %></h6>
+                    <span class="font-weight-normal text-muted"><%=service.hours%> hrs <%=service.minutes %> mins</span>
+                  </div>
                 </div>
-              </div>
-            </th>
-            <td>
-              <%=service.description%>
-            <td>
-            <% if current_vendor.user == current_user %>
-              <%= link_to vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space' do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-              <%= link_to edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space' do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-            <% else %>
-              <div class = "float-right">
-                <% if service.cost_range.present? %>
-                  Cost Range: $<%= service.cost_range %>
-                <% elsif service.cost_absolute.present? %>
-                  $<%= sprintf("%.2f",service.cost_absolute) %>
-                <% else %>
-                  Cost not specified.
+              </th>
+              <td>
+                <%=service.description%>
+              <td>
+              <% if current_vendor.user == current_user %>
+                <%= link_to vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space' do %>
+                  <i class="far fa-trash-alt"></i>
                 <% end %>
-                &nbsp;&nbsp;<%= link_to "Book Now", '#', class: 'btn btn-sm btn-outline-primary' %>
-              </div>
-            <% end %>
-            </td>
-          </tr>
+                <%= link_to edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space' do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+              <% else %>
+                <div class = "float-right">
+                  <% if service.cost_range.present? %>
+                    Cost Range: $<%= service.cost_range %>
+                  <% elsif service.cost_absolute.present? %>
+                    $<%= sprintf("%.2f",service.cost_absolute) %>
+                  <% else %>
+                    Cost not specified.
+                  <% end %>
+                  &nbsp;&nbsp;<%= link_to "Book Now", '#', class: 'btn btn-sm btn-outline-primary' %>
+                </div>
+              <% end %>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>

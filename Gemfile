@@ -117,6 +117,9 @@ gem 'friendly_id', '~> 5.1.0'
 # Geocode location
 gem "geocoder"
 
+# Pagination for listings pages
+gem 'will_paginate', '~> 3.1.0'
+
 ruby "2.3.1"
 
 
