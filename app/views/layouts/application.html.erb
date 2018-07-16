@@ -102,7 +102,7 @@
             </li>
             <% categories.each do |category|%>
               <li class="nav-item">
-                <%= link_to '#', class: 'nav-link', input_html: {style: "font-size: 1rem;"} do %>
+                <%= link_to category_path(category), class: 'nav-link', input_html: {style: "font-size: 1rem;"} do %>
                     <%= category.name%>s
                 <% end %>
               </li>

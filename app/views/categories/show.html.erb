@@ -1,0 +1,7 @@
+<h1 class = "text-center"> <%= @category.name %>s </h1>
+
+<div class = "container-fluid">
+  <% @category.vendors.each do |vendor| %>
+    <%= vendor.name %>
+  <% end %>
+</div>

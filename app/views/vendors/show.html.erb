@@ -58,12 +58,9 @@
             </div>
             <div class = "col-md-6 col-sm-12">
               <div class = "float-right">
-                4.5 
-                <% 4.times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-                <i class="fas fa-star-half"></i>
-                <p>36 reviews</p>
+                73% &nbsp;
+                <i class="far fa-smile fa-lg"></i>
+                <p class = "text-muted">36 reviews</p>
                 <% if current_user != current_vendor.user %>
                   <%= link_to "Book Now", '#', class: 'btn btn-lg btn-primary'%>
                 <% end %>

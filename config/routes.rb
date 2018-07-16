@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'services#index', as: :tag
   resources :administrators, only: [:index]
   resources :tags, only: [:new, :create, :destroy]
+  resources :categories, only: [:show]
 end

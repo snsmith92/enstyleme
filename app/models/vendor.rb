@@ -1,5 +1,6 @@
 class Vendor < ApplicationRecord
   extend FriendlyId
+  mount_uploader :profile_image, ProfileImageUploader
   friendly_id :name, use: :slugged
 
   geocoded_by :full_address
