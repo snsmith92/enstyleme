@@ -9,7 +9,7 @@
 <% end -%>
 
 <%- if controller_name != 'sessions' %>
-  Already have an account? <%= link_to "Log in", new_session_path(resource_name) %><br />
+  Already have a business account? <%= link_to "Log in", new_session_path(resource_name), class: "shared-link" %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>

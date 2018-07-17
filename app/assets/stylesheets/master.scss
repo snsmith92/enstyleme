@@ -464,6 +464,16 @@ xButtons
   text-decoration: none;
 }
 
+.login h5 {
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+.login h6 {
+  font-weight: 300;
+}
+
 .loginBtn:before {
   content: "";
   box-sizing: border-box;
