@@ -1,13 +1,3 @@
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-facebook btn-icon-label btn-block" do %>
-      <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
-      <span class="btn-inner--text">Sign in with <%="#{OmniAuth::Utils.camelize(provider)}"%></span>
-    <% end %>
-  <% end -%>
-  <br />
-<% end -%>
-
 <%- if controller_name != 'sessions' %>
   Already have a business account? <%= link_to "Log in", new_session_path(resource_name), class: "shared-link" %><br />
 <% end -%>
