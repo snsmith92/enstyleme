@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :clients, controllers: { omniauth_callbacks: 'clients/omniauth_callbacks'}
   devise_for :admins
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'}
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   root "static_pages#index"
   get 'start', to: 'static_pages#start'
   get 'business', to: 'static_pages#business'

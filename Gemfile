@@ -96,6 +96,9 @@ gem 'intl-tel-input'
 # User Authentication with Facebook
 gem 'omniauth-facebook'
 
+# User Authentication with Google
+gem 'omniauth-google-oauth2'
+
 # Validate file size and type
 gem 'file_validators'
 
