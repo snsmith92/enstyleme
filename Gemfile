@@ -82,6 +82,9 @@ gem 'jquery-ui-rails'
 # Carrierwave for image upload
 gem 'carrierwave', '~> 1.0'
 
+# Minimagick for image resize
+gem "mini_magick"
+
 # Figaro for secure configuration
 gem "figaro"
 
@@ -93,6 +96,9 @@ gem 'intl-tel-input'
 
 # User Authentication with Facebook
 gem 'omniauth-facebook'
+
+# User Authentication with Google
+gem 'omniauth-google-oauth2'
 
 # Validate file size and type
 gem 'file_validators'
@@ -117,6 +123,9 @@ gem "geocoder"
 
 # String interpolation of date/time in javascript
 gem 'momentjs-rails'
+
+# Pagination for listings pages
+gem 'will_paginate', '~> 3.1.0'
 
 ruby "2.3.1"
 

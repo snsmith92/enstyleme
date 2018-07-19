@@ -24,6 +24,14 @@ body {
   margin-top: 60px;
 }
 
+.clear { 
+  clear: both; 
+  display: block; 
+  overflow: hidden; 
+  visibility: hidden; 
+  height: 0px;
+}
+
 .line-height {
   line-height: 0.9 !important;
 }
@@ -190,7 +198,9 @@ input {
 }
 
 .vendor-profile {
-  padding: 30px;
+  padding: 15px;
+  background-color: #f2f2f2;
+  border-radius: 0px 0px 10px 10px; 
 }
 
 .vendor-profile img.vendor-image-lg{
@@ -217,7 +227,6 @@ input {
   margin: 20px;
 }
 .vendor-profile-text>h1{
-  //font-weight: 700;
   font-size:16px;
 }
 
@@ -236,18 +245,32 @@ input {
 
 .vendor-profile-text h1 {
   font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
 }
 
 .vendor-content {
   margin-bottom: 80px;
 }
 
+.review-positive {
+  color: #87D37C;
+}
+
+.review-negative {
+  color: #D64541;
+}
+
+.about-box {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 
 .vendor-profile-text p {
   font-size: 14px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   margin-bottom: 5px;
+  letter-spacing: 0.25px;
 }
 
 h2.first-service {
@@ -304,6 +327,7 @@ p.service-modal-box {
 
 .carousel {
   margin-top: 30px;
+  border-radius: 10px 10px 0px 0px; 
   //margin-bottom: 30px;
   //max-width: 1200px;
 }
@@ -440,6 +464,16 @@ xButtons
   text-decoration: none;
 }
 
+.login h5 {
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+.login h6 {
+  font-weight: 300;
+}
+
 .loginBtn:before {
   content: "";
   box-sizing: border-box;
@@ -485,6 +519,7 @@ xButtons
 
 .login {
   margin-bottom: 100px;
+
 }
 
 .vendor-start {
@@ -670,3 +705,197 @@ opacity: 1;
   color: #288cff !important
 }
 
+
+.hours p {
+  line-height: 0.8;
+  font-size: 1rem;
+}
+
+.hours {
+  padding: 20px;
+}
+
+.hours-icon {
+  margin-right: 10px;
+  color: #F7CA18;
+}
+
+.vendor-page-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.about-photo {
+  margin-right: 10px;
+}
+
+.listing-description p {
+  font-weight: 300;
+}
+
+.category-page {
+  margin-top: 30px;
+}
+
+.category-name {
+  margin-bottom: 30px;
+}
+
+.map-icon {
+  color: #F7CA18 ;
+}
+
+// Pagination styles
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }
+
+
+// Social logins
+.login-box {
+  background: #fff;
+  padding: 20px;
+  max-width: 480px;
+  // margin: 25vh auto;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.login-box:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.login-box h2 {
+  margin: 20px 0 20px;
+  padding: 0;
+  text-transform: uppercase;
+  color: #4688F1;
+}
+
+.social-button {
+  background-position: 25px 0px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%;
+  border-radius: 3px;
+  margin: 10px auto;
+  outline: rgb(255, 255, 255) none 0px;
+  padding-left: 20%;
+  transition: all 0.2s cubic-bezier(0.72, 0.01, 0.56, 1) 0s;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#facebook-connect {
+  background: rgb(255, 255, 255) url('https://eswarasai.com/projects/social-login/img/facebook.svg') no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+  border: 1px solid rgb(60, 90, 154);
+}
+
+#facebook-connect:hover {
+  border-color: rgb(60, 90, 154);
+  background: rgb(60, 90, 154) url('https://eswarasai.com/projects/social-login/img/facebook-white.svg') no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+  -webkit-transition: all .8s ease-out;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-out;
+}
+
+#facebook-connect span {
+  box-sizing: border-box;
+  color: rgb(60, 90, 154);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#facebook-connect:hover span {
+  color: #FFF;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#google-connect {
+  background: rgb(255, 255, 255) url('https://eswarasai.com/projects/social-login/img/google-plus.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  border: 1px solid rgb(220, 74, 61);
+}
+
+#google-connect:hover {
+  border-color: rgb(220, 74, 61);
+  background: rgb(220, 74, 61) url('https://eswarasai.com/projects/social-login/img/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  -webkit-transition: all .8s ease-out;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-out;
+}
+
+#google-connect span {
+  box-sizing: border-box;
+  color: rgb(220, 74, 61);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#google-connect:hover span {
+  color: #FFF;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}

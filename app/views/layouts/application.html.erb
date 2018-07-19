@@ -20,7 +20,7 @@
   <body>
     <!-- Major navbar Start -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light py-4 overflow-visible">
-      <div class="container-fluid">
+      <div class="container">
         <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag 'logo-no-background.png', class: "logo" %>
         <% end %>
@@ -30,19 +30,24 @@
         <div class="collapse navbar-collapse offcanvas-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto align-items-lg-center">
             <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
-            <% if user_signed_in? == false %>
+            <% if !user_signed_in? && !client_signed_in? %>
               <li class="nav-item">
-                <%= link_to new_user_session_path, class: "nav-link" do %>
-                  <i class="fas fa-lock"></i> Log In
+                <%= link_to new_client_session_path, class: "nav-link" do %>
+                  Log In
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link' %>
+                <%= link_to new_user_session_path, class: "nav-link" do %>
+                  Manage Your Business
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <!-- Sign Up Modal -->
+                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#joinModal">
+                  Sign Up
+                </button>
               </li>
             <% end  %>
-            <li class="nav-item">
-              <%= link_to "Help", '#', class: 'nav-link' %>
-            </li>
             <% if user_signed_in? %>
               <li class="nav-item">
                 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
@@ -76,6 +81,16 @@
               <li>
                 <%= link_to "Admin Dashboard", administrators_path, class: 'btn btn-primary' %>
               </li>
+            <% elsif client_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "Your Account", '#', class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Your Bookings", '#', class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign Out", destroy_client_session_path, method: :delete, class: 'nav-link' %>
+              </li>
             <% else %>
               <li class="nav-item">
                 <%= link_to "FOR BUSINESSES", business_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
@@ -90,7 +105,7 @@
 
     <!-- Minor navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-inverse navbar-light navbar-minor bg-dark py-4">
-      <div class="container-fluid">
+      <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMinor" aria-controls="navbarMinor" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -102,7 +117,7 @@
             </li>
             <% categories.each do |category|%>
               <li class="nav-item">
-                <%= link_to '#', class: 'nav-link', input_html: {style: "font-size: 1rem;"} do %>
+                <%= link_to category_path(category), class: 'nav-link', input_html: {style: "font-size: 1rem;"} do %>
                     <%= category.name%>s
                 <% end %>
               </li>
@@ -122,6 +137,39 @@
     <% if alert.present? %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+
+    <!-- Modal -->
+    <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="joinModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="joinModalLabel">Join Enstyle.Me</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class = "container">
+              <div class = "row">
+                <div class = "col-6 text-center">
+                  <%= link_to new_user_registration_path do %>
+                    <button type = "button" class = "btn btn-outline-primary btn-lg">I'm a stylist</button>
+                  <% end %>
+                </div>
+                <div class = "col-6 text-center">
+                  <%= link_to new_client_registration_path do %>
+                    <button type = "button" class = "btn btn-primary btn-lg">I'm a client</button>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            For clients, join Enstyle.me to book stylists. For stylists and salons, join Enstyle.me to easily advertise your business online, accept bookings, and receive deposits.
+          </div>
+        </div>
+      </div>
+    </div>
     
     <%= yield %>
 
