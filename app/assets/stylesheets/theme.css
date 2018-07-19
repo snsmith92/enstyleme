@@ -245,7 +245,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: .5rem;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 button {
@@ -2289,7 +2289,7 @@ select.form-control-lg:not([size]):not([multiple]),
 .btn:not(:disabled):not(.disabled):active,
 .btn:not(:disabled):not(.disabled).active {
   background-image: none;
-  box-shadow: none
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.08);
 }
 
 .btn:not(:disabled):not(.disabled):active:focus,
@@ -3590,7 +3590,8 @@ tbody.collapse.show {
 }
 
 .custom-control-label {
-  margin-bottom: 0
+  margin-bottom: 0;
+  padding-left: 30px;
 }
 
 .custom-control-label::before {
@@ -12769,7 +12770,7 @@ textarea[resize="horizontal"] {
 }
 
 .table-hover tr.bg-white:hover {
-  background-color: rgba(0, 0, 0, 0.075) !important
+  /* background-color: rgba(0, 0, 0, 0.075) !important */
 }
 
 tr.table-divider {

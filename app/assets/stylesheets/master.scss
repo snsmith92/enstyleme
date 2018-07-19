@@ -534,11 +534,8 @@ xButtons
   display: none;
 }
 
-#break-monday, #break-tuesday, #break-wednesday, #break-thursday, #break-friday, #break-saturday, #break-sunday {
-  display: none;
-}
 
-#monday-edit {
+#break-monday, #break-tuesday, #break-wednesday, #break-thursday, #break-friday, #break-saturday, #break-sunday {
   display: none;
 }
 
@@ -649,7 +646,7 @@ opacity: 1;
 }
 
 .business-background {
-  background: url(background.png) no-repeat fixed;
+  background: url(background.png) no-repeat;
 }
 
 .business-background-2 {
@@ -663,7 +660,7 @@ opacity: 1;
 
 .availability-table {
   margin-top: 20px;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
 }
 
 .availability-new-page {

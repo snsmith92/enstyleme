@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :vendors
   has_many :services
+  has_many :availabilities
 
 
   # Include default devise modules. Others available are:

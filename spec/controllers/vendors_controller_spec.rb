@@ -25,7 +25,7 @@ RSpec.describe VendorsController, type: :controller do
       expect(response).to redirect_to new_user_session_path
     end 
 
-    it "should successfully create new ad in database" do
+    it "should successfully create new vendor in database" do
       user = FactoryBot.create(:user)
       sign_in user
       post :create, params: { vendor: FactoryBot.attributes_for(:vendor) }

@@ -83,6 +83,10 @@
           <span class="btn-inner--text">Add A Service</span>
         </button> 
       <% end %>
+      <%= link_to new_vendor_availability_path(current_vendor), class: "btn btn-sm btn-outline-primary" do %>
+        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+        <span class="btn-inner--text">Adjust Your Hours</span>
+      <% end %>
       <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal">
         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
         <span class="btn-inner--text">Edit Profile</span>
@@ -169,13 +173,13 @@
       </div>
       <div class = "hours col-md-4 col-sm-12">
         <h2>Hours:</h2>
-        <p><i class="fas fa-circle hours-icon"></i>Monday: 8:00AM - 10:00PM</p>
-        <p><i class="fas fa-circle hours-icon"></i>Tuesday: 8:00AM - 10:00PM</p>
-        <p><i class="fas fa-circle hours-icon"></i>Wednesday: 8:00AM - 10:00PM</p>
-        <p><i class="fas fa-circle hours-icon"></i>Thursday: 8:00AM - 10:00PM</p>
-        <p><i class="fas fa-circle hours-icon"></i>Friday: 8:00AM - 10:00PM</p>
-        <p><i class="fas fa-circle hours-icon"></i><strong>Saturday: CLOSED</strong></p>
-        <p><i class="fas fa-circle hours-icon"></i><strong>Sunday: CLOSED</strong></p>
+        <p><i class="fas fa-circle hours-icon"></i>Mondays: <%= show_available(0, current_vendor.id)%></p>
+        <p><i class="fas fa-circle hours-icon"></i>Tuesdays:<%= show_available(1, current_vendor.id)%></p>
+        <p><i class="fas fa-circle hours-icon"></i>Wednesdays: <%= show_available(2, current_vendor.id)%></p>
+        <p><i class="fas fa-circle hours-icon"></i>Thursdays: <%= show_available(3, current_vendor.id)%></p>
+        <p><i class="fas fa-circle hours-icon"></i>Fridays: <%= show_available(4, current_vendor.id)%></p>
+        <p><i class="fas fa-circle hours-icon"></i>Saturdays: <%= show_available(5, current_vendor.id)%></p>
+        <p><i class="fas fa-circle hours-icon"></i>Sundays: <%= show_available(6, current_vendor.id)%></p>
       </div>
     </div>
   </div>

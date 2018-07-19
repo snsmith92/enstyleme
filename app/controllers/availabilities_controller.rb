@@ -2,19 +2,28 @@ class AvailabilitiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
+    @vendor = Vendor.friendly.find(params[:vendor_id])
+    render json: Availability.where(vendor_id: @vendor)
   end 
 
   def new
     @vendor = Vendor.friendly.find(params[:vendor_id])
+    if @vendor.user != current_user 
+      return render plain: 'Not Allowed', status: :forbidden
+    end  
     @availability = Availability.new 
   end 
 
   def create
-    @vendor = Vendor.find(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
     params[:availability].parse_time_select! :day_start
     params[:availability].parse_time_select! :day_end
-    @availability = @vendor.availabilities.create(availability_params)
+    if @vendor.user == current_user
+      @availability = @vendor.availabilities.create(availability_params)
+      @availability.check_duplicate
+    else 
+      return render plain: 'Not Allowed', status: :forbidden
+    end
   end 
 
   def show
@@ -30,12 +39,18 @@ class AvailabilitiesController < ApplicationController
   end 
 
   def destroy
-
+    @vendor = Vendor.friendly.find(params[:vendor_id])
+    @availability = Availability.find_by_id(params[:id])
+    if @availability.user == current_user
+      @availability.destroy
+    else
+      return render plain: 'Not Allowed', status: :forbidden
+    end 
   end 
 
   private 
 
   def availability_params
-    params.require(:availability).permit(:time_zone, :day, :day_start, :day_end, :break_start, :break_end, :available)
+    params.require(:availability).permit(:time_zone, :day, :day_start, :day_end)
   end 
 end
