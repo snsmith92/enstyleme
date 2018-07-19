@@ -321,8 +321,8 @@ DEPENDENCIES
   jquery-validation-rails
   jquery_mask_rails
   listen (~> 3.0.5)
-  momentjs-rails
   mini_magick
+  momentjs-rails
   omniauth-facebook
   omniauth-google-oauth2
   pg (~> 0.18)

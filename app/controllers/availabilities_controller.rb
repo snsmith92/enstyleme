@@ -20,6 +20,7 @@ class AvailabilitiesController < ApplicationController
     params[:availability].parse_time_select! :day_end
     if @vendor.user == current_user
       @availability = @vendor.availabilities.create(availability_params)
+      @availability.check_duplicate
     else 
       return render plain: 'Not Allowed', status: :forbidden
     end

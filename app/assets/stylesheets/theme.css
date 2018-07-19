@@ -245,7 +245,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: .5rem;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 button {
@@ -2289,7 +2289,7 @@ select.form-control-lg:not([size]):not([multiple]),
 .btn:not(:disabled):not(.disabled):active,
 .btn:not(:disabled):not(.disabled).active {
   background-image: none;
-  box-shadow: none
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.08);
 }
 
 .btn:not(:disabled):not(.disabled):active:focus,

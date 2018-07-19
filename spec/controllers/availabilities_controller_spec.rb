@@ -59,6 +59,14 @@ RSpec.describe AvailabilitiesController, type: :controller do
       post :create, params: { vendor_id: vendor.id, availability: FactoryBot.attributes_for(:availability)}
       expect(vendor.availabilities.length).to eq 1
     end 
+
+    it "should not allow more than one availability to be created for the same day" do
+      vendor = FactoryBot.create(:vendor)
+      sign_in vendor.user 
+      post :create, params: { vendor_id: vendor.id, availability: FactoryBot.attributes_for(:availability)}
+      post :create, params: { vendor_id: vendor.id, availability: FactoryBot.attributes_for(:availability)}
+      expect(vendor.availabilities.length).to eq 1
+    end 
   end 
 
   describe "availabilities#destroy action" do
