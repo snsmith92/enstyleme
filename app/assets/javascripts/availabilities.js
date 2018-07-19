@@ -98,7 +98,11 @@ $(document).ready(function(){
     if($('#form-sunday').is(':visible')){
       $("#sunday-form").trigger('submit.rails');
     }
-    
+
+    $('#save-button').text('Saved!')
+    $('#save-button').removeClass('btn-outline-success')
+    $('#save-button').addClass('btn-success')
+
   });
 
 });
