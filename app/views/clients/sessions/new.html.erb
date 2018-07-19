@@ -10,11 +10,11 @@
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
           <div class="field">
-          <%= f.input :email, label: false, placeholder: 'Email Address', autofocus: true, autocomplete: "email", class: "form-control" %>
+          <%= f.input :email, label: false, placeholder: 'Email Address', autofocus: true, autocomplete: "email", class: "form-control", input_html: {class: 'form-control-sm'} %>
           </div>
 
           <div class="field">
-            <%= f.input :password, label: false, placeholder: "Password", autocomplete: "off", class: "form-control", input_html: {id: "password"} %>
+            <%= f.input :password, label: false, placeholder: "Password", autocomplete: "off", class: "form-control", input_html: {id: "password", class: "form-control-sm"} %>
             <div id="capslockdiv" style="display: none; color: red; font-weight: 600;"> WARNING: Caps Lock is on </div>
           </div>
 
