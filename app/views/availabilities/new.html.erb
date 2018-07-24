@@ -489,10 +489,17 @@
     <br />
     <div class = "col-md-8 offset-md-2 col-sm-12">
       <div class = "btn-group float-right">
-        <%= link_to 'Skip', vendor_path(@vendor), class: "btn btn-outline-primary"%>
-        <%= link_to vendor_path(@vendor), class: "btn btn-primary btn-animated btn-animated-x", id: "save-button" do %>
-          <span class="btn-inner--visible">NEXT: Design your profile</span>
-          <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span> 
+        <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
+          <%= link_to 'Skip', vendor_path(@vendor), class: "btn btn-outline-primary"%>
+          <%= link_to vendor_path(@vendor), class: "btn btn-primary btn-animated btn-animated-x", id: "save-button" do %>
+            <span class="btn-inner--visible">NEXT: Design your profile</span>
+            <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span> 
+          <% end %>
+        <% else %>
+          <%= link_to vendor_path(@vendor), class: "btn btn-primary btn-animated btn-animated-x", id: "save-button" do %>
+            <span class="btn-inner--visible">View Company Page</span>
+            <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span> 
+          <% end %>
         <% end %>
       </div>
     </div>
