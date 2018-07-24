@@ -1,3 +1,5 @@
+<% title "Set Availability for #{@vendor.name}" %>
+
 <div class = "availability-new-page">
   <h1 class = "text-center availability-header" id = "<%= @vendor.slug %>">Set Your Availability</h1>
   <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
