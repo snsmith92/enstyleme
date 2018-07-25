@@ -1,6 +1,6 @@
 @import "bootstrap"; 
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500');
 
 html {
   position: relative;
@@ -19,7 +19,7 @@ body {
   line-height: 60px; /* Vertically center the text there */
   background-color: #CCCCCC;
   color: #444444;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 12px;
   margin-top: 60px;
 }
@@ -172,9 +172,9 @@ input {
 }
 
 .vendor-sign-up h1 {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
-  font-size: 3rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
 }
 
 .help-block {
@@ -199,7 +199,7 @@ input {
 
 .vendor-profile {
   padding: 15px;
-  background-color: #f2f2f2;
+  // background-color: rgba(255,126,109, 0.05);
   border-radius: 0px 0px 10px 10px; 
 }
 
@@ -244,8 +244,8 @@ input {
 }
 
 .vendor-profile-text h1 {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 400;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
 }
 
 .vendor-content {
@@ -253,11 +253,11 @@ input {
 }
 
 .review-positive {
-  color: #87D37C;
+  color: #3FC380;
 }
 
 .review-negative {
-  color: #D64541;
+  color: #EC644B;
 }
 
 .about-box {
@@ -267,14 +267,14 @@ input {
 
 .vendor-profile-text p {
   font-size: 14px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
   margin-bottom: 5px;
   letter-spacing: 0.25px;
 }
 
 h2.first-service {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 25px;
 
 }
@@ -285,7 +285,7 @@ h2.first-service {
 }
 
 .vendor-services p {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   text-align: center;
   margin: 20px;
 }
@@ -557,7 +557,7 @@ xButtons
 }
 
 .homepage-header {
-  background-color: #FDFDFD;
+  // background-color: #FDFDFD;
   min-height: 360px;
 }
 
@@ -566,21 +566,21 @@ xButtons
   padding-top: 20px;
   text-transform: none;
   font-size: 3rem;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
-  color: #111;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: #444444;
   line-height: 1.46;
 }
 
 .homepage-stretch-header {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .homepage-subheading {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
-  font-size: 1.5rem; 
+  font-size: 1.2rem; 
 }
 
 .homepage-stretch {
@@ -634,7 +634,7 @@ opacity: 1;
 }
 
 .image-text {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -646,7 +646,15 @@ opacity: 1;
 }
 
 .business-background {
-  background: url(background.png) no-repeat;
+  background: url(animated-background.png);
+  animation: animatedBackground 60s linear infinite;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+}
+
+@keyframes animatedBackground{
+  from{background-position:0 0}to
+  {background-position:100% 0}
 }
 
 .business-background-2 {
@@ -654,7 +662,9 @@ opacity: 1;
 }
 
 .availability-header {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
   margin-top: 20px;
 }
 
@@ -717,7 +727,7 @@ opacity: 1;
 
 .hours-icon {
   margin-right: 10px;
-  color: #F7CA18;
+  color: #008192;
 }
 
 .vendor-page-section {
@@ -784,17 +794,17 @@ opacity: 1;
   text-align: center;
   letter-spacing: 1px;
   position: relative;
-}
-
-.login-box:hover {
   box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .login-box h2 {
-  margin: 20px 0 20px;
+  margin: 10px 0 10px;
   padding: 0;
-  text-transform: uppercase;
-  color: #4688F1;
+  color: #444444;
+}
+
+.shared-links {
+  font-size: 0.75rem;
 }
 
 .social-button {
@@ -810,7 +820,7 @@ opacity: 1;
   text-transform: uppercase;
   vertical-align: middle;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 0.375rem;
   margin: 10px auto;
   outline: rgb(255, 255, 255) none 0px;
   padding-left: 20%;
@@ -898,4 +908,17 @@ opacity: 1;
   -ms-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease;
+}
+
+.teal {
+  color: #008192;
+}
+
+.peach {
+  color: #ff7e6d;
+}
+
+.modal-ku #editModal{
+  width: 750px;
+  margin: auto;
 }

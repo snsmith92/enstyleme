@@ -1,35 +1,25 @@
-    <main class="main">
-      <section class="py-xl bg-cover bg-size--cover" style="background-image: url('background.jpg')">
-        <span class="mask bg-primary alpha-6"></span>
-        <div class="container d-flex align-items-center no-padding">
-          <div class="col">
-            <div class="row justify-content-center">
-              <div class="col-lg-4">
-                <div class="card bg-primary text-white">
-                  <div class="card-body">
-                    <button type="button" class="btn btn-primary btn-nobg btn-zoom--hover mb-5">
-                      <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
-                    </button>
-                    <span class="clearfix"></span>
-                    <h4 class="heading h3 text-white pt-3 pb-5">Resend unlock instructions</h4>
-                    <form class="form-primary">
-                      <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-                        <div class="form-group">
-                          <%= f.error_notification %>
-                          <%= f.full_error :unlock_token %>
-                          <%= f.input :email, class: "form-control", type: "email", id: "input_email", placeholder: "Your email", required: true %>
-                        </div>
-                      <div class="text-right mt-4 sign-in-links">
-                        <%= render "admins/shared/links" %>
-                      </div>
-                        <%= f.button :submit, "Resend unlock instructions", class: 'btn btn-block btn-lg bg-white mt-4' %>
-                      <% end %>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<% title "Send Unlock Instructions" %>  
+<br />
+<br />
+<br />
+<br />
+<body style="background-color:#FDFDFD;">
+<div class="container-fluid login col-md-4 offset-4">
+  <h1 class = "text-center">Resend Unlock Instructions</h1>
+  <br /><br />
+  <p class = "text-center">This dashboard is for Enstyle.me staff. If you are a customer seeking to promote your business on our platform, or a potential client seeking to book services, please sign in <%=link_to 'here.', new_user_session_path %></p>
+  <div class = "form-group">
+      <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <div class="form-group">
+          <%= f.error_notification %>
+          <%= f.full_error :unlock_token %>
+          <%= f.input :email, class: "form-control", type: "email", id: "input_email", required: true %>
         </div>
-      </section>
-    </main>
+      <div class="text-right mt-4 sign-in-links">
+        <%= render "admins/shared/links" %>
+      </div>
+        <%= f.button :submit, "Resend unlock instructions", class: 'btn btn-block btn-primary' %>
+      <% end %>
+  </div>
+</div>
+</body>

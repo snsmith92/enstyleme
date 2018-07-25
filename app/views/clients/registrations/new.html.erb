@@ -6,8 +6,7 @@
     <h2 class = "text-center">Sign Up</h2>
     <h5 class = "text-center text-muted">Start booking stylists quickly and easily today.</h5>
     <br />
-    <p class = "text-center text-muted">Are you a stylist/business seeking to bring your business online? Sign up <%= link_to 'here', new_user_registration_path %>, or <%= link_to 'learn more', business_path %> about what Enstyle.me can offer your business. </p>
-    <br />
+ 
       <div class = "form-group ">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>

@@ -5,7 +5,7 @@
      <%= if content_for?(:title) then yield(:title) + ' | ' end %>
     Enstyle.me - Book Hair Stylists, Makeup Artists, and Beauty Professionals</title>
     <%= csrf_meta_tags %>
-    <%= favicon_link_tag asset_path('favicon 64x64.png'), rel: 'icon', type: "image/png" %>
+    <%= favicon_link_tag asset_path('favicon_64x64.png'), rel: 'icon', type: "image/png" %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "fontawesome-all.min" %>
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse offcanvas-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto align-items-lg-center">
             <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
-            <% if !user_signed_in? && !client_signed_in? %>
+            <% if !user_signed_in? && !client_signed_in? && !admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to new_client_session_path, class: "nav-link" do %>
                   Log In
@@ -81,7 +81,7 @@
                 <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
               </li>
               <li>
-                <%= link_to "Admin Dashboard", administrators_path, class: 'btn btn-primary' %>
+                <%= link_to "Admin Dashboard", administrators_path, class: 'btn btn-primary btn-sm' %>
               </li>
             <% elsif client_signed_in? %>
               <li class="nav-item">
@@ -131,13 +131,28 @@
     <!-- Minor navbar end -->
 
     <% if user_signed_in? && current_user.confirmed_at == nil %>
-      <p class="alert alert-info">Your account has not yet been verified. Check your email inbox to confirm your account.</p>
+      <div class="alert alert-warning alert-dismissible fade show">
+        <span class="alert-inner--icon"><i class="fas fa-exclamation"></i></span>
+        <span class="alert-inner--text">Your account has not yet been verified. Check your email inbox to confirm your account.</span>
+      </div>
     <% end %>
     <% if notice.present? %>
-      <p class="alert alert-info"><%= notice %></p>
+      <div class="alert alert-success alert-dismissible fade show">
+        <span class="alert-inner--icon"><i class="fas fa-check"></i></span>
+        <span class="alert-inner--text"><%= notice %></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
     <% end %>
     <% if alert.present? %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <div class="alert alert-danger alert-dismissible fade show">
+        <span class="alert-inner--icon"><i class="fas fa-times"></i></span>
+        <span class="alert-inner--text"><%= alert %></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     <% end %>
 
     <!-- Modal -->
@@ -155,7 +170,7 @@
               <div class = "row">
                 <div class = "col-6 text-center">
                   <%= link_to new_user_registration_path do %>
-                    <button type = "button" class = "btn btn-outline-primary btn-lg">I'm a stylist</button>
+                    <button type = "button" class = "btn btn-outline-primary btn-lg">I'm a business</button>
                   <% end %>
                 </div>
                 <div class = "col-6 text-center">
@@ -167,7 +182,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            For clients, join Enstyle.me to book stylists. For stylists and salons, join Enstyle.me to easily advertise your business online, accept bookings, and receive deposits.
+            For clients, join Enstyle.me to book stylists. For businesses, join Enstyle.me to easily advertise your services online, accept bookings, and receive deposits.
           </div>
         </div>
       </div>

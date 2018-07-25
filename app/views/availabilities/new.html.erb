@@ -3,7 +3,7 @@
 <div class = "availability-new-page">
   <h1 class = "text-center availability-header" id = "<%= @vendor.slug %>">Set Your Availability</h1>
   <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
-    <h4 class = "text-center">Step 2: Set your weekly hours.</h4> 
+    <h4 class = "text-center teal">Step 2: Set your weekly hours.</h4> 
   <% end %>
   <p class = "text-muted text-center">Tip: Put your general daily operating hours (e.g. 9AM - 5PM) here. Later on you'll be able to add time for breaks through the day, as well as vacations and holidays.</p>
 
@@ -490,7 +490,7 @@
     <div class = "col-md-8 offset-md-2 col-sm-12">
       <div class = "btn-group float-right">
         <% if @vendor.availabilities.blank? && current_user == @vendor.user %>
-          <%= link_to 'Skip', vendor_path(@vendor), class: "btn btn-outline-primary"%>
+          <%= link_to 'Skip', vendor_path(@vendor), class: "btn btn-outline-info"%>
           <%= link_to vendor_path(@vendor), class: "btn btn-primary btn-animated btn-animated-x", id: "save-button" do %>
             <span class="btn-inner--visible">NEXT: Design your profile</span>
             <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span> 
