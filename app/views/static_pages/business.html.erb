@@ -32,7 +32,7 @@
               <div class="col">
                 <div class="d-flex align-items-start">
                   <br />
-                  <div class="icon icon-lg">
+                  <div class="icon icon-lg teal">
                     <i class="far fa-calendar-check"></i>
                   </div>
                   <div class="icon-text">
@@ -46,7 +46,7 @@
             <div class="row">
               <div class="col">
                 <div class="d-flex align-items-start">
-                  <div class="icon icon-lg">
+                  <div class="icon icon-lg teal">
                     <i class="far fa-credit-card"></i>
                   </div>
                   <div class="icon-text">
@@ -60,7 +60,7 @@
             <div class="row">
               <div class="col">
                 <div class="d-flex align-items-start">
-                  <div class="icon icon-lg">
+                  <div class="icon icon-lg teal">
                     <i class="fas fa-briefcase"></i>
                   </div>
                   <div class="icon-text">
@@ -82,7 +82,7 @@
         <div class="col-lg-4">
           <div class="mb-lg mb-lg-0 text-center text-lg-left">
             <h3 class="heading h3">Enstyle.me Features</h3>
-            <p class="mt-3">We've designed all these features to make your life -- and business -- easier.</p>
+            <p class="mt-3">We've designed all these features to make your life — and business — easier.</p>
           </div>
         </div>
         <div class="col-lg-8">
@@ -177,7 +177,7 @@
             <% elsif user_signed_in? && !current_user.vendor.present? %>
               <%= link_to 'Start Free', new_vendor_path , class: "btn btn-main mb-3"%>
             <% else %>
-              <%= link_to 'Start Free', new_user_registration_path, class: "btn btn-main mb-3"%>
+              <%= link_to 'Start Free', new_user_registration_path, class: "btn btn-primary mb-3"%>
             <% end %>
           </div>
         </div>
@@ -198,7 +198,7 @@
             <% elsif user_signed_in? && !current_user.vendor.present? %>
               <%= link_to 'Start Free Trial', new_vendor_path , class: "btn btn-main mb-3"%>
             <% else %>
-              <%= link_to 'Start Free Trial', new_user_registration_path, class: "btn btn-main mb-3"%>
+              <%= link_to 'Start Free Trial', new_user_registration_path, class: "btn btn-primary mb-3"%>
             <% end %>
           </div>
         </div>
@@ -219,7 +219,7 @@
             <% elsif user_signed_in? && !current_user.vendor.present? %>
               <%= link_to 'Start Free Trial', new_vendor_path , class: "btn btn-main mb-3"%>
             <% else %>
-              <%= link_to 'Start Free Trial', new_user_registration_path, class: "btn btn-main mb-3"%>
+              <%= link_to 'Start Free Trial', new_user_registration_path, class: "btn btn-primary mb-3"%>
             <% end %>
           </div>
         </div>

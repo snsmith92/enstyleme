@@ -7,7 +7,7 @@
 <div class="container-fluid login col-md-4 offset-4">
   <h1 class = "text-center">Admin Log In</h1>
   <br /><br />
-  <p class = "text-center">This Login is for Enstyle.me staff. If you are a customer seeking to promote your business on our platform, or a potential client seeking to book services, please sign in <%=link_to 'here.', new_user_session_path %></p>
+  <p class = "text-center">This dashboard is for Enstyle.me staff. If you are a customer seeking to promote your business on our platform, or a potential client seeking to book services, please sign in <%=link_to 'here.', new_user_session_path %></p>
   <div class = "form-group">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -25,10 +25,12 @@
           <%= f.label :remember_me %>
         </div>
       <% end -%>
+      <%= render "admins/shared/links" %>
       <br />
       <div class="actions text-center">
-        <%= f.submit "Log In", class: 'btn btn-main' %>
+        <%= f.submit "Log In", class: 'btn btn-block btn-primary' %>
       </div>
+      
     <% end %>
   </div>
 </div>
