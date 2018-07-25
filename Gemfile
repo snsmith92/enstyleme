@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem "factory_bot_rails"
   gem 'pry', '~> 0.11.3'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -96,6 +97,9 @@ gem 'intl-tel-input'
 # User Authentication with Facebook
 gem 'omniauth-facebook'
 
+# User Authentication with Google
+gem 'omniauth-google-oauth2'
+
 # Validate file size and type
 gem 'file_validators'
 
@@ -116,6 +120,9 @@ gem 'friendly_id', '~> 5.1.0'
 
 # Geocode location
 gem "geocoder"
+
+# String interpolation of date/time in javascript
+gem 'momentjs-rails'
 
 # Pagination for listings pages
 gem 'will_paginate', '~> 3.1.0'

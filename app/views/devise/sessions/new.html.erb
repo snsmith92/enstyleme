@@ -1,38 +1,39 @@
-<br />
-<br />
-<div class="container-fluid login col-lg-4 col-sm-10 offset-lg-4 offset-sm-1">
-  <h1 class = "text-center">Log In</h1>
+<% title "Log In - Businesses" %>
+
+<div class = "login-background">
   <br />
-  <div class = "form-group">
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-      <div class="field">
-       <%= f.input :email, label: "Email", placeholder: 'Email Address', autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.input :password, label: "Password", placeholder: "Password", autocomplete: "off", class: "form-control", input_html: {id: "password"} %>
-         <div id="capslockdiv" style="display: none; color: red; font-weight: 600;"> WARNING: Caps Lock is on </div>
-      </div>
-
-      <% if devise_mapping.rememberable? -%>
+  <br />
+  <div class="container-fluid login login-box col-lg-4 col-sm-10 offset-lg-4 offset-sm-1">
+    <h2 class = "text-center">Manage Your Business</h2>
+    <h5 class = "text-center text-muted">Log In to view your upcoming bookings and manage your calendar.</h5>
+    <br />
+    <div class = "form-group">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
         <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+        <%= f.input :email, label: false, placeholder: 'Email Address', autofocus: true, autocomplete: "email", class: "form-control", input_html: {class: 'form-control-sm'}  %>
         </div>
-      <% end -%>
-      <div class="actions text-center">
-        <%= button_tag(type: 'submit', class: 'btn btn-primary btn-block') do %>
-          <span class = "btn-inner--icon"><i class="fas fa-user"></i></span>&nbsp;&nbsp;&nbsp;<span class = "btn-inner--text">Log In</span>
-        <% end %>
-      </div>
-      <br />
-      <h6 class = "text-center">OR</h2>
-      <br />
-      <div>
+
+        <div class="field">
+          <%= f.input :password, label: false, placeholder: "Password", autocomplete: "off", class: "form-control", input_html: {id: "password", class: 'form-control-sm'} %>
+          <div id="capslockdiv" style="display: none; color: red; font-weight: 600;"> WARNING: Caps Lock is on </div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+        <div class="actions">
+          <%= button_tag(type: 'submit', class: 'btn btn-primary btn-block') do %>
+            <span class = "btn-inner--icon"><i class="fas fa-user"></i></span>&nbsp;&nbsp;&nbsp;<span class = "btn-inner--text">Log In</span>
+          <% end %>
+        </div>
+        <br />
         <%= render "devise/shared/links" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 

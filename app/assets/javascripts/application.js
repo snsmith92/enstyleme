@@ -23,6 +23,7 @@
 //= require bootstrap-select.min
 //= require bootstrap-tagsinput.min
 //= require input-mask.min
+//= require moment
 //= require jquery.mask
 //= require nouislider.min
 //= require textarea-autosize.min

@@ -1,0 +1,64 @@
+<% title "Log In - Clients" %>
+
+<div class = "login-background">
+  <br />
+  <br />
+  <div class="container-fluid login login-box col-lg-4 col-sm-10 offset-lg-4 offset-sm-1">
+    <h2 class = "text-center">Client Login</h2>
+    <h5 class = "text-center text-muted">Log In to make bookings with beauty and style professionals.</h5>
+    <br />
+    <div class = "container">
+      <div class = "form-group">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="field">
+          <%= f.input :email, label: false, placeholder: 'Email Address', autofocus: true, autocomplete: "email", class: "form-control", input_html: {class: 'form-control-sm'} %>
+          </div>
+
+          <div class="field">
+            <%= f.input :password, label: false, placeholder: "Password", autocomplete: "off", class: "form-control", input_html: {id: "password", class: "form-control-sm"} %>
+            <div id="capslockdiv" style="display: none; color: red; font-weight: 600;"> WARNING: Caps Lock is on </div>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end -%>
+          <div class="actions">
+            <%= button_tag(type: 'submit', class: 'btn btn-primary btn-block') do %>
+              <span class = "btn-inner--icon"><i class="fas fa-user"></i></span>&nbsp;&nbsp;&nbsp;<span class = "btn-inner--text">Log In</span>
+            <% end %>
+          </div>
+          <br />
+          <h6 class = "text-center">OR</h2>
+
+          <%= link_to client_facebook_omniauth_authorize_path, class: "social-button", id: "facebook-connect" do %>
+            <span>Sign In With Facebook</span>
+          <% end %> 
+          <%= link_to client_google_oauth2_omniauth_authorize_path, class: "social-button", id: "google-connect" do %>
+            <span>Sign In With Google</span>
+          <% end %> 
+          <div class = "float-right">
+            <%= render "clients/shared/links" %>
+            <br />
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $('#password').keypress(function(e) {
+    var s = String.fromCharCode( e.which );
+    if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
+      $('#capslockdiv').show();
+    }
+    else { 
+      $('#capslockdiv').hide();
+    }
+  });
+</script>

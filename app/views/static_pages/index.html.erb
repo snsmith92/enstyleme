@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class = "col-md-6">
-        <%= image_tag "hair.jpg", class: "img-fluid"%>
+        <%= image_tag "yellow-photo.jpeg", class: "img-fluid"%>
       </div>
     </div>
   </div>
@@ -37,7 +37,11 @@
     <div class="container">
       <div class="d-flex align-items-center justify-content-center">
         <span class="homepage-stretch-header heading ml-3 mb-0">Are you a beauty or style professional? Use our booking platform to bring your business online.</span>&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= link_to 'START FREE', new_user_registration_path, class: 'btn btn-primary float-right'%>
+        <% if user_signed_in? %>
+          <%= link_to 'START FREE', new_vendor_path, class: 'btn btn-primary float-right'%>
+        <% else %>
+          <%= link_to 'START FREE', new_user_registration_path, class: 'btn btn-primary float-right'%>
+        <% end %>
         &nbsp;&nbsp;&nbsp;<%= link_to 'Learn More', business_path, class: 'btn btn-outline-primary float-right'%> 
       </div>
     </div>

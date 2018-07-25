@@ -10,6 +10,8 @@ class Vendor < ApplicationRecord
   belongs_to :category
   has_many :services, dependent: :destroy
   has_many :availabilities, dependent: :destroy
+  has_many :unavailabilities
+  has_many :vacations
 
   after_create :send_vendor_created_email
 

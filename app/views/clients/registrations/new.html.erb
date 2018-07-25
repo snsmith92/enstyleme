@@ -1,0 +1,75 @@
+<% title "Sign Up - Clients" %>
+
+<div class = "login-background">
+  <br/>
+  <div class="container-fluid login login-box col-lg-4 col-sm-10 offset-lg-4 offset-sm-1">
+    <h2 class = "text-center">Sign Up</h2>
+    <h5 class = "text-center text-muted">Start booking stylists quickly and easily today.</h5>
+    <br />
+    <p class = "text-center text-muted">Are you a stylist/business seeking to bring your business online? Sign up <%= link_to 'here', new_user_registration_path %>, or <%= link_to 'learn more', business_path %> about what Enstyle.me can offer your business. </p>
+    <br />
+      <div class = "form-group ">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="field">
+            <%= f.input :email, label: false, placeholder: "Email Address", autofocus: true, autocomplete: "email", class: "form-control", input_html: {class: 'form-control form-control-sm', type: "text"} %>
+          </div>
+
+          <div class="field">
+            <%= f.input :password, label: false, placeholder: "Password", autocomplete: "off", class: "form-control", input_html: {id: "password", "data-toggle": "tooltip", "data-placement": "right", title: "#{@minimum_password_length} characters minimum"}, input_html: {class: 'form-control form-control-sm', type: "text"} %>
+            <div id="capslockdiv" style="display: none; color: red; font-weight: 600;"> WARNING: Caps Lock is on </div>
+          </div>
+
+          <div class="field">
+            <%= f.input :password_confirmation, label: false, placeholder: "Repeat Password", autocomplete: "off", class: "form-control", input_html: {id: "password", class: 'form-control form-control-sm', type: "text"}  %>
+          </div>
+          <br />
+          <div class = "container-fluid">
+            <div class = "col-md-6 offset-md-3 col-sm-12">
+              <div class="actions">
+                <%= button_tag(type: 'submit', class: 'btn btn-primary btn-block btn-sm') do %>
+                  <span class = "btn-inner--icon"><i class="fas fa-user"></i></span>&nbsp;&nbsp;&nbsp;<span class = "btn-inner--text">Join Now</span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          
+          <br />
+          <h6 class = "text-center">Or sign up with: </h2>
+          <div class = "container-fluid">
+            <div class = "row">
+              <div class = "col-md-6 col-sm-12">
+                <%= link_to client_facebook_omniauth_authorize_path, class: "social-button", id: "facebook-connect" do %>
+                  <span>Facebook</span>
+                <% end %> 
+              </div>
+              <div class = "col-md-6 col-sm-12">
+                <%= link_to client_google_oauth2_omniauth_authorize_path, class: "social-button", id: "google-connect" do %>
+                  <span> &nbsp; &nbsp; &nbsp;Google</span>
+                <% end %> 
+              </div>
+            </div>
+          </div>
+          <div class = "float-right">
+            <%= render "clients/shared/links" %>
+            <br />
+          </div>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $('#password').keypress(function(e) {
+    var s = String.fromCharCode( e.which );
+    if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
+      $('#capslockdiv').show();
+    }
+    else { 
+      $('#capslockdiv').hide();
+    }
+  });
+
+  $("#new_user").validate();
+</script>

@@ -18,5 +18,7 @@ module Enstyleme
 
     config.action_mailer.preview_path = "#{Rails.root}/app/mailers/previews"
 
+    config.active_record.time_zone_aware_types = [:datetime]
+
   end
 end
