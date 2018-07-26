@@ -144,18 +144,39 @@
                   <i class="fas fa-edit fa-lg"></i>
                    &nbsp; &nbsp;
                 <% end %>
-              <% else %>
-                <div class = "float-right">
-                  <% if service.cost_range.present? %>
-                    Cost Range: $<%= service.cost_range %>
-                  <% elsif service.cost_absolute.present? %>
-                    $<%= sprintf("%.2f",service.cost_absolute) %>
-                  <% else %>
-                    Cost not specified.
-                  <% end %>
-                  &nbsp;&nbsp;<%= link_to "Book", '#', class: 'btn btn-sm btn-outline-primary' %>
-                </div>
               <% end %>
+                <div class = "float-right">
+                  <div class = "row">
+                    <div class = "col-md-7">
+                      <% if service.cost_range.present? %>
+                        Cost Range: $<%= service.cost_range %>&nbsp; &nbsp;
+                      <% elsif service.cost_absolute.present? %>
+                        $<%= sprintf("%.2f",service.cost_absolute) %>&nbsp; &nbsp;
+                        <br />
+                        <span class = "text-muted minor-text">Pay at the salon</span>
+                      <% else %>
+                        Cost not specified.&nbsp; &nbsp;
+                      <% end %>
+                    </div>
+                    <div class = "col-md-5">
+                      <% if client_signed_in? %>
+                        <%= form_for @booking_item, url: vendor_booking_items_path(@vendor), input_html: {class: "float-right"}, remote: true do |f| %>
+                          <%= f.hidden_field :service_id, value: service.id %>
+                          <%= f.hidden_field :vendor_id, value: current_vendor.id %>
+                          <%= f.hidden_field :client_id, value: current_client.id %>
+                          <% if service.cost_range.present? %>
+                            <%= f.hidden_field :cost_range, value: service.cost_range%>
+                          <% end %>
+                          <%= f.submit "Book",class: 'btn btn-sm btn-outline-primary booking-button', 'data-id': service.id %>
+                        <% end %>
+                      <% end %>
+                      <% if !client_signed_in? && !user_signed_in? %>
+                        <%= link_to 'Log In to Book', new_client_session_path, class: 'btn btn-sm btn-outline-primary'%>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
               </td>
             </tr>
           <% end %>
@@ -367,10 +388,10 @@
             <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true, title: "Type to add categories"},  label: "Select Categories" %>
             <div class = "row">
               <div class = "col-md-6">
-                <%= f.input :hours, label: false,prompt: "Duration in hours", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8], input_html: {class: "form-control form-control-sm"} %>
+                <%= f.input :hours, label: false,prompt: "Duration in hours", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8], input_html: {class: 'selectpicker line-height' } %>
               </div>
               <div class = "col-md-6">
-                <%= f.input :minutes, label: false, prompt: "Duration in Minutes", collection: [0, 15, 30, 45], input_html: {class: "form-control form-control-sm"} %>
+                <%= f.input :minutes, label: false, prompt: "Duration in Minutes", collection: [0, 15, 30, 45], input_html: {class: 'selectpicker line-height'} %>
               </div>
             </div>
             <div class = "row">

@@ -148,7 +148,7 @@ dfn {
 
 b,
 strong {
-  font-weight: bolder
+  font-weight: 500;
 }
 
 small {
@@ -9279,7 +9279,7 @@ button.bg-tertiary:focus {
 }
 
 .font-weight-bold {
-  font-weight: 600 !important
+  font-weight: 500 !important
 }
 
 .font-italic {
@@ -12777,7 +12777,7 @@ textarea[resize="horizontal"] {
 }
 
 .table-hover tr.bg-white:hover {
-  /* background-color: rgba(0, 0, 0, 0.075) !important */
+  background-color: rgba(0, 0, 0, 0.075) !important
 }
 
 tr.table-divider {

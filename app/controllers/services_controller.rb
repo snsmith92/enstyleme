@@ -7,6 +7,7 @@ class ServicesController < ApplicationController
     else
       Service.all
     end
+    @booking_item = current_booking.booking_items.new
   end
 
   def new 
@@ -60,7 +61,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, :description, :hours, :minutes, :cost_absolute, :cost_range, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+    params.require(:service).permit(:name, :description, :hours, :minutes, :cost_absolute, :cost_range, :active, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
   end 
   
   def current_vendor

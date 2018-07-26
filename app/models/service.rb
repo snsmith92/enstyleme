@@ -4,6 +4,7 @@ class Service < ApplicationRecord
   belongs_to :user
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  has_many :booking_items
 
   validates :name, presence: true
   validates :description, presence: true
@@ -11,6 +12,8 @@ class Service < ApplicationRecord
   validates :minutes, presence: true
   validate :cost_options
 
+  before_create :set_active
+  default_scope { where(active: true) }
 
   def cost_options
     errors.add(:base, 'Please fill one of the price fields.') if cost_absolute.blank? && cost_range.blank?
@@ -33,5 +36,9 @@ class Service < ApplicationRecord
     self.tags = names.split(',').map do |n|
       Tag.where(name: n.strip).first_or_create!
     end
+  end 
+
+  def set_active
+    self.active = true
   end 
 end

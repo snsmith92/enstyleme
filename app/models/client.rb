@@ -1,4 +1,5 @@
 class Client < ApplicationRecord
+  has_many :bookings
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable]
   def self.from_omniauth(auth)

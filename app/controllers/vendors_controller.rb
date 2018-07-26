@@ -22,6 +22,8 @@ class VendorsController < ApplicationController
   def show
     @vendor = Vendor.friendly.find(params[:id])
     @service = Service.new
+    # binding.pry
+    @booking_item = current_booking.booking_items.new
     if @vendor.blank?
       render plain: "Sorry, no company to see here!", status: :not_found
     end 

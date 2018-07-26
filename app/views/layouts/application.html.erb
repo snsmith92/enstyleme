@@ -85,13 +85,21 @@
               </li>
             <% elsif client_signed_in? %>
               <li class="nav-item">
-                <%= link_to "Your Account", '#', class: 'nav-link' %>
+                <%= link_to '#', class: 'nav-link' do %>
+                  <i class="fas fa-clock"></i> Your Bookings
+                <% end %>
+              </li>
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="fas fa-user"></i> Your Account</span></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar_1_dropdown_1">
+                    <%= link_to "Favourites", '#', class: 'dropdown-item' %>
+                    <%= link_to "Sign Out", destroy_client_session_path, method: :delete, class: 'dropdown-item' %>
+                </div>
               </li>
               <li class="nav-item">
-                <%= link_to "Your Bookings", '#', class: 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Sign Out", destroy_client_session_path, method: :delete, class: 'nav-link' %>
+                <%= link_to cart_path, class: "btn btn-sm btn-primary" do %>
+                    <i class="fas fa-shopping-cart"></i> Complete Your Booking <span class="badge badge-light ml-2"><%= current_booking.booking_items.count %></span>
+                <% end %>
               </li>
             <% else %>
               <li class="nav-item">
@@ -194,6 +202,15 @@
       <div class="container">
         <span>Copyright &copy; 2018 Enstyle.me </span>
         <span><%= link_to 'Admin Login', new_admin_session_path %> </span>
+        <% if admin_signed_in? %>
+          <span class = "float-right">Signed in as Admin: <%= current_admin.email %></span>
+        <% elsif user_signed_in? %>
+          <span class = "float-right">Signed in as Vendor: <%= current_vendor.email %></span>
+        <% elsif client_signed_in? %>
+          <span class = "float-right">Signed in as Client: <%= current_client.email %></span>
+        <% else %>
+          <span class = "float-right">No sessions are currently running.</span>
+        <% end %>
       </div>
     </footer>
 

@@ -19,6 +19,7 @@
 //= require intl-tel-input
 //= require jquery.validate
 //= require availabilities
+//= require vendors
 //= require fontawesome-all.min
 //= require bootstrap-select.min
 //= require bootstrap-tagsinput.min
