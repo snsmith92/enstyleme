@@ -12,6 +12,8 @@ class Vendor < ApplicationRecord
   has_many :availabilities, dependent: :destroy
   has_many :unavailabilities
   has_many :vacations
+  has_many :bookings
+  has_many :clients, through: :bookings
 
   after_create :send_vendor_created_email
 

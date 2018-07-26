@@ -1,0 +1,69 @@
+<% title "Complete Your Booking" %>
+<body class = "business-background">
+
+  <div class = "category-page vendor-sign-up ">
+
+    <% if !@booking_item.nil? && @booking_item.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+        <% @booking_item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% if @booking_items.size == 0 %>
+      <h5 class = "text-center category-name">Selected Services</h5>
+      <p class="text-center">
+        You haven't selected any services to book yet.  Please <%= link_to "go back", '#' %> to choose services to book.
+      </p>
+    <% else %>
+      <h1 class = "text-center">Selected Services</h1>
+      <h5 class = "text-muted text-center">Below are the bookings you've selected. </h5>
+      <br />
+      <br />
+      <div class = "container col-md-8 offset-md-2">
+        <div class = "row">
+          <div class = "col-md-6">
+            <div class = "float-right">
+              <h1>Total: <strong>$<%= sprintf("%.2f",current_booking.total_price) %></strong></h1>
+              <span class = "text-muted float-right">Pay at the salon</span>
+            </div>
+          </div>
+          <div class = "col-md-6 col-sm-12">
+            <table class="table table-hover align-items-center">
+              <tbody>
+                <% @booking_items.each do |booking_item| %>
+                  <tr class = "bg-white">
+                    <td scope = "row">
+                      <div class="media align-items-center">
+                        <div class = "media-body">
+                          <%= link_to '#' do %>
+                            <h4 class = "font-weight-normal mb-0"><%= booking_item.service.name %></h4>
+                          <% end %>
+                          <span class="font-weight-normal text-muted"><%= booking_item.service.vendor.name %></span>
+                          <p class = "listing-description"><%= booking_item.service.hours %>hrs <%= booking_item.service.minutes %>mins.</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                    <span class="text-right float-right"> Price: <%= number_to_currency booking_item.price %> &nbsp; &nbsp;
+                    <%= link_to booking_item,{ data: { confirm: "Are you sure you wish to delete the product '#{booking_item.service.name}' from your cart?" }, method: :delete, class: "delete-button" } do %>
+                      <i class="fas fa-trash fa-lg"></i>
+                    <% end %>
+                    </span>
+                    <td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <%= link_to '#', class: "btn btn-primary btn-animated btn-animated-x float-right" do %>
+          <span class="btn-inner--visible">Select Appointment Time</span>
+          <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span> 
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</body>

@@ -922,3 +922,21 @@ opacity: 1;
   width: 750px;
   margin: auto;
 }
+
+.booking-box {
+  border: .0625rem solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.minor-text {
+  font-size: 0.7rem;
+}
+
+
+.delete-button {
+  color: #EC644B;
+}
+
+.delete-button:hover {
+  color: #b3584c;
+}
