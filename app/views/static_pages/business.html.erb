@@ -172,7 +172,7 @@
               <li>Calendar</li>
               <li>Up to 15 bookings per month</li>
             </ul>
-            <% if user_signed_in? && current_user.vendors.present? %>
+            <% if user_signed_in? && current_user.vendor.present? %>
               <%= link_to 'Start Free', '#', class: "btn btn-main mb-3"%>
             <% elsif user_signed_in? && !current_user.vendor.present? %>
               <%= link_to 'Start Free', new_vendor_path , class: "btn btn-main mb-3"%>
@@ -193,7 +193,7 @@
               <li>Unlimited bookings per month</li>
               <li>Automated client SMS / email reminders</li>
             </ul>
-            <% if user_signed_in? && current_user.vendors.present? %>
+            <% if user_signed_in? && current_user.vendor.present? %>
               <%= link_to 'Start Free Trial', '#', class: "btn btn-main mb-3"%>
             <% elsif user_signed_in? && !current_user.vendor.present? %>
               <%= link_to 'Start Free Trial', new_vendor_path , class: "btn btn-main mb-3"%>
@@ -214,7 +214,7 @@
               <li>Allow clients to pay online</li>
               <li>Monthly earnings reports</li>
             </ul>
-            <% if user_signed_in? && current_user.vendors.present? %>
+            <% if user_signed_in? && current_user.vendor.present? %>
               <%= link_to 'Start Free Trial', '#', class: "btn btn-main mb-3"%>
             <% elsif user_signed_in? && !current_user.vendor.present? %>
               <%= link_to 'Start Free Trial', new_vendor_path , class: "btn btn-main mb-3"%>

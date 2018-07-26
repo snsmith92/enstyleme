@@ -58,19 +58,15 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar_1_dropdown_1">
                   <%= link_to 'Manage Your Account', '#', class: 'dropdown-item'%>
-                  <% if current_user.vendors != nil %>
-                    <%= link_to 'View Calendar', calendar_path, class: 'dropdown-item'%>
+                  <% if current_user.vendor != nil %>
+                    <%= link_to 'View Calendar', vendor_calendar_path(current_user.vendor), class: 'dropdown-item'%>
                     <%= link_to 'View Client Bookings', '#', class: 'dropdown-item'%>
-                    <% if current_user.vendors.count == 1 %>
-                      <%= link_to 'Manage Vendor Page', current_user.vendor_path, class: 'dropdown-item' %>
-                    <% else %>
-                      <%= link_to 'Manage Vendor Pages', '#', class: 'dropdown-item' %>
-                    <% end %>
+                    <%= link_to 'Manage Vendor Page', vendor_path(current_user.vendor), class: 'dropdown-item' %>
                     <%= link_to 'Business Dashboard', '#', class: 'dropdown-item'%>
                   <% end %>
                 </div>
               </li>
-              <% if current_user.vendors == nil %>
+              <% if current_user.vendor == nil %>
                 <li class="nav-item">
                   <%= link_to "Get Started", start_path, class: 'nav-link d-lg-none', 'data-target' => '_blank' %>
                   <%= link_to "Get Started", start_path, class: 'btn btn-sm btn-primary d-none d-lg-inline-flex', 'data-target' => '_blank' %>
@@ -205,7 +201,7 @@
         <% if admin_signed_in? %>
           <span class = "float-right">Signed in as Admin: <%= current_admin.email %></span>
         <% elsif user_signed_in? %>
-          <span class = "float-right">Signed in as Vendor: <%= current_vendor.email %></span>
+          <span class = "float-right">Signed in as Vendor: <%= current_user.email %></span>
         <% elsif client_signed_in? %>
           <span class = "float-right">Signed in as Client: <%= current_client.email %></span>
         <% else %>
