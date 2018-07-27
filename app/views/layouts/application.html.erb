@@ -205,7 +205,7 @@
         <% if admin_signed_in? %>
           <span class = "float-right">Signed in as Admin: <%= current_admin.email %></span>
         <% elsif user_signed_in? %>
-          <span class = "float-right">Signed in as Vendor: <%= current_vendor.email %></span>
+          <span class = "float-right">Signed in as Vendor: <%= current_user.email %></span>
         <% elsif client_signed_in? %>
           <span class = "float-right">Signed in as Client: <%= current_client.email %></span>
         <% else %>
