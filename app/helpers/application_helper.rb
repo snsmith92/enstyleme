@@ -1,6 +1,8 @@
 module ApplicationHelper
   def current_vendor
-    @current_vendor ||= Vendor.find(params[:id])
+    if user_signed_in? && current_user.vendors.present?
+      @current_vendor ||= Vendor.find(params[:id])
+    end 
   end 
 
   def categories
