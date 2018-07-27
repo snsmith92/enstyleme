@@ -127,6 +127,9 @@ gem 'momentjs-rails'
 # Pagination for listings pages
 gem 'will_paginate', '~> 3.1.0'
 
+# Full calendar gem
+gem 'fullcalendar-rails'
+
 ruby "2.3.1"
 
 

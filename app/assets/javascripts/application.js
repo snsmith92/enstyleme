@@ -25,6 +25,7 @@
 //= require bootstrap-tagsinput.min
 //= require input-mask.min
 //= require moment
+//= require fullcalendar
 //= require jquery.mask
 //= require nouislider.min
 //= require textarea-autosize.min
@@ -32,3 +33,5 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+
+$('#calendar').fullCalendar({ })

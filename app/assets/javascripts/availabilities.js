@@ -2,6 +2,7 @@ $(document).ready(function() {
   var vendorId = document.querySelector(".availability-header").getAttribute('id'); 
 });
 
+
 $(document).ready(function(){
   // MONDAY
   // trigger availability form to appear
