@@ -67,7 +67,7 @@
                     <%= link_to 'View Calendar', calendar_path, class: 'dropdown-item'%>
                     <%= link_to 'View Client Bookings', '#', class: 'dropdown-item'%>
                     <% if current_user.vendors.count == 1 %>
-                      <%= link_to 'Manage Vendor Page', current_user.vendor_path, class: 'dropdown-item' %>
+                      <%= link_to 'Manage Vendor Page', current_user.vendors[0].vendor_path, class: 'dropdown-item' %>
                     <% else %>
                       <%= link_to 'Manage Vendor Pages', '#', class: 'dropdown-item' %>
                     <% end %>
