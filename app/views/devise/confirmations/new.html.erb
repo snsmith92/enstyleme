@@ -1,28 +1,34 @@
 <% title "Confirm Your Account" %>
+
 <br />
 <br />
-<div class="container-fluid login">
+<br />
+<br />
+<body style="background-color:#FDFDFD;">
+<div class="container-fluid login col-md-4 offset-4">
   <h1 class = "text-center">Resend Confirmation Instructions</h1>
-  <div class = "text-center">
-    <%= image_tag "underline.png", class: "img-fluid"%>
-  </div>
   <br /><br />
-  <div class = "col-lg-6 col-sm-10 offset-lg-3 offset-sm-1">
-    <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-    <%= devise_error_messages! %>
+  <div class = "form-group">
+<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <p><strong><%= devise_error_messages! %></strong></p>
 
       <div class="field">
-        <%= f.input :email, label: "Enter Email Address", autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
+        <%= f.input :email, label: "Enter Email Address", autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control form-control-sm" %>
       </div>
 
       <div class="actions">
-        <%= button_tag(type: 'submit', class: 'btn btn-primary btn-block float-right') do %>
+        <%= button_tag(type: 'submit', class: 'btn btn-primary btn-block btn-sm float-right') do %>
           <span class = "btn-inner--icon"><i class="fas fa-user"></i></span>&nbsp;&nbsp;&nbsp;<span class = "btn-inner--text">Resend Confirmation Instructions</span>
         <% end %>
       </div>
+      <br />
+      <br/>
       <div class = "float-left">
         <%= render "devise/shared/links" %>
       </div>
     <% end %>
   </div>
 </div>
+</body>
+
+
