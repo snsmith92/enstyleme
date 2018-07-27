@@ -174,7 +174,7 @@
             </ul>
             <% if user_signed_in? && current_user.vendors.present? %>
               <%= link_to 'Start Free', '#', class: "btn btn-main mb-3"%>
-            <% elsif user_signed_in? && !current_user.vendor.present? %>
+            <% elsif user_signed_in? && !current_user.vendors.present? %>
               <%= link_to 'Start Free', new_vendor_path , class: "btn btn-main mb-3"%>
             <% else %>
               <%= link_to 'Start Free', new_user_registration_path, class: "btn btn-primary mb-3"%>
@@ -195,7 +195,7 @@
             </ul>
             <% if user_signed_in? && current_user.vendors.present? %>
               <%= link_to 'Start Free Trial', '#', class: "btn btn-main mb-3"%>
-            <% elsif user_signed_in? && !current_user.vendor.present? %>
+            <% elsif user_signed_in? && !current_user.vendors.present? %>
               <%= link_to 'Start Free Trial', new_vendor_path , class: "btn btn-main mb-3"%>
             <% else %>
               <%= link_to 'Start Free Trial', new_user_registration_path, class: "btn btn-primary mb-3"%>
@@ -216,7 +216,7 @@
             </ul>
             <% if user_signed_in? && current_user.vendors.present? %>
               <%= link_to 'Start Free Trial', '#', class: "btn btn-main mb-3"%>
-            <% elsif user_signed_in? && !current_user.vendor.present? %>
+            <% elsif user_signed_in? && !current_user.vendors.present? %>
               <%= link_to 'Start Free Trial', new_vendor_path , class: "btn btn-main mb-3"%>
             <% else %>
               <%= link_to 'Start Free Trial', new_user_registration_path, class: "btn btn-primary mb-3"%>
