@@ -128,7 +128,7 @@ gem 'momentjs-rails'
 gem 'will_paginate', '~> 3.1.0'
 
 # Full calendar gem
-gem 'fullcalendar-rails'
+gem 'fullcalendar.io-rails'
 
 ruby "2.3.1"
 

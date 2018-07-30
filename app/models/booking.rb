@@ -16,11 +16,11 @@ class Booking < ApplicationRecord
   # validates :phone, presence: true
   
   def total_price 
-    booking_items.collect { |item| item.service.cost_absolute.present? ? item.service.cost_absolute : 0 }.sum
+    booking_items.map { |item| item.service.cost_absolute.present? ? item.service.cost_absolute : 0 }.sum
   end 
 
   def total_duration_minutes
-    booking_items.collect { |item| ((item.service.hours * 60) + item.service.minutes) }.sum
+    booking_items.map { |item| ((item.service.hours * 60) + item.service.minutes) }.sum
   end 
 
   def client_id 

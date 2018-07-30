@@ -32,6 +32,3 @@
 //= require theme
 //= require bootstrap-sprockets
 //= require_tree .
-
-
-$('#calendar').fullCalendar({ })
