@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :vendor
+  has_many :vendors
   has_many :services
   has_many :availabilities
 
