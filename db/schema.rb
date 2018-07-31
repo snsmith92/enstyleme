@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180717165226) do
+ActiveRecord::Schema.define(version: 20180726133326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,45 @@ ActiveRecord::Schema.define(version: 20180717165226) do
     t.integer  "day"
     t.index ["user_id", "vendor_id"], name: "index_availabilities_on_user_id_and_vendor_id", using: :btree
     t.index ["vendor_id"], name: "index_availabilities_on_vendor_id", using: :btree
+  end
+
+  create_table "booking_items", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "booking_id"
+    t.decimal  "price",      precision: 6, scale: 2
+    t.string   "cost_range"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "client_id"
+    t.integer  "vendor_id"
+    t.index ["booking_id"], name: "index_booking_items_on_booking_id", using: :btree
+    t.index ["client_id", "vendor_id"], name: "index_booking_items_on_client_id_and_vendor_id", using: :btree
+    t.index ["client_id"], name: "index_booking_items_on_client_id", using: :btree
+    t.index ["service_id"], name: "index_booking_items_on_service_id", using: :btree
+    t.index ["vendor_id"], name: "index_booking_items_on_vendor_id", using: :btree
+  end
+
+  create_table "booking_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string   "client_name"
+    t.string   "phone"
+    t.text     "notes"
+    t.integer  "total_duration"
+    t.decimal  "total_price",       precision: 6, scale: 2
+    t.integer  "vendor_id"
+    t.integer  "client_id"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "booking_status_id"
+    t.index ["booking_status_id"], name: "index_bookings_on_booking_status_id", using: :btree
+    t.index ["client_id", "vendor_id"], name: "index_bookings_on_client_id_and_vendor_id", using: :btree
+    t.index ["client_id"], name: "index_bookings_on_client_id", using: :btree
+    t.index ["vendor_id"], name: "index_bookings_on_vendor_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -86,12 +125,13 @@ ActiveRecord::Schema.define(version: 20180717165226) do
     t.text     "description"
     t.integer  "hours"
     t.integer  "minutes"
-    t.decimal  "cost_absolute"
+    t.decimal  "cost_absolute", precision: 6, scale: 2
     t.string   "cost_range"
     t.integer  "vendor_id"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "active"
     t.index ["user_id", "vendor_id"], name: "index_services_on_user_id_and_vendor_id", using: :btree
     t.index ["vendor_id"], name: "index_services_on_vendor_id", using: :btree
   end
@@ -183,6 +223,8 @@ ActiveRecord::Schema.define(version: 20180717165226) do
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
   end
 
+  add_foreign_key "booking_items", "bookings"
+  add_foreign_key "booking_items", "services"
   add_foreign_key "taggings", "services"
   add_foreign_key "taggings", "tags"
   add_foreign_key "vendors", "categories"

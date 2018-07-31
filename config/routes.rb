@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   root "static_pages#index"
   get 'start', to: 'static_pages#start'
   get 'business', to: 'static_pages#business'
-  get 'calendar', to: 'static_pages#calendar'
   resources :vendors do 
     resources :services, only: [:show, :edit, :update, :new, :create, :destroy]
+    resource :booking_items, only: [:create]
     resources :availabilities
     resources :unavailabilities
     resources :vacations
+    resource :calendar, only: [:show]
   end 
-
+  resources :booking_items, only: [:destroy, :update]
+  resource :cart, only: [:show]
   resources :services, only: [:index]
   get 'tags/:tag', to: 'services#index', as: :tag
   resources :administrators, only: [:index]

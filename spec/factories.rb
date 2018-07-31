@@ -1,4 +1,17 @@
 FactoryBot.define do
+  factory :booking_status do
+    name "MyString"
+  end
+  factory :booking_item do
+    service nil
+    booking nil
+    price "9.99"
+    cost_range "MyString"
+  end
+  
+  factory :booking do
+    
+  end
   factory :user do
     sequence :email do |n|
       "dummyEmail#{n}@gmail.com"

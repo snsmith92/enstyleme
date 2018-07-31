@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def current_vendor
-    @current_vendor ||= Vendor.find(params[:id])
-  end 
+  # def current_vendor
+  #   @current_vendor ||= Vendor.find(params[:id])
+  # end 
 
   def categories
     Category.all

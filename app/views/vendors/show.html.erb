@@ -33,7 +33,7 @@
           <div class = "row">
             <div class = "col-md-8 col-sm-12">
               <h1><%=current_vendor.name%></h1>
-              <h5 class = "text-muted">
+              <h5 class = "teal">
               <%= current_vendor.category.name %>
               <% if current_vendor.facebook.present? %>
                 <i class="fab fa-facebook-square"></i> &nbsp;
@@ -55,11 +55,21 @@
             </div>
             <div class = "col-md-4 col-sm-12">
               <div class = "btn-group float-right" role="group">
-                <%= link_to "About", vendor_path(anchor: 'about'), class: 'btn btn-outline-primary'%>
-                <%= link_to "Reviews", vendor_path(anchor: 'reviews'), class: 'btn btn-outline-primary'%>
-                <%= link_to "Find Us", vendor_path(anchor: 'find-us'), class: 'btn btn-outline-primary'%>
+                <%= link_to "About", vendor_path(anchor: 'about'), class: 'btn btn-outline-info btn-sm'%>
+                <%= link_to "Reviews", vendor_path(anchor: 'reviews'), class: 'btn btn-outline-info btn-sm'%>
+                <%= link_to "Find Us", vendor_path(anchor: 'find-us'), class: 'btn btn-outline-info btn-sm'%>
                 <% if current_user != current_vendor.user %>
-                  <%= link_to "Book Now", '#', class: 'btn btn-primary'%>
+                  <%= link_to "BOOK NOW", '#', class: 'btn btn-primary btn-sm'%>
+                <% end %>
+                <% if current_user == current_vendor.user %>
+                      <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Edit Profile
+                      </button>
+                      <div class="dropdown-menu">
+                          <a class="dropdown-item" data-toggle="modal" data-target="#editModal">Edit Profile Details</a>
+                          <%= link_to 'Adjust Your Hours', new_vendor_availability_path(current_vendor), class: "dropdown-item"%>
+                          <a class="dropdown-item" data-toggle="modal" data-target="#deleteProfileModal">Delete Profile</a>
+                      </div>
                 <% end %>
               </div>
               <div class="clear"></div>
@@ -75,30 +85,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <% if current_user == current_vendor.user %>
-    <br />
-    <div class = "btn-group float-right" role = "group">
-      <% if !current_vendor.services.blank? %>
-        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#serviceModal">
-          <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-          <span class="btn-inner--text">Add A Service</span>
-        </button> 
-      <% end %>
-      <%= link_to new_vendor_availability_path(current_vendor), class: "btn btn-sm btn-outline-primary" do %>
-        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-        <span class="btn-inner--text">Adjust Your Hours</span>
-      <% end %>
-      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal">
-        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-        <span class="btn-inner--text">Edit Profile</span>
-      </button>
-      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProfileModal">
-        <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
-        <span class="btn-inner--text">Delete Profile</span>
-      </button>
-    </div>
-  <% end %>
   </div>
 </div>
 
@@ -118,9 +104,20 @@
         <br />
         <br />
       </div>
-    <% else %>
+    <% elsif current_vendor.services.blank? && current_user != current_vendor.user %>
       <h2>Services</h2>
+      <br />
+      <p>This vendor has not listed any services yet.</p>
+    <% elsif !current_vendor.services.blank? && current_user == current_vendor.user  %>
+      <h2>Services 
+        <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#serviceModal">
+          <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
+          <span class="btn-inner--text">Add A Service</span>
+        </button> 
+      </h2>
         <br />
+    <% else %>
+      <h2>Services </h2>
     <% end %>
 
     <% if current_vendor.services.present? %>
@@ -140,24 +137,46 @@
                 <%=service.description%>
               <td>
               <% if current_vendor.user == current_user %>
-                <%= link_to vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'btn btn-sm btn-danger float-right btn-space' do %>
-                  <i class="far fa-trash-alt"></i>
+                <%= link_to vendor_service_path(current_vendor, service), method: :delete, data: {confirm: 'Are you sure? This action cannot be reversed.'}, class: 'teal float-right' do %>
+                  <i class="fas fa-trash fa-lg"></i>
                 <% end %>
-                <%= link_to edit_vendor_service_path(current_vendor, service), class: 'btn btn-sm btn-primary float-right btn-space' do %>
-                  <i class="far fa-edit"></i>
+                <%= link_to edit_vendor_service_path(current_vendor, service), class: 'teal float-right' do %>
+                  <i class="fas fa-edit fa-lg"></i>
+                   &nbsp; &nbsp;
                 <% end %>
-              <% else %>
-                <div class = "float-right">
-                  <% if service.cost_range.present? %>
-                    Cost Range: $<%= service.cost_range %>
-                  <% elsif service.cost_absolute.present? %>
-                    $<%= sprintf("%.2f",service.cost_absolute) %>
-                  <% else %>
-                    Cost not specified.
-                  <% end %>
-                  &nbsp;&nbsp;<%= link_to "Book Now", '#', class: 'btn btn-sm btn-outline-primary' %>
-                </div>
               <% end %>
+                <div class = "float-right">
+                  <div class = "row">
+                    <div class = "col-md-7">
+                      <% if service.cost_range.present? %>
+                        Cost Range: $<%= service.cost_range %>&nbsp; &nbsp;
+                      <% elsif service.cost_absolute.present? %>
+                        $<%= sprintf("%.2f",service.cost_absolute) %>&nbsp; &nbsp;
+                        <br />
+                        <span class = "text-muted minor-text">Pay at the salon</span>
+                      <% else %>
+                        Cost not specified.&nbsp; &nbsp;
+                      <% end %>
+                    </div>
+                    <div class = "col-md-5">
+                      <% if client_signed_in? %>
+                        <%= form_for @booking_item, url: vendor_booking_items_path(@vendor), input_html: {class: "float-right"}, remote: true do |f| %>
+                          <%= f.hidden_field :service_id, value: service.id %>
+                          <%= f.hidden_field :vendor_id, value: current_vendor.id %>
+                          <%= f.hidden_field :client_id, value: current_client.id %>
+                          <% if service.cost_range.present? %>
+                            <%= f.hidden_field :cost_range, value: service.cost_range%>
+                          <% end %>
+                          <%= f.submit "Book",class: 'btn btn-sm btn-outline-primary booking-button', 'data-id': service.id %>
+                        <% end %>
+                      <% end %>
+                      <% if !client_signed_in? && !user_signed_in? %>
+                        <%= link_to 'Log In to Book', new_client_session_path, class: 'btn btn-sm btn-outline-primary'%>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
               </td>
             </tr>
           <% end %>
@@ -174,7 +193,11 @@
         <p><%= current_vendor.description %></p>
       </div>
       <div class = "hours col-md-4 col-sm-12">
-        <h2>Hours:</h2>
+        <h2>Hours:
+        <% if current_user == current_vendor.user %>
+          <%= link_to 'Adjust Hours', new_vendor_availability_path(current_vendor), class: 'btn btn-primary btn-sm float-right'%>
+        <% end %>
+        </h2>
         <p><i class="fas fa-circle hours-icon"></i>Mondays: <%= show_available(0, current_vendor.id)%></p>
         <p><i class="fas fa-circle hours-icon"></i>Tuesdays:<%= show_available(1, current_vendor.id)%></p>
         <p><i class="fas fa-circle hours-icon"></i>Wednesdays: <%= show_available(2, current_vendor.id)%></p>
@@ -292,7 +315,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editModal">Edit your Page</h5>
+        <h5 class="modal-title" id="editModal">Edit Your Profile</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -338,8 +361,8 @@
           </div>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit "Save", class: 'btn btn-primary' %> 
+        <button type="button" class="btn btn-outline-info" data-dismiss="modal">Close</button>
+        <%= f.submit "Update", class: 'btn btn-primary' %> 
       </div>
     <% end %>
     </div>
@@ -365,10 +388,10 @@
             <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true, title: "Type to add categories"},  label: "Select Categories" %>
             <div class = "row">
               <div class = "col-md-6">
-                <%= f.input :hours, label: false,prompt: "Duration in hours", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8], input_html: {class: "form-control form-control-sm"} %>
+                <%= f.input :hours, label: false,prompt: "Duration in hours", collection: [0, 1, 2, 3, 4, 5 , 6, 7, 8], input_html: {class: 'selectpicker line-height' } %>
               </div>
               <div class = "col-md-6">
-                <%= f.input :minutes, label: false, prompt: "Duration in Minutes", collection: [0, 15, 30, 45], input_html: {class: "form-control form-control-sm"} %>
+                <%= f.input :minutes, label: false, prompt: "Duration in Minutes", collection: [0, 15, 30, 45], input_html: {class: 'selectpicker line-height'} %>
               </div>
             </div>
             <div class = "row">
@@ -391,6 +414,8 @@
   </div>
 </div>
 
+
+
 <!-- Delete Profile Modal -->
 <div class="modal fade" id="deleteProfileModal" tabindex="-1" role="dialog" aria-labelledby="deleteProfileModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -407,7 +432,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-outline-info" data-dismiss="modal">Cancel</button>
         <%= link_to 'Delete Profile', vendor_path(@vendor), method: :delete, class: 'btn btn-danger' %>
       </div>
     </div>

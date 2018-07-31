@@ -12,6 +12,8 @@ class Vendor < ApplicationRecord
   has_many :availabilities, dependent: :destroy
   has_many :unavailabilities
   has_many :vacations
+  has_many :bookings
+  has_many :clients, through: :bookings
 
   after_create :send_vendor_created_email
 
@@ -24,7 +26,6 @@ class Vendor < ApplicationRecord
   validates :phone1, presence: true 
   validates :consent, presence: true
   
-
   def country_name
     c = ISO3166::Country[self.country]
     return c.translations[I18n.locale.to_s] || c.name

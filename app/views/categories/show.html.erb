@@ -14,8 +14,8 @@
                   <%= link_to vendor_path(vendor) do %>
                     <h4 class = "font-weight-normal mb-0"><%= vendor.name %></h4>
                   <% end %>
-                  <span class="font-weight-normal text-muted"><i class="fas fa-map-marker-alt map-icon"></i> &nbsp; &nbsp; <%= vendor.city %>, <%= vendor.country %></span>
-                  <p><span class = "review-positive"><i class="far fa-smile fa-lg "></i></span> &nbsp; &nbsp;<span class = "text-muted"><strong>95% of clients had a positive experience</strong></span></p>
+                  <span class="font-weight-normal text-muted"><i class="fas fa-map-marker teal"></i> &nbsp; &nbsp; <%= vendor.city %>, <%= vendor.country %></span>
+                  <p><span class = "review-positive"><i class="far fa-smile "></i></span> &nbsp;<span class = "text-muted"><strong>95% of clients had a positive experience</strong></span></p>
                   <% if vendor.description.present? %>
                     <p class = "listing-description"><%= vendor.description.truncate_words(30, omission: '...') %></p>
                   <% end %>
@@ -33,5 +33,9 @@
     </table>
   </div>
 
-  <%= will_paginate @vendors %>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <%= will_paginate @vendors %>
+  </ul>
+</nav>
 </div>
