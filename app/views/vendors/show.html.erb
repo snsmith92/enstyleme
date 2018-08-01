@@ -31,7 +31,7 @@
       <div class=" col-md-12">
         <div class="container vendor-profile-text">
           <div class = "row">
-            <div class = "col-md-8 col-sm-12">
+            <div class = "col-md-7 col-sm-12">
               <h1><%=current_vendor.name%></h1>
               <h5 class = "teal">
               <%= current_vendor.category.name %>
@@ -53,23 +53,31 @@
                 <% end %>
               </p>
             </div>
-            <div class = "col-md-4 col-sm-12">
-              <div class = "btn-group float-right" role="group">
+            <div class = "col-md-5 col-sm-12">
+              <div class = "btn-group" role="group">
                 <%= link_to "About", vendor_path(anchor: 'about'), class: 'btn btn-outline-info btn-sm'%>
                 <%= link_to "Reviews", vendor_path(anchor: 'reviews'), class: 'btn btn-outline-info btn-sm'%>
                 <%= link_to "Find Us", vendor_path(anchor: 'find-us'), class: 'btn btn-outline-info btn-sm'%>
                 <% if current_user != current_vendor.user %>
                   <%= link_to "BOOK NOW", '#', class: 'btn btn-primary btn-sm'%>
                 <% end %>
-                <% if current_user == current_vendor.user %>
-                      <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Edit Profile
-                      </button>
-                      <div class="dropdown-menu">
-                          <a class="dropdown-item" data-toggle="modal" data-target="#editModal">Edit Profile Details</a>
-                          <%= link_to 'Adjust Your Hours', new_vendor_availability_path(current_vendor), class: "dropdown-item"%>
-                          <a class="dropdown-item" data-toggle="modal" data-target="#deleteProfileModal">Delete Profile</a>
-                      </div>
+              <% if current_user == current_vendor.user %>
+                <button class="btn btn-outline-primary btn-sm dropdown-toggle hours-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Adjust Hours
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to 'Change Opening Hours', new_vendor_availability_path(current_vendor), class: "dropdown-item"%>
+                  <%= link_to 'Change Break Hours', new_vendor_unavailability_path(current_vendor), class: "dropdown-item"%>
+                  <%= link_to 'Add A Vacation', new_vendor_vacation_path(current_vendor), class: "dropdown-item"%>
+                </div>
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Edit Profile
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" data-toggle="modal" data-target="#editModal">Edit Profile Details</a>
+                  <%= link_to 'Adjust Your Hours', new_vendor_availability_path(current_vendor), class: "dropdown-item"%>
+                  <a class="dropdown-item" data-toggle="modal" data-target="#deleteProfileModal">Delete Profile</a>
+                </div>
                 <% end %>
               </div>
               <div class="clear"></div>

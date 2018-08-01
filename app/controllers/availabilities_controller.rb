@@ -20,7 +20,7 @@ class AvailabilitiesController < ApplicationController
     params[:availability].parse_time_select! :day_end
     if @vendor.user == current_user
       @availability = @vendor.availabilities.create(availability_params)
-      @availability.check_duplicate
+      @availability.check_duplicate_availability
     else 
       return render plain: 'Not Allowed', status: :forbidden
     end
@@ -41,7 +41,7 @@ class AvailabilitiesController < ApplicationController
   def destroy
     @vendor = Vendor.friendly.find(params[:vendor_id])
     @availability = Availability.find_by_id(params[:id])
-    if @availability.user == current_user
+    if @availability.vendor.user == current_user
       @availability.destroy
     else
       return render plain: 'Not Allowed', status: :forbidden

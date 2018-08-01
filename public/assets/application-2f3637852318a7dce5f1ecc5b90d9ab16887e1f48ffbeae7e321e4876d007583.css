@@ -71,7 +71,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500");
 /* line 1, /Users/sherzelsmith/.rvm/gems/ruby-2.3.1/gems/bootstrap-4.1.1/assets/stylesheets/bootstrap/_root.scss */
 :root {
   --blue: #007bff;
@@ -14216,7 +14216,7 @@ body {
   /* Vertically center the text there */
   background-color: #CCCCCC;
   color: #444444;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 12px;
   margin-top: 60px;
 }
@@ -14377,9 +14377,9 @@ input {
 
 /* line 174, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .vendor-sign-up h1 {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
-  font-size: 3rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
 }
 
 /* line 180, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
@@ -14409,7 +14409,6 @@ input {
 /* line 200, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .vendor-profile {
   padding: 15px;
-  background-color: #f2f2f2;
   border-radius: 0px 0px 10px 10px;
 }
 
@@ -14457,8 +14456,8 @@ input {
 }
 /* line 246, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .vendor-profile-text h1 {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 400;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
 }
 
 /* line 251, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
@@ -14468,12 +14467,12 @@ input {
 
 /* line 255, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .review-positive {
-  color: #87D37C;
+  color: #3FC380;
 }
 
 /* line 259, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .review-negative {
-  color: #D64541;
+  color: #EC644B;
 }
 
 /* line 263, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
@@ -14485,7 +14484,7 @@ input {
 /* line 268, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .vendor-profile-text p {
   font-size: 14px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
   margin-bottom: 5px;
   letter-spacing: 0.25px;
@@ -14493,13 +14492,13 @@ input {
 
 /* line 276, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 h2.first-service {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 25px;
 }
 
 /* line 287, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .vendor-services p {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   text-align: center;
   margin: 20px;
 }
@@ -14795,94 +14794,88 @@ xButtons
   display: none;
 }
 
-/* line 537, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
-#break-monday, #break-tuesday, #break-wednesday, #break-thursday, #break-friday, #break-saturday, #break-sunday {
+/* line 538, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+#un-form-monday, #un-form-tuesday, #un-form-wednesday, #un-form-thursday, #un-form-friday, #un-form-saturday, #un-form-sunday {
   display: none;
 }
 
-/* line 541, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
-#monday-edit {
-  display: none;
-}
-
-/* line 545, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 542, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .grey-background {
   background-color: #e6e6e6;
 }
 
-/* line 549, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 546, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .green-background {
   background-color: #C8F7C5;
 }
 
-/* line 553, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 550, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .select-time {
   margin-top: 10px;
 }
 
-/* line 557, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 554, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .homepage-header, .business-header {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-/* line 562, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 559, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .homepage-header {
-  background-color: #FDFDFD;
   min-height: 360px;
 }
 
-/* line 567, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 564, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .homepage-heading {
   margin: 0 0 6px;
   padding-top: 20px;
   text-transform: none;
   font-size: 3rem;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
-  color: #111;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: #444444;
   line-height: 1.46;
 }
 
-/* line 578, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 575, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .homepage-stretch-header {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
-/* line 583, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 580, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .homepage-subheading {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
-/* line 589, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 586, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .homepage-stretch {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
 
-/* line 595, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 592, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .image-homepage {
   margin-top: 70px;
   margin-bottom: 150px;
 }
 
-/* line 600, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 597, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .home-img {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-/* line 606, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 603, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .image-box {
   position: relative;
   width: 50%;
 }
 
-/* line 611, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 608, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .home-img {
   opacity: 1;
   display: block;
@@ -14893,7 +14886,7 @@ xButtons
           backface-visibility: hidden;
 }
 
-/* line 620, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 617, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .middle {
   transition: .5s ease;
   opacity: 0;
@@ -14906,64 +14899,86 @@ xButtons
   text-align: center;
 }
 
-/* line 631, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 628, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .image-box:hover .home-img {
   opacity: 0.3;
 }
 
-/* line 635, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 632, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .image-box:hover .middle {
   opacity: 1;
 }
 
-/* line 639, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 636, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .image-text {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   font-size: 1.1rem;
 }
 
-/* line 646, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 643, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .business-header {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 3rem;
 }
 
-/* line 651, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 648, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .business-background {
-  background: url(background.png) no-repeat fixed;
+  background: url(animated-background.png);
+  -webkit-animation: animatedBackground 120s linear infinite;
+          animation: animatedBackground 120s linear infinite;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
 }
 
-/* line 655, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+@-webkit-keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+/* line 660, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .business-background-2 {
   background: url(background-2.png) no-repeat fixed;
 }
 
-/* line 659, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 664, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .availability-header {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
   margin-top: 20px;
 }
 
-/* line 664, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 671, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .availability-table {
   margin-top: 20px;
-  margin-bottom: 100px;
 }
 
-/* line 669, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 676, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .availability-new-page {
   margin-bottom: 200px;
 }
 
 /* Loader */
-/* line 674, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 681, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .no-js #loader {
   display: none;
 }
 
-/* line 677, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 684, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .js #loader {
   display: block;
   position: absolute;
@@ -14971,7 +14986,7 @@ xButtons
   top: 0;
 }
 
-/* line 681, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 688, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .se-pre-con {
   position: fixed;
   left: 0px;
@@ -14982,14 +14997,14 @@ xButtons
   background: url(loader-2.gif) center no-repeat #fff;
 }
 
-/* line 692, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 699, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .navbar-minor {
   line-height: 0.4;
   padding: 10px;
   margin-top: 58.38px;
 }
 
-/* line 698, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 705, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .nav-link-minor {
   font-size: 1rem;
   padding: 5px 5px 5px 5px;
@@ -14998,60 +15013,60 @@ xButtons
   margin-bottom: 5px;
 }
 
-/* line 707, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 714, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .nav-link-minor:hover {
   color: #288cff !important;
 }
 
-/* line 712, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 719, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .hours p {
   line-height: 0.8;
   font-size: 1rem;
 }
 
-/* line 717, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 724, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .hours {
   padding: 20px;
 }
 
-/* line 721, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 728, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .hours-icon {
   margin-right: 10px;
-  color: #F7CA18;
+  color: #008192;
 }
 
-/* line 726, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 733, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .vendor-page-section {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-/* line 731, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 738, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .about-photo {
   margin-right: 10px;
 }
 
-/* line 735, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 742, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .listing-description p {
   font-weight: 300;
 }
 
-/* line 739, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 746, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .category-page {
   margin-top: 30px;
 }
 
-/* line 743, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 750, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .category-name {
   margin-bottom: 30px;
 }
 
-/* line 747, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 754, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .map-icon {
   color: #F7CA18;
 }
 
-/* line 752, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 759, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .apple_pagination {
   background: #f1f1f1;
   border: 1px solid #e5e5e5;
@@ -15060,17 +15075,17 @@ xButtons
   cursor: default;
 }
 
-/* line 758, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 765, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .apple_pagination a, .apple_pagination span {
   padding: 0.2em 0.3em;
 }
 
-/* line 760, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 767, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .apple_pagination .disabled {
   color: #aaaaaa;
 }
 
-/* line 762, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 769, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .apple_pagination .current {
   font-style: normal;
   font-weight: bold;
@@ -15083,18 +15098,18 @@ xButtons
   text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
 
-/* line 774, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 781, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .apple_pagination a {
   text-decoration: none;
   color: black;
 }
 
-/* line 777, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 784, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .apple_pagination a:hover, .apple_pagination a:focus {
   text-decoration: underline;
 }
 
-/* line 782, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 789, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .login-box {
   background: #fff;
   padding: 20px;
@@ -15102,22 +15117,22 @@ xButtons
   text-align: center;
   letter-spacing: 1px;
   position: relative;
-}
-
-/* line 792, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
-.login-box:hover {
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* line 796, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 800, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .login-box h2 {
-  margin: 20px 0 20px;
+  margin: 10px 0 10px;
   padding: 0;
-  text-transform: uppercase;
-  color: #4688F1;
+  color: #444444;
 }
 
-/* line 803, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 806, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.shared-links {
+  font-size: 0.75rem;
+}
+
+/* line 810, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 .social-button {
   background-position: 25px 0px;
   box-sizing: border-box;
@@ -15131,7 +15146,7 @@ xButtons
   text-transform: uppercase;
   vertical-align: middle;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 0.375rem;
   margin: 10px auto;
   outline: white none 0px;
   padding-left: 20%;
@@ -15139,20 +15154,20 @@ xButtons
   transition: all .3s ease;
 }
 
-/* line 828, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 835, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #facebook-connect {
   background: white url("https://eswarasai.com/projects/social-login/img/facebook.svg") no-repeat scroll 5px 0px/30px 50px padding-box border-box;
   border: 1px solid #3c5a9a;
 }
 
-/* line 833, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 840, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #facebook-connect:hover {
   border-color: #3c5a9a;
   background: #3c5a9a url("https://eswarasai.com/projects/social-login/img/facebook-white.svg") no-repeat scroll 5px 0px/30px 50px padding-box border-box;
   transition: all .3s ease-out;
 }
 
-/* line 843, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 850, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #facebook-connect span {
   box-sizing: border-box;
   color: #3c5a9a;
@@ -15164,26 +15179,26 @@ xButtons
   transition: all .3s ease;
 }
 
-/* line 858, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 865, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #facebook-connect:hover span {
   color: #FFF;
   transition: all .3s ease;
 }
 
-/* line 867, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 874, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #google-connect {
   background: white url("https://eswarasai.com/projects/social-login/img/google-plus.png") no-repeat scroll 5px 0px/50px 50px padding-box border-box;
   border: 1px solid #dc4a3d;
 }
 
-/* line 872, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 879, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #google-connect:hover {
   border-color: #dc4a3d;
   background: #dc4a3d url("https://eswarasai.com/projects/social-login/img/google-plus-white.png") no-repeat scroll 5px 0px/50px 50px padding-box border-box;
   transition: all .3s ease-out;
 }
 
-/* line 882, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 889, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #google-connect span {
   box-sizing: border-box;
   color: #dc4a3d;
@@ -15195,10 +15210,47 @@ xButtons
   transition: all .3s ease;
 }
 
-/* line 897, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+/* line 904, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
 #google-connect:hover span {
   color: #FFF;
   transition: all .3s ease;
+}
+
+/* line 913, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.teal {
+  color: #008192;
+}
+
+/* line 917, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.peach {
+  color: #ff7e6d;
+}
+
+/* line 921, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.modal-ku #editModal {
+  width: 750px;
+  margin: auto;
+}
+
+/* line 926, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.booking-box {
+  border: 0.0625rem solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* line 931, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.minor-text {
+  font-size: 0.7rem;
+}
+
+/* line 936, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.delete-button {
+  color: #EC644B;
+}
+
+/* line 940, /Users/sherzelsmith/Desktop/enstyle.me/enstyleme/app/assets/stylesheets/master.scss */
+.delete-button:hover {
+  color: #b3584c;
 }
 :root {
   --blue: #3369d6;
@@ -15269,11 +15321,11 @@ section {
 
 body {
   margin: 0;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: .875rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #495057;
+  color: #444444;
   text-align: left;
   background-color: #fff
 }
@@ -15351,7 +15403,7 @@ dfn {
 
 b,
 strong {
-  font-weight: bolder
+  font-weight: 500;
 }
 
 small {
@@ -15375,14 +15427,14 @@ sup {
 }
 
 a {
-  color: #288cff;
+  color: #008192;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects
 }
 
 a:hover {
-  color: #0066db;
+  color: #006775;
   text-decoration: none;
 }
 
@@ -15448,7 +15500,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: .5rem;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 button {
@@ -15587,10 +15639,10 @@ h6,
 .h5,
 .h6 {
   margin-bottom: .5rem;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 600;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
   line-height: 1.3;
-  color: #343a40
+  color: #444444;
 }
 
 h1,
@@ -16995,7 +17047,7 @@ pre code {
   background-color: #f8f9fa;
   border-color: #ced4da;
   outline: 0;
-  box-shadow: none, 0 4px 10px 0 rgba(0, 0, 0, 0.04)
+  box-shadow: 0 0 0 0.2rem rgba(0,129,146, 0.4);
 }
 
 .form-control::-webkit-input-placeholder {
@@ -17470,7 +17522,7 @@ select.form-control-lg:not([size]):not([multiple]),
 
 .btn {
   display: inline-block;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -17483,7 +17535,8 @@ select.form-control-lg:not([size]):not([multiple]),
   font-size: .875rem;
   line-height: 1.6;
   border-radius: .375rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /* box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.08); */
 }
 
 .btn:hover,
@@ -17510,7 +17563,7 @@ select.form-control-lg:not([size]):not([multiple]),
 .btn:not(:disabled):not(.disabled):active,
 .btn:not(:disabled):not(.disabled).active {
   background-image: none;
-  box-shadow: none
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.08);
 }
 
 .btn:not(:disabled):not(.disabled):active:focus,
@@ -17887,13 +17940,14 @@ fieldset:disabled a.btn {
   color: #444444;
   background-color: rgb(255,255,255);
   background-image: none;
-  border-color: #F7CA18;
+  border-color: #ff7e6d;
+  border: 2px solid #ff7e6d;
 }
 
 .btn-outline-primary:hover {
-  color: #444444;
-  background-color: #F7CA18;
-  border-color: #F7CA18
+  color: white;
+  background-color: #ff7e6d;
+  border: 2px solid #ff7e6d;
 }
 
 .btn-outline-primary:focus,
@@ -17903,7 +17957,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-  color: #F7CA18;
+  color: #ff7e6d;
   background-color: transparent
 }
 
@@ -17911,8 +17965,8 @@ fieldset:disabled a.btn {
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show>.btn-outline-primary.dropdown-toggle {
   color: #444444;
-  background-color: #F7CA18;
-  border-color: #F7CA18
+  background-color: #ff7e6d;
+  border-color: #ff7e6d
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
@@ -17960,16 +18014,16 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-  color: #00c759;
+  color: #87D37C;
   background-color: transparent;
   background-image: none;
-  border-color: #00c759
+  border-color: #87D37C
 }
 
 .btn-outline-success:hover {
   color: #fff;
-  background-color: #00c759;
-  border-color: #00c759
+  background-color: #87D37C;
+  border-color: #87D37C
 }
 
 .btn-outline-success:focus,
@@ -17979,7 +18033,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-success.disabled,
 .btn-outline-success:disabled {
-  color: #00c759;
+  color: #87D37C;
   background-color: transparent
 }
 
@@ -17987,8 +18041,8 @@ fieldset:disabled a.btn {
 .btn-outline-success:not(:disabled):not(.disabled).active,
 .show>.btn-outline-success.dropdown-toggle {
   color: #fff;
-  background-color: #00c759;
-  border-color: #00c759
+  background-color: #87D37C;
+  border-color: #87D37C;
 }
 
 .btn-outline-success:not(:disabled):not(.disabled):active:focus,
@@ -17998,41 +18052,41 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-info {
-  color: #73e9ef;
+  color: #008192;
   background-color: transparent;
   background-image: none;
-  border-color: #73e9ef
+  border-color: #008192;
 }
 
 .btn-outline-info:hover {
-  color: #212529;
-  background-color: #73e9ef;
-  border-color: #73e9ef
+  color: white;
+  background-color: #008192;
+  border-color: #008192
 }
 
 .btn-outline-info:focus,
 .btn-outline-info.focus {
-  box-shadow: 0 0 0 0 rgba(115, 233, 239, 0.5)
+  box-shadow: 0 0 0 0 rgba(0, 129, 146, 0.5)
 }
 
 .btn-outline-info.disabled,
 .btn-outline-info:disabled {
-  color: #73e9ef;
+  color: #008192;
   background-color: transparent
 }
 
 .btn-outline-info:not(:disabled):not(.disabled):active,
 .btn-outline-info:not(:disabled):not(.disabled).active,
 .show>.btn-outline-info.dropdown-toggle {
-  color: #212529;
-  background-color: #73e9ef;
-  border-color: #73e9ef
+  color: white;
+  background-color: #008192;
+  border-color: #008192
 }
 
 .btn-outline-info:not(:disabled):not(.disabled):active:focus,
 .btn-outline-info:not(:disabled):not(.disabled).active:focus,
 .show>.btn-outline-info.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0 rgba(115, 233, 239, 0.5)
+  box-shadow: 0 0 0 0 rgba(0, 129, 146, 0.5)
 }
 
 .btn-outline-warning {
@@ -18074,16 +18128,16 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-danger {
-  color: #f03;
+  color: #EC644B;
   background-color: transparent;
   background-image: none;
-  border-color: #f03
+  border-color: #EC644B
 }
 
 .btn-outline-danger:hover {
   color: #fff;
-  background-color: #f03;
-  border-color: #f03
+  background-color: #EC644B;
+  border-color: #EC644B;
 }
 
 .btn-outline-danger:focus,
@@ -18101,8 +18155,8 @@ fieldset:disabled a.btn {
 .btn-outline-danger:not(:disabled):not(.disabled).active,
 .show>.btn-outline-danger.dropdown-toggle {
   color: #fff;
-  background-color: #f03;
-  border-color: #f03
+  background-color: #EC644B;
+  border-color: #EC644B;
 }
 
 .btn-outline-danger:not(:disabled):not(.disabled):active:focus,
@@ -18467,14 +18521,14 @@ tbody.collapse.show {
 .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background: #f8f9fa linear-gradient(180deg, #f9fafb, #f8f9fa) repeat-x
+  background: #fff2f0;
 }
 
 .dropdown-item.active,
 .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background: #288cff linear-gradient(180deg, #489dff, #288cff) repeat-x
+  background:#ff7e6d;
 }
 
 .dropdown-item.disabled,
@@ -18729,7 +18783,7 @@ tbody.collapse.show {
   margin-left: -0.0625rem
 }
 
-.input-group-text {
+.input-group-text, {
   display: flex;
   align-items: center;
   padding: .75rem 1rem;
@@ -18813,7 +18867,8 @@ tbody.collapse.show {
 }
 
 .custom-control-label {
-  margin-bottom: 0
+  margin-bottom: 0;
+  padding-left: 30px;
 }
 
 .custom-control-label::before {
@@ -20468,7 +20523,7 @@ tbody.collapse.show {
   font-size: 1.3125rem;
   font-weight: 600;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.6);
+  color: white;
   text-shadow: none;
   opacity: .5
 }
@@ -20622,7 +20677,7 @@ button.close {
 
 @media (min-width: 576px) {
   .modal-dialog {
-      max-width: 500px;
+      max-width: 600px;
       margin: 1.75rem auto
   }
   .modal-dialog-centered {
@@ -20633,6 +20688,10 @@ button.close {
   }
   .modal-sm {
       max-width: 300px
+  }
+
+  .modal-lg {
+    max-width: 700px;
   }
 }
 
@@ -21263,7 +21322,8 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #f2f2f2 !important
+  background-color: white !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
 }
 
 a.bg-dark:hover,
@@ -24529,7 +24589,7 @@ button.bg-tertiary:focus {
 }
 
 .font-weight-bold {
-  font-weight: 600 !important
+  font-weight: 500 !important
 }
 
 .font-italic {
@@ -24541,7 +24601,7 @@ button.bg-tertiary:focus {
 }
 
 .text-primary {
-  color: #f7ca18 !important
+  color: #ff7e6d !important
 }
 
 a.text-primary:hover,
@@ -24886,7 +24946,7 @@ button.bg-gray-dark:focus {
 
 .bg-light {
   background-color: white !important;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px; */
   z-index: 10;
 }
 
@@ -25444,7 +25504,7 @@ button.bg-lighter:focus {
 }
 
 .alert-dismissible .close>span:not(.sr-only) {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 126, 109, 0.3);
   line-height: 19px;
   height: 20px;
   width: 20px;
@@ -26057,16 +26117,16 @@ a.btn-icon-only {
 }
 
 .btn-primary {
-  color: #444444;
-  background: #F7CA18 linear-gradient(180deg, #fcd22a, #e8c020) repeat-x;
-  border-color: #F7CA18;
+  color: white;
+  background: #FF7E6D;
+  border: 2px solid #FF7E6D;
   box-shadow: none
 }
 
 .btn-primary:hover {
-  color: #444444;
-  background: #EBC323 linear-gradient(180deg, #e8c020, #fcd22a) repeat-x;
-  border-color: #EBC323
+  color: white;
+  background: #cc6557;
+  border: 2px solid #cc6557
 }
 
 .btn-primary:focus,
@@ -26076,18 +26136,18 @@ a.btn-icon-only {
 
 .btn-primary.disabled,
 .btn-primary:disabled {
-  color: #444444;
-  background-color: #F7CA18;
-  border-color: #F7CA18
+  color: white;
+  background-color: #cc6557;
+  border-color: #cc6557
 }
 
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show>.btn-primary.dropdown-toggle {
-  color: #444444;
-  background-color: #0071f4;
+  color: white;
+  background-color: #ff7e6d;
   background-image: none;
-  border-color: #006ce7
+  border: 2px solid #ff7e6d
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus,
@@ -26298,15 +26358,15 @@ a.btn-icon-only {
 
 .btn-danger {
   color: #fff;
-  background: #f03 linear-gradient(180deg, #ff2652, #f03) repeat-x;
-  border-color: #f03;
+  background: #EC644B;
+  border-color: #EC644B;
   box-shadow: none
 }
 
 .btn-danger:hover {
   color: #fff;
-  background: #d9002b linear-gradient(180deg, #df264b, #d9002b) repeat-x;
-  border-color: #cc0029
+  background: #b3584c;
+  border-color: #cc0029;
 }
 
 .btn-danger:focus,
@@ -26454,7 +26514,7 @@ a.btn-icon-only {
 }
 
 .card-pricing.popular {
-  border: 3px solid #f7ca18 !important
+  border: 3px solid #008192 !important
 }
 
 .card-icon-actions a {
@@ -26515,7 +26575,7 @@ a.btn-icon-only {
 }
 
 .close>span:not(.sr-only) {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #FF7E6D;
   line-height: 17px;
   height: 1.25rem;
   width: 1.25rem;
@@ -27318,7 +27378,7 @@ textarea[resize="horizontal"] {
 
 .navbar-nav .nav-link {
   font-size: 0.8rem;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   text-transform: normal;
   letter-spacing: 0;
@@ -27349,7 +27409,7 @@ textarea[resize="horizontal"] {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5)
+  color: rgba(0, 0, 0, 0.6)
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
@@ -28046,14 +28106,14 @@ tr.table-divider {
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
   font-size: .875rem;
   line-height: 1.6
 }
 
 .heading {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .fluid-paragraph {
@@ -28487,7 +28547,7 @@ select.selectpicker {
 }
 
 .bootstrap-select .dropdown-menu .selected .dropdown-item {
-  color: #288cff
+  color: #008192;
 }
 
 .bootstrap-select>.dropdown-menu>.dropdown-menu li.hidden {
@@ -31217,6 +31277,1287 @@ body .ui-tooltip {
 
  */
 
+/*!
+ * FullCalendar v3.9.0
+ * Docs & License: https://fullcalendar.io/
+ * (c) 2018 Adam Shaw
+ */
+
+.fc {
+  direction: ltr;
+  text-align: left; }
+
+.fc-rtl {
+  text-align: right; }
+
+body .fc {
+  /* extra precedence to overcome jqui */
+  font-size: 1em; }
+
+/* Colors
+--------------------------------------------------------------------------------------------------*/
+.fc-highlight {
+  /* when user is selecting cells */
+  background: #bce8f1;
+  opacity: .3; }
+
+.fc-bgevent {
+  /* default look for background events */
+  background: #8fdf82;
+  opacity: .3; }
+
+.fc-nonbusiness {
+  /* default look for non-business-hours areas */
+  /* will inherit .fc-bgevent's styles */
+  background: #d7d7d7; }
+
+/* Buttons (styled <button> tags, normalized to work cross-browser)
+--------------------------------------------------------------------------------------------------*/
+.fc button {
+  /* force height to include the border and padding */
+  box-sizing: border-box;
+  /* dimensions */
+  margin: 0;
+  height: 2.1em;
+  padding: 0 .6em;
+  /* text & cursor */
+  font-size: 1em;
+  /* normalize */
+  white-space: nowrap;
+  cursor: pointer; }
+
+/* Firefox has an annoying inner border */
+.fc button::-moz-focus-inner {
+  margin: 0;
+  padding: 0; }
+
+.fc-state-default {
+  /* non-theme */
+  border: 1px solid; }
+
+.fc-state-default.fc-corner-left {
+  /* non-theme */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px; }
+
+.fc-state-default.fc-corner-right {
+  /* non-theme */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px; }
+
+/* icons in buttons */
+.fc button .fc-icon {
+  /* non-theme */
+  position: relative;
+  top: -0.05em;
+  /* seems to be a good adjustment across browsers */
+  margin: 0 .2em;
+  vertical-align: middle; }
+
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+.fc-state-default {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); }
+
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+  color: #333333;
+  background-color: #e6e6e6; }
+
+.fc-state-hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  transition: background-position 0.1s linear; }
+
+.fc-state-down,
+.fc-state-active {
+  background-color: #cccccc;
+  background-image: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
+
+.fc-state-disabled {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  box-shadow: none; }
+
+/* Buttons Groups
+--------------------------------------------------------------------------------------------------*/
+.fc-button-group {
+  display: inline-block; }
+
+/*
+every button that is not first in a button group should scootch over one pixel and cover the
+previous button's border...
+*/
+.fc .fc-button-group > * {
+  /* extra precedence b/c buttons have margin set to zero */
+  float: left;
+  margin: 0 0 0 -1px; }
+
+.fc .fc-button-group > :first-child {
+  /* same */
+  margin-left: 0; }
+
+/* Popover
+--------------------------------------------------------------------------------------------------*/
+.fc-popover {
+  position: absolute;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); }
+
+.fc-popover .fc-header {
+  /* TODO: be more consistent with fc-head/fc-body */
+  padding: 2px 4px; }
+
+.fc-popover .fc-header .fc-title {
+  margin: 0 2px; }
+
+.fc-popover .fc-header .fc-close {
+  cursor: pointer; }
+
+.fc-ltr .fc-popover .fc-header .fc-title,
+.fc-rtl .fc-popover .fc-header .fc-close {
+  float: left; }
+
+.fc-rtl .fc-popover .fc-header .fc-title,
+.fc-ltr .fc-popover .fc-header .fc-close {
+  float: right; }
+
+/* Misc Reusable Components
+--------------------------------------------------------------------------------------------------*/
+.fc-divider {
+  border-style: solid;
+  border-width: 1px; }
+
+hr.fc-divider {
+  height: 0;
+  margin: 0;
+  padding: 0 0 2px;
+  /* height is unreliable across browsers, so use padding */
+  border-width: 1px 0; }
+
+.fc-clear {
+  clear: both; }
+
+.fc-bg,
+.fc-bgevent-skeleton,
+.fc-highlight-skeleton,
+.fc-helper-skeleton {
+  /* these element should always cling to top-left/right corners */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; }
+
+.fc-bg {
+  bottom: 0;
+  /* strech bg to bottom edge */ }
+
+.fc-bg table {
+  height: 100%;
+  /* strech bg to bottom edge */ }
+
+/* Tables
+--------------------------------------------------------------------------------------------------*/
+.fc table {
+  width: 100%;
+  box-sizing: border-box;
+  /* fix scrollbar issue in firefox */
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1em;
+  /* normalize cross-browser */ }
+
+.fc th {
+  text-align: center; }
+
+.fc th,
+.fc td {
+  border-style: solid;
+  border-width: 1px;
+  padding: 0;
+  vertical-align: top; }
+
+.fc td.fc-today {
+  border-style: double;
+  /* overcome neighboring borders */ }
+
+/* Internal Nav Links
+--------------------------------------------------------------------------------------------------*/
+a[data-goto] {
+  cursor: pointer; }
+
+a[data-goto]:hover {
+  text-decoration: underline; }
+
+/* Fake Table Rows
+--------------------------------------------------------------------------------------------------*/
+.fc .fc-row {
+  /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
+  /* no visible border by default. but make available if need be (scrollbar width compensation) */
+  border-style: solid;
+  border-width: 0; }
+
+.fc-row table {
+  /* don't put left/right border on anything within a fake row.
+     the outer tbody will worry about this */
+  border-left: 0 hidden transparent;
+  border-right: 0 hidden transparent;
+  /* no bottom borders on rows */
+  border-bottom: 0 hidden transparent; }
+
+.fc-row:first-child table {
+  border-top: 0 hidden transparent;
+  /* no top border on first row */ }
+
+/* Day Row (used within the header and the DayGrid)
+--------------------------------------------------------------------------------------------------*/
+.fc-row {
+  position: relative; }
+
+.fc-row .fc-bg {
+  z-index: 1; }
+
+/* highlighting cells & background event skeleton */
+.fc-row .fc-bgevent-skeleton,
+.fc-row .fc-highlight-skeleton {
+  bottom: 0;
+  /* stretch skeleton to bottom of row */ }
+
+.fc-row .fc-bgevent-skeleton table,
+.fc-row .fc-highlight-skeleton table {
+  height: 100%;
+  /* stretch skeleton to bottom of row */ }
+
+.fc-row .fc-highlight-skeleton td,
+.fc-row .fc-bgevent-skeleton td {
+  border-color: transparent; }
+
+.fc-row .fc-bgevent-skeleton {
+  z-index: 2; }
+
+.fc-row .fc-highlight-skeleton {
+  z-index: 3; }
+
+/*
+row content (which contains day/week numbers and events) as well as "helper" (which contains
+temporary rendered events).
+*/
+.fc-row .fc-content-skeleton {
+  position: relative;
+  z-index: 4;
+  padding-bottom: 2px;
+  /* matches the space above the events */ }
+
+.fc-row .fc-helper-skeleton {
+  z-index: 5; }
+
+.fc .fc-row .fc-content-skeleton table,
+.fc .fc-row .fc-content-skeleton td,
+.fc .fc-row .fc-helper-skeleton td {
+  /* see-through to the background below */
+  /* extra precedence to prevent theme-provided backgrounds */
+  background: none;
+  /* in case <td>s are globally styled */
+  border-color: transparent; }
+
+.fc-row .fc-content-skeleton td,
+.fc-row .fc-helper-skeleton td {
+  /* don't put a border between events and/or the day number */
+  border-bottom: 0; }
+
+.fc-row .fc-content-skeleton tbody td,
+.fc-row .fc-helper-skeleton tbody td {
+  /* don't put a border between event cells */
+  border-top: 0; }
+
+/* Scrolling Container
+--------------------------------------------------------------------------------------------------*/
+.fc-scroller {
+  -webkit-overflow-scrolling: touch; }
+
+/* TODO: move to agenda/basic */
+.fc-scroller > .fc-day-grid,
+.fc-scroller > .fc-time-grid {
+  position: relative;
+  /* re-scope all positions */
+  width: 100%;
+  /* hack to force re-sizing this inner element when scrollbars appear/disappear */ }
+
+/* Global Event Styles
+--------------------------------------------------------------------------------------------------*/
+.fc-event {
+  position: relative;
+  /* for resize handle and other inner positioning */
+  display: block;
+  /* make the <a> tag block */
+  font-size: .85em;
+  line-height: 1.3;
+  border-radius: 3px;
+  border: 1px solid #3a87ad;
+  /* default BORDER color */ }
+
+.fc-event,
+.fc-event-dot {
+  background-color: #3a87ad;
+  /* default BACKGROUND color */ }
+
+.fc-event,
+.fc-event:hover {
+  color: #fff;
+  /* default TEXT color */
+  text-decoration: none;
+  /* if <a> has an href */ }
+
+.fc-event[href],
+.fc-event.fc-draggable {
+  cursor: pointer;
+  /* give events with links and draggable events a hand mouse pointer */ }
+
+.fc-not-allowed,
+.fc-not-allowed .fc-event {
+  /* to override an event's custom cursor */
+  cursor: not-allowed; }
+
+.fc-event .fc-bg {
+  /* the generic .fc-bg already does position */
+  z-index: 1;
+  background: #fff;
+  opacity: .25; }
+
+.fc-event .fc-content {
+  position: relative;
+  z-index: 2; }
+
+/* resizer (cursor AND touch devices) */
+.fc-event .fc-resizer {
+  position: absolute;
+  z-index: 4; }
+
+/* resizer (touch devices) */
+.fc-event .fc-resizer {
+  display: none; }
+
+.fc-event.fc-allow-mouse-resize .fc-resizer,
+.fc-event.fc-selected .fc-resizer {
+  /* only show when hovering or selected (with touch) */
+  display: block; }
+
+/* hit area */
+.fc-event.fc-selected .fc-resizer:before {
+  /* 40x40 touch area */
+  content: "";
+  position: absolute;
+  z-index: 9999;
+  /* user of this util can scope within a lower z-index */
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px; }
+
+/* Event Selection (only for touch devices)
+--------------------------------------------------------------------------------------------------*/
+.fc-event.fc-selected {
+  z-index: 9999 !important;
+  /* overcomes inline z-index */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+.fc-event.fc-selected.fc-dragging {
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3); }
+
+/* Horizontal Events
+--------------------------------------------------------------------------------------------------*/
+/* bigger touch area when selected */
+.fc-h-event.fc-selected:before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  /* below resizers */
+  top: -10px;
+  bottom: -10px;
+  left: 0;
+  right: 0; }
+
+/* events that are continuing to/from another week. kill rounded corners and butt up against edge */
+.fc-ltr .fc-h-event.fc-not-start,
+.fc-rtl .fc-h-event.fc-not-end {
+  margin-left: 0;
+  border-left-width: 0;
+  padding-left: 1px;
+  /* replace the border with padding */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.fc-ltr .fc-h-event.fc-not-end,
+.fc-rtl .fc-h-event.fc-not-start {
+  margin-right: 0;
+  border-right-width: 0;
+  padding-right: 1px;
+  /* replace the border with padding */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+/* resizer (cursor AND touch devices) */
+/* left resizer  */
+.fc-ltr .fc-h-event .fc-start-resizer,
+.fc-rtl .fc-h-event .fc-end-resizer {
+  cursor: w-resize;
+  left: -1px;
+  /* overcome border */ }
+
+/* right resizer */
+.fc-ltr .fc-h-event .fc-end-resizer,
+.fc-rtl .fc-h-event .fc-start-resizer {
+  cursor: e-resize;
+  right: -1px;
+  /* overcome border */ }
+
+/* resizer (mouse devices) */
+.fc-h-event.fc-allow-mouse-resize .fc-resizer {
+  width: 7px;
+  top: -1px;
+  /* overcome top border */
+  bottom: -1px;
+  /* overcome bottom border */ }
+
+/* resizer (touch devices) */
+.fc-h-event.fc-selected .fc-resizer {
+  /* 8x8 little dot */
+  border-radius: 4px;
+  border-width: 1px;
+  width: 6px;
+  height: 6px;
+  border-style: solid;
+  border-color: inherit;
+  background: #fff;
+  /* vertically center */
+  top: 50%;
+  margin-top: -4px; }
+
+/* left resizer  */
+.fc-ltr .fc-h-event.fc-selected .fc-start-resizer,
+.fc-rtl .fc-h-event.fc-selected .fc-end-resizer {
+  margin-left: -4px;
+  /* centers the 8x8 dot on the left edge */ }
+
+/* right resizer */
+.fc-ltr .fc-h-event.fc-selected .fc-end-resizer,
+.fc-rtl .fc-h-event.fc-selected .fc-start-resizer {
+  margin-right: -4px;
+  /* centers the 8x8 dot on the right edge */ }
+
+/* DayGrid events
+----------------------------------------------------------------------------------------------------
+We use the full "fc-day-grid-event" class instead of using descendants because the event won't
+be a descendant of the grid when it is being dragged.
+*/
+.fc-day-grid-event {
+  margin: 1px 2px 0;
+  /* spacing between events and edges */
+  padding: 0 1px; }
+
+tr:first-child > td > .fc-day-grid-event {
+  margin-top: 2px;
+  /* a little bit more space before the first event */ }
+
+.fc-day-grid-event.fc-selected:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  /* same z-index as fc-bg, behind text */
+  /* overcome the borders */
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  /* darkening effect */
+  background: #000;
+  opacity: .25; }
+
+.fc-day-grid-event .fc-content {
+  /* force events to be one-line tall */
+  white-space: nowrap;
+  overflow: hidden; }
+
+.fc-day-grid-event .fc-time {
+  font-weight: bold; }
+
+/* resizer (cursor devices) */
+/* left resizer  */
+.fc-ltr .fc-day-grid-event.fc-allow-mouse-resize .fc-start-resizer,
+.fc-rtl .fc-day-grid-event.fc-allow-mouse-resize .fc-end-resizer {
+  margin-left: -2px;
+  /* to the day cell's edge */ }
+
+/* right resizer */
+.fc-ltr .fc-day-grid-event.fc-allow-mouse-resize .fc-end-resizer,
+.fc-rtl .fc-day-grid-event.fc-allow-mouse-resize .fc-start-resizer {
+  margin-right: -2px;
+  /* to the day cell's edge */ }
+
+/* Event Limiting
+--------------------------------------------------------------------------------------------------*/
+/* "more" link that represents hidden events */
+a.fc-more {
+  margin: 1px 3px;
+  font-size: .85em;
+  cursor: pointer;
+  text-decoration: none; }
+
+a.fc-more:hover {
+  text-decoration: underline; }
+
+.fc-limited {
+  /* rows and cells that are hidden because of a "more" link */
+  display: none; }
+
+/* popover that appears when "more" link is clicked */
+.fc-day-grid .fc-row {
+  z-index: 1;
+  /* make the "more" popover one higher than this */ }
+
+.fc-more-popover {
+  z-index: 2;
+  width: 220px; }
+
+.fc-more-popover .fc-event-container {
+  padding: 10px; }
+
+/* Now Indicator
+--------------------------------------------------------------------------------------------------*/
+.fc-now-indicator {
+  position: absolute;
+  border: 0 solid red; }
+
+/* Utilities
+--------------------------------------------------------------------------------------------------*/
+.fc-unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent; }
+
+/*
+TODO: more distinction between this file and common.css
+*/
+/* Colors
+--------------------------------------------------------------------------------------------------*/
+.fc-unthemed th,
+.fc-unthemed td,
+.fc-unthemed thead,
+.fc-unthemed tbody,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-row,
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-list-heading td {
+  border-color: #ddd; }
+
+.fc-unthemed .fc-popover {
+  background-color: #fff; }
+
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-popover .fc-header,
+.fc-unthemed .fc-list-heading td {
+  background: #eee; }
+
+.fc-unthemed .fc-popover .fc-header .fc-close {
+  color: #666; }
+
+.fc-unthemed td.fc-today {
+  background: #fcf8e3; }
+
+.fc-unthemed .fc-disabled-day {
+  background: #d7d7d7;
+  opacity: .3; }
+
+/* Icons (inline elements with styled text that mock arrow icons)
+--------------------------------------------------------------------------------------------------*/
+.fc-icon {
+  display: inline-block;
+  height: 1em;
+  line-height: 1em;
+  font-size: 1em;
+  text-align: center;
+  overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
+  /* don't allow browser text-selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/*
+Acceptable font-family overrides for individual icons:
+  "Arial", sans-serif
+  "Times New Roman", serif
+
+NOTE: use percentage font sizes or else old IE chokes
+*/
+.fc-icon:after {
+  position: relative; }
+
+.fc-icon-left-single-arrow:after {
+  content: "\2039";
+  font-weight: bold;
+  font-size: 200%;
+  top: -7%; }
+
+.fc-icon-right-single-arrow:after {
+  content: "\203A";
+  font-weight: bold;
+  font-size: 200%;
+  top: -7%; }
+
+.fc-icon-left-double-arrow:after {
+  content: "\AB";
+  font-size: 160%;
+  top: -7%; }
+
+.fc-icon-right-double-arrow:after {
+  content: "\BB";
+  font-size: 160%;
+  top: -7%; }
+
+.fc-icon-left-triangle:after {
+  content: "\25C4";
+  font-size: 125%;
+  top: 3%; }
+
+.fc-icon-right-triangle:after {
+  content: "\25BA";
+  font-size: 125%;
+  top: 3%; }
+
+.fc-icon-down-triangle:after {
+  content: "\25BC";
+  font-size: 125%;
+  top: 2%; }
+
+.fc-icon-x:after {
+  content: "\D7";
+  font-size: 200%;
+  top: 6%; }
+
+/* Popover
+--------------------------------------------------------------------------------------------------*/
+.fc-unthemed .fc-popover {
+  border-width: 1px;
+  border-style: solid; }
+
+.fc-unthemed .fc-popover .fc-header .fc-close {
+  font-size: .9em;
+  margin-top: 2px; }
+
+/* List View
+--------------------------------------------------------------------------------------------------*/
+.fc-unthemed .fc-list-item:hover td {
+  background-color: #f5f5f5; }
+
+/* Colors
+--------------------------------------------------------------------------------------------------*/
+.ui-widget .fc-disabled-day {
+  background-image: none; }
+
+/* Popover
+--------------------------------------------------------------------------------------------------*/
+.fc-popover > .ui-widget-header + .ui-widget-content {
+  border-top: 0;
+  /* where they meet, let the header have the border */ }
+
+/* Global Event Styles
+--------------------------------------------------------------------------------------------------*/
+.ui-widget .fc-event {
+  /* overpower jqui's styles on <a> tags. TODO: more DRY */
+  color: #fff;
+  /* default TEXT color */
+  text-decoration: none;
+  /* if <a> has an href */
+  /* undo ui-widget-header bold */
+  font-weight: normal; }
+
+/* TimeGrid axis running down the side (for both the all-day area and the slot area)
+--------------------------------------------------------------------------------------------------*/
+.ui-widget td.fc-axis {
+  font-weight: normal;
+  /* overcome bold */ }
+
+/* TimeGrid Slats (lines that run horizontally)
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid .fc-slats .ui-widget-content {
+  background: none;
+  /* see through to fc-bg */ }
+
+.fc.fc-bootstrap3 a {
+  text-decoration: none; }
+
+.fc.fc-bootstrap3 a[data-goto]:hover {
+  text-decoration: underline; }
+
+.fc-bootstrap3 hr.fc-divider {
+  border-color: inherit; }
+
+.fc-bootstrap3 .fc-today.alert {
+  border-radius: 0; }
+
+/* Popover
+--------------------------------------------------------------------------------------------------*/
+.fc-bootstrap3 .fc-popover .panel-body {
+  padding: 0; }
+
+/* TimeGrid Slats (lines that run horizontally)
+--------------------------------------------------------------------------------------------------*/
+.fc-bootstrap3 .fc-time-grid .fc-slats table {
+  /* some themes have background color. see through to slats */
+  background: none; }
+
+.fc.fc-bootstrap4 a {
+  text-decoration: none; }
+
+.fc.fc-bootstrap4 a[data-goto]:hover {
+  text-decoration: underline; }
+
+.fc-bootstrap4 hr.fc-divider {
+  border-color: inherit; }
+
+.fc-bootstrap4 .fc-today.alert {
+  border-radius: 0; }
+
+.fc-bootstrap4 a.fc-event:not([href]):not([tabindex]) {
+  color: #fff; }
+
+.fc-bootstrap4 .fc-popover.card {
+  position: absolute; }
+
+/* Popover
+--------------------------------------------------------------------------------------------------*/
+.fc-bootstrap4 .fc-popover .card-body {
+  padding: 0; }
+
+/* TimeGrid Slats (lines that run horizontally)
+--------------------------------------------------------------------------------------------------*/
+.fc-bootstrap4 .fc-time-grid .fc-slats table {
+  /* some themes have background color. see through to slats */
+  background: none; }
+
+/* Toolbar
+--------------------------------------------------------------------------------------------------*/
+.fc-toolbar {
+  text-align: center; }
+
+.fc-toolbar.fc-header-toolbar {
+  margin-bottom: 1em; }
+
+.fc-toolbar.fc-footer-toolbar {
+  margin-top: 1em; }
+
+.fc-toolbar .fc-left {
+  float: left; }
+
+.fc-toolbar .fc-right {
+  float: right; }
+
+.fc-toolbar .fc-center {
+  display: inline-block; }
+
+/* the things within each left/right/center section */
+.fc .fc-toolbar > * > * {
+  /* extra precedence to override button border margins */
+  float: left;
+  margin-left: .75em; }
+
+/* the first thing within each left/center/right section */
+.fc .fc-toolbar > * > :first-child {
+  /* extra precedence to override button border margins */
+  margin-left: 0; }
+
+/* title text */
+.fc-toolbar h2 {
+  margin: 0; }
+
+/* button layering (for border precedence) */
+.fc-toolbar button {
+  position: relative; }
+
+.fc-toolbar .fc-state-hover,
+.fc-toolbar .ui-state-hover {
+  z-index: 2; }
+
+.fc-toolbar .fc-state-down {
+  z-index: 3; }
+
+.fc-toolbar .fc-state-active,
+.fc-toolbar .ui-state-active {
+  z-index: 4; }
+
+.fc-toolbar button:focus {
+  z-index: 5; }
+
+/* View Structure
+--------------------------------------------------------------------------------------------------*/
+/* undo twitter bootstrap's box-sizing rules. normalizes positioning techniques */
+/* don't do this for the toolbar because we'll want bootstrap to style those buttons as some pt */
+.fc-view-container *,
+.fc-view-container *:before,
+.fc-view-container *:after {
+  box-sizing: content-box; }
+
+.fc-view,
+.fc-view > table {
+  /* so dragged elements can be above the view's main element */
+  position: relative;
+  z-index: 1; }
+
+/* BasicView
+--------------------------------------------------------------------------------------------------*/
+/* day row structure */
+.fc-basicWeek-view .fc-content-skeleton,
+.fc-basicDay-view .fc-content-skeleton {
+  /* there may be week numbers in these views, so no padding-top */
+  padding-bottom: 1em;
+  /* ensure a space at bottom of cell for user selecting/clicking */ }
+
+.fc-basic-view .fc-body .fc-row {
+  min-height: 4em;
+  /* ensure that all rows are at least this tall */ }
+
+/* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
+.fc-row.fc-rigid {
+  overflow: hidden; }
+
+.fc-row.fc-rigid .fc-content-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; }
+
+/* week and day number styling */
+.fc-day-top.fc-other-month {
+  opacity: 0.3; }
+
+.fc-basic-view .fc-week-number,
+.fc-basic-view .fc-day-number {
+  padding: 2px; }
+
+.fc-basic-view th.fc-week-number,
+.fc-basic-view th.fc-day-number {
+  padding: 0 2px;
+  /* column headers can't have as much v space */ }
+
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+  float: right; }
+
+.fc-rtl .fc-basic-view .fc-day-top .fc-day-number {
+  float: left; }
+
+.fc-ltr .fc-basic-view .fc-day-top .fc-week-number {
+  float: left;
+  border-radius: 0 0 3px 0; }
+
+.fc-rtl .fc-basic-view .fc-day-top .fc-week-number {
+  float: right;
+  border-radius: 0 0 0 3px; }
+
+.fc-basic-view .fc-day-top .fc-week-number {
+  min-width: 1.5em;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: #808080; }
+
+/* when week/day number have own column */
+.fc-basic-view td.fc-week-number {
+  text-align: center; }
+
+.fc-basic-view td.fc-week-number > * {
+  /* work around the way we do column resizing and ensure a minimum width */
+  display: inline-block;
+  min-width: 1.25em; }
+
+/* AgendaView all-day area
+--------------------------------------------------------------------------------------------------*/
+.fc-agenda-view .fc-day-grid {
+  position: relative;
+  z-index: 2;
+  /* so the "more.." popover will be over the time grid */ }
+
+.fc-agenda-view .fc-day-grid .fc-row {
+  min-height: 3em;
+  /* all-day section will never get shorter than this */ }
+
+.fc-agenda-view .fc-day-grid .fc-row .fc-content-skeleton {
+  padding-bottom: 1em;
+  /* give space underneath events for clicking/selecting days */ }
+
+/* TimeGrid axis running down the side (for both the all-day area and the slot area)
+--------------------------------------------------------------------------------------------------*/
+.fc .fc-axis {
+  /* .fc to overcome default cell styles */
+  vertical-align: middle;
+  padding: 0 4px;
+  white-space: nowrap; }
+
+.fc-ltr .fc-axis {
+  text-align: right; }
+
+.fc-rtl .fc-axis {
+  text-align: left; }
+
+/* TimeGrid Structure
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid-container,
+.fc-time-grid {
+  /* so slats/bg/content/etc positions get scoped within here */
+  position: relative;
+  z-index: 1; }
+
+.fc-time-grid {
+  min-height: 100%;
+  /* so if height setting is 'auto', .fc-bg stretches to fill height */ }
+
+.fc-time-grid table {
+  /* don't put outer borders on slats/bg/content/etc */
+  border: 0 hidden transparent; }
+
+.fc-time-grid > .fc-bg {
+  z-index: 1; }
+
+.fc-time-grid .fc-slats,
+.fc-time-grid > hr {
+  /* the <hr> AgendaView injects when grid is shorter than scroller */
+  position: relative;
+  z-index: 2; }
+
+.fc-time-grid .fc-content-col {
+  position: relative;
+  /* because now-indicator lives directly inside */ }
+
+.fc-time-grid .fc-content-skeleton {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0; }
+
+/* divs within a cell within the fc-content-skeleton */
+.fc-time-grid .fc-business-container {
+  position: relative;
+  z-index: 1; }
+
+.fc-time-grid .fc-bgevent-container {
+  position: relative;
+  z-index: 2; }
+
+.fc-time-grid .fc-highlight-container {
+  position: relative;
+  z-index: 3; }
+
+.fc-time-grid .fc-event-container {
+  position: relative;
+  z-index: 4; }
+
+.fc-time-grid .fc-now-indicator-line {
+  z-index: 5; }
+
+.fc-time-grid .fc-helper-container {
+  /* also is fc-event-container */
+  position: relative;
+  z-index: 6; }
+
+/* TimeGrid Slats (lines that run horizontally)
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid .fc-slats td {
+  height: 1.5em;
+  border-bottom: 0;
+  /* each cell is responsible for its top border */ }
+
+.fc-time-grid .fc-slats .fc-minor td {
+  border-top-style: dotted; }
+
+/* TimeGrid Highlighting Slots
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid .fc-highlight-container {
+  /* a div within a cell within the fc-highlight-skeleton */
+  position: relative;
+  /* scopes the left/right of the fc-highlight to be in the column */ }
+
+.fc-time-grid .fc-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* top and bottom will be in by JS */ }
+
+/* TimeGrid Event Containment
+--------------------------------------------------------------------------------------------------*/
+.fc-ltr .fc-time-grid .fc-event-container {
+  /* space on the sides of events for LTR (default) */
+  margin: 0 2.5% 0 2px; }
+
+.fc-rtl .fc-time-grid .fc-event-container {
+  /* space on the sides of events for RTL */
+  margin: 0 2px 0 2.5%; }
+
+.fc-time-grid .fc-event,
+.fc-time-grid .fc-bgevent {
+  position: absolute;
+  z-index: 1;
+  /* scope inner z-index's */ }
+
+.fc-time-grid .fc-bgevent {
+  /* background events always span full width */
+  left: 0;
+  right: 0; }
+
+/* Generic Vertical Event
+--------------------------------------------------------------------------------------------------*/
+.fc-v-event.fc-not-start {
+  /* events that are continuing from another day */
+  /* replace space made by the top border with padding */
+  border-top-width: 0;
+  padding-top: 1px;
+  /* remove top rounded corners */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.fc-v-event.fc-not-end {
+  /* replace space made by the top border with padding */
+  border-bottom-width: 0;
+  padding-bottom: 1px;
+  /* remove bottom rounded corners */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+
+/* TimeGrid Event Styling
+----------------------------------------------------------------------------------------------------
+We use the full "fc-time-grid-event" class instead of using descendants because the event won't
+be a descendant of the grid when it is being dragged.
+*/
+.fc-time-grid-event {
+  overflow: hidden;
+  /* don't let the bg flow over rounded corners */ }
+
+.fc-time-grid-event.fc-selected {
+  /* need to allow touch resizers to extend outside event's bounding box */
+  /* common fc-selected styles hide the fc-bg, so don't need this anyway */
+  overflow: visible; }
+
+.fc-time-grid-event.fc-selected .fc-bg {
+  display: none;
+  /* hide semi-white background, to appear darker */ }
+
+.fc-time-grid-event .fc-content {
+  overflow: hidden;
+  /* for when .fc-selected */ }
+
+.fc-time-grid-event .fc-time,
+.fc-time-grid-event .fc-title {
+  padding: 0 1px; }
+
+.fc-time-grid-event .fc-time {
+  font-size: .85em;
+  white-space: nowrap; }
+
+/* short mode, where time and title are on the same line */
+.fc-time-grid-event.fc-short .fc-content {
+  /* don't wrap to second line (now that contents will be inline) */
+  white-space: nowrap; }
+
+.fc-time-grid-event.fc-short .fc-time,
+.fc-time-grid-event.fc-short .fc-title {
+  /* put the time and title on the same line */
+  display: inline-block;
+  vertical-align: top; }
+
+.fc-time-grid-event.fc-short .fc-time span {
+  display: none;
+  /* don't display the full time text... */ }
+
+.fc-time-grid-event.fc-short .fc-time:before {
+  content: attr(data-start);
+  /* ...instead, display only the start time */ }
+
+.fc-time-grid-event.fc-short .fc-time:after {
+  content: "\A0-\A0";
+  /* seperate with a dash, wrapped in nbsp's */ }
+
+.fc-time-grid-event.fc-short .fc-title {
+  font-size: .85em;
+  /* make the title text the same size as the time */
+  padding: 0;
+  /* undo padding from above */ }
+
+/* resizer (cursor device) */
+.fc-time-grid-event.fc-allow-mouse-resize .fc-resizer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  overflow: hidden;
+  line-height: 8px;
+  font-size: 11px;
+  font-family: monospace;
+  text-align: center;
+  cursor: s-resize; }
+
+.fc-time-grid-event.fc-allow-mouse-resize .fc-resizer:after {
+  content: "="; }
+
+/* resizer (touch device) */
+.fc-time-grid-event.fc-selected .fc-resizer {
+  /* 10x10 dot */
+  border-radius: 5px;
+  border-width: 1px;
+  width: 8px;
+  height: 8px;
+  border-style: solid;
+  border-color: inherit;
+  background: #fff;
+  /* horizontally center */
+  left: 50%;
+  margin-left: -5px;
+  /* center on the bottom edge */
+  bottom: -5px; }
+
+/* Now Indicator
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid .fc-now-indicator-line {
+  border-top-width: 1px;
+  left: 0;
+  right: 0; }
+
+/* arrow on axis */
+.fc-time-grid .fc-now-indicator-arrow {
+  margin-top: -5px;
+  /* vertically center on top coordinate */ }
+
+.fc-ltr .fc-time-grid .fc-now-indicator-arrow {
+  left: 0;
+  /* triangle pointing right... */
+  border-width: 5px 0 5px 6px;
+  border-top-color: transparent;
+  border-bottom-color: transparent; }
+
+.fc-rtl .fc-time-grid .fc-now-indicator-arrow {
+  right: 0;
+  /* triangle pointing left... */
+  border-width: 5px 6px 5px 0;
+  border-top-color: transparent;
+  border-bottom-color: transparent; }
+
+/* List View
+--------------------------------------------------------------------------------------------------*/
+/* possibly reusable */
+.fc-event-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px; }
+
+/* view wrapper */
+.fc-rtl .fc-list-view {
+  direction: rtl;
+  /* unlike core views, leverage browser RTL */ }
+
+.fc-list-view {
+  border-width: 1px;
+  border-style: solid; }
+
+/* table resets */
+.fc .fc-list-table {
+  table-layout: auto;
+  /* for shrinkwrapping cell content */ }
+
+.fc-list-table td {
+  border-width: 1px 0 0;
+  padding: 8px 14px; }
+
+.fc-list-table tr:first-child td {
+  border-top-width: 0; }
+
+/* day headings with the list */
+.fc-list-heading {
+  border-bottom-width: 1px; }
+
+.fc-list-heading td {
+  font-weight: bold; }
+
+.fc-ltr .fc-list-heading-main {
+  float: left; }
+
+.fc-ltr .fc-list-heading-alt {
+  float: right; }
+
+.fc-rtl .fc-list-heading-main {
+  float: right; }
+
+.fc-rtl .fc-list-heading-alt {
+  float: left; }
+
+/* event list items */
+.fc-list-item.fc-has-url {
+  cursor: pointer;
+  /* whole row will be clickable */ }
+
+.fc-list-item-marker,
+.fc-list-item-time {
+  white-space: nowrap;
+  width: 1px; }
+
+/* make the dot closer to the event title */
+.fc-ltr .fc-list-item-marker {
+  padding-right: 0; }
+
+.fc-rtl .fc-list-item-marker {
+  padding-left: 0; }
+
+.fc-list-item-title a {
+  /* every event title cell has an <a> tag */
+  text-decoration: none;
+  color: inherit; }
+
+.fc-list-item-title a[href]:hover {
+  /* hover effect only on titles with hrefs */
+  text-decoration: underline; }
+
+/* message when no events */
+.fc-list-empty-wrap2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.fc-list-empty-wrap1 {
+  width: 100%;
+  height: 100%;
+  display: table; }
+
+.fc-list-empty {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+
+.fc-unthemed .fc-list-empty {
+  /* theme will provide own background */
+  background-color: #eee; }
 /**
  * Variables declared here can be overridden by consuming applications, with
  * the help of the `!default` flag.
@@ -32846,6 +34187,7 @@ body .ui-tooltip {
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
 
 
 

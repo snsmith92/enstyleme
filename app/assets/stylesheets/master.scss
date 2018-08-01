@@ -535,7 +535,7 @@ xButtons
 }
 
 
-#break-monday, #break-tuesday, #break-wednesday, #break-thursday, #break-friday, #break-saturday, #break-sunday {
+#un-form-monday, #un-form-tuesday, #un-form-wednesday, #un-form-thursday, #un-form-friday, #un-form-saturday, #un-form-sunday {
   display: none;
 }
 
@@ -661,7 +661,7 @@ opacity: 1;
   background: url(background-2.png) no-repeat fixed;
 }
 
-.availability-header {
+.availability-header, .unavailability-header, {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
   font-size: 1.8rem;
@@ -673,7 +673,7 @@ opacity: 1;
   // margin-bottom: 100px;
 }
 
-.availability-new-page {
+.availability-new-page, .unavailability-new-page {
   margin-bottom: 200px;
 }
 
@@ -939,4 +939,9 @@ opacity: 1;
 
 .delete-button:hover {
   color: #b3584c;
+}
+
+.hours-btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
