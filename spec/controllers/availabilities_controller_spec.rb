@@ -86,7 +86,7 @@ RSpec.describe AvailabilitiesController, type: :controller do
     
     it "should allow a user who created the availability to destroy it" do
       availability = FactoryBot.create(:availability) 
-      sign_in availability.user
+      sign_in availability.vendor.user
       delete :destroy, params: { id: availability.id, vendor_id: availability.vendor_id }
       availability = Availability.find_by_id(availability.id)
       expect(availability).to eq nil
