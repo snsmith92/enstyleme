@@ -1,5 +1,6 @@
 @import "bootstrap"; 
 @import "font-awesome";
+@import 'bootstrap-datetimepicker.css';
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500');
 
 html {
@@ -944,4 +945,60 @@ opacity: 1;
 .hours-btn {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.datepicker, .timepicker-hour, .timepicker-minute {
+  font-family: Arial; 
+}
+
+.picker-switch {
+  padding: 5px;
+}
+
+.glyphicon-chevron-right,.glyphicon-chevron-left, .glyphicon-chevron-up, .glyphicon-chevron-down {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    right: 0;
+    color:#444444;
+}
+
+
+.glyphicon-chevron-right:before{
+  content: "\f054";
+}
+
+.glyphicon-chevron-left:before{
+  content: "\f053";
+}
+
+.glyphicon-chevron-up:before{
+  content: "\f077";
+}
+
+.glyphicon-chevron-down:before{
+  content: "\f078";
+}
+
+.bootstrap-datetimepicker-widget table td.today:before {
+  content: '';
+  display: inline-block;
+  border: solid transparent;
+  border-width: 0 0 7px 7px;
+  border-bottom-color: #FF7E6D;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
+
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: #FF7E6D !important ;
+  color: white; 
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+
 }

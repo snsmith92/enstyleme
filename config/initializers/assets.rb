@@ -13,6 +13,7 @@ Rails.application.config.assets.precompile += %w( theme.js )
 Rails.application.config.assets.precompile += %w( bootstrap-select.min.js )
 Rails.application.config.assets.precompile += %w( availabilities.js )
 Rails.application.config.assets.precompile += %w( unavailabilities.js )
+Rails.application.config.assets.precompile += %w( vacations.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

@@ -121,14 +121,18 @@ gem 'friendly_id', '~> 5.1.0'
 # Geocode location
 gem "geocoder"
 
-# String interpolation of date/time in javascript
+# String interpolation of date/time and converting timezones in javascript
 gem 'momentjs-rails'
+gem 'moment_timezone-rails'
 
 # Pagination for listings pages
 gem 'will_paginate', '~> 3.1.0'
 
 # Full calendar gem
 gem 'fullcalendar.io-rails'
+
+# Date time picker
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 ruby "2.3.1"
 
