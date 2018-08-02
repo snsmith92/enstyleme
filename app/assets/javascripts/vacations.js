@@ -4,7 +4,9 @@ $(document).ready(function () {
     viewMode: 'days',  
     sideBySide: true,
     keepOpen: false,
-    useCurrent: false //Important! See issue #1075
+    useCurrent: false, //Important! See issue #1075
+    minDate: moment(1, 'h'),
+    autoclose: true
   });
   $('#datetimepicker2').datetimepicker({
     viewMode: 'days',  

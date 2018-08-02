@@ -23,15 +23,15 @@
               <div class="media align-items-center">
                 <div class="media-body">
                   <h6 class="h5 font-weight-normal mb-0">Mondays</h6>
-                  <% if availability_set?(0, @vendor.id) %>
-                    <span class="font-weight-normal text-muted"><%=   show_available(0, @vendor.id) %> </span>
+                  <% if availability_set?(1, @vendor.id) %>
+                    <span class="font-weight-normal text-muted"><%=   show_available(1, @vendor.id) %> </span>
                   <% end %>
                 </div>
               </div>
             </th>
 
             <td>
-              <% if availability_set?(0, @vendor.id) == false %>
+              <% if availability_set?(1, @vendor.id) == false %>
                 <div class="btn-group btn-group-toggle monday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger active" id="close-availability-monday">
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Closed
@@ -43,7 +43,7 @@
               <% else %>
                 <div class="btn-group btn-group-toggle monday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger" id="close-availability-monday">
-                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 0).ids[0] %>"> Closed
+                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 1).ids[0] %>"> Closed
                     </label>
                     <label class="btn btn-outline-success active" id="set-availability-monday" >
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Open
@@ -56,7 +56,7 @@
             <td colspan="2" id= "form-monday">
               <div class = "form-group">
                 <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), html: {id: "monday-form"}, remote: true do |f| %>
-                  <%= f.input :day, as: :hidden, label: false, input_html: { value: 0, class: "monday-day" } %>
+                  <%= f.input :day, as: :hidden, label: false, input_html: { value: 1, class: "monday-day" } %>
                   <%=f.time_select :day_start, label: "Start Time", class: "monday-start-time",
                     :combined => true,
                     :default => Time.current.change(:hour => 8, :min => 00),
@@ -91,15 +91,15 @@
               <div class="media align-items-center">
                 <div class="media-body">
                   <h6 class="h5 font-weight-normal mb-0">Tuesdays</h6>
-                  <% if availability_set?(1, @vendor.id) %>
-                    <span class="font-weight-normal text-muted"><%=   show_available(1, @vendor.id) %> </span>
+                  <% if availability_set?(2, @vendor.id) %>
+                    <span class="font-weight-normal text-muted"><%=   show_available(2, @vendor.id) %> </span>
                   <% end %>
                 </div>
               </div>
             </th>
 
             <td>
-              <% if availability_set?(1, @vendor.id) == false %>
+              <% if availability_set?(2, @vendor.id) == false %>
                 <div class="btn-group btn-group-toggle tuesday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger active" id="close-availability-tuesday">
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Closed
@@ -111,7 +111,7 @@
               <% else %>
                 <div class="btn-group btn-group-toggle tuesday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger" id="close-availability-tuesday">
-                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 1).ids[0] %>"> Closed
+                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 2).ids[0] %>"> Closed
                     </label>
                     <label class="btn btn-outline-success active" id="set-availability-tuesday" >
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Open
@@ -123,7 +123,7 @@
           <tr class = "grey-background tuesday-tr">
             <td colspan="2" id= "form-tuesday">
               <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), html: {id: "tuesday-form"}, remote: true do |f| %>
-                <%= f.input :day, as: :hidden, label: false, input_html: { value: 1, class: "tuesday-day" } %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 2, class: "tuesday-day" } %>
                 <%=f.time_select :day_start, label: "Start Time", class: "tuesday-start-time",
                   :combined => true,
                   :default => Time.now.change(:hour => 8, :min => 00),
@@ -157,15 +157,15 @@
               <div class="media align-items-center">
                 <div class="media-body">
                   <h6 class="h5 font-weight-normal mb-0">Wednesdays</h6>
-                  <% if availability_set?(2, @vendor.id) %>
-                    <span class="font-weight-normal text-muted"><%=   show_available(2, @vendor.id) %> </span>
+                  <% if availability_set?(3, @vendor.id) %>
+                    <span class="font-weight-normal text-muted"><%=   show_available(3, @vendor.id) %> </span>
                   <% end %>
                 </div>
               </div>
             </th>
 
             <td>
-              <% if availability_set?(2, @vendor.id) == false %>
+              <% if availability_set?(3, @vendor.id) == false %>
                 <div class="btn-group btn-group-toggle wednesday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger active" id="close-availability-wednesday">
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Closed
@@ -177,7 +177,7 @@
               <% else %>
                 <div class="btn-group btn-group-toggle wednesday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger" id="close-availability-wednesday">
-                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 2).ids[0] %>"> Closed
+                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 3).ids[0] %>"> Closed
                     </label>
                     <label class="btn btn-outline-success active" id="set-availability-wednesday" >
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Open
@@ -189,7 +189,7 @@
           <tr class = "grey-background wednesday-tr">
             <td colspan="2" id= "form-wednesday">
             <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), html: {id: "wednesday-form"},  remote: true do |f| %>
-                <%= f.input :day, as: :hidden, label: false, input_html: { value: 2, class: "wednesday-day"} %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 3, class: "wednesday-day"} %>
                 <%=f.time_select :day_start, label: "Start Time", class: "wednesday-start-time",
                   :combined => true,
                   :default => Time.now.change(:hour => 8, :min => 00),
@@ -223,14 +223,14 @@
               <div class="media align-items-center">
                 <div class="media-body">
                   <h6 class="h5 font-weight-normal mb-0">Thursdays</h6>
-                  <% if availability_set?(3, @vendor.id) %>
-                    <span class="font-weight-normal text-muted"><%=   show_available(3, @vendor.id) %> </span>
+                  <% if availability_set?(4, @vendor.id) %>
+                    <span class="font-weight-normal text-muted"><%=   show_available(4, @vendor.id) %> </span>
                   <% end %>
                 </div>
               </div>
             </th>
             <td>
-              <% if availability_set?(3, @vendor.id) == false %>
+              <% if availability_set?(4, @vendor.id) == false %>
                 <div class="btn-group btn-group-toggle thursday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger active" id="close-availability-thursday">
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Closed
@@ -242,7 +242,7 @@
               <% else %>
                 <div class="btn-group btn-group-toggle thursday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger" id="close-availability-thursday">
-                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 3).ids[0] %>"> Closed
+                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 4).ids[0] %>"> Closed
                     </label>
                     <label class="btn btn-outline-success active" id="set-availability-thursday" >
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Open
@@ -254,7 +254,7 @@
           <tr class = "grey-background thursday-tr">
             <td colspan="2" id= "form-thursday">
             <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), html: {id: "thursday-form"}, remote: true do |f| %>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 3, class: "thursday-day" } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 4, class: "thursday-day" } %>
               <%=f.time_select :day_start, label: "Start Time", class: "thursday-start-time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -288,15 +288,15 @@
               <div class="media align-items-center">
                 <div class="media-body">
                   <h6 class="h5 font-weight-normal mb-0">Fridays</h6>
-                  <% if availability_set?(4, @vendor.id) %>
-                    <span class="font-weight-normal text-muted"><%=   show_available(4, @vendor.id) %> </span>
+                  <% if availability_set?(5, @vendor.id) %>
+                    <span class="font-weight-normal text-muted"><%=   show_available(5, @vendor.id) %> </span>
                   <% end %>
                 </div>
               </div>
             </th>
 
             <td>
-              <% if availability_set?(4, @vendor.id) == false %>
+              <% if availability_set?(5, @vendor.id) == false %>
                 <div class="btn-group btn-group-toggle friday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger active" id="close-availability-friday">
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Closed
@@ -308,7 +308,7 @@
               <% else %>
                 <div class="btn-group btn-group-toggle friday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger" id="close-availability-friday">
-                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 4).ids[0] %>"> Closed
+                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 5).ids[0] %>"> Closed
                     </label>
                     <label class="btn btn-outline-success active" id="set-availability-friday" >
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Open
@@ -321,7 +321,7 @@
           <tr class = "grey-background friday-tr">
             <td colspan="2" id= "form-friday">
             <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), html: {id: "friday-form"}, remote: true do |f| %>
-              <%= f.input :day, as: :hidden, label: false, input_html: { value: 4, class: "friday-day" } %>
+              <%= f.input :day, as: :hidden, label: false, input_html: { value: 5, class: "friday-day" } %>
               <%=f.time_select :day_start, label: "Start Time", class: "friday-start-time",
                 :combined => true,
                 :default => Time.now.change(:hour => 8, :min => 00),
@@ -355,15 +355,15 @@
                 <div class="media align-items-center">
                   <div class="media-body">
                     <h6 class="h5 font-weight-normal mb-0">Saturdays</h6> 
-                  <% if availability_set?(5, @vendor.id) %>
-                    <span class="font-weight-normal text-muted"><%=   show_available(5, @vendor.id) %> </span>
+                  <% if availability_set?(6, @vendor.id) %>
+                    <span class="font-weight-normal text-muted"><%=   show_available(6, @vendor.id) %> </span>
                   <% end %>
                   </div>
                 </div>
               </th>
 
             <td>
-              <% if availability_set?(5, @vendor.id) == false %>
+              <% if availability_set?(6, @vendor.id) == false %>
                 <div class="btn-group btn-group-toggle saturday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger active" id="close-availability-saturday">
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Closed
@@ -375,7 +375,7 @@
               <% else %>
                 <div class="btn-group btn-group-toggle saturday-buttons float-right" data-toggle="buttons">
                     <label class="btn btn-outline-danger" id="close-availability-saturday">
-                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 5).ids[0] %>"> Closed
+                        <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 6).ids[0] %>"> Closed
                     </label>
                     <label class="btn btn-outline-success active" id="set-availability-saturday" >
                         <input type="radio" name="custom-radio-2" autocomplete="off" checked> Open
@@ -387,7 +387,7 @@
           <tr class = "grey-background saturday-tr">
             <td colspan="2" id= "form-saturday">
               <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), html: {id: "saturday-form"}, remote: true do |f| %>
-                <%= f.input :day, as: :hidden, label: false, input_html: { value: 5, class: "saturday-day" } %>
+                <%= f.input :day, as: :hidden, label: false, input_html: { value: 6, class: "saturday-day" } %>
                 <%=f.time_select :day_start, label: "Start Time", class: "saturday-start-time",
                   :combined => true,
                   :default => Time.now.change(:hour => 8, :min => 00),
@@ -422,14 +422,14 @@
             <div class="media align-items-center">
               <div class="media-body">
                 <h6 class="h5 font-weight-normal mb-0">Sundays</h6>
-                  <% if availability_set?(6, @vendor.id) %>
-                    <span class="font-weight-normal text-muted"><%=   show_available(6, @vendor.id) %> </span>
+                  <% if availability_set?(0, @vendor.id) %>
+                    <span class="font-weight-normal text-muted"><%=   show_available(0, @vendor.id) %> </span>
                   <% end %>
               </div>
             </div>
           </th>
           <td>
-            <% if availability_set?(6, @vendor.id) == false %>
+            <% if availability_set?(0, @vendor.id) == false %>
               <div class="btn-group btn-group-toggle sunday-buttons float-right" data-toggle="buttons">
                   <label class="btn btn-outline-danger active" id="close-availability-sunday">
                       <input type="radio" name="custom-radio-2" autocomplete="off" checked> Closed
@@ -441,7 +441,7 @@
             <% else %>
               <div class="btn-group btn-group-toggle sunday-buttons float-right" data-toggle="buttons">
                   <label class="btn btn-outline-danger" id="close-availability-sunday">
-                      <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 6).ids[0] %>"> Closed
+                      <input type="radio" name="custom-radio-2" autocomplete="off" id = "<%= @vendor.availabilities.where(day: 0).ids[0] %>"> Closed
                   </label>
                   <label class="btn btn-outline-success active" id="set-availability-sunday" >
                       <input type="radio" name="custom-radio-2" autocomplete="off" checked> Open
@@ -453,7 +453,7 @@
         <tr class = "grey-background sunday-tr">
           <td colspan="2" id= "form-sunday">
           <%= simple_form_for @availability, url: vendor_availabilities_path(@vendor), html: {id: "sunday-form"}, remote: true do |f| %>
-            <%= f.input :day, as: :hidden, label: false, input_html: { value: 6, class: "sunday-day" } %>
+            <%= f.input :day, as: :hidden, label: false, input_html: { value: 0, class: "sunday-day" } %>
             <%=f.time_select :day_start, label: "Start Time", class: "sunday-start-time",
               :combined => true,
               :default => Time.now.change(:hour => 8, :min => 00),
