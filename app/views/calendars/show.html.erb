@@ -1,0 +1,19 @@
+<div class = "vendor-calendar col-10 offset-1">
+  <div id='calendar'></div>
+</div>
+
+<script>
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,listWeek'
+    },
+
+    
+    defaultView: 'agendaWeek',
+    nowIndicator: true,
+    Duration: "06:00:00",
+
+  });
+</script>

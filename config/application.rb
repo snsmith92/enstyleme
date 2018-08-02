@@ -18,6 +18,10 @@ module Enstyleme
 
     config.action_mailer.preview_path = "#{Rails.root}/app/mailers/previews"
 
+    config.time_zone = 'Eastern Time (US & Canada)' # Bahamas local time zone
+    config.active_record.default_timezone = :local
+    config.active_record.time_zone_aware_attributes = false
+
     config.active_record.time_zone_aware_types = [:datetime]
 
   end

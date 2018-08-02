@@ -2,7 +2,7 @@ class Availability < ApplicationRecord
   belongs_to :vendor
   belongs_to :user
 
-  def check_duplicate
+  def check_duplicate_availability
     day = self.day
     vendor_id = self.vendor_id
     availability_days = Availability.where(day: day, vendor_id: vendor_id)

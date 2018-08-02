@@ -18,17 +18,23 @@
 //= require chosen
 //= require intl-tel-input
 //= require jquery.validate
-//= require availabilities
 //= require vendors
 //= require fontawesome-all.min
+//= require availabilities
+//= require unavailabilities
+//= require vacations
 //= require bootstrap-select.min
 //= require bootstrap-tagsinput.min
 //= require input-mask.min
 //= require moment
+//= require moment-timezone-with-data
+//= require bootstrap-datetimepicker
+//= require fullcalendar
 //= require jquery.mask
 //= require nouislider.min
 //= require textarea-autosize.min
 //= require theme
 //= require bootstrap-sprockets
 //= require_tree .
+
 

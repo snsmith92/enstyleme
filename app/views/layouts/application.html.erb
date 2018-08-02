@@ -11,7 +11,9 @@
     <%= javascript_include_tag "fontawesome-all.min" %>
     <%= javascript_include_tag "bootstrap-select.min" %>
     <%= javascript_include_tag "bootstrap-tagsinput.min" %>
-    <%= javascript_include_tag "availabilities" %>
+    <%= javascript_include_tag 'unavailabilities' %>
+    <%= javascript_include_tag 'availabilities' %>
+    <%= javascript_include_tag 'vacations' %>
     <%= javascript_include_tag "input-mask.min" %>
     <%= javascript_include_tag "nouislider.min" %>
     <%= javascript_include_tag "textarea-autosize.min" %>
@@ -64,13 +66,13 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar_1_dropdown_1">
                   <%= link_to 'Manage Your Account', '#', class: 'dropdown-item'%>
                   <% if current_user.vendors != nil %>
-                    <%= link_to 'View Calendar', calendar_path, class: 'dropdown-item'%>
                     <%= link_to 'View Client Bookings', '#', class: 'dropdown-item'%>
-                    <% if current_user.vendors.count == 1 %>
-                      <%= link_to 'Manage Vendor Page', '#', class: 'dropdown-item' %>
-                    <% else %>
-                      <%= link_to 'Manage Vendor Pages', '#', class: 'dropdown-item' %>
+                    <div class="dropdown-divider"></div>
+                    <% current_user.vendors.each do |vendor| %>
+                      <%= link_to 'View ' + vendor.name + ' Calendar', vendor_calendar_path(vendor), class: 'dropdown-item'%>
+                      <%= link_to 'Manage ' + vendor.name, vendor_path(vendor), class: 'dropdown-item' %>
                     <% end %>
+                    <div class="dropdown-divider"></div>
                     <%= link_to 'Business Dashboard', '#', class: 'dropdown-item'%>
                   <% end %>
                 </div>

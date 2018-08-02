@@ -30,7 +30,7 @@
             <%= f.input :city, label: "City", input_html: {class: "form-control form-control-sm"} %>
           </div>
           <div class = "col-md-4 form-group-sm">
-            <%= f.input :country, label: "Country", only: ["BS", "TT", "TC", "JM", "BB", "AG"], input_html: {class: 'selectpicker line-height btn-sm', "data-live-search": true, "data-live-search-placeholder": "Search..." } %>
+            <%= f.input :country, label: "Country", selected: "BS", input_html: {class: 'selectpicker line-height btn-sm'} %>
             </div>
             <div class = "col-md-4">
               <%= f.input :zip, label: "Zip/P.O. Box (Optional)", input_html: {class: "form-control zip form-control-sm  "} %>
@@ -79,14 +79,14 @@
 </body>
 <script>
   $("#vendor_phone1").intlTelInput({
-    preferredCountries: ["bs", "tt", "tc", "jm", "bb", "ag"],
+    onlyCountries: ["bs"],
     formatOnDisplay: true,
     nationalMode: false,
     hiddenInput: "full_phone",
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.15/js/utils.js"
 });
   $("#vendor_phone2").intlTelInput({
-    preferredCountries: ["bs", "tt", "tc", "jm", "bb", "ag"],
+    onlyCountries: ["bs"],
     formatOnDisplay: true,
     nationalMode: false,
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.15/js/utils.js"

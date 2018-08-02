@@ -11,10 +11,12 @@ class VacationsController < ApplicationController
   end 
 
   def create
-    @vendor = Vendor.find(params[:vendor_id])
-    # params[:vacation].parse_time_select! :vacation_start
-    # params[:vacation].parse_time_select! :vacation_end
-    @vacation = @vendor.vacations.create(vacation_params)
+    @vendor = Vendor.friendly.find(params[:vendor_id])
+    if @vendor.user == current_user
+      @vacation = @vendor.vacations.create(vacation_params)
+    else 
+      return render plain: 'Not Allowed', status: :forbidden
+    end
   end 
 
   def show
