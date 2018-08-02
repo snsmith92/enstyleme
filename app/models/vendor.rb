@@ -26,7 +26,6 @@ class Vendor < ApplicationRecord
   validates :phone1, presence: true 
   validates :consent, presence: true
   
-
   def country_name
     c = ISO3166::Country[self.country]
     return c.translations[I18n.locale.to_s] || c.name

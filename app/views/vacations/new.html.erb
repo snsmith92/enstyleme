@@ -1,0 +1,50 @@
+<body class = "business-background">
+  <div class = "vendor-sign-up col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
+      <h1 class = "text-center vacation-title" id = "<%= @vendor.id %>"> Add a Vacation. </h1>
+      <p class = "text-muted text-center">Taking some time off? Add it to your calendar so that clients know you'll be unavailable.</h4>
+      <br />
+
+    <div class="container">
+      <div class="row">
+        <div class='col-md-10 offset-md-1 col-sm-12'>
+          <div class="form-group">
+              <%= simple_form_for @vacation, url: vendor_vacations_path(@vendor), remote: true do |f| %>
+                <div class = "container">
+                  <div class = "row">
+                    <div class = "col-md-6 col-sm-12">
+                      <div class='input-group date' id='datetimepicker1'>
+                        <%= f.input :vacation_start, label: "Start Date/Time" do %>
+                          <div class='input-group input-group-transparent mb-4 date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon input-group-append">
+                              <span class="glyphicon glyphicon-calendar input-group-text"><span class="fas fa-calendar"></span></span>
+                            </span>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class = "col-md-6 col-sm-12">
+                      <div class='input-group date' id='datetimepicker2'>
+                        <%= f.input :vacation_end, label: "Start Date/Time" do %>
+                          <div class='input-group input-group-transparent mb-4 date' id='datetimepicker2'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon input-group-append">
+                              <span class="glyphicon glyphicon-calendar input-group-text"><span class="fas fa-calendar"></span></span>
+                            </span>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary float-right" id = "vacation-submit">Save Vacation</button>
+                </div>
+              <% end  %>
+          
+        </div>
+      </div>
+    </div>
+    <div class = "clear"> </div>
+  </div>
+</div
+  <br />
+</body>
